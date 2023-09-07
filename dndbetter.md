@@ -3,7 +3,7 @@ Our project is an interactive, web-based Dungeons & Dragons character sheet that
 
 ## Members Involved:
 - Gabe Lapham (@gabelapham)
-- Jonathan Clark (@JonClark28)
+- Jonathan Clark (@JonDennisClark)
 - Tyler Catuncan (@tylerjcatuncan)
 - Triton Eden (@TritonEden)
 - Seungwoo An (@A-Swoo18)
