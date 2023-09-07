@@ -8,6 +8,6 @@ Our project is an interactive, web-based Dungeons & Dragons character sheet that
 - Triton Eden (@TritonEden)
 - Seungwoo An (@A-Swoo18)
 - Cooper Sarphie (@cooperalpaca)
-- Frank
+- Zichen Fu (@CelestialTrace)
 
 **Our group is full**, but we hope that many of our peers will be able to successfully utilize our final product!
