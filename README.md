@@ -3,10 +3,10 @@
 DnDBetter is an online, editable character sheet that is aimed towards an improved user experience for Dungeons & Dragons Players, with a beginner-friendly tutorial to ease new players into the TTRPG.
 
 ## Project Collaborators
-- Seungwoo An
+- Seungwoo "Aiden" An
 - Tyler Catuncan
 - Jonathan Clark
 - Triton Eden
-- Zichen Fu
+- Zichen "Frank" Fu
 - Gabriel Lapham
 - Cooper Sarphie
