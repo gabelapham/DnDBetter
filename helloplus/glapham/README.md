@@ -4,3 +4,9 @@
 1. Once you've confirmed that node.js is installed, run "npm install" followed by "npm run dev" in order to get a local webpage
 1. Click on the local webpage (ex: mine generated "http://localhost:5173/"), and enjoy browsing my webpage
 1. Enter "q" to exit out of your vite menu when you're finished
+
+## What does my React App do?
+- Funny clickable emojis (one spins infinitely)
+- Each emoji sends you to a different external webpage
+- A counter you can click to increase the number
+- More funny text to read
