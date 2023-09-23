@@ -4,4 +4,4 @@
 3. Use the IDE's run command, and the information on Barbarian features from wikidot 5e will printed to the console. <br>
 (There's quite a lot of information, so I recommend expanding your console's display size)
 
-Though it is not represented in main.py, I have also begun learning Pandas so that we can database our information
+This program is an example of how we will gather information from wikidot for class feature data, which will then be stored in a database that the website can query. Though it is not represented in main.py, I have also begun learning Pandas so that we can database our information
