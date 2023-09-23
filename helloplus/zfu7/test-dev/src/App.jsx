@@ -14,7 +14,7 @@ function App() {
       </div>
       <h1>DND + BETTER</h1>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
+        <a href="https://www.dndbeyond.com/" target="_blank">
           <img src="https://wallpapercave.com/wp/zD18bKX.jpg" className="logo" alt="Vite logo" />
         </a>
         <a href="https://react.dev" target="_blank">

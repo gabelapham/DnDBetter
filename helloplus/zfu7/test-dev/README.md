@@ -1,8 +1,17 @@
-# React + Vite
+# React and Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+to use react you just have to make sure node.js is installed, and you can create web dev projects and test it on your locals through vite.
+vite termianl commands to set up a project
+- npm create vite@latest
+- input project name
+- select framework and language
+- nmp install in project directory to install dependency
+- npm run dev: to run web server on local host
 
-Currently, two official plugins are available:
+some items in provided template by Vite
+- node_modules: where installed libraries are located
+- public folder: where asset such as images or videos are placed
+- .jxs files: javascript react component file containing component of the website
+- index.html: contain entry point to our project
+- package.json: contain info about project, project name, version, dependency, etc..
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh

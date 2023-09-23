@@ -1,15 +1,15 @@
 function Navbar(){
     return(
         <nav className="nav">
-            <a href="/" className="site-title">
+            <a href="https://www.dndbeyond.com/" className="site-title">
                 DND
             </a>
             <ul>
                 <li className="active">
-                    <a href="/character">character</a>
+                    <a href="https://dnd.wizards.com/resources/character-sheets">character</a>
                 </li>
                 <li>
-                    <a href="/skill">skill</a>
+                    <a href="https://www.dndbeyond.com/homebrew/spells">skill</a>
                 </li>
             </ul>
         </nav>
