@@ -1,7 +1,7 @@
 #root {
   max-width: 5000px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0.5rem;
   text-align: center;
 }
 
@@ -11,4 +11,53 @@
   margin: auto;
   align-items: center;
   zoom: 75%;
+  position: static;
+}
+
+#charname {
+  height: 40px;
+  width: 350px;
+  text-align: center;
+  background-color: white;
+  color:black;
+  font-size: 25px;
+  position: absolute;
+  top: 268px;
+  left: 218px;
+}
+
+#playname {
+  height: 35px;
+  width: 200px;
+  text-align: center;
+  background-color: white;
+  color:black;
+  font-size: 25px;
+  position: absolute;
+  top: 234px;
+  left: 1080px;
+}
+
+#str {
+
+}
+
+#dex {
+
+}
+
+#con {
+
+}
+
+#int {
+
+}
+
+#wis {
+
+}
+
+#cha {
+
 }
