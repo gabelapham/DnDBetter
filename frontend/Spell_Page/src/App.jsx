@@ -1,17 +1,35 @@
-import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-import spell_sheet from './assets/Spell_Sheet2.png'
-import './App.css'
+import { useState } from 'react';
+
+import './App.css';
+import Func from './components/Functional';
+import ClassComp from './components/Class';
+import Counter from './components/Counter';
+import SpellBackground from './components/SpellBackground';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [text, setText] = useState("")
 
   return (
     <>
-        <div className='spell_sheet_container'>
-            <img src={spell_sheet} className="spell_sheet" />
+        <div>
+            <SpellBackground />
         </div>
+
+        
+        {/* <input type="text" placeholder='input bar' value={text} onChange={setText}/> */}
+        
+        
+
+        {/* <Func prop1 = "pass prop value" prop2="2nd prop"/> */}
+
+        {/* how you pass children */}
+        {/* <Func>
+            <h2> this is a children</h2>
+        </Func> */}
+
+        {/* class component prop */}
+        {/* <ClassComp classProp="some properties"/> */}
+
 
         {/* <div>
         <a href="./assets/Spell_Sheet.pdf" target="_blank">
@@ -23,10 +41,8 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
         </div> */}
-        
-      
     </>
-  )
+  );
 }
 
 export default App
