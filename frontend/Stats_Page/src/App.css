@@ -29,7 +29,7 @@
 
 #playname {
   height: 35px;
-  width: 200px;
+  width: 222px;
   text-align: center;
   background-color: white;
   color:black;
@@ -115,5 +115,18 @@
   position: absolute;
   top: 1210px;
   left: 208px;
+  border-color: white;
+}
+
+#st_str {
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  background-color: white;
+  color:black;
+  font-size: 35px;
+  position: absolute;
+  top: 1210px;
+  left: 500px;
   border-color: white;
 }

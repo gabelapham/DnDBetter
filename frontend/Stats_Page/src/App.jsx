@@ -1,13 +1,11 @@
 import { useState } from 'react'
 import stat_sheet from './assets/stats_sheet.png'
 import './App.css'
-
-function strAdd() {
-  
-}
+import './Stats.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
+
 
   return (
     <>
@@ -19,10 +17,10 @@ function App() {
           <img src={stat_sheet} />
         </div>
         <label>
-          <input id="charname" name="charName" />
+          <input id="charname" name="charName" maxLength={25} />
         </label>
         <label>
-          <input id="playname" name="playName" />
+          <input id="playname" name="playName" maxLength={15} />
         </label>
         <label>
           <input id="str" type="number" step="1" pattern="\d+" name="strInt" min="1" max="20" />
@@ -32,6 +30,9 @@ function App() {
           <input id="wis" type="number" step="1" pattern="\d+" name="wisInt" min="1" max="20" />
           <input id="cha" type="number" step="1" pattern="\d+" name="chaInt" min="1" max="20" />
         </label>
+          <output id="st_str">
+            
+          </output>
       </div>
     </>
   )
