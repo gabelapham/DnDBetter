@@ -1,14 +1,11 @@
 #str {
-    height: 50px;
-    width: 50px;
     text-align: center;
-    background-color: white;
     color:black;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 35px;
     position: absolute;
     top: 430px;
     left: 211px;
-    border-color: white;
   }
 
 #str_inc {
@@ -29,6 +26,16 @@
     left: 135px;
     text-align: left;
     font-size: 10px; 
+}
+
+#str_mod {
+    text-align: center;
+    color:black;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
+    position: absolute;
+    top: 512px;
+    left: 229px;
 }
   
   #dex {
