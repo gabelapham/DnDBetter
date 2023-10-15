@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import stat_sheet from './assets/stats_sheet.png'
 import './App.css'
-import './Stats.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
