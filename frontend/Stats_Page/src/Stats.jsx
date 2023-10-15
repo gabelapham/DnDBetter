@@ -170,6 +170,18 @@ return(
         <p id="dex_st">
             {dexterityMod}
         </p>
+        <p id="con_st">
+            {constitutionMod}
+        </p>
+        <p id="int_st">
+            {intelligenceMod}
+        </p>
+        <p id="wis_st">
+            {wisdomMod}
+        </p>
+        <p id="cha_st">
+            {charismaMod}
+        </p>
         {/*}
         <input type="checkbox" id="st_pb_dex"/>
         <input type="checkbox" id="st_pb_con"/>
