@@ -3,6 +3,8 @@ import './Stats.css'
 import './index.css'
 
 function Stats() {
+    const [level, setLevel] = useState(1)
+
     const [strength, setStrength] = useState(10)
     const [strengthMod, setStrengthMod] = useState(0)
 
@@ -24,35 +26,36 @@ function Stats() {
     const [pb, setPb] = useState(2)
 
     function pbFunc(lvl) {
+        setLevel(lvl)
         switch(lvl) {
-            case 1:
-            case 2:
-            case 3:
-            case 4:
+            case "1":
+            case "2":
+            case "3":
+            case "4":
                 setPb(2)
                 break
-            case 5:
-            case 6:
-            case 7:
-            case 8:
+            case "5":
+            case "6":
+            case "7":
+            case "8":
                 setPb(3)
                 break
-            case 9:
-            case 10:
-            case 11:
-            case 12:
+            case "9":
+            case "10":
+            case "11":
+            case "12":
                 setPb(4)
                 break
-            case 13:
-            case 14:
-            case 15:
-            case 16:
+            case "13":
+            case "14":
+            case "15":
+            case "16":
                 setPb(5)
                 break
-            case 17:
-            case 18:
-            case 19:
-            case 20:
+            case "17":
+            case "18":
+            case "19":
+            case "20":
                 setPb(6)
                 break
             default:
@@ -186,6 +189,35 @@ function Stats() {
 return(
     <>
     <div>
+        <label name="Player Stats" />
+            <select id="level_select" onChange={() => pbFunc(level_select.value)}>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+            </select>
+
+        <label name="Prof Bonus" />
+            <p id="pb">
+                Prof Bonus:{pb} <br></br>
+                Level: {level}
+            </p>
         <label name="STR Stats">
             <button id="str_inc" checked={strength} onClick={() => setStrengthFunc(strength + 1)}>
                 +
