@@ -111,24 +111,31 @@
     border: solid;
     border-color: black;
     border-width: 2px;
+    display: flex;
+    flex-direction: row;
 }
 .lvl-2{
     flex: 1;
     border: solid;
     border-color: black;
     border-width: 2px;
+    display: flex;
 }
 .lvl-3{
     height: 280px;
     border: solid;
     border-color: black;
     border-width: 2px;
+    display: flex;
+
 }
 .lvl-4{
     height: 283px;
     border: solid;
     border-color: black;
     border-width: 2px;
+    display: flex;
+
 }
 
 .lvl-5{
@@ -136,12 +143,16 @@
     border: solid;
     border-color: black;
     border-width: 2px;
+    display: flex;
+
 }
 .lvl-6, .lvl-7{
     height: 210px;
     border: solid;
     border-color: black;
     border-width: 2px;
+    display: flex;
+
 }
 /* .lvl-7{
     height: 210px;
@@ -154,12 +165,16 @@
     border: solid;
     border-color: black;
     border-width: 2px;
+    display: flex;
+
 }
 .lvl-9{
     flex: 1;
     border: solid;
     border-color: black;
     border-width: 2px;
+    display: flex;
+
 }
 
 .total-slot{
@@ -168,8 +183,9 @@
     background-color: transparent;
     
     /* padding-right: 10px; */
-    margin-right: 10px;
-    margin-left: 23px;
+    margin-right: 13px;
+    margin-left: 29px;
+    margin-top: 5px;
 
 }
 
@@ -178,18 +194,14 @@
     height: 28px;
     background-color: transparent;
     
-    /* padding-right: 10px; */
-    margin-right: 10px;
-    margin-left: 23px;
+    margin-right: 13px;
+    margin-left: 29px;
+    margin-top: 5px;
+
 
 }
 
 
-button{
-    background-color: transparent;
-    border: solid;
-    border-width: 0.5px;
-    border-radius: 120px;
-    
-}
+
+
 

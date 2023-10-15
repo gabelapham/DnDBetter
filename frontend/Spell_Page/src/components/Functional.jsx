@@ -20,6 +20,35 @@ function FunctionalComp(props){
         </div>
         
     );
+
+
+    /*element variable for conditional rendering*/
+    const [display, setDisplay] = useState(true);
+    let output;
+    if(display){
+        output = 
+        <div>
+            <div>The value is: {counter}</div>
+            <div>
+                <button onClick={clickHandler}>increment</button>
+            </div>
+        </div>
+    }else{
+        output = 
+        <div>
+            <div>Current Value: {counter}</div>
+            <div>
+                <button onClick={clickHandler}>increment</button>
+            </div>
+        </div>
+    }
+
+    return(
+        <div>
+            {output}
+        </div>
+
+    );
 }
 
 // const FunctionalComp = ()=> {

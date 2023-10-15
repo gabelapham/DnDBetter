@@ -1,43 +1,31 @@
 import { useState } from "react";
+import './FunctionalCounter.css';
 
 function FunctionalCounter(){
 
     /*useState() will create a State variable and its function
     you can also pass in initial value of the state variable you just created into useState */
     const [counter, setCounter] = useState(0);
-    const [varname, funcname] = useState("inital value");
+    // const [varname, funcname] = useState("inital value");
 
-    const clickHandler = ()=>{
+    const handleIncrement = ()=>{
         setCounter(counter + 1);
     }
 
-    /*element variable for conditional rendering*/
-    const [display, setDisplay] = useState(true);
-    let output;
-    if(display){
-        output = 
-        <div>
-            <div>The value is: {counter}</div>
-            <div>
-                <button onClick={clickHandler}>increment</button>
-            </div>
-        </div>
-    }else{
-        output = 
-        <div>
-            <div>Current Value: {counter}</div>
-            <div>
-                <button onClick={clickHandler}>increment</button>
-            </div>
-        </div>
+    const handleDecrement = ()=>{
+        if(counter > 0){
+            setCounter(counter - 1);
+        }
     }
 
     return(
-        <div>
-            {output}
+        <div className="counterContainer">
+            <button className="incr" onClick={handleDecrement}> - </button>
+            <p>{counter}</p>
+            <button className="decr" onClick={handleIncrement}> + </button>
         </div>
-
     );
+    
 
 }
 

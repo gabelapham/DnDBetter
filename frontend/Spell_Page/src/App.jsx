@@ -7,7 +7,6 @@ import Counter from './components/Counter';
 import SpellBackground from './components/SpellBackground';
 
 function App() {
-  const [text, setText] = useState("")
 
   return (
     <>

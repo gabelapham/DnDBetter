@@ -1,10 +1,13 @@
 import React from 'react';
-import './SpellBackground.css'
+import './SpellBackground.css';
 import { useState } from 'react';
+import SpellCounter from '../components/FunctionalCounter'
 
 const SpellBackground = () =>{
 
+
     return(
+
         <div className='spell-bg'>
             <header className='header'>
 
@@ -33,22 +36,18 @@ const SpellBackground = () =>{
                         <div className='col1'>
                             
                             <div className='lvl-0'>
-                                <input className='total-slot-left' type="text" />
+                                {/* <input className='total-slot-left' type="text" />
                                 <button className='decrement-0'> - </button>
                                     num
-                                <button className='increment-0'> + </button>
+                                <button className='increment-0'> + </button> */}
                             </div>
                             <div className='lvl-1'>
                                 <input className='total-slot-left' type="text" />
-                                <button className='decrement-1'> - </button>
-                                    num
-                                <button className='increment-1'> + </button>
+                                <SpellCounter />
                             </div>
                             <div className='lvl-2'>
                                 <input className='total-slot-left' type="text" />
-                                <button className='decrement-2'> - </button>
-                                    num
-                                <button className='increment-2'> + </button>
+                                <SpellCounter />
                             </div>
                         </div>
 
@@ -56,21 +55,15 @@ const SpellBackground = () =>{
                             
                             <div className='lvl-3'>
                                 <input className='total-slot' type="text" />
-                                <button className='decrement-3'> - </button>
-                                    num
-                                <button className='increment-3'> + </button>
+                                <SpellCounter />
                             </div>
                             <div className='lvl-4'>
                                 <input className='total-slot' type="text" />
-                                <button className='decrement-4'> - </button>
-                                    num
-                                <button className='increment-4'> + </button>
+                                <SpellCounter />
                             </div>
                             <div className='lvl-5'>
                                 <input className='total-slot' type="text" />
-                                <button className='decrement-5'> - </button>
-                                    num
-                                <button className='increment-5'> + </button>
+                                <SpellCounter />
                             </div>
                         </div>
 
@@ -78,27 +71,19 @@ const SpellBackground = () =>{
                             
                             <div className='lvl-6'>
                                 <input className='total-slot-right' type="text" />
-                                <button className='decrement-5'> - </button>
-                                    num
-                                <button className='increment-5'> + </button>
+                                <SpellCounter />
                             </div>
                             <div className='lvl-7'>
                                 <input className='total-slot-right' type="text" />
-                                <button className='decrement-5'> - </button>
-                                    num
-                                <button className='increment-5'> + </button>
+                                <SpellCounter />
                             </div>
                             <div className='lvl-8'>
                                 <input className='total-slot-right' type="text" />
-                                <button className='decrement-5'> - </button>
-                                    num
-                                <button className='increment-5'> + </button>
+                                <SpellCounter />
                             </div>
                             <div className='lvl-9'>
                                 <input className='total-slot-right' type="text" />
-                                <button className='decrement-5'> - </button>
-                                    num
-                                <button className='increment-5'> + </button>
+                                <SpellCounter />
                             </div>
                         </div>
                     </div>
@@ -107,6 +92,7 @@ const SpellBackground = () =>{
             </main>
 
         </div>
+
     );
 }
 
