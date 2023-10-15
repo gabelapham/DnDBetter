@@ -18,8 +18,47 @@ function Stats() {
     const [wisdom, setWisdom] = useState(10)
     const [wisdomMod, setWisdomMod] = useState(0)
 
-    const [charisma, setCharisma] = useState(0)
+    const [charisma, setCharisma] = useState(10)
     const [charismaMod, setCharismaMod] = useState(0)
+
+    const [pb, setPb] = useState(2)
+
+    function pbFunc(lvl) {
+        switch(lvl) {
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+                setPb(2)
+                break
+            case 5:
+            case 6:
+            case 7:
+            case 8:
+                setPb(3)
+                break
+            case 9:
+            case 10:
+            case 11:
+            case 12:
+                setPb(4)
+                break
+            case 13:
+            case 14:
+            case 15:
+            case 16:
+                setPb(5)
+                break
+            case 17:
+            case 18:
+            case 19:
+            case 20:
+                setPb(6)
+                break
+            default:
+                break
+        }
+    }
 
     function Mod(e) {
         switch(e) {
@@ -55,7 +94,7 @@ function Stats() {
             case 20:
                 return (+5)
             default:
-                break;
+                break
         }
     }
 
@@ -102,6 +141,45 @@ function Stats() {
             setConstitution(e)
         }
         setConstitutionMod(Mod(e))
+        return;
+    }
+    function setIntelligenceFunc(e) {
+        if (e > 20) {
+            setIntelligence(20)
+            return;
+        } else if (e < 1) {
+            setIntelligence(1)
+            return;
+        } else {
+            setIntelligence(e)
+        }
+        setIntelligenceMod(Mod(e))
+        return;
+    }
+    function setWisdomFunc(e) {
+        if (e > 20) {
+            setWisdom(20)
+            return;
+        } else if (e < 1) {
+            setWisdom(1)
+            return;
+        } else {
+            setWisdom(e)
+        }
+        setWisdomMod(Mod(e))
+        return;
+    }
+    function setCharismaFunc(e) {
+        if (e > 20) {
+            setCharisma(20)
+            return;
+        } else if (e < 1) {
+            setCharisma(1)
+            return;
+        } else {
+            setCharisma(e)
+        }
+        setCharismaMod(Mod(e))
         return;
     }
 
@@ -151,18 +229,51 @@ return(
             </p>
         </label>
         <label name="INT Stats">
-            
+            <button id="int_inc" checked={intelligence} onClick={() => setIntelligenceFunc(intelligence + 1)}>
+                +
+            </button>
+            <button id="int_dec" checked={intelligence} onClick={() => setIntelligenceFunc(intelligence - 1)}>
+                -
+            </button>
+            <p id="int">
+                {intelligence}
+            </p>
+            <p id="int_mod">
+                {intelligenceMod}
+            </p>
         </label>
         <label name="WIS Stats">
-            
+            <button id="wis_inc" checked={wisdom} onClick={() => setWisdomFunc(wisdom + 1)}>
+                +
+            </button>
+            <button id="wis_dec" checked={wisdom} onClick={() => setWisdomFunc(wisdom - 1)}>
+                -
+            </button>
+            <p id="wis">
+                {wisdom}
+            </p>
+            <p id="wis_mod">
+                {wisdomMod}
+            </p>
         </label>
         <label name="CHA Stats">
-            
+            <button id="cha_inc" checked={charisma} onClick={() => setCharismaFunc(charisma + 1)}>
+                +
+            </button>
+            <button id="cha_dec" checked={charisma} onClick={() => setCharismaFunc(charisma - 1)}>
+                -
+            </button>
+            <p id="cha">
+                {charisma}
+            </p>
+            <p id="cha_mod">
+                {charismaMod}
+            </p> 
         </label>
     </div>
     <div>
         <label>
-            <input type="checkbox" id="st_pb_str" checked={strength_st_pb} onChange={setStrFunc}/>
+            {/*<input type="checkbox" id="st_pb_str" checked={strength_st_pb} onChange={setStrFunc}/>*/}
             <p id="str_st">
                 {strengthMod}
             </p>
@@ -193,6 +304,7 @@ return(
 
         {/*<input type="checkbox" id="st_pb_str" checked={strength_st_pb} onChange={setStrFunc}/>*/}
 
+        {/* SKILLS */}
             <p id="acrobatics">
                 {dexterityMod}
             </p>
@@ -247,6 +359,14 @@ return(
             <p id="survival">
                 {wisdomMod}
             </p>
+        {/* OTHER SKILLS */}
+            <p id="passive_perception">
+                {10+wisdomMod+pb}
+            </p>
+            <p id="initiative">
+                {dexterityMod}
+            </p>
+
     </div>
     <div>
         
