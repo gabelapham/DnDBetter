@@ -1,11 +1,12 @@
+
+/* STRENGTH STATS + SKILLS */
 #str {
-    text-align: center;
     color:black;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 35px;
     position: absolute;
     top: 430px;
-    left: 211px;
+    left: 220px;
   }
 
 #str_inc {
@@ -34,37 +35,147 @@
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 18px;
     position: absolute;
-    top: 512px;
-    left: 229px;
+    top: 511px;
+    left: 231px;
+}
+
+#str_st {
+    position: absolute;
+    color: black;
+    top: 543px;
+    left: 363px;
+    font-size: 20px;
+}
+
+#athletics {
+    position: absolute;
+    color: black;
+    top: 868px;
+    left: 361px;
+    font-size: 20px;
+}
+
+/* DEXTERITY STATS + SKILLS */
+  
+#dex {
+    color:black;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 35px;
+    position: absolute;
+    top: 580px;
+    left: 220px;
+  }
+  
+#dex_inc {
+    background-color: rgb(59, 152, 59);
+    position: absolute;
+    width: 8px;
+    top: 610px;
+    left: 135px;
+    text-align: left;
+    font-size: 10px;
+}
+
+#dex_dec {
+    background-color: rgb(152, 59, 59);
+    position: absolute;
+    width:8px;
+    top: 650px;
+    left: 135px;
+    text-align: left;
+    font-size: 10px; 
+}
+
+#dex_mod {
+    text-align: center;
+    color:black;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
+    position: absolute;
+    top: 661px;
+    left: 231px;
+}
+
+#dex_st {
+    position: absolute;
+    color: black;
+    top: 572px;
+    left: 363px;
+    font-size: 20px;
+}
+
+#acrobatics {
+    position: absolute;
+    color: black;
+    top: 783px;
+    left: 361px;
+    font-size: 20px;
+}
+
+#sleight_of_hand {
+    position: absolute;
+    color: black;
+    top: 1206px;
+    left: 361px;
+    font-size: 20px;
+}
+
+#stealth {
+    position: absolute;
+    color: black;
+    top: 1234px;
+    left: 361px;
+    font-size: 20px;
+}
+
+#con {
+    color:black;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 35px;
+    position: absolute;
+    top: 730px;
+    left: 220px;
+}
+
+#con_inc {
+    background-color: rgb(59, 152, 59);
+    position: absolute;
+    width: 8px;
+    top: 760px;
+    left: 135px;
+    text-align: left;
+    font-size: 10px;
+}
+
+#con_dec {
+    background-color: rgb(152, 59, 59);
+    position: absolute;
+    width:8px;
+    top: 800px;
+    left: 135px;
+    text-align: left;
+    font-size: 10px; 
+}
+
+#con_mod {
+    text-align: center;
+    color:black;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
+    position: absolute;
+    top: 810px;
+    left: 231px;
+}
+
+#con_st {
+    position: absolute;
+    color: black;
+    top: 572px;
+    left: 363px;
+    font-size: 20px;
 }
   
-  #dex {
-    height: 50px;
-    width: 50px;
-    text-align: center;
-    background-color: white;
-    color:black;
-    font-size: 35px;
-    position: absolute;
-    top: 610px;
-    left: 208px;
-    border-color: white;
-  }
-  
-  #con {
-    height: 50px;
-    width: 50px;
-    text-align: center;
-    background-color: white;
-    color:black;
-    font-size: 35px;
-    position: absolute;
-    top: 760px;
-    left: 208px;
-    border-color: white;
-  }
-  
-  #int {
+#int {
     height: 50px;
     width: 50px;
     text-align: center;
@@ -75,9 +186,9 @@
     top: 910px;
     left: 208px;
     border-color: white;
-  }
+}
   
-  #wis {
+#wis {
     height: 50px;
     width: 50px;
     text-align: center;
@@ -88,9 +199,9 @@
     top: 1060px;
     left: 208px;
     border-color: white;
-  }
+}
   
-  #cha {
+#cha {
     height: 50px;
     width: 50px;
     text-align: center;
@@ -101,59 +212,4 @@
     top: 1210px;
     left: 208px;
     border-color: white;
-  }
-
-#st_pb_str {
-    height: 18px;
-    width: 18px;
-    position: absolute;
-    top: 570px;
-    left: 323px;
-}
-
-#st_pb_dex {
-    height: 18px;
-    width: 18px;
-    position: absolute;
-    top: 598px;
-    left: 323px;
-}
-
-#st_pb_con {
-    height: 18px;
-    width: 18px;
-    position: absolute;
-    top: 626px;
-    left: 323px;
-}
-
-#st_pb_int {
-    height: 18px;
-    width: 18px;
-    position: absolute;
-    top: 654px;
-    left: 323px;
-}
-
-#st_pb_wis {
-    height: 18px;
-    width: 18px;
-    position: absolute;
-    top: 682px;
-    left: 323px;
-}
-
-#st_pb_cha {
-    height: 18px;
-    width: 18px;
-    position: absolute;
-    top: 711px;
-    left: 323px;
-}
-
-#str_st {
-    position: absolute;
-    top: 543px;
-    left: 363px;
-    font-size: 20px;
 }

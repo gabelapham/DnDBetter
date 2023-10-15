@@ -6,6 +6,21 @@ function Stats() {
     const [strength, setStrength] = useState(10)
     const [strengthMod, setStrengthMod] = useState(0)
 
+    const [dexterity, setDexterity] = useState(10)
+    const [dexterityMod, setDexterityMod] = useState(0)
+
+    const [constitution, setConstitution] = useState(10)
+    const [constitutionMod, setConstitutionMod] = useState(0)
+
+    const [intelligence, setIntelligence] = useState(10)
+    const [intelligenceMod, setIntelligenceMod] = useState(0)
+
+    const [wisdom, setWisdom] = useState(10)
+    const [wisdomMod, setWisdomMod] = useState(0)
+
+    const [charisma, setCharisma] = useState(0)
+    const [charismaMod, setCharismaMod] = useState(0)
+
     function Mod(e) {
         switch(e) {
             case 1:
@@ -55,6 +70,7 @@ function Stats() {
             setStrength(e)
         }
         setStrengthMod(Mod(e))
+        return;
     }
 
     const [strength_st_pb, setStr] = useState(false)
@@ -62,10 +78,37 @@ function Stats() {
         setStr(e.target.checked)
     }
 
+    function setDexterityFunc(e) {
+        if (e > 20) {
+            setDexterity(20)
+            return;
+        } else if (e < 1) {
+            setDexterity(1)
+            return;
+        } else {
+            setDexterity(e)
+        }
+        setDexterityMod(Mod(e))
+        return;
+    }
+    function setConstitutionFunc(e) {
+        if (e > 20) {
+            setConstitution(20)
+            return;
+        } else if (e < 1) {
+            setConstitution(1)
+            return;
+        } else {
+            setConstitution(e)
+        }
+        setConstitutionMod(Mod(e))
+        return;
+    }
+
 return(
     <>
     <div>
-        <label>
+        <label name="STR Stats">
             <button id="str_inc" checked={strength} onClick={() => setStrengthFunc(strength + 1)}>
                 +
             </button>
@@ -79,32 +122,119 @@ return(
                 {strengthMod}
             </p>
         </label>
-    <label>
-        <input id="dex" type="number" step="1" pattern="\d+" min="1" max="20" />
-    </label>
-    <label>
-        <input id="con" type="number" step="1" pattern="\d+" min="1" max="20" />
-    </label>
-    <label>
-        <input id="int" type="number" step="1" pattern="\d+" min="1" max="20" />
-    </label>
-    <label>
-        <input id="wis" type="number" step="1" pattern="\d+" min="1" max="20" />
-    </label>
-    <label>
-        <input id="cha" type="number" step="1" pattern="\d+" min="1" max="20" />
-    </label>
+        <label name="DEX Stats">
+            <button id="dex_inc" checked={dexterity} onClick={() => setDexterityFunc(dexterity + 1)}>
+                +
+            </button>
+            <button id="dex_dec" checked={dexterity} onClick={() => setDexterityFunc(dexterity - 1)}>
+                -
+            </button>
+            <p id="dex">
+                {dexterity}
+            </p>
+            <p id="dex_mod">
+                {dexterityMod}
+            </p>
+        </label>
+        <label name="CON Stats">
+            <button id="con_inc" checked={constitution} onClick={() => setConstitutionFunc(constitution + 1)}>
+                +
+            </button>
+            <button id="con_dec" checked={constitution} onClick={() => setConstitutionFunc(constitution - 1)}>
+                -
+            </button>
+            <p id="con">
+                {constitution}
+            </p>
+            <p id="con_mod">
+                {constitutionMod}
+            </p>
+        </label>
+        <label name="INT Stats">
+            
+        </label>
+        <label name="WIS Stats">
+            
+        </label>
+        <label name="CHA Stats">
+            
+        </label>
     </div>
     <div>
-        <input type="checkbox" id="st_pb_str" checked={strength_st_pb} onChange={setStrFunc}/>
-        <p id="str_st">
-            {strengthMod} {/*{strength_st_pb ? +2 : +0}*/}
+        <label>
+            <input type="checkbox" id="st_pb_str" checked={strength_st_pb} onChange={setStrFunc}/>
+            <p id="str_st">
+                {strengthMod}
+            </p>
+        </label>
+        <p id="dex_st">
+            {dexterityMod}
         </p>
+        {/*}
         <input type="checkbox" id="st_pb_dex"/>
         <input type="checkbox" id="st_pb_con"/>
         <input type="checkbox" id="st_pb_int"/>
         <input type="checkbox" id="st_pb_wis"/>
         <input type="checkbox" id="st_pb_cha"/>
+        */}
+
+
+        {/*<input type="checkbox" id="st_pb_str" checked={strength_st_pb} onChange={setStrFunc}/>*/}
+
+            <p id="acrobatics">
+                {dexterityMod}
+            </p>
+            <p id="animal_handling">
+                {wisdomMod}
+            </p>
+            <p id="arcana">
+                {intelligenceMod}
+            </p>
+            <p id="athletics">
+                {strengthMod}
+            </p>
+            <p id="deception">
+                {charismaMod}
+            </p>
+            <p id="history">
+                {intelligenceMod}
+            </p>
+            <p id="insight">
+                {wisdomMod}
+            </p>
+            <p id="intimidation">
+                {charismaMod}
+            </p>
+            <p id="investigation">
+                {intelligenceMod}
+            </p>
+            <p id="medicine">
+                {wisdomMod}
+            </p>
+            <p id="nature">
+                {intelligenceMod}
+            </p>
+            <p id="perception">
+                {wisdomMod}
+            </p>
+            <p id="performance">
+                {charismaMod}
+            </p>
+            <p id="persuasion">
+                {charismaMod}
+            </p>
+            <p id="religion">
+                {intelligenceMod}
+            </p>
+            <p id="sleight_of_hand">
+                {dexterityMod}
+            </p>
+            <p id="stealth">
+                {dexterityMod}
+            </p>
+            <p id="survival">
+                {wisdomMod}
+            </p>
     </div>
     <div>
         
