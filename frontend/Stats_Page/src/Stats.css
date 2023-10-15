@@ -6,10 +6,30 @@
     color:black;
     font-size: 35px;
     position: absolute;
-    top: 460px;
-    left: 208px;
+    top: 430px;
+    left: 211px;
     border-color: white;
   }
+
+#str_inc {
+    background-color: rgb(59, 152, 59);
+    position: absolute;
+    width: 8px;
+    top: 460px;
+    left: 135px;
+    text-align: left;
+    font-size: 10px;
+}
+
+#str_dec {
+    background-color: rgb(152, 59, 59);
+    position: absolute;
+    width:8px;
+    top: 500px;
+    left: 135px;
+    text-align: left;
+    font-size: 10px; 
+}
   
   #dex {
     height: 50px;
@@ -75,3 +95,58 @@
     left: 208px;
     border-color: white;
   }
+
+#st_pb_str {
+    height: 18px;
+    width: 18px;
+    position: absolute;
+    top: 570px;
+    left: 323px;
+}
+
+#st_pb_dex {
+    height: 18px;
+    width: 18px;
+    position: absolute;
+    top: 598px;
+    left: 323px;
+}
+
+#st_pb_con {
+    height: 18px;
+    width: 18px;
+    position: absolute;
+    top: 626px;
+    left: 323px;
+}
+
+#st_pb_int {
+    height: 18px;
+    width: 18px;
+    position: absolute;
+    top: 654px;
+    left: 323px;
+}
+
+#st_pb_wis {
+    height: 18px;
+    width: 18px;
+    position: absolute;
+    top: 682px;
+    left: 323px;
+}
+
+#st_pb_cha {
+    height: 18px;
+    width: 18px;
+    position: absolute;
+    top: 711px;
+    left: 323px;
+}
+
+#str_st {
+    position: absolute;
+    top: 543px;
+    left: 363px;
+    font-size: 20px;
+}
