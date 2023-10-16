@@ -2,9 +2,9 @@
 Gabe Lapham, glapham, DnDBetter
 
 ## What I planned to do
-- Creating/Uploading the stats page, issue #13
-- User Stats Input, issue #20
-- Proficiency Bonus, issue #21
+- Creating/Uploading the stats page https://github.com/gabelapham/DnDBetter/issues/13
+- User Stats Input https://github.com/gabelapham/DnDBetter/issues/20
+- Proficiency Bonus https://github.com/gabelapham/DnDBetter/issues/21
 
 ## What I did not do
 Literally nothing. I got everything done that I wanted to get done.
@@ -15,7 +15,9 @@ Literally nothing. I got everything done that I wanted to get done.
 - Placement and fitting everything with CSS
 
 ## Issues I worked on
-#13, #20, #21
+- Create a stats page https://github.com/gabelapham/DnDBetter/issues/13
+- Stats Page User Input Stats https://github.com/gabelapham/DnDBetter/issues/20
+- Proficiency Bonus https://github.com/gabelapham/DnDBetter/issues/21
 
 ## Files I worked on
 All files are located in ./frontend/Stats_Page, with the main files I worked on being:
