@@ -13,6 +13,9 @@ Seungwoo An, A-Swoo18, DnDBetter
 
 ## What I did not do
 
+- Formatting the text boxes for user to zoom in/out and still have the proper ratio
+- Formatting the image file to overlap on top of the image background of website
+
 ## What problems I encountered
 
 - Understanding & learning the React
