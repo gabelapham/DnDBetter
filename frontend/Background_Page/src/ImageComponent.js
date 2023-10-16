@@ -4,9 +4,9 @@ import image from './char_sheet.jpg';
 function ImageComponent({ userText, onUserTextChange }) {
   const positions = [
     { top: '3%', left: '5%' },
-    { top: '0.8%', left: '37%' },
-    { top: '0.8%', left: '55%' },
-    { top: '0.8%', left: '70%' },
+    { top: '1%', left: '37%' },
+    { top: '1%', left: '55%' },
+    { top: '1%', left: '70%' },
     { top: '4%', left: '37%' },
     { top: '4%', left: '55%' },
     { top: '4%', left: '70%' },
