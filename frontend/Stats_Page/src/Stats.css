@@ -107,6 +107,12 @@
     font-size: 20px;
 }
 
+#athletics_pb {
+    position: absolute;
+    top: 896px;
+    left: 325.75px;
+}
+
 /* DEXTERITY STATS + SKILLS */
   
 #dex {
@@ -163,6 +169,11 @@
     left: 361px;
     font-size: 20px;
 }
+#acrobatics_pb {
+    position: absolute;
+    top: 812px;
+    left: 325.75px;
+}
 
 #sleight_of_hand {
     position: absolute;
@@ -171,6 +182,11 @@
     left: 361px;
     font-size: 20px;
 }
+#sleight_of_hand_pb {
+    position: absolute;
+    top: 1234.5px;
+    left: 325.75px;
+}
 
 #stealth {
     position: absolute;
@@ -178,6 +194,11 @@
     top: 1234px;
     left: 361px;
     font-size: 20px;
+}
+#stealth_pb {
+    position: absolute;
+    top: 1262.5px;
+    left: 325.75px;
 }
 
 #initiative {
@@ -293,6 +314,11 @@
     left: 361px;
     font-size: 20px;
 }
+#arcana_pb {
+    position: absolute;
+    top: 868px;
+    left: 325.75px;
+}
 
 #history {
     position: absolute;
@@ -300,6 +326,11 @@
     top: 925px;
     left: 361px;
     font-size: 20px;
+}
+#history_pb {
+    position: absolute;
+    top: 953px;
+    left: 325.75px;
 }
 
 #investigation {
@@ -309,6 +340,11 @@
     left: 361px;
     font-size: 20px;
 }
+#investigation_pb {
+    position: absolute;
+    top: 1037px;
+    left: 325.75px;
+}
 
 #nature {
     position: absolute;
@@ -317,6 +353,11 @@
     left: 361px;
     font-size: 20px;
 }
+#nature_pb {
+    position: absolute;
+    top: 1093.5px;
+    left: 325.75px;
+}
 
 #religion {
     position: absolute;
@@ -324,6 +365,11 @@
     top: 1178px;
     left: 361px;
     font-size: 20px;
+}
+#religion_pb {
+    position: absolute;
+    top: 1205.5px;
+    left: 325.75px;
 }
 
 /* WISDOM STATS + SKILLS */
@@ -382,6 +428,11 @@
     left: 361px;
     font-size: 20px;
 }
+#animal_handling_pb {
+    position: absolute;
+    top: 840px;
+    left: 325.75px;
+}
 
 #insight {
     position: absolute;
@@ -390,6 +441,11 @@
     left: 361px;
     font-size: 20px;
 }
+#insight_pb {
+    position: absolute;
+    top: 981px;
+    left: 325.75px;
+}
 
 #medicine {
     position: absolute;
@@ -397,6 +453,11 @@
     top: 1037px;
     left: 361px;
     font-size: 20px;
+}
+#medicine_pb {
+    position: absolute;
+    top: 1065.5px;
+    left: 325.75px;
 }
 
 #passive_perception {
@@ -414,6 +475,11 @@
     left: 361px;
     font-size: 20px;
 }
+#perception_pb {
+    position: absolute;
+    top: 1121.5px;
+    left: 325.75px;
+}
 
 #survival {
     position: absolute;
@@ -421,6 +487,11 @@
     top: 1262px;
     left: 361px;
     font-size: 20px;
+}
+#survival_pb {
+    position: absolute;
+    top: 1290.5px;
+    left: 325.75px;
 }
 
 
@@ -480,6 +551,11 @@
     left: 361px;
     font-size: 20px;
 }
+#deception_pb {
+    position: absolute;
+    top: 925px;
+    left: 325.75px;
+}
 
 #intimidation {
     position: absolute;
@@ -487,6 +563,11 @@
     top: 980px;
     left: 361px;
     font-size: 20px;
+}
+#intimidation_pb {
+    position: absolute;
+    top: 1009px;
+    left: 325.75px;
 }
 
 #performance {
@@ -496,6 +577,11 @@
     left: 361px;
     font-size: 20px;
 }
+#performance_pb {
+    position: absolute;
+    top: 1149.5px;
+    left: 325.75px;
+}
 
 #persuasion {
     position: absolute;
@@ -503,4 +589,9 @@
     top: 1149px;
     left: 361px;
     font-size: 20px;
+}
+#persuasion_pb {
+    position: absolute;
+    top: 1177.5px;
+    left: 325.75px;
 }

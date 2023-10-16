@@ -204,9 +204,79 @@ function Stats() {
         return;
     }
 
-    function pbAdd(e, ) {
-
+    const [acrobatics_pb, setAcrobaticsPB] = useState(false)
+    function setAcrobaticsFunc(e) {
+        setAcrobaticsPB(e.target.checked)
     }
+    const [animal_handling_pb, setAnimalHandlingPB] = useState(false)
+    function setAnimalHandlingFunc(e) {
+        setAnimalHandlingPB(e.target.checked)
+    }
+    const [arcana_pb, setArcanaPB] = useState(false)
+    function setArcanaFunc(e) {
+        setArcanaPB(e.target.checked)
+    }
+    const [athletics_pb, setAthleticsPB] = useState(false)
+    function setAthleticsFunc(e) {
+        setAthleticsPB(e.target.checked)
+    }
+    const [deception_pb, setDeceptionPB] = useState(false)
+    function setDeceptionFunc(e) {
+        setDeceptionPB(e.target.checked)
+    }
+    const [history_pb, setHistoryPB] = useState(false)
+    function setHistoryFunc(e) {
+        setHistoryPB(e.target.checked)
+    }
+    const [insight_pb, setInsightPB] = useState(false)
+    function setInsightFunc(e) {
+        setInsightPB(e.target.checked)
+    }
+    const [intimidation_pb, setIntimidationPB] = useState(false)
+    function setIntimidationFunc(e) {
+        setIntimidationPB(e.target.checked)
+    }
+    const [investigation_pb, setInvestigationPB] = useState(false)
+    function setInvestigationFunc(e) {
+        setInvestigationPB(e.target.checked)
+    }
+    const [medicine_pb, setMedicinePB] = useState(false)
+    function setMedicineFunc(e) {
+        setMedicinePB(e.target.checked)
+    }
+    const [nature_pb, setNaturePB] = useState(false)
+    function setNatureFunc(e) {
+        setNaturePB(e.target.checked)
+    }
+    const [perception_pb, setPerceptionPB] = useState(false)
+    function setPerceptionFunc(e) {
+        setPerceptionPB(e.target.checked)
+    }
+    const [performance_pb, setPerformancePB] = useState(false)
+    function setPerformanceFunc(e) {
+        setPerformancePB(e.target.checked)
+    }
+    const [persuasion_pb, setPersuasionPB] = useState(false)
+    function setPersuasionFunc(e) {
+        setPersuasionPB(e.target.checked)
+    }
+    const [religion_pb, setReligionPB] = useState(false)
+    function setReligionFunc(e) {
+        setReligionPB(e.target.checked)
+    }
+    const [sleight_of_hand_pb, setSleightOfHandPB] = useState(false)
+    function setSleightOfHandFunc(e) {
+        setSleightOfHandPB(e.target.checked)
+    }
+    const [stealth_pb, setStealthPB] = useState(false)
+    function setStealthFunc(e) {
+        setStealthPB(e.target.checked)
+    }
+    const [survival_pb, setSurvivalPB] = useState(false)
+    function setSurvivalFunc(e) {
+        setSurvivalPB(e.target.checked)
+    }
+
 return(
     <>
     <div>
@@ -359,59 +429,95 @@ return(
 
         {/* SKILLS */}
             <p id="acrobatics">
-                {dexterityMod}
+                {dexterityMod+(acrobatics_pb*pb)}
             </p>
+            <input type="checkbox" id="acrobatics_pb" checked={acrobatics_pb} onChange={setAcrobaticsFunc}/>
+
             <p id="animal_handling">
-                {wisdomMod}
+                {wisdomMod+(animal_handling_pb*pb)}
             </p>
+            <input type="checkbox" id="animal_handling_pb" checked={animal_handling_pb} onChange={setAnimalHandlingFunc}/>
+
             <p id="arcana">
-                {intelligenceMod}
+                {intelligenceMod+(arcana_pb*pb)}
             </p>
+            <input type="checkbox" id="arcana_pb" checked={arcana_pb} onChange={setArcanaFunc}/>
+
             <p id="athletics">
-                {strengthMod}
+                {strengthMod+(athletics_pb*pb)}
             </p>
+            <input type="checkbox" id="athletics_pb" checked={athletics_pb} onChange={setAthleticsFunc}/>
+
             <p id="deception">
-                {charismaMod}
+                {charismaMod+(deception_pb*pb)}
             </p>
+            <input type="checkbox" id="deception_pb" checked={deception_pb} onChange={setDeceptionFunc}/>
+
             <p id="history">
-                {intelligenceMod}
+                {intelligenceMod+(history_pb*pb)}
             </p>
+            <input type="checkbox" id="history_pb" checked={history_pb} onChange={setHistoryFunc}/>
+
             <p id="insight">
-                {wisdomMod}
+                {wisdomMod+(insight_pb*pb)}
             </p>
+            <input type="checkbox" id="insight_pb" checked={insight_pb} onChange={setInsightFunc}/>
+
             <p id="intimidation">
-                {charismaMod}
+                {charismaMod+(intimidation_pb*pb)}
             </p>
+            <input type="checkbox" id="intimidation_pb" checked={intimidation_pb} onChange={setIntimidationFunc}/>
+
             <p id="investigation">
-                {intelligenceMod}
+                {intelligenceMod+(investigation_pb*pb)}
             </p>
+            <input type="checkbox" id="investigation_pb" checked={investigation_pb} onChange={setInvestigationFunc}/>
+
             <p id="medicine">
-                {wisdomMod}
+                {wisdomMod+(medicine_pb*pb)}
             </p>
+            <input type="checkbox" id="medicine_pb" checked={medicine_pb} onChange={setMedicineFunc}/>
+
             <p id="nature">
-                {intelligenceMod}
+                {intelligenceMod+(nature_pb*pb)}
             </p>
+            <input type="checkbox" id="nature_pb" checked={nature_pb} onChange={setNatureFunc}/>
+
             <p id="perception">
-                {wisdomMod}
+                {wisdomMod+(perception_pb*pb)}
             </p>
+            <input type="checkbox" id="perception_pb" checked={perception_pb} onChange={setPerceptionFunc}/>
+
             <p id="performance">
-                {charismaMod}
+                {charismaMod+(performance_pb*pb)}
             </p>
+            <input type="checkbox" id="performance_pb" checked={performance_pb} onChange={setPerformanceFunc}/>
+
             <p id="persuasion">
-                {charismaMod}
+                {charismaMod+(persuasion_pb*pb)}
             </p>
+            <input type="checkbox" id="persuasion_pb" checked={persuasion_pb} onChange={setPersuasionFunc}/>
+
             <p id="religion">
-                {intelligenceMod}
+                {intelligenceMod+(religion_pb*pb)}
             </p>
+            <input type="checkbox" id="religion_pb" checked={religion_pb} onChange={setReligionFunc}/>
+
             <p id="sleight_of_hand">
-                {dexterityMod}
+                {dexterityMod+(sleight_of_hand_pb*pb)}
             </p>
+            <input type="checkbox" id="sleight_of_hand_pb" checked={sleight_of_hand_pb} onChange={setSleightOfHandFunc}/>
+
             <p id="stealth">
-                {dexterityMod}
+                {dexterityMod+(stealth_pb*pb)}
             </p>
+            <input type="checkbox" id="stealth_pb" checked={stealth_pb} onChange={setStealthFunc}/>
+
             <p id="survival">
-                {wisdomMod}
+                {wisdomMod+(survival_pb*pb)}
             </p>
+            <input type="checkbox" id="survival_pb" checked={survival_pb} onChange={setSurvivalFunc}/>
+
         {/* OTHER SKILLS */}
             <p id="passive_perception">
                 {10+wisdomMod+pb}
@@ -420,9 +526,6 @@ return(
                 {dexterityMod}
             </p>
 
-    </div>
-    <div>
-        
     </div>
     </>
 )
