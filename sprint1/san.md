@@ -37,5 +37,7 @@ Seungwoo An, A-Swoo18, DnDBetter
 
 ## Accomplishments
 
-- I have worked on the frontend portion of User Character Background Information file, I feel great on how this project is well-managed and how the teammates are doing their portions of their work. Both our backend and frontend looks great, and we will continue working on polishing the website frontend and gathering data on backend. For Sprint 2, We are planning on putting individual works together and making website to work in a total of three pages(transition in between all pages).
+- I have worked on the frontend portion of User Character Background Information file.
+- Implemented the background sheet image, and implemented the text boxes for the user to input the character's information. Also implemented the fucntion to enable user to input their own file as the picture on the website to display user's symbol and character.
+- For Sprint 2, We are planning on putting individual works together and making website to work in a total of three pages(transition in between all pages).
 - Overall. I have complited all assigned work and will polish them as I move on.
