@@ -1,0 +1,11 @@
+.spellContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.spell{
+    background-color: transparent;
+    border-width: 0.2px;
+    margin-left: 20px;
+    width: 200px;
+}

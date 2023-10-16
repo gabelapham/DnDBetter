@@ -1,5 +1,6 @@
 import { useState } from "react";
 import './FunctionalCounter.css';
+import SpellLog from './SpellLog';
 
 function FunctionalCounter(){
 
@@ -19,11 +20,22 @@ function FunctionalCounter(){
     }
 
     return(
-        <div className="counterContainer">
-            <button className="incr" onClick={handleDecrement}> - </button>
-            <p>{counter}</p>
-            <button className="decr" onClick={handleIncrement}> + </button>
+        <>
+        <div className="spellGrid">
+            <div className="counterContainer">
+                <button className="incr" onClick={handleDecrement}> - </button>
+                <p>{counter}</p>
+                <button className="decr" onClick={handleIncrement}> + </button>
+
+            </div>
+            <div className="spellContent">
+                <SpellLog count={counter} />
+            </div>
         </div>
+        
+        
+
+        </>
     );
     
 

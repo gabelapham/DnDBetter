@@ -58,6 +58,9 @@
     height: 30px;
     width: 250px;
     background-color: transparent;
+    font-size: 18px;
+    text-align: center;
+    font-family: "papyrus";
 }
 
 .spell-ability, .attack-bonus{
@@ -65,12 +68,18 @@
     height: 37px;
     margin-right: 35px;
     background-color: transparent;
+    font-size: 16px;
+    text-align: center;
+    font-family: "papyrus";
 }
 .save-dc{
     max-width: 85px;
     height: 37px;
     margin-right: 40px;
     background-color: transparent;
+    font-size: 16px;
+    text-align: center;
+    font-family: "papyrus";
 }
 
 .right-input{
@@ -82,7 +91,6 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    
 }
 
 .col1, .col2, .col3{
@@ -98,60 +106,68 @@
     width: 236px;
 }
 
-.lvl-0{
-    height: 207px;
-    border: solid;
-    border-color: black;
-    border-width: 2px;
+.lvl-header{
+    display: flex;
+}
 
+.lvl-0{
+    height: 213px;
+    /* border: solid;
+    border-color: black;
+    border-width: 2px; */
 }
 
 .lvl-1{
-    height: 285px;
-    border: solid;
+    height: 289px;
+    /* border: solid;
     border-color: black;
-    border-width: 2px;
+    border-width: 2px; */
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 .lvl-2{
     flex: 1;
-    border: solid;
+    /* border: solid;
     border-color: black;
-    border-width: 2px;
+    border-width: 2px; */
     display: flex;
+    flex-direction: column;
 }
 .lvl-3{
-    height: 280px;
-    border: solid;
+    height: 284px;
+    /* border: solid;
     border-color: black;
-    border-width: 2px;
+    border-width: 2px; */
     display: flex;
+    flex-direction: column;
 
 }
 .lvl-4{
-    height: 283px;
-    border: solid;
+    height: 286px;
+    /* border: solid;
     border-color: black;
-    border-width: 2px;
+    border-width: 2px; */
     display: flex;
+    flex-direction: column;
 
 }
 
 .lvl-5{
     flex: 1;
-    border: solid;
+    /* border: solid;
     border-color: black;
-    border-width: 2px;
+    border-width: 2px; */
     display: flex;
+    flex-direction: column;
 
 }
 .lvl-6, .lvl-7{
-    height: 210px;
-    border: solid;
+    height: 215px;
+    /* border: solid;
     border-color: black;
-    border-width: 2px;
+    border-width: 2px; */
     display: flex;
+    flex-direction: column;
 
 }
 /* .lvl-7{
@@ -161,23 +177,25 @@
     border-width: 2px;
 } */
 .lvl-8{
-    height: 175px;
-    border: solid;
+    height: 177px;
+    /* border: solid;
     border-color: black;
-    border-width: 2px;
+    border-width: 2px; */
     display: flex;
+    flex-direction: column;
 
 }
 .lvl-9{
     flex: 1;
-    border: solid;
+    /* border: solid;
     border-color: black;
-    border-width: 2px;
+    border-width: 2px; */
     display: flex;
+    flex-direction: column;
 
 }
 
-.total-slot{
+.total-slot, .total-slot-left, .total-slot-right{
     width: 45px;
     height: 28px;
     background-color: transparent;
@@ -187,19 +205,11 @@
     margin-left: 29px;
     margin-top: 5px;
 
+    text-align: center;
+    font-size: 15px;
+    font-family: "papyrus";
 }
 
-.total-slot-left, .total-slot-right{
-    width: 45px;
-    height: 28px;
-    background-color: transparent;
-    
-    margin-right: 13px;
-    margin-left: 29px;
-    margin-top: 5px;
-
-
-}
 
 
 

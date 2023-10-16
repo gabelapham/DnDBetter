@@ -1,7 +1,8 @@
 import React from 'react';
 import './SpellBackground.css';
 import { useState } from 'react';
-import SpellCounter from '../components/FunctionalCounter'
+import SpellCounter from '../components/FunctionalCounter';
+import SpellLog from './SpellLog';
 
 const SpellBackground = () =>{
 
@@ -9,6 +10,8 @@ const SpellBackground = () =>{
     return(
 
         <div className='spell-bg'>
+            
+
             <header className='header'>
 
                 <div className='left-section'>
@@ -41,56 +44,87 @@ const SpellBackground = () =>{
                                     num
                                 <button className='increment-0'> + </button> */}
                             </div>
+
                             <div className='lvl-1'>
-                                <input className='total-slot-left' type="text" />
-                                <SpellCounter />
+                                <div className='lvl-header'>
+                                    <input className='total-slot-left' type="text" />
+                                    <SpellCounter />
+
+                                </div>
                             </div>
+
                             <div className='lvl-2'>
-                                <input className='total-slot-left' type="text" />
-                                <SpellCounter />
+                                <div className='lvl-header'>
+                                    <input className='total-slot-left' type="text" />
+                                    <SpellCounter />
+
+                                </div>
                             </div>
+
                         </div>
 
                         <div className='col2'>
                             
                             <div className='lvl-3'>
-                                <input className='total-slot' type="text" />
-                                <SpellCounter />
+                                <div className='lvl-header'>
+                                    <input className='total-slot' type="text" />
+                                    <SpellCounter />
+
+                                </div>
                             </div>
+
                             <div className='lvl-4'>
-                                <input className='total-slot' type="text" />
-                                <SpellCounter />
+                                <div className='lvl-header'>
+                                    <input className='total-slot' type="text" />
+                                    <SpellCounter />
+
+                                </div>
                             </div>
+
                             <div className='lvl-5'>
-                                <input className='total-slot' type="text" />
-                                <SpellCounter />
+                                <div className='lvl-header'>
+                                    <input className='total-slot' type="text" />
+                                    <SpellCounter />
+
+                                </div>
                             </div>
+
                         </div>
 
                         <div className='col3'>
                             
                             <div className='lvl-6'>
-                                <input className='total-slot-right' type="text" />
-                                <SpellCounter />
+                                <div className='lvl-header'>
+                                    <input className='total-slot-right' type="text" />
+                                    <SpellCounter />
+                                </div>
                             </div>
                             <div className='lvl-7'>
-                                <input className='total-slot-right' type="text" />
-                                <SpellCounter />
+                            <div className='lvl-header'>
+                                    <input className='total-slot-right' type="text" />
+                                    <SpellCounter />
+                                </div>
                             </div>
                             <div className='lvl-8'>
-                                <input className='total-slot-right' type="text" />
-                                <SpellCounter />
+                            <div className='lvl-header'>
+                                    <input className='total-slot-right' type="text" />
+                                    <SpellCounter />
+
+                                </div>
                             </div>
                             <div className='lvl-9'>
-                                <input className='total-slot-right' type="text" />
-                                <SpellCounter />
+                            <div className='lvl-header'>
+                                    <input className='total-slot-right' type="text" />
+                                    <SpellCounter />
+
+                                </div>
                             </div>
                         </div>
                     </div>
 
                 </section>
             </main>
-
+            
         </div>
 
     );
