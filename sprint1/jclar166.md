@@ -15,7 +15,7 @@ However, I did not have enough time to do so and will instead make it an issue f
 - Learning how to use pandas, specifically to concat to dataframes
 - Learning how to use beautiful soup for web scraping
 
-  ## Issues I worked on
+## Issues I worked on
 - Scraping the barbarian class information. [Issue 26](https://github.com/gabelapham/DnDBetter/issues/26)
 - Scraping the bar class information. [Issue 27](https://github.com/gabelapham/DnDBetter/issues/27)
 - Databasing the class information with pandas. [Issue 29](https://github.com/gabelapham/DnDBetter/issues/29)
