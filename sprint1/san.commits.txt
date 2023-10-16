@@ -1,0 +1,141 @@
+$ git blame App.js
+f02d354f1 (A-Swoo18 2023-10-16 10:47:56 -0400  1) // import React, { useState } from 'react'; 
+f02d354f1 (A-Swoo18 2023-10-16 10:47:56 -0400  2) // import './App.css';
+f02d354f1 (A-Swoo18 2023-10-16 10:47:56 -0400  3) // import ImageComponent from './ImageComponent';
+f02d354f1 (A-Swoo18 2023-10-16 10:47:56 -0400  4)
+f02d354f1 (A-Swoo18 2023-10-16 10:47:56 -0400  5) // function App() {
+f02d354f1 (A-Swoo18 2023-10-16 10:47:56 -0400  6) //   const [text, setText] = useState("");  
+f02d354f1 (A-Swoo18 2023-10-16 10:47:56 -0400  7)
+f02d354f1 (A-Swoo18 2023-10-16 10:47:56 -0400  8) //   function handleTextChange(newText) {   
+f02d354f1 (A-Swoo18 2023-10-16 10:47:56 -0400  9) //     setText(newText);
+f02d354f1 (A-Swoo18 2023-10-16 10:47:56 -0400 10) //   }
+:...skipping...
+f02d354f1 (A-Swoo18 2023-10-16 10:47:56 -0400  1) // import React, { useState } from 'react'; 
+f02d354f1 (A-Swoo18 2023-10-16 10:47:56 -0400  2) // import './App.css';
+f02d354f1 (A-Swoo18 2023-10-16 10:47:56 -0400  3) // import ImageComponent from './ImageComponent';
+f02d354f1 (A-Swoo18 2023-10-16 10:47:56 -0400  4)
+f02d354f1 (A-Swoo18 2023-10-16 10:47:56 -0400  5) // function App() {
+f02d354f1 (A-Swoo18 2023-10-16 10:47:56 -0400  6) //   const [text, setText] = useState("");  
+f02d354f1 (A-Swoo18 2023-10-16 10:47:56 -0400  7)
+f02d354f1 (A-Swoo18 2023-10-16 10:47:56 -0400  8) //   function handleTextChange(newText) {   
+f02d354f1 (A-Swoo18 2023-10-16 10:47:56 -0400  9) //     setText(newText);
+f02d354f1 (A-Swoo18 2023-10-16 10:47:56 -0400 10) //   }
+f02d354f1 (A-Swoo18 2023-10-16 10:47:56 -0400 11)
+f02d354f1 (A-Swoo18 2023-10-16 10:47:56 -0400 12) //   return (
+f02d354f1 (A-Swoo18 2023-10-16 10:47:56 -0400 13) //     <div className="container">
+f02d354f1 (A-Swoo18 2023-10-16 10:47:56 -0400 14) //       <div className="image-wrapper">    
+f02d354f1 (A-Swoo18 2023-10-16 10:47:56 -0400 15) //         <ImageComponent userText={text} onUserTextChange={handleTextChange} />
+f02d354f1 (A-Swoo18 2023-10-16 10:47:56 -0400 16) //       </div>
+f02d354f1 (A-Swoo18 2023-10-16 10:47:56 -0400 17) //     </div>
+f02d354f1 (A-Swoo18 2023-10-16 10:47:56 -0400 18) //   );
+f02d354f1 (A-Swoo18 2023-10-16 10:47:56 -0400 19) // }
+f02d354f1 (A-Swoo18 2023-10-16 10:47:56 -0400 20)
+f02d354f1 (A-Swoo18 2023-10-16 10:47:56 -0400 21) // export default App;
+f02d354f1 (A-Swoo18 2023-10-16 10:47:56 -0400 22)
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400 23) import React, { useState } from 'react';    
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400 24) import './App.css';
+78882e852 (A-Swoo18 2023-10-14 11:44:08 -0400 25) import ImageComponent from './ImageComponent';
+78882e852 (A-Swoo18 2023-10-14 11:44:08 -0400 26)
+78882e852 (A-Swoo18 2023-10-14 11:44:08 -0400 27) function App() {
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400 28)   const [text, setText] = useState("");     
+f02d354f1 (A-Swoo18 2023-10-16 10:47:56 -0400 29)   const [image, setImage] = useState(null); 
+78882e852 (A-Swoo18 2023-10-14 11:44:08 -0400 30)
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400 31)   function handleTextChange(newText) {      
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400 32)     setText(newText);
+78882e852 (A-Swoo18 2023-10-14 11:44:08 -0400 33)   }
+78882e852 (A-Swoo18 2023-10-14 11:44:08 -0400 34)
+f02d354f1 (A-Swoo18 2023-10-16 10:47:56 -0400 35)   function handleImageChange(event) {       
+f02d354f1 (A-Swoo18 2023-10-16 10:47:56 -0400 36)     const selectedImage = event.target.files[0];
+f02d354f1 (A-Swoo18 2023-10-16 10:47:56 -0400 37)     setImage(URL.createObjectURL(selectedImage));
+f02d354f1 (A-Swoo18 2023-10-16 10:47:56 -0400 38)   }
+f02d354f1 (A-Swoo18 2023-10-16 10:47:56 -0400 39)
+
+
+$ git blame App.css
+78882e852 (A-Swoo18 2023-10-14 11:44:08 -0400  1) 
+78882e852 (A-Swoo18 2023-10-14 11:44:08 -0400  2)
+78882e852 (A-Swoo18 2023-10-14 11:44:08 -0400  3) .image-container {
+78882e852 (A-Swoo18 2023-10-14 11:44:08 -0400  4)   position: relative;
+78882e852 (A-Swoo18 2023-10-14 11:44:08 -0400  5)   display: inline-block;
+78882e852 (A-Swoo18 2023-10-14 11:44:08 -0400  6) }
+78882e852 (A-Swoo18 2023-10-14 11:44:08 -0400  7)
+78882e852 (A-Swoo18 2023-10-14 11:44:08 -0400  8) .image-container img {
+78882e852 (A-Swoo18 2023-10-14 11:44:08 -0400  9)   width: 100%;
+78882e852 (A-Swoo18 2023-10-14 11:44:08 -0400 10)   height: auto;
+78882e852 (A-Swoo18 2023-10-14 11:44:08 -0400 11) }
+78882e852 (A-Swoo18 2023-10-14 11:44:08 -0400 12)
+78882e852 (A-Swoo18 2023-10-14 11:44:08 -0400 13) .text-box {
+78882e852 (A-Swoo18 2023-10-14 11:44:08 -0400 14)   position: absolute;
+78882e852 (A-Swoo18 2023-10-14 11:44:08 -0400 15)   top: 50px; /* Adjust the top value to position the text box vertically */
+78882e852 (A-Swoo18 2023-10-14 11:44:08 -0400 16)   left: 50px; /* Adjust the left value to position the text box horizontally */
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400 17)   background-color: none; /* Background color with transparency */
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400 18)   /* height: 60px;
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400 19)   width: 60px; */
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400 20)   font-size: 30px;
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400 21)   padding: 100px;
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400 22)   /* border: 1px solid #000; */
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400 23)   border: none;
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400 24)   border-radius: none;
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400 25)   z-index: 1;
+78882e852 (A-Swoo18 2023-10-14 11:44:08 -0400 26) }
+
+$ git blame ImageComponent.js
+78882e852 (A-Swoo18 2023-10-14 11:44:08 -0400  1) import React from 'react';
+78882e852 (A-Swoo18 2023-10-14 11:44:08 -0400  2) import image from './char_sheet.jpg';       
+78882e852 (A-Swoo18 2023-10-14 11:44:08 -0400  3)
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400  4) function ImageComponent({ userText, onUserTextChange }) {
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400  5)   const positions = [
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400  6)     { top: '3%', left: '5%' },
+f02d354f1 (A-Swoo18 2023-10-16 10:47:56 -0400  7)     { top: '1%', left: '37%' },
+f02d354f1 (A-Swoo18 2023-10-16 10:47:56 -0400  8)     { top: '1%', left: '55%' },
+f02d354f1 (A-Swoo18 2023-10-16 10:47:56 -0400  9)     { top: '1%', left: '70%' },
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400 10)     { top: '4%', left: '37%' },
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400 11)     { top: '4%', left: '55%' },
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400 12)     { top: '4%', left: '70%' },
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400 13)     { top: '14%', left: '65%' },
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400 14)   ];
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400 15)
+78882e852 (A-Swoo18 2023-10-14 11:44:08 -0400 16)   return (
+78882e852 (A-Swoo18 2023-10-14 11:44:08 -0400 17)     <div className="image-container">       
+78882e852 (A-Swoo18 2023-10-14 11:44:08 -0400 18)       <img src={image} alt="Character Sheet" />
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400 19)       {positions.map((position, index) => ( 
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400 20)         <div className="text-box" style={position} key={index}>
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400 21)           <input
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400 22)             type="text"
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400 23)             placeholder={`Enter text ${index + 1}`}
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400 24)             value={userText[index]}
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400 25)             onChange={(e) => onUserTextChange(index, e.target.value)}
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400 26)           />
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400 27)         </div>
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400 28)       ))}
+78882e852 (A-Swoo18 2023-10-14 11:44:08 -0400 29)     </div>
+78882e852 (A-Swoo18 2023-10-14 11:44:08 -0400 30)   );
+78882e852 (A-Swoo18 2023-10-14 11:44:08 -0400 31) }
+78882e852 (A-Swoo18 2023-10-14 11:44:08 -0400 32)
+78882e852 (A-Swoo18 2023-10-14 11:44:08 -0400 33) export default ImageComponent;
+
+
+$ git blame ImageComponent.css
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400  1) .image-container {
+f02d354f1 (A-Swoo18 2023-10-16 10:47:56 -0400  2)     position: absolute;
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400  3)     display: inline-block;
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400  4)   }
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400  5)
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400  6)   .image-container img {
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400  7)     width: 100%;
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400  8)     height: auto;
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400  9)   }
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400 10)
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400 11)   .text-box {
+f02d354f1 (A-Swoo18 2023-10-16 10:47:56 -0400 12)     position: relative;
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400 13)     top: 10%; /* Adjust the top value as a percentage of the image container height */
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400 14)     left: 10%; /* Adjust the left value as a percentage of the image container width */
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400 15)     width: 40%; /* Set the width as a percentage of the image container width */
+f02d354f1 (A-Swoo18 2023-10-16 10:47:56 -0400 16)     height: 60%;
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400 17)     background-color: rgba(255, 255, 255, 0.7); /* Background color with transparency */
+f02d354f1 (A-Swoo18 2023-10-16 10:47:56 -0400 18)     padding: 10%;
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400 19)     border: none; /* Remove the outer border */
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400 20)     z-index: 1; /* Set a higher z-index to make the text box appear on top of the image */
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400 21)   }
+00d2f8b0a (A-Swoo18 2023-10-16 01:13:46 -0400 22)
+
