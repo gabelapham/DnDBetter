@@ -20,6 +20,37 @@
     top: 458px;
 }
 
+#st_pb_str {
+    position: absolute;
+    top: 572px;
+    left: 325.75px;
+}
+#st_pb_dex {
+    position: absolute;
+    top: 600px;
+    left: 325.75px;
+}
+#st_pb_con {
+    position: absolute;
+    top: 628px;
+    left: 325.75px;
+}
+#st_pb_int {
+    position: absolute;
+    top: 657px;
+    left: 325.75px;
+}
+#st_pb_wis {
+    position: absolute;
+    top: 685px;
+    left: 325.75px;
+}
+#st_pb_cha {
+    position: absolute;
+    top: 713px;
+    left: 325.75px;
+}
+
 /* STRENGTH STATS + SKILLS */
 #str {
     color:black;

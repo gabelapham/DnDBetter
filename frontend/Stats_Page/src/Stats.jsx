@@ -7,21 +7,45 @@ function Stats() {
 
     const [strength, setStrength] = useState(10)
     const [strengthMod, setStrengthMod] = useState(0)
+    const [strength_st_pb, setStrPB] = useState(false)
+    function setStrFunc(e) {
+        setStrPB(e.target.checked)
+    }
 
     const [dexterity, setDexterity] = useState(10)
     const [dexterityMod, setDexterityMod] = useState(0)
+    const [dexterity_st_pb, setDexPB] = useState(false)
+    function setDexFunc(e) {
+        setDexPB(e.target.checked)
+    }
 
     const [constitution, setConstitution] = useState(10)
     const [constitutionMod, setConstitutionMod] = useState(0)
+    const [constitution_st_pb, setConPB] = useState(false)
+    function setConFunc(e) {
+        setConPB(e.target.checked)
+    }
 
     const [intelligence, setIntelligence] = useState(10)
     const [intelligenceMod, setIntelligenceMod] = useState(0)
+    const [intelligence_st_pb, setIntPB] = useState(false)
+    function setIntFunc(e) {
+        setIntPB(e.target.checked)
+    }
 
     const [wisdom, setWisdom] = useState(10)
     const [wisdomMod, setWisdomMod] = useState(0)
+    const [wisdom_st_pb, setWisPB] = useState(false)
+    function setWisFunc(e) {
+        setWisPB(e.target.checked)
+    }
 
     const [charisma, setCharisma] = useState(10)
     const [charismaMod, setCharismaMod] = useState(0)
+    const [charisma_st_pb, setChaPB] = useState(false)
+    function setChaFunc(e) {
+        setChaPB(e.target.checked)
+    }
 
     const [pb, setPb] = useState(2)
 
@@ -114,12 +138,6 @@ function Stats() {
         setStrengthMod(Mod(e))
         return;
     }
-
-    const [strength_st_pb, setStr] = useState(false)
-    function setStrFunc(e) {
-        setStr(e.target.checked)
-    }
-
     function setDexterityFunc(e) {
         if (e > 20) {
             setDexterity(20)
@@ -186,6 +204,9 @@ function Stats() {
         return;
     }
 
+    function pbAdd(e, ) {
+
+    }
 return(
     <>
     <div>
@@ -217,6 +238,8 @@ return(
             <p id="pb">
                 +{pb}
             </p>
+
+        {/* CORE STATS */}
         <label name="STR Stats">
             <button id="str_inc" checked={strength} onClick={() => setStrengthFunc(strength + 1)}>
                 +
@@ -302,38 +325,37 @@ return(
             </p> 
         </label>
     </div>
+    {/* SAVING THROWS + PB CHECKBOXES */}
     <div>
-        <label>
-            {/*<input type="checkbox" id="st_pb_str" checked={strength_st_pb} onChange={setStrFunc}/>*/}
-            <p id="str_st">
-                {strengthMod}
-            </p>
-        </label>
+        <p id="str_st">
+            {strengthMod+(strength_st_pb*pb)}
+        </p>
+        <input type="checkbox" id="st_pb_str" checked={strength_st_pb} onChange={setStrFunc}/>
+
         <p id="dex_st">
-            {dexterityMod}
+            {dexterityMod+(dexterity_st_pb*pb)}
         </p>
+        <input type="checkbox" id="st_pb_dex" checked={dexterity_st_pb} onChange={setDexFunc}/>
+
         <p id="con_st">
-            {constitutionMod}
+            {constitutionMod+(constitution_st_pb*pb)}
         </p>
+        <input type="checkbox" id="st_pb_con" checked={constitution_st_pb} onChange={setConFunc}/>
+
         <p id="int_st">
-            {intelligenceMod}
+            {intelligenceMod+(intelligence_st_pb*pb)}
         </p>
+        <input type="checkbox" id="st_pb_int" checked={intelligence_st_pb} onChange={setIntFunc}/>
+
         <p id="wis_st">
-            {wisdomMod}
+            {wisdomMod+(wisdom_st_pb*pb)}
         </p>
+        <input type="checkbox" id="st_pb_wis" checked={wisdom_st_pb} onChange={setWisFunc}/>
+
         <p id="cha_st">
-            {charismaMod}
+            {charismaMod+(charisma_st_pb*pb)}
         </p>
-        {/*}
-        <input type="checkbox" id="st_pb_dex"/>
-        <input type="checkbox" id="st_pb_con"/>
-        <input type="checkbox" id="st_pb_int"/>
-        <input type="checkbox" id="st_pb_wis"/>
-        <input type="checkbox" id="st_pb_cha"/>
-        */}
-
-
-        {/*<input type="checkbox" id="st_pb_str" checked={strength_st_pb} onChange={setStrFunc}/>*/}
+        <input type="checkbox" id="st_pb_cha" checked={charisma_st_pb} onChange={setChaFunc}/>
 
         {/* SKILLS */}
             <p id="acrobatics">
