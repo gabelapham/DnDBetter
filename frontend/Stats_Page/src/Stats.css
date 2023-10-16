@@ -1,0 +1,468 @@
+
+/* PLAYER STATS */
+
+#level {
+
+}
+
+#pb {
+    color:black;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 35px;
+    position: absolute;
+    left: 500px; 
+}
+
+/* STRENGTH STATS + SKILLS */
+#str {
+    color:black;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 35px;
+    position: absolute;
+    top: 430px;
+    left: 220px;
+  }
+
+#str_inc {
+    background-color: rgb(59, 152, 59);
+    position: absolute;
+    width: 8px;
+    top: 460px;
+    left: 135px;
+    text-align: left;
+    font-size: 10px;
+}
+
+#str_dec {
+    background-color: rgb(152, 59, 59);
+    position: absolute;
+    width:8px;
+    top: 500px;
+    left: 135px;
+    text-align: left;
+    font-size: 10px; 
+}
+
+#str_mod {
+    text-align: center;
+    color:black;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
+    position: absolute;
+    top: 511px;
+    left: 231px;
+}
+
+#str_st {
+    position: absolute;
+    color: black;
+    top: 543px;
+    left: 363px;
+    font-size: 20px;
+}
+
+#athletics {
+    position: absolute;
+    color: black;
+    top: 868px;
+    left: 361px;
+    font-size: 20px;
+}
+
+/* DEXTERITY STATS + SKILLS */
+  
+#dex {
+    color:black;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 35px;
+    position: absolute;
+    top: 580px;
+    left: 220px;
+  }
+  
+#dex_inc {
+    background-color: rgb(59, 152, 59);
+    position: absolute;
+    width: 8px;
+    top: 610px;
+    left: 135px;
+    text-align: left;
+    font-size: 10px;
+}
+
+#dex_dec {
+    background-color: rgb(152, 59, 59);
+    position: absolute;
+    width:8px;
+    top: 650px;
+    left: 135px;
+    text-align: left;
+    font-size: 10px; 
+}
+
+#dex_mod {
+    text-align: center;
+    color:black;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
+    position: absolute;
+    top: 661px;
+    left: 231px;
+}
+
+#dex_st {
+    position: absolute;
+    color: black;
+    top: 572px;
+    left: 363px;
+    font-size: 20px;
+}
+
+#acrobatics {
+    position: absolute;
+    color: black;
+    top: 783px;
+    left: 361px;
+    font-size: 20px;
+}
+
+#sleight_of_hand {
+    position: absolute;
+    color: black;
+    top: 1206px;
+    left: 361px;
+    font-size: 20px;
+}
+
+#stealth {
+    position: absolute;
+    color: black;
+    top: 1234px;
+    left: 361px;
+    font-size: 20px;
+}
+
+#initiative {
+    position: absolute;
+    color: black;
+    top: 390px;
+    left: 738px;
+    font-size: 45px;
+}
+
+/* CONSTITUTION STATS */
+
+#con {
+    color:black;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 35px;
+    position: absolute;
+    top: 730px;
+    left: 220px;
+}
+
+#con_inc {
+    background-color: rgb(59, 152, 59);
+    position: absolute;
+    width: 8px;
+    top: 760px;
+    left: 135px;
+    text-align: left;
+    font-size: 10px;
+}
+
+#con_dec {
+    background-color: rgb(152, 59, 59);
+    position: absolute;
+    width:8px;
+    top: 800px;
+    left: 135px;
+    text-align: left;
+    font-size: 10px; 
+}
+
+#con_mod {
+    text-align: center;
+    color:black;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
+    position: absolute;
+    top: 810px;
+    left: 231px;
+}
+
+#con_st {
+    position: absolute;
+    color: black;
+    top: 600px;
+    left: 363px;
+    font-size: 20px;
+}
+
+/* INTELLIGENCE STATS + SKILLS */
+
+#int {
+    color:black;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 35px;
+    position: absolute;
+    top: 880px;
+    left: 220px;
+}
+
+#int_inc {
+    background-color: rgb(59, 152, 59);
+    position: absolute;
+    width: 8px;
+    top: 910px;
+    left: 135px;
+    text-align: left;
+    font-size: 10px;
+}
+
+#int_dec {
+    background-color: rgb(152, 59, 59);
+    position: absolute;
+    width:8px;
+    top: 950px;
+    left: 135px;
+    text-align: left;
+    font-size: 10px; 
+}
+
+#int_mod {
+    text-align: center;
+    color:black;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
+    position: absolute;
+    top: 960px;
+    left: 231px;
+}
+
+#int_st {
+    position: absolute;
+    color: black;
+    top: 627px;
+    left: 363px;
+    font-size: 20px;
+}
+
+#arcana {
+    position: absolute;
+    color: black;
+    top: 839px;
+    left: 361px;
+    font-size: 20px;
+}
+
+#history {
+    position: absolute;
+    color: black;
+    top: 925px;
+    left: 361px;
+    font-size: 20px;
+}
+
+#investigation {
+    position: absolute;
+    color: black;
+    top: 1009px;
+    left: 361px;
+    font-size: 20px;
+}
+
+#nature {
+    position: absolute;
+    color: black;
+    top: 1065px;
+    left: 361px;
+    font-size: 20px;
+}
+
+#religion {
+    position: absolute;
+    color: black;
+    top: 1178px;
+    left: 361px;
+    font-size: 20px;
+}
+
+/* WISDOM STATS + SKILLS */
+  
+#wis {
+    color:black;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 35px;
+    position: absolute;
+    top: 1030px;
+    left: 220px;
+}
+
+#wis_inc {
+    background-color: rgb(59, 152, 59);
+    position: absolute;
+    width: 8px;
+    top: 1060px;
+    left: 135px;
+    text-align: left;
+    font-size: 10px;
+}
+
+#wis_dec {
+    background-color: rgb(152, 59, 59);
+    position: absolute;
+    width:8px;
+    top: 1100px;
+    left: 135px;
+    text-align: left;
+    font-size: 10px; 
+}
+
+#wis_mod {
+    text-align: center;
+    color:black;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
+    position: absolute;
+    top: 1110px;
+    left: 231px;
+}
+
+#wis_st {
+    position: absolute;
+    color: black;
+    top: 655px;
+    left: 363px;
+    font-size: 20px;
+}
+
+#animal_handling {
+    position: absolute;
+    color: black;
+    top: 812px;
+    left: 361px;
+    font-size: 20px;
+}
+
+#insight {
+    position: absolute;
+    color: black;
+    top: 953px;
+    left: 361px;
+    font-size: 20px;
+}
+
+#medicine {
+    position: absolute;
+    color: black;
+    top: 1037px;
+    left: 361px;
+    font-size: 20px;
+}
+
+#passive_perception {
+    position: absolute;
+    color: black;
+    top: 1355px;
+    left: 195px;
+    font-size: 20px;
+}
+
+#perception {
+    position: absolute;
+    color: black;
+    top: 1093px;
+    left: 361px;
+    font-size: 20px;
+}
+
+#survival {
+    position: absolute;
+    color: black;
+    top: 1262px;
+    left: 361px;
+    font-size: 20px;
+}
+
+
+/* CHARISMA STATS + SKILLS */
+
+#cha {
+    color:black;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 35px;
+    position: absolute;
+    top: 1177px;
+    left: 220px;
+}
+
+#cha_inc {
+    background-color: rgb(59, 152, 59);
+    position: absolute;
+    width: 8px;
+    top: 1210px;
+    left: 135px;
+    text-align: left;
+    font-size: 10px;
+}
+
+#cha_dec {
+    background-color: rgb(152, 59, 59);
+    position: absolute;
+    width:8px;
+    top: 1250px;
+    left: 135px;
+    text-align: left;
+    font-size: 10px; 
+}
+
+#cha_mod {
+    text-align: center;
+    color:black;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
+    position: absolute;
+    top: 1258px;
+    left: 231px;
+}
+
+#cha_st {
+    position: absolute;
+    color: black;
+    top: 684px;
+    left: 363px;
+    font-size: 20px;
+}
+
+#deception {
+    position: absolute;
+    color: black;
+    top: 895px;
+    left: 361px;
+    font-size: 20px;
+}
+
+#intimidation {
+    position: absolute;
+    color: black;
+    top: 980px;
+    left: 361px;
+    font-size: 20px;
+}
+
+#performance {
+    position: absolute;
+    color: black;
+    top: 1120px;
+    left: 361px;
+    font-size: 20px;
+}
+
+#persuasion {
+    position: absolute;
+    color: black;
+    top: 1149px;
+    left: 361px;
+    font-size: 20px;
+}

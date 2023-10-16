@@ -3,6 +3,8 @@
   margin: 0 auto;
   padding: 0.5rem;
   text-align: center;
+  color: white;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 #png {
@@ -29,7 +31,7 @@
 
 #playname {
   height: 35px;
-  width: 200px;
+  width: 222px;
   text-align: center;
   background-color: white;
   color:black;
@@ -37,83 +39,5 @@
   position: absolute;
   top: 234px;
   left: 1080px;
-  border-color: white;
-}
-
-#str {
-  height: 50px;
-  width: 50px;
-  text-align: center;
-  background-color: white;
-  color:black;
-  font-size: 35px;
-  position: absolute;
-  top: 460px;
-  left: 208px;
-  border-color: white;
-}
-
-#dex {
-  height: 50px;
-  width: 50px;
-  text-align: center;
-  background-color: white;
-  color:black;
-  font-size: 35px;
-  position: absolute;
-  top: 610px;
-  left: 208px;
-  border-color: white;
-}
-
-#con {
-  height: 50px;
-  width: 50px;
-  text-align: center;
-  background-color: white;
-  color:black;
-  font-size: 35px;
-  position: absolute;
-  top: 760px;
-  left: 208px;
-  border-color: white;
-}
-
-#int {
-  height: 50px;
-  width: 50px;
-  text-align: center;
-  background-color: white;
-  color:black;
-  font-size: 35px;
-  position: absolute;
-  top: 910px;
-  left: 208px;
-  border-color: white;
-}
-
-#wis {
-  height: 50px;
-  width: 50px;
-  text-align: center;
-  background-color: white;
-  color:black;
-  font-size: 35px;
-  position: absolute;
-  top: 1060px;
-  left: 208px;
-  border-color: white;
-}
-
-#cha {
-  height: 50px;
-  width: 50px;
-  text-align: center;
-  background-color: white;
-  color:black;
-  font-size: 35px;
-  position: absolute;
-  top: 1210px;
-  left: 208px;
   border-color: white;
 }
