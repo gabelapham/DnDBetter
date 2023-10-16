@@ -1,0 +1,1296 @@
+// App.css
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400  1) #root {
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400  2)   max-width: 5000px;
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400  3)   margin: 0 auto;
+728b750af (gabelapham 2023-10-14 11:25:29 -0400  4)   padding: 0.5rem;
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400  5)   text-align: center;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400  6)   color: white;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400  7)   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400  8) }
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400  9)
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 10) #png {
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 11)   width: 1920px;
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 12)   height: 1080px;
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 13)   margin: auto;
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 14)   align-items: center;
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 15)   zoom: 75%;
+728b750af (gabelapham 2023-10-14 11:25:29 -0400 16)   position: static;
+728b750af (gabelapham 2023-10-14 11:25:29 -0400 17) }
+728b750af (gabelapham 2023-10-14 11:25:29 -0400 18)
+728b750af (gabelapham 2023-10-14 11:25:29 -0400 19) #charname {
+728b750af (gabelapham 2023-10-14 11:25:29 -0400 20)   height: 40px;
+728b750af (gabelapham 2023-10-14 11:25:29 -0400 20)   height: 40px;
+728b750af (gabelapham 2023-10-14 11:25:29 -0400 21)   width: 350px;
+728b750af (gabelapham 2023-10-14 11:25:29 -0400 22)   text-align: center;
+728b750af (gabelapham 2023-10-14 11:25:29 -0400 23)   background-color: white;
+728b750af (gabelapham 2023-10-14 11:25:29 -0400 24)   color:black;
+728b750af (gabelapham 2023-10-14 11:25:29 -0400 25)   font-size: 25px;
+728b750af (gabelapham 2023-10-14 11:25:29 -0400 26)   position: absolute;
+728b750af (gabelapham 2023-10-14 11:25:29 -0400 27)   top: 268px;
+728b750af (gabelapham 2023-10-14 11:25:29 -0400 28)   left: 218px;
+bdb847a39 (gabelapham 2023-10-14 21:12:51 -0400 29)   border-color: white;
+728b750af (gabelapham 2023-10-14 11:25:29 -0400 30) }
+728b750af (gabelapham 2023-10-14 11:25:29 -0400 31)
+728b750af (gabelapham 2023-10-14 11:25:29 -0400 32) #playname {
+728b750af (gabelapham 2023-10-14 11:25:29 -0400 33)   height: 35px;
+d154eba6c (gabelapham 2023-10-14 22:10:28 -0400 34)   width: 222px;
+728b750af (gabelapham 2023-10-14 11:25:29 -0400 35)   text-align: center;
+728b750af (gabelapham 2023-10-14 11:25:29 -0400 36)   background-color: white;
+728b750af (gabelapham 2023-10-14 11:25:29 -0400 37)   color:black;
+728b750af (gabelapham 2023-10-14 11:25:29 -0400 38)   font-size: 25px;
+728b750af (gabelapham 2023-10-14 11:25:29 -0400 39)   position: absolute;
+728b750af (gabelapham 2023-10-14 11:25:29 -0400 40)   top: 234px;
+728b750af (gabelapham 2023-10-14 11:25:29 -0400 41)   left: 1080px;
+bdb847a39 (gabelapham 2023-10-14 21:12:51 -0400 42)   border-color: white;
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 43) }
+
+// App.jsx
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400  1) import { useState } from 'react'
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400  2) import stat_sheet from './assets/stats_sheet.png'
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400  3) import './App.css'
+bdb847a39 (gabelapham 2023-10-14 21:12:51 -0400  4)
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400  5) function App() {
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400  6)   const [count, setCount] = useState(0)
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400  7)
+d154eba6c (gabelapham 2023-10-14 22:10:28 -0400  8)
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400  9)   return (
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 10)     <>
+728b750af (gabelapham 2023-10-14 11:25:29 -0400 11)       <div id="root">
+728b750af (gabelapham 2023-10-14 11:25:29 -0400 12)         <h1>
+728b750af (gabelapham 2023-10-14 11:25:29 -0400 13)           DnDBetter Stats Page
+728b750af (gabelapham 2023-10-14 11:25:29 -0400 14)         </h1>
+728b750af (gabelapham 2023-10-14 11:25:29 -0400 15)         <div id="png">
+728b750af (gabelapham 2023-10-14 11:25:29 -0400 16)           <img src={stat_sheet} />
+728b750af (gabelapham 2023-10-14 11:25:29 -0400 17)         </div>
+728b750af (gabelapham 2023-10-14 11:25:29 -0400 18)         <label>
+d154eba6c (gabelapham 2023-10-14 22:10:28 -0400 19)           <input id="charname" name="charName" maxLength={25} />
+728b750af (gabelapham 2023-10-14 11:25:29 -0400 20)         </label>
+728b750af (gabelapham 2023-10-14 11:25:29 -0400 21)         <label>
+d154eba6c (gabelapham 2023-10-14 22:10:28 -0400 22)           <input id="playname" name="playName" maxLength={15} />
+728b750af (gabelapham 2023-10-14 11:25:29 -0400 23)         </label>
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 24)       </div>
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 25)     </>
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 26)   )
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 27) }
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 28)
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 29) export default App
+
+// Stats.css
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400   1)
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400   2) /* PLAYER STATS */
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400   3)
+15cbc9799 (gabelapham 2023-10-15 22:32:10 -0400   4) #level_select {
+15cbc9799 (gabelapham 2023-10-15 22:32:10 -0400   5)     color:black;
+15cbc9799 (gabelapham 2023-10-15 22:32:10 -0400   6)     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+15cbc9799 (gabelapham 2023-10-15 22:32:10 -0400   7)     position: absolute;
+15cbc9799 (gabelapham 2023-10-15 22:32:10 -0400   8)     background-color: white;
+15cbc9799 (gabelapham 2023-10-15 22:32:10 -0400   9)     font-size: 25px;
+15cbc9799 (gabelapham 2023-10-15 22:32:10 -0400  10)     top: 242px;
+15cbc9799 (gabelapham 2023-10-15 22:32:10 -0400  11)     left: 840px;
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400  12) }
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400  13)
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400  14) #pb {
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400  15)     color:black;
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400  16)     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+15cbc9799 (gabelapham 2023-10-15 22:32:10 -0400  17)     font-size: 30px;
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400  18)     position: absolute;
+15cbc9799 (gabelapham 2023-10-15 22:32:10 -0400  19)     left: 325px;
+15cbc9799 (gabelapham 2023-10-15 22:32:10 -0400  20)     top: 458px;
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400  21) }
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400  22)
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  23) #st_pb_str {
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  24)     position: absolute;
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  25)     top: 572px;
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  26)     left: 325.75px;
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  27) }
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  28) #st_pb_dex {
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  29)     position: absolute;
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  30)     top: 600px;
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  31)     left: 325.75px;
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  32) }
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  33) #st_pb_con {
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  34)     position: absolute;
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  35)     top: 628px;
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  36)     left: 325.75px;
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  37) }
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  38) #st_pb_int {
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  39)     position: absolute;
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  40)     top: 657px;
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  41)     left: 325.75px;
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  42) }
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  43) #st_pb_wis {
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  44)     position: absolute;
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  45)     top: 685px;
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  46)     left: 325.75px;
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  47) }
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  48) #st_pb_cha {
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  49)     position: absolute;
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  50)     top: 713px;
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  51)     left: 325.75px;
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  52) }
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  53)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400  54) /* STRENGTH STATS + SKILLS */
+d5efe3f73 (gabelapham 2023-10-14 23:18:30 -0400  55) #str {
+d5efe3f73 (gabelapham 2023-10-14 23:18:30 -0400  56)     color:black;
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400  57)     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+d5efe3f73 (gabelapham 2023-10-14 23:18:30 -0400  58)     font-size: 35px;
+d5efe3f73 (gabelapham 2023-10-14 23:18:30 -0400  59)     position: absolute;
+98bc07b78 (gabelapham 2023-10-15 01:37:47 -0400  60)     top: 430px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400  61)     left: 220px;
+d5efe3f73 (gabelapham 2023-10-14 23:18:30 -0400  62)   }
+98bc07b78 (gabelapham 2023-10-15 01:37:47 -0400  63)
+98bc07b78 (gabelapham 2023-10-15 01:37:47 -0400  64) #str_inc {
+98bc07b78 (gabelapham 2023-10-15 01:37:47 -0400  65)     background-color: rgb(59, 152, 59);
+98bc07b78 (gabelapham 2023-10-15 01:37:47 -0400  66)     position: absolute;
+98bc07b78 (gabelapham 2023-10-15 01:37:47 -0400  67)     width: 8px;
+98bc07b78 (gabelapham 2023-10-15 01:37:47 -0400  68)     top: 460px;
+98bc07b78 (gabelapham 2023-10-15 01:37:47 -0400  69)     left: 135px;
+98bc07b78 (gabelapham 2023-10-15 01:37:47 -0400  70)     text-align: left;
+98bc07b78 (gabelapham 2023-10-15 01:37:47 -0400  71)     font-size: 10px;
+98bc07b78 (gabelapham 2023-10-15 01:37:47 -0400  72) }
+98bc07b78 (gabelapham 2023-10-15 01:37:47 -0400  73)
+98bc07b78 (gabelapham 2023-10-15 01:37:47 -0400  74) #str_dec {
+98bc07b78 (gabelapham 2023-10-15 01:37:47 -0400  75)     background-color: rgb(152, 59, 59);
+98bc07b78 (gabelapham 2023-10-15 01:37:47 -0400  76)     position: absolute;
+98bc07b78 (gabelapham 2023-10-15 01:37:47 -0400  77)     width:8px;
+98bc07b78 (gabelapham 2023-10-15 01:37:47 -0400  78)     top: 500px;
+98bc07b78 (gabelapham 2023-10-15 01:37:47 -0400  79)     left: 135px;
+98bc07b78 (gabelapham 2023-10-15 01:37:47 -0400  80)     text-align: left;
+98bc07b78 (gabelapham 2023-10-15 01:37:47 -0400  81)     font-size: 10px;
+98bc07b78 (gabelapham 2023-10-15 01:37:47 -0400  82) }
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400  83)
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400  84) #str_mod {
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400  85)     text-align: center;
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400  86)     color:black;
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400  87)     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400  88)     font-size: 18px;
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400  89)     position: absolute;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400  90)     top: 511px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400  91)     left: 231px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400  92) }
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400  93)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400  94) #str_st {
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400  95)     position: absolute;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400  96)     color: black;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400  97)     top: 543px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400  98)     left: 363px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400  99)     font-size: 20px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 100) }
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 101)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 102) #athletics {
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 103)     position: absolute;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 104)     color: black;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 105)     top: 868px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 106)     left: 361px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 107)     font-size: 20px;
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400 108) }
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 109)
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 110) #athletics_pb {
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 111)     position: absolute;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 112)     top: 896px;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 113)     left: 325.75px;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 114) }
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 115)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 116) /* DEXTERITY STATS + SKILLS */
+d5efe3f73 (gabelapham 2023-10-14 23:18:30 -0400 117)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 118) #dex {
+d5efe3f73 (gabelapham 2023-10-14 23:18:30 -0400 119)     color:black;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 120)     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+d5efe3f73 (gabelapham 2023-10-14 23:18:30 -0400 121)     font-size: 35px;
+d5efe3f73 (gabelapham 2023-10-14 23:18:30 -0400 122)     position: absolute;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 123)     top: 580px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 124)     left: 220px;
+d5efe3f73 (gabelapham 2023-10-14 23:18:30 -0400 125)   }
+d5efe3f73 (gabelapham 2023-10-14 23:18:30 -0400 126)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 127) #dex_inc {
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 128)     background-color: rgb(59, 152, 59);
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 129)     position: absolute;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 130)     width: 8px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 131)     top: 610px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 132)     left: 135px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 133)     text-align: left;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 134)     font-size: 10px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 135) }
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 136)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 137) #dex_dec {
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 138)     background-color: rgb(152, 59, 59);
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 139)     position: absolute;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 140)     width:8px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 141)     top: 650px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 142)     left: 135px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 143)     text-align: left;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 144)     font-size: 10px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 145) }
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 146)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 147) #dex_mod {
+d5efe3f73 (gabelapham 2023-10-14 23:18:30 -0400 148)     text-align: center;
+d5efe3f73 (gabelapham 2023-10-14 23:18:30 -0400 149)     color:black;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 150)     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 151)     font-size: 18px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 152)     position: absolute;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 153)     top: 661px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 154)     left: 231px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 155) }
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 156)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 157) #dex_st {
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 158)     position: absolute;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 159)     color: black;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 160)     top: 572px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 161)     left: 363px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 162)     font-size: 20px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 163) }
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 164)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 165) #acrobatics {
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 166)     position: absolute;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 167)     color: black;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 168)     top: 783px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 169)     left: 361px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 170)     font-size: 20px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 171) }
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 172) #acrobatics_pb {
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 173)     position: absolute;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 174)     top: 812px;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 175)     left: 325.75px;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 176) }
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 177)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 178) #sleight_of_hand {
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 179)     position: absolute;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 180)     color: black;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 181)     top: 1206px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 182)     left: 361px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 183)     font-size: 20px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 184) }
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 185) #sleight_of_hand_pb {
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 186)     position: absolute;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 187)     top: 1234.5px;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 188)     left: 325.75px;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 189) }
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 190)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 191) #stealth {
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 192)     position: absolute;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 193)     color: black;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 194)     top: 1234px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 195)     left: 361px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 196)     font-size: 20px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 197) }
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 198) #stealth_pb {
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 199)     position: absolute;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 200)     top: 1262.5px;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 201)     left: 325.75px;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 202) }
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 203)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 204) #initiative {
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 205)     position: absolute;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 206)     color: black;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 207)     top: 390px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 208)     left: 738px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 209)     font-size: 45px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 210) }
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 211)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 212) /* CONSTITUTION STATS */
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 213)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 214) #con {
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 215)     color:black;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 216)     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+d5efe3f73 (gabelapham 2023-10-14 23:18:30 -0400 217)     font-size: 35px;
+d5efe3f73 (gabelapham 2023-10-14 23:18:30 -0400 218)     position: absolute;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 219)     top: 730px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 220)     left: 220px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 221) }
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 222)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 223) #con_inc {
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 224)     background-color: rgb(59, 152, 59);
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 225)     position: absolute;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 226)     width: 8px;
+d5efe3f73 (gabelapham 2023-10-14 23:18:30 -0400 227)     top: 760px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 228)     left: 135px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 229)     text-align: left;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 230)     font-size: 10px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 231) }
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 232)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 233) #con_dec {
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 234)     background-color: rgb(152, 59, 59);
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 235)     position: absolute;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 236)     width:8px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 237)     top: 800px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 238)     left: 135px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 239)     text-align: left;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 240)     font-size: 10px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 241) }
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 242)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 243) #con_mod {
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 244)     text-align: center;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 245)     color:black;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 246)     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 247)     font-size: 18px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 248)     position: absolute;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 249)     top: 810px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 250)     left: 231px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 251) }
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 252)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 253) #con_st {
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 254)     position: absolute;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 255)     color: black;
+4ecaf2349 (gabelapham 2023-10-15 03:28:53 -0400 256)     top: 600px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 257)     left: 363px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 258)     font-size: 20px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 259) }
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 260)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 261) /* INTELLIGENCE STATS + SKILLS */
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 262)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 263) #int {
+d5efe3f73 (gabelapham 2023-10-14 23:18:30 -0400 264)     color:black;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 265)     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+d5efe3f73 (gabelapham 2023-10-14 23:18:30 -0400 266)     font-size: 35px;
+d5efe3f73 (gabelapham 2023-10-14 23:18:30 -0400 267)     position: absolute;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 268)     top: 880px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 269)     left: 220px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 270) }
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 271)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 272) #int_inc {
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 273)     background-color: rgb(59, 152, 59);
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 274)     position: absolute;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 275)     width: 8px;
+d5efe3f73 (gabelapham 2023-10-14 23:18:30 -0400 276)     top: 910px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 277)     left: 135px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 278)     text-align: left;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 279)     font-size: 10px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 280) }
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 281)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 282) #int_dec {
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 283)     background-color: rgb(152, 59, 59);
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 284)     position: absolute;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 285)     width:8px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 286)     top: 950px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 287)     left: 135px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 288)     text-align: left;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 289)     font-size: 10px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 290) }
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 291)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 292) #int_mod {
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 293)     text-align: center;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 294)     color:black;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 295)     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 296)     font-size: 18px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 297)     position: absolute;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 298)     top: 960px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 299)     left: 231px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 300) }
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 301)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 302) #int_st {
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 303)     position: absolute;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 304)     color: black;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 305)     top: 627px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 306)     left: 363px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 307)     font-size: 20px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 308) }
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 309)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 310) #arcana {
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 311)     position: absolute;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 312)     color: black;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 313)     top: 839px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 314)     left: 361px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 315)     font-size: 20px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 316) }
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 317) #arcana_pb {
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 318)     position: absolute;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 319)     top: 868px;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 320)     left: 325.75px;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 321) }
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 322)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 323) #history {
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 324)     position: absolute;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 325)     color: black;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 326)     top: 925px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 327)     left: 361px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 328)     font-size: 20px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 329) }
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 330) #history_pb {
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 331)     position: absolute;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 332)     top: 953px;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 333)     left: 325.75px;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 334) }
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 335)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 336) #investigation {
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 337)     position: absolute;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 338)     color: black;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 339)     top: 1009px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 340)     left: 361px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 341)     font-size: 20px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 342) }
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 343) #investigation_pb {
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 344)     position: absolute;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 345)     top: 1037px;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 346)     left: 325.75px;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 347) }
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 348)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 349) #nature {
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 350)     position: absolute;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 351)     color: black;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 352)     top: 1065px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 353)     left: 361px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 354)     font-size: 20px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 355) }
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 356) #nature_pb {
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 357)     position: absolute;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 358)     top: 1093.5px;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 359)     left: 325.75px;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 360) }
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 361)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 362) #religion {
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 363)     position: absolute;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 364)     color: black;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 365)     top: 1178px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 366)     left: 361px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 367)     font-size: 20px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 368) }
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 369) #religion_pb {
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 370)     position: absolute;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 371)     top: 1205.5px;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 372)     left: 325.75px;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 373) }
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 374)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 375) /* WISDOM STATS + SKILLS */
+d5efe3f73 (gabelapham 2023-10-14 23:18:30 -0400 376)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 377) #wis {
+d5efe3f73 (gabelapham 2023-10-14 23:18:30 -0400 378)     color:black;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 379)     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+d5efe3f73 (gabelapham 2023-10-14 23:18:30 -0400 380)     font-size: 35px;
+d5efe3f73 (gabelapham 2023-10-14 23:18:30 -0400 381)     position: absolute;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 382)     top: 1030px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 383)     left: 220px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 384) }
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 385)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 386) #wis_inc {
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 387)     background-color: rgb(59, 152, 59);
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 388)     position: absolute;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 389)     width: 8px;
+d5efe3f73 (gabelapham 2023-10-14 23:18:30 -0400 390)     top: 1060px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 391)     left: 135px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 392)     text-align: left;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 393)     font-size: 10px;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 394) }
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 395)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 396) #wis_dec {
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 397)     background-color: rgb(152, 59, 59);
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 398)     position: absolute;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 399)     width:8px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 400)     top: 1100px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 401)     left: 135px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 402)     text-align: left;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 403)     font-size: 10px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 404) }
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 405)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 406) #wis_mod {
+d5efe3f73 (gabelapham 2023-10-14 23:18:30 -0400 407)     text-align: center;
+d5efe3f73 (gabelapham 2023-10-14 23:18:30 -0400 408)     color:black;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 409)     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 410)     font-size: 18px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 411)     position: absolute;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 412)     top: 1110px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 413)     left: 231px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 414) }
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 415)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 416) #wis_st {
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 417)     position: absolute;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 418)     color: black;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 419)     top: 655px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 420)     left: 363px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 421)     font-size: 20px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 422) }
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 423)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 424) #animal_handling {
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 425)     position: absolute;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 426)     color: black;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 427)     top: 812px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 428)     left: 361px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 429)     font-size: 20px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 430) }
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 431) #animal_handling_pb {
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 432)     position: absolute;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 433)     top: 840px;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 434)     left: 325.75px;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 435) }
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 436)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 437) #insight {
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 438)     position: absolute;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 439)     color: black;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 440)     top: 953px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 441)     left: 361px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 442)     font-size: 20px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 443) }
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 444) #insight_pb {
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 445)     position: absolute;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 446)     top: 981px;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 447)     left: 325.75px;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 448) }
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 449)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 450) #medicine {
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 451)     position: absolute;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 452)     color: black;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 453)     top: 1037px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 454)     left: 361px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 455)     font-size: 20px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 456) }
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 457) #medicine_pb {
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 458)     position: absolute;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 459)     top: 1065.5px;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 460)     left: 325.75px;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 461) }
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 462)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 463) #passive_perception {
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 464)     position: absolute;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 465)     color: black;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 466)     top: 1355px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 467)     left: 195px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 468)     font-size: 20px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 469) }
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 470)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 471) #perception {
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 472)     position: absolute;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 473)     color: black;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 474)     top: 1093px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 475)     left: 361px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 476)     font-size: 20px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 477) }
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 478) #perception_pb {
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 479)     position: absolute;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 480)     top: 1121.5px;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 481)     left: 325.75px;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 482) }
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 483)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 484) #survival {
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 485)     position: absolute;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 486)     color: black;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 487)     top: 1262px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 488)     left: 361px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 489)     font-size: 20px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 490) }
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 491) #survival_pb {
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 492)     position: absolute;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 493)     top: 1290.5px;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 494)     left: 325.75px;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 495) }
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 496)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 497)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 498) /* CHARISMA STATS + SKILLS */
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 499)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 500) #cha {
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 501)     color:black;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 502)     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+d5efe3f73 (gabelapham 2023-10-14 23:18:30 -0400 503)     font-size: 35px;
+d5efe3f73 (gabelapham 2023-10-14 23:18:30 -0400 504)     position: absolute;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 505)     top: 1177px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 506)     left: 220px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 507) }
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 508)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 509) #cha_inc {
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 510)     background-color: rgb(59, 152, 59);
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 511)     position: absolute;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 512)     width: 8px;
+d5efe3f73 (gabelapham 2023-10-14 23:18:30 -0400 513)     top: 1210px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 514)     left: 135px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 515)     text-align: left;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 516)     font-size: 10px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 517) }
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 518)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 519) #cha_dec {
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 520)     background-color: rgb(152, 59, 59);
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 521)     position: absolute;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 522)     width:8px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 523)     top: 1250px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 524)     left: 135px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 525)     text-align: left;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 526)     font-size: 10px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 527) }
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 528)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 529) #cha_mod {
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 530)     text-align: center;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 531)     color:black;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 532)     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 533)     font-size: 18px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 534)     position: absolute;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 535)     top: 1258px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 536)     left: 231px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 537) }
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 538)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 539) #cha_st {
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 540)     position: absolute;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 541)     color: black;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 542)     top: 684px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 543)     left: 363px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 544)     font-size: 20px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 545) }
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 546)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 547) #deception {
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 548)     position: absolute;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 549)     color: black;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 550)     top: 895px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 551)     left: 361px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 552)     font-size: 20px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 553) }
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 554) #deception_pb {
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 555)     position: absolute;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 556)     top: 925px;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 557)     left: 325.75px;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 558) }
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 559)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 560) #intimidation {
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 561)     position: absolute;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 562)     color: black;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 563)     top: 980px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 564)     left: 361px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 565)     font-size: 20px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 566) }
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 567) #intimidation_pb {
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 568)     position: absolute;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 569)     top: 1009px;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 570)     left: 325.75px;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 571) }
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 572)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 573) #performance {
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 574)     position: absolute;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 575)     color: black;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 576)     top: 1120px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 577)     left: 361px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 578)     font-size: 20px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 579) }
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 580) #performance_pb {
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 581)     position: absolute;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 582)     top: 1149.5px;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 583)     left: 325.75px;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 584) }
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 585)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 586) #persuasion {
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 587)     position: absolute;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 588)     color: black;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 589)     top: 1149px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 590)     left: 361px;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 591)     font-size: 20px;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 592) }
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 593) #persuasion_pb {
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 594)     position: absolute;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 595)     top: 1177.5px;
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 596)     left: 325.75px;
+98bc07b78 (gabelapham 2023-10-15 01:37:47 -0400 597) }
+
+// Stats.jsx
+98bc07b78 (gabelapham 2023-10-15 01:37:47 -0400   1) import { useState } from 'react'
+d5efe3f73 (gabelapham 2023-10-14 23:18:30 -0400   2) import './Stats.css'
+98bc07b78 (gabelapham 2023-10-15 01:37:47 -0400   3) import './index.css'
+d154eba6c (gabelapham 2023-10-14 22:10:28 -0400   4)
+d154eba6c (gabelapham 2023-10-14 22:10:28 -0400   5) function Stats() {
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400   6)     const [level, setLevel] = useState(1)
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400   7)
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400   8)     const [strength, setStrength] = useState(10)
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400   9)     const [strengthMod, setStrengthMod] = useState(0)
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  10)     const [strength_st_pb, setStrPB] = useState(false)
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  11)     function setStrFunc(e) {
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  12)         setStrPB(e.target.checked)
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  13)     }
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400  14)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400  15)     const [dexterity, setDexterity] = useState(10)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400  16)     const [dexterityMod, setDexterityMod] = useState(0)
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  17)     const [dexterity_st_pb, setDexPB] = useState(false)
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  18)     function setDexFunc(e) {
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  19)         setDexPB(e.target.checked)
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  20)     }
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400  21)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400  22)     const [constitution, setConstitution] = useState(10)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400  23)     const [constitutionMod, setConstitutionMod] = useState(0)
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  24)     const [constitution_st_pb, setConPB] = useState(false)
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  25)     function setConFunc(e) {
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  26)         setConPB(e.target.checked)
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  27)     }
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400  28)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400  29)     const [intelligence, setIntelligence] = useState(10)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400  30)     const [intelligenceMod, setIntelligenceMod] = useState(0)
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  31)     const [intelligence_st_pb, setIntPB] = useState(false)
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  32)     function setIntFunc(e) {
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  33)         setIntPB(e.target.checked)
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  34)     }
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400  35)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400  36)     const [wisdom, setWisdom] = useState(10)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400  37)     const [wisdomMod, setWisdomMod] = useState(0)
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  38)     const [wisdom_st_pb, setWisPB] = useState(false)
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  39)     function setWisFunc(e) {
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  40)         setWisPB(e.target.checked)
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  41)     }
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400  42)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400  43)     const [charisma, setCharisma] = useState(10)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400  44)     const [charismaMod, setCharismaMod] = useState(0)
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  45)     const [charisma_st_pb, setChaPB] = useState(false)
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  46)     function setChaFunc(e) {
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  47)         setChaPB(e.target.checked)
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400  48)     }
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400  49)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400  50)     const [pb, setPb] = useState(2)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400  51)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400  52)     function pbFunc(lvl) {
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400  53)         setLevel(lvl)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400  54)         switch(lvl) {
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400  55)             case "1":
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400  56)             case "2":
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400  57)             case "3":
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400  58)             case "4":
+d220619be (gabelapham 2023-10-15 04:16:20 -0400  59)                 setPb(2)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400  60)                 break
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400  61)             case "5":
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400  62)             case "6":
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400  63)             case "7":
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400  64)             case "8":
+d220619be (gabelapham 2023-10-15 04:16:20 -0400  65)                 setPb(3)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400  66)                 break
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400  67)             case "9":
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400  68)             case "10":
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400  69)             case "11":
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400  70)             case "12":
+d220619be (gabelapham 2023-10-15 04:16:20 -0400  71)                 setPb(4)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400  72)                 break
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400  73)             case "13":
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400  74)             case "14":
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400  75)             case "15":
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400  76)             case "16":
+d220619be (gabelapham 2023-10-15 04:16:20 -0400  77)                 setPb(5)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400  78)                 break
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400  79)             case "17":
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400  80)             case "18":
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400  81)             case "19":
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400  82)             case "20":
+d220619be (gabelapham 2023-10-15 04:16:20 -0400  83)                 setPb(6)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400  84)                 break
+d220619be (gabelapham 2023-10-15 04:16:20 -0400  85)             default:
+d220619be (gabelapham 2023-10-15 04:16:20 -0400  86)                 break
+d220619be (gabelapham 2023-10-15 04:16:20 -0400  87)         }
+d220619be (gabelapham 2023-10-15 04:16:20 -0400  88)     }
+d220619be (gabelapham 2023-10-15 04:16:20 -0400  89)
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400  90)     function Mod(e) {
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400  91)         switch(e) {
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400  92)             case 1:
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400  93)                 return(-5)
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400  94)             case 2:
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400  95)             case 3:
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400  96)                 return(-4)
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400  97)             case 4:
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400  98)             case 5:
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400  99)                 return(-3)
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400 100)             case 6:
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400 101)             case 7:
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400 102)                 return(-2)
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400 103)             case 8:
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400 104)             case 9:
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400 105)                 return(-1)
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400 106)             case 10:
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400 107)             case 11:
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400 108)                 return(0)
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400 109)             case 12:
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400 110)             case 13:
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400 111)                 return(+1)
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400 112)             case 14:
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400 113)             case 15:
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400 114)                 return(+2)
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400 115)             case 16:
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400 116)             case 17:
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400 117)                 return(+3)
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400 118)             case 18:
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400 119)             case 19:
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400 120)                 return (+4)
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400 121)             case 20:
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400 122)                 return (+5)
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400 123)             default:
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 124)                 break
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400 125)         }
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400 126)     }
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400 127)
+98bc07b78 (gabelapham 2023-10-15 01:37:47 -0400 128)     function setStrengthFunc(e) {
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400 129)         if (e > 20) {
+98bc07b78 (gabelapham 2023-10-15 01:37:47 -0400 130)             setStrength(20)
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400 131)             return;
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400 132)         } else if (e < 1) {
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400 133)             setStrength(1)
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400 134)             return;
+98bc07b78 (gabelapham 2023-10-15 01:37:47 -0400 135)         } else {
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400 136)             setStrength(e)
+98bc07b78 (gabelapham 2023-10-15 01:37:47 -0400 137)         }
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400 138)         setStrengthMod(Mod(e))
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 139)         return;
+98bc07b78 (gabelapham 2023-10-15 01:37:47 -0400 140)     }
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 141)     function setDexterityFunc(e) {
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 142)         if (e > 20) {
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 143)             setDexterity(20)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 144)             return;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 145)         } else if (e < 1) {
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 146)             setDexterity(1)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 147)             return;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 148)         } else {
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 149)             setDexterity(e)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 150)         }
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 151)         setDexterityMod(Mod(e))
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 152)         return;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 153)     }
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 154)     function setConstitutionFunc(e) {
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 155)         if (e > 20) {
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 156)             setConstitution(20)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 157)             return;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 158)         } else if (e < 1) {
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 159)             setConstitution(1)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 160)             return;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 161)         } else {
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 162)             setConstitution(e)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 163)         }
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 164)         setConstitutionMod(Mod(e))
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 165)         return;
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 166)     }
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 167)     function setIntelligenceFunc(e) {
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 168)         if (e > 20) {
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 169)             setIntelligence(20)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 170)             return;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 171)         } else if (e < 1) {
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 172)             setIntelligence(1)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 173)             return;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 174)         } else {
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 175)             setIntelligence(e)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 176)         }
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 177)         setIntelligenceMod(Mod(e))
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 178)         return;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 179)     }
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 180)     function setWisdomFunc(e) {
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 181)         if (e > 20) {
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 182)             setWisdom(20)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 183)             return;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 184)         } else if (e < 1) {
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 185)             setWisdom(1)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 186)             return;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 187)         } else {
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 188)             setWisdom(e)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 189)         }
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 190)         setWisdomMod(Mod(e))
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 191)         return;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 192)     }
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 193)     function setCharismaFunc(e) {
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 194)         if (e > 20) {
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 195)             setCharisma(20)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 196)             return;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 197)         } else if (e < 1) {
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 198)             setCharisma(1)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 199)             return;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 200)         } else {
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 201)             setCharisma(e)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 202)         }
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 203)         setCharismaMod(Mod(e))
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 204)         return;
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 205)     }
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 206)
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 207)     const [acrobatics_pb, setAcrobaticsPB] = useState(false)
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 208)     function setAcrobaticsFunc(e) {
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 209)         setAcrobaticsPB(e.target.checked)
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 210)     }
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 211)     const [animal_handling_pb, setAnimalHandlingPB] = useState(false)
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 212)     function setAnimalHandlingFunc(e) {
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 213)         setAnimalHandlingPB(e.target.checked)
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 214)     }
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 215)     const [arcana_pb, setArcanaPB] = useState(false)
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 216)     function setArcanaFunc(e) {
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 217)         setArcanaPB(e.target.checked)
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 218)     }
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 219)     const [athletics_pb, setAthleticsPB] = useState(false)
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 220)     function setAthleticsFunc(e) {
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 221)         setAthleticsPB(e.target.checked)
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 222)     }
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 223)     const [deception_pb, setDeceptionPB] = useState(false)
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 224)     function setDeceptionFunc(e) {
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 225)         setDeceptionPB(e.target.checked)
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 226)     }
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 227)     const [history_pb, setHistoryPB] = useState(false)
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 228)     function setHistoryFunc(e) {
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 229)         setHistoryPB(e.target.checked)
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 230)     }
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 231)     const [insight_pb, setInsightPB] = useState(false)
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 232)     function setInsightFunc(e) {
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 233)         setInsightPB(e.target.checked)
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 234)     }
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 235)     const [intimidation_pb, setIntimidationPB] = useState(false)
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 236)     function setIntimidationFunc(e) {
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 237)         setIntimidationPB(e.target.checked)
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 238)     }
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 239)     const [investigation_pb, setInvestigationPB] = useState(false)
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 240)     function setInvestigationFunc(e) {
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 241)         setInvestigationPB(e.target.checked)
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 242)     }
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 243)     const [medicine_pb, setMedicinePB] = useState(false)
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 244)     function setMedicineFunc(e) {
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 245)         setMedicinePB(e.target.checked)
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 246)     }
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 247)     const [nature_pb, setNaturePB] = useState(false)
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 248)     function setNatureFunc(e) {
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 249)         setNaturePB(e.target.checked)
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 250)     }
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 251)     const [perception_pb, setPerceptionPB] = useState(false)
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 252)     function setPerceptionFunc(e) {
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 253)         setPerceptionPB(e.target.checked)
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 254)     }
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 255)     const [performance_pb, setPerformancePB] = useState(false)
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 256)     function setPerformanceFunc(e) {
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 257)         setPerformancePB(e.target.checked)
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 258)     }
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 259)     const [persuasion_pb, setPersuasionPB] = useState(false)
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 260)     function setPersuasionFunc(e) {
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 261)         setPersuasionPB(e.target.checked)
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 262)     }
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 263)     const [religion_pb, setReligionPB] = useState(false)
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 264)     function setReligionFunc(e) {
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 265)         setReligionPB(e.target.checked)
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400 266)     }
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 267)     const [sleight_of_hand_pb, setSleightOfHandPB] = useState(false)
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 268)     function setSleightOfHandFunc(e) {
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 269)         setSleightOfHandPB(e.target.checked)
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 270)     }
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 271)     const [stealth_pb, setStealthPB] = useState(false)
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 272)     function setStealthFunc(e) {
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 273)         setStealthPB(e.target.checked)
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 274)     }
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 275)     const [survival_pb, setSurvivalPB] = useState(false)
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 276)     function setSurvivalFunc(e) {
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 277)         setSurvivalPB(e.target.checked)
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 278)     }
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 279)
+d5efe3f73 (gabelapham 2023-10-14 23:18:30 -0400 280) return(
+d5efe3f73 (gabelapham 2023-10-14 23:18:30 -0400 281)     <>
+d5efe3f73 (gabelapham 2023-10-14 23:18:30 -0400 282)     <div>
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400 283)         <label name="Player Stats" />
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400 284)             <select id="level_select" onChange={() => pbFunc(level_select.value)}>
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400 285)                 <option value="1">1</option>
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400 286)                 <option value="2">2</option>
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400 287)                 <option value="3">3</option>
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400 288)                 <option value="4">4</option>
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400 289)                 <option value="5">5</option>
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400 290)                 <option value="6">6</option>
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400 291)                 <option value="7">7</option>
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400 292)                 <option value="8">8</option>
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400 293)                 <option value="9">9</option>
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400 294)                 <option value="10">10</option>
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400 295)                 <option value="11">11</option>
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400 296)                 <option value="12">12</option>
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400 297)                 <option value="13">13</option>
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400 298)                 <option value="14">14</option>
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400 299)                 <option value="15">15</option>
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400 300)                 <option value="16">16</option>
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400 301)                 <option value="17">17</option>
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400 302)                 <option value="18">18</option>
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400 303)                 <option value="19">19</option>
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400 304)                 <option value="20">20</option>
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400 305)             </select>
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400 306)
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400 307)         <label name="Prof Bonus" />
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400 308)             <p id="pb">
+15cbc9799 (gabelapham 2023-10-15 22:32:10 -0400 309)                 +{pb}
+c110aa97e (gabelapham 2023-10-15 10:13:49 -0400 310)             </p>
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400 311)
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400 312)         {/* CORE STATS */}
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 313)         <label name="STR Stats">
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400 314)             <button id="str_inc" checked={strength} onClick={() => setStrengthFunc(strength + 1)}>
+98bc07b78 (gabelapham 2023-10-15 01:37:47 -0400 315)                 +
+98bc07b78 (gabelapham 2023-10-15 01:37:47 -0400 316)             </button>
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400 317)             <button id="str_dec" checked={strength} onClick={() => setStrengthFunc(strength - 1)}>
+98bc07b78 (gabelapham 2023-10-15 01:37:47 -0400 318)                 -
+98bc07b78 (gabelapham 2023-10-15 01:37:47 -0400 319)             </button>
+98bc07b78 (gabelapham 2023-10-15 01:37:47 -0400 320)             <p id="str">
+98bc07b78 (gabelapham 2023-10-15 01:37:47 -0400 321)                 {strength}
+98bc07b78 (gabelapham 2023-10-15 01:37:47 -0400 322)             </p>
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400 323)             <p id="str_mod">
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400 324)                 {strengthMod}
+dd65b50af (gabelapham 2023-10-15 02:15:07 -0400 325)             </p>
+98bc07b78 (gabelapham 2023-10-15 01:37:47 -0400 326)         </label>
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 327)         <label name="DEX Stats">
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 328)             <button id="dex_inc" checked={dexterity} onClick={() => setDexterityFunc(dexterity + 1)}>
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 329)                 +
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 330)             </button>
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 331)             <button id="dex_dec" checked={dexterity} onClick={() => setDexterityFunc(dexterity - 1)}>
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 332)                 -
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 333)             </button>
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 334)             <p id="dex">
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 335)                 {dexterity}
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 336)             </p>
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 337)             <p id="dex_mod">
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 338)                 {dexterityMod}
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 339)             </p>
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 340)         </label>
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 341)         <label name="CON Stats">
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 342)             <button id="con_inc" checked={constitution} onClick={() => setConstitutionFunc(constitution + 1)}>
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 343)                 +
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 344)             </button>
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 345)             <button id="con_dec" checked={constitution} onClick={() => setConstitutionFunc(constitution - 1)}>
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 346)                 -
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 347)             </button>
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 348)             <p id="con">
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 349)                 {constitution}
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 350)             </p>
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 351)             <p id="con_mod">
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 352)                 {constitutionMod}
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 353)             </p>
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 354)         </label>
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 355)         <label name="INT Stats">
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 356)             <button id="int_inc" checked={intelligence} onClick={() => setIntelligenceFunc(intelligence + 1)}>
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 357)                 +
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 358)             </button>
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 359)             <button id="int_dec" checked={intelligence} onClick={() => setIntelligenceFunc(intelligence - 1)}>
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 360)                 -
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 361)             </button>
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 362)             <p id="int">
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 363)                 {intelligence}
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 364)             </p>
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 365)             <p id="int_mod">
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 366)                 {intelligenceMod}
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 367)             </p>
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 368)         </label>
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 369)         <label name="WIS Stats">
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 370)             <button id="wis_inc" checked={wisdom} onClick={() => setWisdomFunc(wisdom + 1)}>
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 371)                 +
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 372)             </button>
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 373)             <button id="wis_dec" checked={wisdom} onClick={() => setWisdomFunc(wisdom - 1)}>
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 374)                 -
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 375)             </button>
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 376)             <p id="wis">
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 377)                 {wisdom}
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 378)             </p>
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 379)             <p id="wis_mod">
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 380)                 {wisdomMod}
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 381)             </p>
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 382)         </label>
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 383)         <label name="CHA Stats">
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 384)             <button id="cha_inc" checked={charisma} onClick={() => setCharismaFunc(charisma + 1)}>
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 385)                 +
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 386)             </button>
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 387)             <button id="cha_dec" checked={charisma} onClick={() => setCharismaFunc(charisma - 1)}>
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 388)                 -
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 389)             </button>
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 390)             <p id="cha">
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 391)                 {charisma}
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 392)             </p>
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 393)             <p id="cha_mod">
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 394)                 {charismaMod}
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 395)             </p>
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 396)         </label>
+98bc07b78 (gabelapham 2023-10-15 01:37:47 -0400 397)     </div>
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400 398)     {/* SAVING THROWS + PB CHECKBOXES */}
+98bc07b78 (gabelapham 2023-10-15 01:37:47 -0400 399)     <div>
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400 400)         <p id="str_st">
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400 401)             {strengthMod+(strength_st_pb*pb)}
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400 402)         </p>
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400 403)         <input type="checkbox" id="st_pb_str" checked={strength_st_pb} onChange={setStrFunc}/>
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400 404)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 405)         <p id="dex_st">
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400 406)             {dexterityMod+(dexterity_st_pb*pb)}
+98bc07b78 (gabelapham 2023-10-15 01:37:47 -0400 407)         </p>
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400 408)         <input type="checkbox" id="st_pb_dex" checked={dexterity_st_pb} onChange={setDexFunc}/>
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400 409)
+4ecaf2349 (gabelapham 2023-10-15 03:28:53 -0400 410)         <p id="con_st">
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400 411)             {constitutionMod+(constitution_st_pb*pb)}
+4ecaf2349 (gabelapham 2023-10-15 03:28:53 -0400 412)         </p>
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400 413)         <input type="checkbox" id="st_pb_con" checked={constitution_st_pb} onChange={setConFunc}/>
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400 414)
+4ecaf2349 (gabelapham 2023-10-15 03:28:53 -0400 415)         <p id="int_st">
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400 416)             {intelligenceMod+(intelligence_st_pb*pb)}
+4ecaf2349 (gabelapham 2023-10-15 03:28:53 -0400 417)         </p>
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400 418)         <input type="checkbox" id="st_pb_int" checked={intelligence_st_pb} onChange={setIntFunc}/>
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400 419)
+4ecaf2349 (gabelapham 2023-10-15 03:28:53 -0400 420)         <p id="wis_st">
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400 421)             {wisdomMod+(wisdom_st_pb*pb)}
+4ecaf2349 (gabelapham 2023-10-15 03:28:53 -0400 422)         </p>
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400 423)         <input type="checkbox" id="st_pb_wis" checked={wisdom_st_pb} onChange={setWisFunc}/>
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400 424)
+4ecaf2349 (gabelapham 2023-10-15 03:28:53 -0400 425)         <p id="cha_st">
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400 426)             {charismaMod+(charisma_st_pb*pb)}
+4ecaf2349 (gabelapham 2023-10-15 03:28:53 -0400 427)         </p>
+62df3333d (gabelapham 2023-10-15 23:17:51 -0400 428)         <input type="checkbox" id="st_pb_cha" checked={charisma_st_pb} onChange={setChaFunc}/>
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 429)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 430)         {/* SKILLS */}
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 431)             <p id="acrobatics">
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 432)                 {dexterityMod+(acrobatics_pb*pb)}
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 433)             </p>
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 434)             <input type="checkbox" id="acrobatics_pb" checked={acrobatics_pb} onChange={setAcrobaticsFunc}/>
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 435)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 436)             <p id="animal_handling">
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 437)                 {wisdomMod+(animal_handling_pb*pb)}
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 438)             </p>
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 439)             <input type="checkbox" id="animal_handling_pb" checked={animal_handling_pb} onChange={setAnimalHandlingFunc}/>
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 440)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 441)             <p id="arcana">
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 442)                 {intelligenceMod+(arcana_pb*pb)}
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 443)             </p>
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 444)             <input type="checkbox" id="arcana_pb" checked={arcana_pb} onChange={setArcanaFunc}/>
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 445)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 446)             <p id="athletics">
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 447)                 {strengthMod+(athletics_pb*pb)}
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 448)             </p>
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 449)             <input type="checkbox" id="athletics_pb" checked={athletics_pb} onChange={setAthleticsFunc}/>
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 450)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 451)             <p id="deception">
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 452)                 {charismaMod+(deception_pb*pb)}
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 453)             </p>
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 454)             <input type="checkbox" id="deception_pb" checked={deception_pb} onChange={setDeceptionFunc}/>
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 455)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 456)             <p id="history">
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 457)                 {intelligenceMod+(history_pb*pb)}
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 458)             </p>
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 459)             <input type="checkbox" id="history_pb" checked={history_pb} onChange={setHistoryFunc}/>
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 460)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 461)             <p id="insight">
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 462)                 {wisdomMod+(insight_pb*pb)}
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 463)             </p>
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 464)             <input type="checkbox" id="insight_pb" checked={insight_pb} onChange={setInsightFunc}/>
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 465)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 466)             <p id="intimidation">
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 467)                 {charismaMod+(intimidation_pb*pb)}
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 468)             </p>
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 469)             <input type="checkbox" id="intimidation_pb" checked={intimidation_pb} onChange={setIntimidationFunc}/>
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 470)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 471)             <p id="investigation">
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 472)                 {intelligenceMod+(investigation_pb*pb)}
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 473)             </p>
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 474)             <input type="checkbox" id="investigation_pb" checked={investigation_pb} onChange={setInvestigationFunc}/>
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 475)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 476)             <p id="medicine">
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 477)                 {wisdomMod+(medicine_pb*pb)}
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 478)             </p>
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 479)             <input type="checkbox" id="medicine_pb" checked={medicine_pb} onChange={setMedicineFunc}/>
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 480)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 481)             <p id="nature">
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 482)                 {intelligenceMod+(nature_pb*pb)}
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 483)             </p>
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 484)             <input type="checkbox" id="nature_pb" checked={nature_pb} onChange={setNatureFunc}/>
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 485)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 486)             <p id="perception">
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 487)                 {wisdomMod+(perception_pb*pb)}
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 488)             </p>
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 489)             <input type="checkbox" id="perception_pb" checked={perception_pb} onChange={setPerceptionFunc}/>
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 490)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 491)             <p id="performance">
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 492)                 {charismaMod+(performance_pb*pb)}
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 493)             </p>
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 494)             <input type="checkbox" id="performance_pb" checked={performance_pb} onChange={setPerformanceFunc}/>
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 495)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 496)             <p id="persuasion">
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 497)                 {charismaMod+(persuasion_pb*pb)}
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 498)             </p>
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 499)             <input type="checkbox" id="persuasion_pb" checked={persuasion_pb} onChange={setPersuasionFunc}/>
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 500)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 501)             <p id="religion">
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 502)                 {intelligenceMod+(religion_pb*pb)}
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 503)             </p>
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 504)             <input type="checkbox" id="religion_pb" checked={religion_pb} onChange={setReligionFunc}/>
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 505)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 506)             <p id="sleight_of_hand">
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 507)                 {dexterityMod+(sleight_of_hand_pb*pb)}
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 508)             </p>
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 509)             <input type="checkbox" id="sleight_of_hand_pb" checked={sleight_of_hand_pb} onChange={setSleightOfHandFunc}/>
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 510)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 511)             <p id="stealth">
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 512)                 {dexterityMod+(stealth_pb*pb)}
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 513)             </p>
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 514)             <input type="checkbox" id="stealth_pb" checked={stealth_pb} onChange={setStealthFunc}/>
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 515)
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 516)             <p id="survival">
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 517)                 {wisdomMod+(survival_pb*pb)}
+42632c72d (gabelapham 2023-10-15 03:24:00 -0400 518)             </p>
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 519)             <input type="checkbox" id="survival_pb" checked={survival_pb} onChange={setSurvivalFunc}/>
+4b36a779a (gabelapham 2023-10-16 00:30:20 -0400 520)
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 521)         {/* OTHER SKILLS */}
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 522)             <p id="passive_perception">
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 523)                 {10+wisdomMod+pb}
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 524)             </p>
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 525)             <p id="initiative">
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 526)                 {dexterityMod}
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 527)             </p>
+d220619be (gabelapham 2023-10-15 04:16:20 -0400 528)
+d5efe3f73 (gabelapham 2023-10-14 23:18:30 -0400 529)     </div>
+d5efe3f73 (gabelapham 2023-10-14 23:18:30 -0400 530)     </>
+d5efe3f73 (gabelapham 2023-10-14 23:18:30 -0400 531) )
+d5efe3f73 (gabelapham 2023-10-14 23:18:30 -0400 532) }
+d5efe3f73 (gabelapham 2023-10-14 23:18:30 -0400 533)
+d5efe3f73 (gabelapham 2023-10-14 23:18:30 -0400 534) export default Stats
+
+// Index.css
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400  1) :root {
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400  2)   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400  3)   line-height: 1.5;
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400  4)   font-weight: 400;
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400  5)
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400  6)   color-scheme: light dark;
+98bc07b78 (gabelapham 2023-10-15 01:37:47 -0400  7)   color: rgba(0, 0, 0, 0.87);
+728b750af (gabelapham 2023-10-14 11:25:29 -0400  8)   background-color: #282828;
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400  9)
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 10)   font-synthesis: none;
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 11)   text-rendering: optimizeLegibility;
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 12)   -webkit-font-smoothing: antialiased;
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 13)   -moz-osx-font-smoothing: grayscale;
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 14)   -webkit-text-size-adjust: 100%;
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 15) }
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 16)
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 17) a {
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 18)   font-weight: 500;
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 19)   color: #646cff;
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 20)   text-decoration: inherit;
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 21) }
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 22) a:hover {
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 23)   color: #535bf2;
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 24) }
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 25)
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 26) body {
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 27)   margin: 0;
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 28)   display: flex;
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 29)   place-items: center;
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 30)   min-width: 320px;
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 31)   min-height: 100vh;
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 32) }
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 33)
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 34) h1 {
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 35)   font-size: 3.2em;
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 36)   line-height: 1.1;
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 37) }
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 38)
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 39) button {
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 40)   border-radius: 8px;
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 41)   border: 1px solid transparent;
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 42)   padding: 0.6em 1.2em;
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 43)   font-size: 1em;
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 44)   font-weight: 500;
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 45)   font-family: inherit;
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 46)   background-color: #1a1a1a;
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 47)   cursor: pointer;
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 48)   transition: border-color 0.25s;
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 49) }
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 50) button:hover {
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 51)   border-color: #646cff;
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 52) }
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 53) button:focus,
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 54) button:focus-visible {
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 55)   outline: 4px auto -webkit-focus-ring-color;
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 56) }
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 57)
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 58) @media (prefers-color-scheme: light) {
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 59)   :root {
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 60)     color: #213547;
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 61)     background-color: #ffffff;
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 62)   }
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 63)   a:hover {
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 64)     color: #747bff;
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 65)   }
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 66)   button {
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 67)     background-color: #f9f9f9;
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 68)   }
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 69) }
+
+// main.jsx
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400  1) import React from 'react'
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400  2) import ReactDOM from 'react-dom/client'
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400  3) import App from './App.jsx'
+d5efe3f73 (gabelapham 2023-10-14 23:18:30 -0400  4) import Stats from './Stats.jsx'
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400  5) import './index.css'
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400  6)
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400  7) ReactDOM.createRoot(document.getElementById('root')).render(
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400  8)   <React.StrictMode>
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400  9)     <App />
+d5efe3f73 (gabelapham 2023-10-14 23:18:30 -0400 10)     <Stats />
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 11)   </React.StrictMode>,
+4110470f1 (gabelapham 2023-10-13 17:56:25 -0400 12) )
