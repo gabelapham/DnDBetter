@@ -1,16 +1,23 @@
 
 /* PLAYER STATS */
 
-#level {
-
+#level_select {
+    color:black;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    position: absolute;
+    background-color: white;
+    font-size: 25px;
+    top: 242px;
+    left: 840px;
 }
 
 #pb {
     color:black;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 35px;
+    font-size: 30px;
     position: absolute;
-    left: 500px; 
+    left: 325px;
+    top: 458px;
 }
 
 /* STRENGTH STATS + SKILLS */
