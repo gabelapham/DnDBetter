@@ -1,26 +1,21 @@
-
-
-import React from 'react';
-import './App.css'; // Your existing CSS file
+import React, { useState } from 'react';
+import './App.css';
 import ImageComponent from './ImageComponent';
 
 function App() {
-  const [text, setText] = React.useState("")
+  const [text, setText] = useState("");
 
-  function handleText(event) {
-    const newText = event.target.value
-    setText(newText)
+  function handleTextChange(newText) {
+    setText(newText);
   }
 
   return (
-    <div classname="container">
-        <input type="text" placeholder="Type text here" classname="input" onChange={handleText}
-        value={text}/>
-        <div classname="image-wrapper">
-         <ImageComponent/> {}
-          </div>
-        </div>
-  )
+    <div className="container">
+      <div className="image-wrapper">
+        <ImageComponent userText={text} onUserTextChange={handleTextChange} />
+      </div>
+    </div>
+  );
 }
 
 export default App;
