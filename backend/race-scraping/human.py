@@ -44,7 +44,7 @@ for section in data.find_all('div', class_='row'):
             print(text1_list[0] + ': ')
             # print the feature description
             print(text1_list[1])
-    # iteration 3 is for the rock gnome
+    # iteration 3 is for the variant human
     if i == 3:
         print()
         variant2_header = section.h3.span.text
