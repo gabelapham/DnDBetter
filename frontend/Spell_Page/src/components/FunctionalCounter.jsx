@@ -32,8 +32,6 @@ function FunctionalCounter(){
                 <SpellLog count={counter} />
             </div>
         </div>
-        
-        
 
         </>
     );
