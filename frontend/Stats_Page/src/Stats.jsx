@@ -215,8 +215,7 @@ return(
 
         <label name="Prof Bonus" />
             <p id="pb">
-                Prof Bonus:{pb} <br></br>
-                Level: {level}
+                +{pb}
             </p>
         <label name="STR Stats">
             <button id="str_inc" checked={strength} onClick={() => setStrengthFunc(strength + 1)}>
