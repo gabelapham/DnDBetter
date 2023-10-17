@@ -14,9 +14,9 @@ Tyler Catuncan, tcatunca, DnDBetter
 - Most of my issues came from the fact that I wanted to complete specific features for pages that weren't complete yet. This meant that I had to wait to actually begin doing my work, during which I helped the backend people with some of the data scraping in the interim. 
 
 ### Issues you worked on
-- #24 Create buttons to other pages
-- #28 Create landing page
-- #30 Scrape Cleric class data
+- [#24](https://github.com/gabelapham/DnDBetter/issues/24) Create buttons to other pages
+- [#28](https://github.com/gabelapham/DnDBetter/issues/28) Create landing page
+- [#30](https://github.com/gabelapham/DnDBetter/issues/30) Scrape Cleric class data
 
 ### Files you worked on
 - all files in ./frontend/landing_page
