@@ -22,6 +22,10 @@ function App() {
           <input id="playname" name="playName" maxLength={15} />
         </label>
       </div>
+      <div>
+        <button id="leftbutton">←</button>
+        <button id="rightbutton">→</button>
+      </div>
     </>
   )
 }
