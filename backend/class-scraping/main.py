@@ -59,29 +59,29 @@ practice = (practice.partition("Instinctive Pounce (Optional)")[1] +
 
 barbClassFeatures.append(practice.partition("Brutal Critical")[0])
 practice = practice.partition("Brutal Critical")[1] + practice.partition("Brutal Critical")[2]
-barbClassFeatures.append("ASI")
+barbClassFeatures.append(barbClassFeatures[9])
 
 barbClassFeatures.append(practice.partition("Relentless Rage")[0])
 
 # Certain pieces of class information, typical those that occur multiple times, are not included in wikidot's class description. So I occasionally had to append to the
 # information by hand, and not by partition the website
 barbClassFeatures.append("Path Feature")
-barbClassFeatures.append("Primal Knowledge (Optional)")
+barbClassFeatures.append(barbClassFeatures[8])
 practice = practice.partition("Relentless Rage")[1] + practice.partition("Relentless Rage")[2]
 
 barbClassFeatures.append(practice.partition("Persistent Rage")[0])
-barbClassFeatures.append("ASI")
-barbClassFeatures.append("Brutal Critical (2)")
+barbClassFeatures.append(barbClassFeatures[9])
+barbClassFeatures.append(barbClassFeatures[16])
 barbClassFeatures.append("Path Feature")
 practice = practice.partition("Persistent Rage")[1] + practice.partition("Persistent Rage")[2]
 
 barbClassFeatures.append(practice.partition("Indomitable Might")[0])
-barbClassFeatures.append("ASI")
-barbClassFeatures.append("Brutal Critical (3)")
+barbClassFeatures.append(barbClassFeatures[9])
+barbClassFeatures.append(barbClassFeatures[16])
 practice = practice.partition("Indomitable Might")[1] + practice.partition("Indomitable Might")[2]
 
 barbClassFeatures.append(practice.partition("Primal Champion")[0])
-barbClassFeatures.append("ASI")
+barbClassFeatures.append(barbClassFeatures[9])
 practice = practice.partition("Primal Champion")[1] + practice.partition("Primal Champion")[2]
 
 barbClassFeatures.append(practice)
@@ -173,9 +173,7 @@ soup = BeautifulSoup(page.content, "html.parser")
 results = soup.find("div", class_="col-lg-12")
 practice = results.text
 practice = practice.partition("Hit Points")[1] + practice.partition("Hit Points")[2]
-
 clericLevelUp = [0, 0, 0, 1, 1, 2, 2, 2, 4, 4, 5, 6, 6, 8, 8, 8, 8, 10, 11, 12, 12, 14, 16, 16, 17, 17, 18, 19, 19, 20]
-
 clericClassFeatures = [practice.partition("Proficiencies")[0]]
 practice = practice.partition("Proficiencies")[1] + practice.partition("Proficiencies")[2]
 
@@ -234,6 +232,34 @@ clericClassFeatures.append("Cantrip Versatility (Optional)")
 clericClassFeatures.append(practice.partition("long rest.")[2])
 
 
+URL = "http://dnd5e.wikidot.com/druid"
+page = requests.get(URL)
+soup = BeautifulSoup(page.content, "html.parser")
+results = soup.find("div", class_="col-lg-12")
+practice = results.text
+practice = practice.partition("Hit Points")[1] + practice.partition("Hit Points")[2]
+features = results.findAll("p")
+print(len(features))
+druidLevelUp = [0, 0, 0, 1, 1, 2, 2, 2, 4, 4, 4, 6, 8, 8, 8, 10, 12, 12, 14, 16, 16, 18, 18, 19, 19, 20]
+druidClassFeatures = [practice.partition("Proficiencies")[0]]
+print(len(druidLevelUp))
+practice = practice.partition("Proficiencies")[1] + practice.partition("Proficiencies")[2]
+
+druidClassFeatures.append(practice.partition("Equipment")[0])
+practice = practice.partition("Equipment")[1] + practice.partition("Equipment")[2]
+
+druidClassFeatures.append(practice.partition("Druidic")[0])
+practice = practice.partition("Druidic")[1] + practice.partition("Druidic")[2]
+
+druidClassFeatures.append(practice.partition("Spellcasting")[0])
+practice = practice.partition("Spellcasting")[1] + practice.partition("Spellcasting")[2]
+
+druidClassFeatures.append(practice.partition("Wild Shape")[0])
+practice = practice.partition("Wild Shape")[1] + practice.partition("Wild Shape")[2]
+
+druidClassFeatures.append(practice.partition("Druid Circle")[0])
+practice = practice.partition("Druid Circle")[1] + practice.partition("Druid Circle")[2]
+
 # Once the data has been scraped, it's info is then stored into a dictionary to associate the poper features with the proper levels. The dictionary is then made into a
 # pandas dataframe.
 barbData = {
@@ -255,7 +281,7 @@ df2 = pd.DataFrame(bardData)
 clericData = {
     "class": classNames[2],
     "level": clericLevelUp,
-    "features": clericClassFeatures
+    "features": clericClassFeatures,
 }
 
 df3 = pd.DataFrame(clericData)
@@ -270,6 +296,7 @@ finalDf = finalDf.reset_index()
 # Allows the entire dataframe to be printed, rather than just the beginning and end. Purely for testing purposes
 with pd.option_context('display.max_rows', None,
                        'display.max_columns', None,
-                       'display.precision', 3,
+                       'display.precision', 9,
                        ):
     print(finalDf)
+
