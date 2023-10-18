@@ -41,3 +41,14 @@
   left: 1080px;
   border-color: white;
 }
+
+#leftbutton {
+  text-align: left;
+  float: left;
+}
+
+#rightbutton {
+  text-align: right;
+  float: right;
+  justify-content: flex-end;
+}
