@@ -1,0 +1,78 @@
+//index.css
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400  1) body {
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400  2)     margin: 0;
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400  3)     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400  4)         'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400  5)         sans-serif;
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400  6)     -webkit-font-smoothing: antialiased;
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400  7)     -moz-osx-font-smoothing: grayscale;
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400  8) }
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400  9) 
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 10) code {
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 11)     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 12)         monospace;
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 13) }
+//index.js
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400  1) import React from 'react';
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400  2) import ReactDOM from 'react-dom';
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400  3) import App from './App';
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400  4) import './index.css';
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400  5) 
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400  6) 
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400  7) ReactDOM.render(
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400  8)     <React.StrictMode>
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400  9)         <App />
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 10)     </React.StrictMode>,
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 11)     document.getElementById('root')
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 12) );
+//app.js
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400  1) import React, { useState } from 'react';
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400  2) 
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400  3) function App() {
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400  4)     const [username, setUsername] = useState('');
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400  5)     const [password, setPassword] = useState('');
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400  6) 
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400  7)     const handleUsernameChange = (event) => {
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400  8)         setUsername(event.target.value);
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400  9)     };
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 10) 
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 11)     const handlePasswordChange = (event) => {
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 12)         setPassword(event.target.value);
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 13)     };
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 14) 
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 15)     const handleLogin = () => {
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 16)         // Add logic to handle login here
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 17)         console.log('Username:', username);
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 18)         console.log('Password:', password);
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 19)         // You can send a request to your authentication server here
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 20)     };
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 21) 
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 22)     return (
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 23)         <div className="App">
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 24)             <h1>Login Page</h1>
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 25)             <form>
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 26)                 <div className="form-group">
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 27)                     <label htmlFor="username">Username:</label>
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 28)                     <input
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 29)                         type="text"
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 30)                         id="username"
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 31)                         value={username}
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 32)                         onChange={handleUsernameChange}
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 33)                     />
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 34)                 </div>
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 35)                 <div className="form-group">
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 36)                     <label htmlFor="password">Password:</label>
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 37)                     <input
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 38)                         type="password"
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 39)                         id="password"
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 40)                         value={password}
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 41)                         onChange={handlePasswordChange}
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 42)                     />
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 43)                 </div>
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 44)                 <button type="button" onClick={handleLogin}>Login</button>
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 45)             </form>
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 46)         </div>
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 47)     );
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 48) }
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 49) 
+cdaf87b15 (Cooper Sarphie 2023-10-14 23:31:57 -0400 50) export default App;
