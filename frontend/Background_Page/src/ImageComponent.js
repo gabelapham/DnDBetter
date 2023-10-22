@@ -3,14 +3,14 @@ import image from './char_sheet.jpg';
 
 function ImageComponent({ userText, onUserTextChange }) {
   const positions = [
-    { top: '3%', left: '5%' },
-    { top: '1%', left: '37%' },
-    { top: '1%', left: '55%' },
-    { top: '1%', left: '70%' },
-    { top: '4%', left: '37%' },
-    { top: '4%', left: '55%' },
-    { top: '4%', left: '70%' },
-    { top: '14%', left: '65%' },
+    { top: '8%', left: '10%' },
+    { top: '6%', left: '43%' },
+    { top: '6%', left: '60%' },
+    { top: '6%', left: '75%' },
+    { top: '9.5%', left: '43%' },
+    { top: '9.5%', left: '60%' },
+    { top: '9.5%', left: '75%' },
+    { top: '19%', left: '70%' },
   ];
 
   return (

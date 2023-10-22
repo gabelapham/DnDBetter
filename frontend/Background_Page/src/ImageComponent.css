@@ -1,22 +1,21 @@
 .image-container {
-    position: absolute;
-    display: inline-block;
-  }
-  
-  .image-container img {
-    width: 100%;
-    height: auto;
-  }
-  
-  .text-box {
-    position: relative;
-    top: 10%; /* Adjust the top value as a percentage of the image container height */
-    left: 10%; /* Adjust the left value as a percentage of the image container width */
-    width: 40%; /* Set the width as a percentage of the image container width */
-    height: 60%;
-    background-color: rgba(255, 255, 255, 0.7); /* Background color with transparency */
-    padding: 10%;
-    border: none; /* Remove the outer border */
-    z-index: 1; /* Set a higher z-index to make the text box appear on top of the image */
-  }
-  
+  position: absolute;
+  display: inline-block;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+}
+
+.text-box {
+  position: relative;
+  top: 10%; /* Adjust the top value as a percentage of the image container height */
+  left: 10%; /* Adjust the left value as a percentage of the image container width */
+  width: 60%; /* Set the width as a percentage of the image container width */
+  height: 60%;
+  background-color: rgba(255, 255, 255, 0.7); /* Background color with transparency */
+  border: none; /* Remove the outer border */
+  padding: 0; /* Remove padding to ensure no overlap with adjacent text boxes */
+  z-index: 1; /* Set a higher z-index to make the text box appear on top of the image */
+}
