@@ -20,7 +20,7 @@ barbClassFeatures = [practice.partition("Proficiencies")[0]]
 practice = practice.partition("Proficiencies")[1] + practice.partition("Proficiencies")[2]
 
 barbClassFeatures.append(practice.partition("Equipment")[0])
-practice = practice.partition("Equipment")[1] + practice.partition("Proficiencies")[2]
+practice = practice.partition("Equipment")[1] + practice.partition("Equipment")[2]
 
 barbClassFeatures.append(practice.partition("Rage")[0])
 practice = practice.partition("Rage")[1] + practice.partition("Rage")[2]
@@ -86,6 +86,8 @@ practice = practice.partition("Primal Champion")[1] + practice.partition("Primal
 
 barbClassFeatures.append(practice)
 barbClassFeatures = [i for i in barbClassFeatures if i]
+
+ASI = barbClassFeatures[9]
 
 # The process above repeats, but now for the bard class
 URL = "http://dnd5e.wikidot.com/bard"
@@ -204,14 +206,15 @@ practice = (practice.partition("Cantrip Versatility (Optional)")[1] +
 
 clericClassFeatures.append(practice.partition("Destroy Undead")[0])
 practice = practice.partition("Destroy Undead")[1] + practice.partition("Destroy Undead")[2]
+cantVers = clericClassFeatures[9]
 
 clericClassFeatures.append("Channel Divinity 2")
 clericClassFeatures.append("Divine Domain Feature")
 
-clericClassFeatures.append("ASI")
+clericClassFeatures.append(ASI)
 clericClassFeatures.append("Destroy Undead (CR 1)")
 clericClassFeatures.append("Divine Domain Feature")
-clericClassFeatures.append("Cantrip Versatility (Optional)")
+clericClassFeatures.append(cantVers)
 
 clericClassFeatures.append(practice.partition("Divine Intervention")[0])
 practice = practice.partition("Dive Intervention")[1] + practice.partition("Divine Intervention")[2]
@@ -219,18 +222,19 @@ practice = practice.partition("Dive Intervention")[1] + practice.partition("Divi
 clericClassFeatures.append(practice)
 
 clericClassFeatures.append("Destroy Undead (CR 2)")
-clericClassFeatures.append("ASI")
-clericClassFeatures.append("Cantrip Versatility (Optional)")
+clericClassFeatures.append(ASI)
+clericClassFeatures.append(cantVers)
 clericClassFeatures.append("Destroy Undead (CR 3)")
-clericClassFeatures.append("ASI")
-clericClassFeatures.append("Cantrip Versatility (Optional)")
+clericClassFeatures.append(ASI)
+clericClassFeatures.append(cantVers)
 clericClassFeatures.append("Destroy Undead (CR 4)")
 clericClassFeatures.append("Divine Domain Feature")
 clericClassFeatures.append("Channel Divinity 3")
-clericClassFeatures.append("ASI")
-clericClassFeatures.append("Cantrip Versatility (Optional)")
+clericClassFeatures.append(ASI)
+clericClassFeatures.append(cantVers)
 clericClassFeatures.append(practice.partition("long rest.")[2])
 
+cantVers = clericClassFeatures[9]
 
 URL = "http://dnd5e.wikidot.com/druid"
 page = requests.get(URL)
@@ -238,11 +242,8 @@ soup = BeautifulSoup(page.content, "html.parser")
 results = soup.find("div", class_="col-lg-12")
 practice = results.text
 practice = practice.partition("Hit Points")[1] + practice.partition("Hit Points")[2]
-features = results.findAll("p")
-print(len(features))
 druidLevelUp = [0, 0, 0, 1, 1, 2, 2, 2, 4, 4, 4, 6, 8, 8, 8, 10, 12, 12, 14, 16, 16, 18, 18, 19, 19, 20]
 druidClassFeatures = [practice.partition("Proficiencies")[0]]
-print(len(druidLevelUp))
 practice = practice.partition("Proficiencies")[1] + practice.partition("Proficiencies")[2]
 
 druidClassFeatures.append(practice.partition("Equipment")[0])
@@ -259,6 +260,129 @@ practice = practice.partition("Wild Shape")[1] + practice.partition("Wild Shape"
 
 druidClassFeatures.append(practice.partition("Druid Circle")[0])
 practice = practice.partition("Druid Circle")[1] + practice.partition("Druid Circle")[2]
+
+druidClassFeatures.append(practice.partition("Wild Companion (Optional)")[0])
+practice = practice.partition("Wild Companion")[1] + practice.partition("Wild Companion")[2]
+
+druidClassFeatures.append(practice.partition("Ability Score Improvement")[0])
+
+druidClassFeatures.append("Wild Shape Improvement")
+druidClassFeatures.append(ASI)
+druidClassFeatures.append(cantVers)
+practice = practice.partition("druid spell list.\n")[2]
+
+druidClassFeatures.append("Druid Circle Feature")
+druidClassFeatures.append("Wild Shape Improvement")
+druidClassFeatures.append(ASI)
+druidClassFeatures.append(cantVers)
+
+druidClassFeatures.append("Druid Circle Feature")
+druidClassFeatures.append(ASI)
+druidClassFeatures.append(cantVers)
+
+druidClassFeatures.append("Druid Circle Feature")
+druidClassFeatures.append(ASI)
+druidClassFeatures.append(cantVers)
+
+druidClassFeatures.append(practice.partition("Beast Spells")[0])
+practice = practice.partition("Beast Spells")[1] + practice.partition("Beast Spells")[2]
+
+druidClassFeatures.append(practice.partition("Archdruid")[0])
+practice = practice.partition("Archdruid")[1] + practice.partition("Archdruid")[2]
+
+druidClassFeatures.append(ASI)
+druidClassFeatures.append(cantVers)
+
+druidClassFeatures.append(practice)
+
+'''
+URL = "http://dnd5e.wikidot.com/fighter"
+page = requests.get(URL)
+soup = BeautifulSoup(page.content, "html.parser")
+results = soup.find("div", class_="col-lg-12")
+practice = results.text
+practice = practice.partition("Hit Points")[1] + practice.partition("Hit Points")[2]
+fighterLevelUp = [0, 0, 0, 1, 1, 2, 3, 4, 4, 5, 6, 6, 7, 8, 8, 9, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 17, 18, 19, 19, 20]
+
+fighterClassFeatures = [practice.partition("Proficiencies")[0]]
+practice = practice.partition("Proficiencies")[1] + practice.partition("Proficiencies")[2]
+
+fighterClassFeatures.append(practice.partition("Equipment")[0])
+practice = practice.partition("Equipment")[1] + practice.partition("Equipment")[2]
+
+fighterClassFeatures.append(practice.partition("Fighting Style")[0])
+practice = practice.partition("Fighting Style")[1] + practice.partition("Fighting Style")[2]
+
+fighterClassFeatures.append(practice.partition("Second Wind")[0])
+practice = practice.partition("Second Wind")[1] + practice.partition("Second Wind")[2]
+'''
+
+URL = "https://5thsrd.org/character/classes/fighter/"
+page = requests.get(URL)
+soup = BeautifulSoup(page.content, "html.parser")
+test = soup.find("div", id="page-content")
+names = test.findAll("h3")
+for i in range(len(names)):
+    print(names[i].text)
+properties = test.findAll("p")
+propertiesList = []
+
+for i in range(len(properties)):
+    propertiesList.append(properties[i].text)
+
+equipment = test.findAll("ul")
+equipmentString = ""
+for i in range(len(equipment)):
+    equipmentString += equipment[i].text
+
+propertiesList[3] += equipmentString
+print(propertiesList)
+
+h4s = test.findAll("h4")
+fightingStyles = []
+for i in range(6):
+    fightingStyles.append(h4s[i].text)
+print(fightingStyles)
+
+for i in range(12):
+    j = i/2
+    if i % 2 == 0:
+        propertiesList.insert(i+5, fightingStyles[int(j)])
+
+for i in range(1, 6):
+    propertiesList[4] += propertiesList[3+i] + propertiesList[3+i+1]
+
+propertiesList.pop(0)
+for i in range(len(propertiesList)):
+    print(i, end = " ")
+    print(propertiesList[i])
+    print("......")
+features = []
+'''
+for i in range(len(properties)):
+    print(i, end=" ")
+    print(properties[i].text)
+'''
+for i in range(len(properties)):
+
+
+    if 2 < i < 20:
+        if (i % 2 == 0 and i != 10 and i != 18) or i == 19:
+            print(i)
+            features.insert(i, names[7].text + " " + properties[14].text)
+    
+for i in range(len(features)):
+    print(features[i])
+
+fighterClassFeatures = []
+
+
+
+j = 0
+#for i in fighterClassFeatures:
+ #   print(j, end=" ")
+  #  print(i)
+   # j += 1
 
 # Once the data has been scraped, it's info is then stored into a dictionary to associate the poper features with the proper levels. The dictionary is then made into a
 # pandas dataframe.
@@ -286,9 +410,15 @@ clericData = {
 
 df3 = pd.DataFrame(clericData)
 
+druidData = {
+    "class": classNames[3],
+    "level": druidLevelUp,
+    "features": druidClassFeatures
+}
+df4 = pd.DataFrame(druidData)
 # Once all of our dictionaries have been created, we than make a list of dictionaries and convert the entire list into a pandas dataframe. This allows all of the
 # information to be stored in a single data structure
-table = [df1, df2, df3]
+table = [df1, df2, df3, df4]
 
 finalDf = pd.concat(table)
 finalDf = finalDf.reset_index()
@@ -296,7 +426,7 @@ finalDf = finalDf.reset_index()
 # Allows the entire dataframe to be printed, rather than just the beginning and end. Purely for testing purposes
 with pd.option_context('display.max_rows', None,
                        'display.max_columns', None,
-                       'display.precision', 9,
+                       'display.precision', 4,
                        ):
     print(finalDf)
 
