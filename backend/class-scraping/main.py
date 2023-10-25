@@ -295,36 +295,12 @@ druidClassFeatures.append(cantVers)
 
 druidClassFeatures.append(practice)
 
-'''
-URL = "http://dnd5e.wikidot.com/fighter"
-page = requests.get(URL)
-soup = BeautifulSoup(page.content, "html.parser")
-results = soup.find("div", class_="col-lg-12")
-practice = results.text
-practice = practice.partition("Hit Points")[1] + practice.partition("Hit Points")[2]
-fighterLevelUp = [0, 0, 0, 1, 1, 2, 3, 4, 4, 5, 6, 6, 7, 8, 8, 9, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 17, 18, 19, 19, 20]
-
-fighterClassFeatures = [practice.partition("Proficiencies")[0]]
-practice = practice.partition("Proficiencies")[1] + practice.partition("Proficiencies")[2]
-
-fighterClassFeatures.append(practice.partition("Equipment")[0])
-practice = practice.partition("Equipment")[1] + practice.partition("Equipment")[2]
-
-fighterClassFeatures.append(practice.partition("Fighting Style")[0])
-practice = practice.partition("Fighting Style")[1] + practice.partition("Fighting Style")[2]
-
-fighterClassFeatures.append(practice.partition("Second Wind")[0])
-practice = practice.partition("Second Wind")[1] + practice.partition("Second Wind")[2]
-'''
-
 URL = "https://5thsrd.org/character/classes/fighter/"
 page = requests.get(URL)
 soup = BeautifulSoup(page.content, "html.parser")
 test = soup.find("div", id="page-content")
 names = test.findAll("h3")
 fighterLevelUp = [0, 0, 0, 1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 17, 18, 19, 20]
-for i in range(len(names)):
-    print(names[i].text)
 properties = test.findAll("p")
 propertiesList = []
 
@@ -337,18 +313,11 @@ for i in range(len(equipment)):
     equipmentString += equipment[i].text
 
 propertiesList[3] += equipmentString
-print(propertiesList)
 
 h4s = test.findAll("h4")
 fightingStyles = []
 for i in range(6):
     fightingStyles.append(h4s[i].text)
-print(fightingStyles)
-
-#for i in range(12):
- #   j = i/2
-  #  if i % 2 == 0:
-   #     propertiesList.insert(i+5, fightingStyles[int(j)])
 
 # YOU ARE CURRENTLY HERE, TRYING TO GET ALL THE FIGHTING STYLES INTO A SINGLE INDEX. IT MAY BE A FOOL's ERRAND
 for i in range(6):
@@ -359,41 +328,124 @@ for i in range(6):
     propertiesList.pop(j)
 
 propertiesList.pop(0)
-for i in range(len(propertiesList)):
-    print(i, end = " ")
-    print(propertiesList[i])
-    print("......")
-features = []
-'''
-for i in range(len(properties)):
-    print(i, end=" ")
-    print(properties[i].text)
-'''
-features.append(names[0].text + "\n" + propertiesList[0])  # hit points
-features.append(names[1].text + "\n" + propertiesList[1])  # proficiencies
-features.append(names[2].text + "\n" + propertiesList[2])  # equipment
-features.append(names[3].text + "\n" + propertiesList[3])  # fighting style
-features.append(names[4].text + "\n" + propertiesList[4])  # second wind
-features.append(names[5].text + "\n" + propertiesList[5])  # action surge
-features.append(names[6].text + "\n" + propertiesList[6])  # martial archetype
-features.append(names[7].text + "\n" + propertiesList[7])  # ability score improvement
-features.append(names[8].text + "\n" + propertiesList[8])  # extra attack
-features.append(names[7].text + "\n" + propertiesList[7])
-features.append(names[6].text + "\n" + propertiesList[6])
-features.append(names[7].text + "\n" + propertiesList[7])
-features.append(names[9].text + "\n" + propertiesList[9])  # indomitable
-features.append(names[6].text + "\n" + propertiesList[6])
-features.append(names[8].text + "\n" + propertiesList[8])
-features.append(names[7].text + "\n" + propertiesList[7])
-features.append(names[9].text + "\n" + propertiesList[9])
-features.append(names[7].text + "\n" + propertiesList[7])
-features.append(names[6].text + "\n" + propertiesList[6])
-features.append(names[7].text + "\n" + propertiesList[7])
-features.append(names[5].text + "\n" + propertiesList[5])
-features.append(names[9].text + "\n" + propertiesList[9])
-features.append(names[6].text + "\n" + propertiesList[6])
-features.append(names[7].text + "\n" + propertiesList[7])
-features.append(names[8].text + "\n" + propertiesList[8])
+
+features = [names[0].text + "\n" + propertiesList[0], names[1].text + "\n" + propertiesList[1],
+            names[2].text + "\n" + propertiesList[2], names[3].text + "\n" + propertiesList[3],
+            names[4].text + "\n" + propertiesList[4], names[5].text + "\n" + propertiesList[5],
+            names[6].text + "\n" + propertiesList[6], names[7].text + "\n" + propertiesList[7],
+            names[8].text + "\n" + propertiesList[8], names[7].text + "\n" + propertiesList[7],
+            names[6].text + "\n" + propertiesList[6], names[7].text + "\n" + propertiesList[7],
+            names[9].text + "\n" + propertiesList[9], names[6].text + "\n" + propertiesList[6],
+            names[8].text + "\n" + propertiesList[8], names[7].text + "\n" + propertiesList[7],
+            names[9].text + "\n" + propertiesList[9], names[7].text + "\n" + propertiesList[7],
+            names[6].text + "\n" + propertiesList[6], names[7].text + "\n" + propertiesList[7],
+            names[5].text + "\n" + propertiesList[5], names[9].text + "\n" + propertiesList[9],
+            names[6].text + "\n" + propertiesList[6], names[7].text + "\n" + propertiesList[7],
+            names[8].text + "\n" + propertiesList[8]]
+
+URL = "http://dnd5e.wikidot.com/monk"
+page = requests.get(URL)
+soup = BeautifulSoup(page.content, "html.parser")
+results = soup.find("div", class_="col-lg-12")
+practice = results.text
+practice = practice.partition("Hit Points")[1] + practice.partition("Hit Points")[2]
+monkLevelUp = [0, 0, 0, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 7, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+
+monkClassFeatures = [practice.partition("Proficiencies")[0]]
+practice = practice.partition("Proficiencies")[1] + practice.partition("Proficiencies")[2]
+
+monkClassFeatures.append(practice.partition("Equipment")[0])
+practice = practice.partition("Equipment")[1] + practice.partition("Equipment")[2]
+
+monkClassFeatures.append(practice.partition("Unarmored Defense")[0])
+practice = practice.partition("Unarmored Defense")[1] + practice.partition("Unarmored Defense")[2]
+
+monkClassFeatures.append(practice.partition("Martial Arts")[0])
+practice = practice.partition("Martial Arts")[1] + practice.partition("Martial Arts")[2]
+
+monkClassFeatures.append(practice.partition("Ki")[0])
+practice = practice.partition("Ki")[1] + practice.partition("Ki")[2]
+
+monkClassFeatures.append(practice.partition("Unarmored Movement")[0])
+practice = practice.partition("Unarmored Movement")[1] + practice.partition("Unarmored Movement")[2]
+
+monkClassFeatures.append(practice.partition("Dedicated Weapon (Optional)")[0])
+practice = practice.partition("Dedicated Weapon (Optional)")[1] + practice.partition("Dedicated Weapon (Optional)")[2]
+
+monkClassFeatures.append(practice.partition("Monastic Tradition")[0])
+practice = practice.partition("Monastic Tradition")[1] + practice.partition("Monastic Tradition")[2]
+
+monkClassFeatures.append(practice.partition("Deflect Missiles")[0])
+practice = practice.partition("Deflect Missiles")[1] + practice.partition("Deflect Missiles")[2]
+
+monkClassFeatures.append(practice.partition("Ki-Fueled Attack (Optional)")[0])
+practice = practice.partition("Ki-Fueled Attack (Optional)")[1] + practice.partition("Ki-Fueled Attack (Optional)")[2]
+
+monkClassFeatures.append(practice.partition("Ability Score Improvement")[0])
+practice = practice.partition("Ability Score Improvement")[1] + practice.partition("Ability Score Improvement")[2]
+
+monkClassFeatures.append(practice.partition("Slow Fall")[0])
+practice = practice.partition("Slow Fall")[1] + practice.partition("Slow Fall")[2]
+
+monkClassFeatures.append(practice.partition("Quickened Healing (Optional)")[0])
+practice = practice.partition("Quickened Healing (Optional)")[1] + practice.partition("Quickened Healing (Optional)")[2]
+
+monkClassFeatures.append(practice.partition("Extra Attack")[0])
+practice = practice.partition("Extra Attack")[1] + practice.partition("Extra Attack")[2]
+
+monkClassFeatures.append(practice.partition("Stunning Strike")[0])
+practice = practice.partition("Stunning Strike")[1] + practice.partition("Stunning Strike")[2]
+
+monkClassFeatures.append(practice.partition("Focused Aim (Optional)")[0])
+practice = practice.partition("Focused Aim (Optional)")[1] + practice.partition("Focused Aim (Optional)")[2]
+
+monkClassFeatures.append(practice.partition("Ki-Empowered Strikes")[0])
+practice = practice.partition("Ki-Empowered Strikes")[1] + practice.partition("Ki-Empowered Strikes")[2]
+
+monkClassFeatures.append(practice.partition("Evasion")[0])
+practice = practice.partition("Evasion")[1] + practice.partition("Evasion")[2]
+
+monkClassFeatures.append("Monastic Tradition Feature")
+
+monkClassFeatures.append(practice.partition("Stillness of Mind")[0])
+practice = practice.partition("Stillness of Mind")[1] + practice.partition("Stillness of Mind")[2]
+
+monkClassFeatures.append(practice.partition("Purity of Body")[0])
+practice = practice.partition("Purity of Body")[1] + practice.partition("Purity of Body")[2]
+
+monkClassFeatures.append(ASI)
+monkClassFeatures.append(monkClassFeatures[6])
+
+monkClassFeatures.append(practice.partition("Tongue of the Sun and Moon")[0])
+practice = practice.partition("Tongue of the Sun and Moon")[1] + practice.partition("Tongue of the Sun and Moon")[2]
+
+monkClassFeatures.append(ASI)
+monkClassFeatures.append("Monastic Tradition Feature")
+
+monkClassFeatures.append(practice.partition("Diamond Soul")[0])
+practice = practice.partition("Diamond Soul")[1] + practice.partition("Diamond Soul")[2]
+
+monkClassFeatures.append(practice.partition("Timeless Body")[0])
+practice = practice.partition("Timeless Body")[1] + practice.partition("Timeless Body")[2]
+
+monkClassFeatures.append(practice.partition("Empty Body")[0])
+practice = practice.partition("Empty Body")[1] + practice.partition("Empty Body")[2]
+
+monkClassFeatures.append(ASI)
+monkClassFeatures.append("Monastic Tradition Feature")
+
+monkClassFeatures.append(practice.partition("Perfect Self")[0])
+practice = practice.partition("Perfect Self")[1] + practice.partition("Perfect Self")[2]
+
+monkClassFeatures.append(ASI)
+
+monkClassFeatures.append(practice)
+
+for i in monkClassFeatures:
+    print(i)
+
+print(len(monkLevelUp))
+print(len(monkClassFeatures))
 
 # Once the data has been scraped, it's info is then stored into a dictionary to associate the poper features with the proper levels. The dictionary is then made into a
 # pandas dataframe.
@@ -435,9 +487,16 @@ fighterData = {
     "features": features,
 }
 df5 = pd.DataFrame(fighterData)
+
+monkData = {
+    "class": classNames[5],
+    "leve": monkLevelUp,
+    "features": monkClassFeatures
+}
+df6 = pd.DataFrame(monkData)
 # Once all of our dictionaries have been created, we than make a list of dictionaries and convert the entire list into a pandas dataframe. This allows all of the
 # information to be stored in a single data structure
-table = [df1, df2, df3, df4, df5]
+table = [df1, df2, df3, df4, df5, df6]
 
 finalDf = pd.concat(table)
 finalDf = finalDf.reset_index()
