@@ -322,6 +322,7 @@ page = requests.get(URL)
 soup = BeautifulSoup(page.content, "html.parser")
 test = soup.find("div", id="page-content")
 names = test.findAll("h3")
+fighterLevelUp = [0, 0, 0, 1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 17, 18, 19, 20]
 for i in range(len(names)):
     print(names[i].text)
 properties = test.findAll("p")
@@ -344,13 +345,18 @@ for i in range(6):
     fightingStyles.append(h4s[i].text)
 print(fightingStyles)
 
-for i in range(12):
-    j = i/2
-    if i % 2 == 0:
-        propertiesList.insert(i+5, fightingStyles[int(j)])
+#for i in range(12):
+ #   j = i/2
+  #  if i % 2 == 0:
+   #     propertiesList.insert(i+5, fightingStyles[int(j)])
 
-for i in range(1, 6):
-    propertiesList[4] += propertiesList[3+i] + propertiesList[3+i+1]
+# YOU ARE CURRENTLY HERE, TRYING TO GET ALL THE FIGHTING STYLES INTO A SINGLE INDEX. IT MAY BE A FOOL's ERRAND
+for i in range(6):
+    propertiesList[4] += '\n' + fightingStyles[i] + ": " + propertiesList[4+i+1]
+
+for i in range(6):
+    j = 5
+    propertiesList.pop(j)
 
 propertiesList.pop(0)
 for i in range(len(propertiesList)):
@@ -363,26 +369,31 @@ for i in range(len(properties)):
     print(i, end=" ")
     print(properties[i].text)
 '''
-for i in range(len(properties)):
-
-
-    if 2 < i < 20:
-        if (i % 2 == 0 and i != 10 and i != 18) or i == 19:
-            print(i)
-            features.insert(i, names[7].text + " " + properties[14].text)
-    
-for i in range(len(features)):
-    print(features[i])
-
-fighterClassFeatures = []
-
-
-
-j = 0
-#for i in fighterClassFeatures:
- #   print(j, end=" ")
-  #  print(i)
-   # j += 1
+features.append(names[0].text + "\n" + propertiesList[0])  # hit points
+features.append(names[1].text + "\n" + propertiesList[1])  # proficiencies
+features.append(names[2].text + "\n" + propertiesList[2])  # equipment
+features.append(names[3].text + "\n" + propertiesList[3])  # fighting style
+features.append(names[4].text + "\n" + propertiesList[4])  # second wind
+features.append(names[5].text + "\n" + propertiesList[5])  # action surge
+features.append(names[6].text + "\n" + propertiesList[6])  # martial archetype
+features.append(names[7].text + "\n" + propertiesList[7])  # ability score improvement
+features.append(names[8].text + "\n" + propertiesList[8])  # extra attack
+features.append(names[7].text + "\n" + propertiesList[7])
+features.append(names[6].text + "\n" + propertiesList[6])
+features.append(names[7].text + "\n" + propertiesList[7])
+features.append(names[9].text + "\n" + propertiesList[9])  # indomitable
+features.append(names[6].text + "\n" + propertiesList[6])
+features.append(names[8].text + "\n" + propertiesList[8])
+features.append(names[7].text + "\n" + propertiesList[7])
+features.append(names[9].text + "\n" + propertiesList[9])
+features.append(names[7].text + "\n" + propertiesList[7])
+features.append(names[6].text + "\n" + propertiesList[6])
+features.append(names[7].text + "\n" + propertiesList[7])
+features.append(names[5].text + "\n" + propertiesList[5])
+features.append(names[9].text + "\n" + propertiesList[9])
+features.append(names[6].text + "\n" + propertiesList[6])
+features.append(names[7].text + "\n" + propertiesList[7])
+features.append(names[8].text + "\n" + propertiesList[8])
 
 # Once the data has been scraped, it's info is then stored into a dictionary to associate the poper features with the proper levels. The dictionary is then made into a
 # pandas dataframe.
@@ -415,10 +426,18 @@ druidData = {
     "level": druidLevelUp,
     "features": druidClassFeatures
 }
+
 df4 = pd.DataFrame(druidData)
+
+fighterData = {
+    "class": classNames[4],
+    "level": fighterLevelUp,
+    "features": features,
+}
+df5 = pd.DataFrame(fighterData)
 # Once all of our dictionaries have been created, we than make a list of dictionaries and convert the entire list into a pandas dataframe. This allows all of the
 # information to be stored in a single data structure
-table = [df1, df2, df3, df4]
+table = [df1, df2, df3, df4, df5]
 
 finalDf = pd.concat(table)
 finalDf = finalDf.reset_index()
