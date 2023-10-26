@@ -4,26 +4,26 @@
 #level_select {
     color:black;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    position: absolute;
+    position: relative;
     background-color: white;
     font-size: 25px;
-    top: 242px;
-    left: 840px;
+    top: -717px;
+    left: 120px;
 }
 
 #pb {
     color:black;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 30px;
-    position: absolute;
-    left: 325px;
-    top: 458px;
+    position: relative;
+    left: -412px;
+    top: -533px;
 }
 
 #st_pb_str {
-    position: absolute;
-    top: 572px;
-    left: 325.75px;
+    position: relative;
+    top: -525.25px;
+    left: -420px;
 }
 #st_pb_dex {
     position: absolute;
