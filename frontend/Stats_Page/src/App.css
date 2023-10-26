@@ -16,29 +16,29 @@
   position: static;
 }
 
-#charname {
+#charName {
   height: 40px;
   width: 350px;
   text-align: center;
   background-color: white;
   color:black;
   font-size: 25px;
-  position: absolute;
-  top: 268px;
-  left: 218px;
+  position: relative;
+  top: 0px;
+  left: 0px;
   border-color: white;
 }
 
-#playname {
+#playName {
   height: 35px;
   width: 222px;
   text-align: center;
   background-color: white;
   color:black;
   font-size: 25px;
-  position: absolute;
-  top: 234px;
-  left: 1080px;
+  position: relative;
+  top: 0px;
+  left: 0px;
   border-color: white;
 }
 

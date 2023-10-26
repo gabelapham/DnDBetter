@@ -1,23 +1,95 @@
 
 /* PLAYER STATS */
 
-#level_select {
-    color:black;
+#core {
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    position: relative;
+    color: black;
+}
+
+#level_select {
     background-color: white;
+    color: black;
     font-size: 25px;
-    top: -717px;
-    left: 120px;
+    position: relative;
+    top: -745px;
+    left: 130px;
 }
 
 #pb {
-    color:black;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 30px;
     position: relative;
     left: -412px;
-    top: -533px;
+    top: -556px;
+}
+
+#str_inc {
+    position: relative;
+    background-color: rgb(59, 152, 59);
+    width: auto;
+    overflow: hidden;
+    size:initial;
+    top: -650px;
+    left: -608px;
+    font-size: 10px;
+}
+
+#str_dec {
+    position: relative;
+    background-color: rgb(152, 59, 59);
+    size: 2px;
+    top: -630px;
+    left: -608px;
+    font-size: 10px; 
+}
+
+#str {
+    position: relative;
+    font-size: 35px;
+    top: -743px;
+    left: -517px;
+  }
+
+#str_mod {
+    position: relative;
+    text-align: center;
+    font-size: 18px;
+    top: -765px;
+    left: -517px;
+}
+
+#dex_inc {
+    position: relative;
+    background-color: rgb(59, 152, 59);
+    size: 10px;
+    top: -723px;
+    left: -595px;
+    text-align: left;
+    font-size: 10px;
+}
+
+#dex_dec {
+    position: relative;
+    background-color: rgb(152, 59, 59);
+    size: 10px;
+    top: -685px;
+    left: -625px;
+    text-align: left;
+    font-size: 10px; 
+}
+
+#dex {
+    position: relative;
+    font-size: 35px;
+    top: -785px;
+    left: -517px;
+  }
+
+#dex_mod {
+    position: relative;
+    text-align: center;
+    font-size: 18px;
+    top: 661px;
+    left: 231px;
 }
 
 #st_pb_str {
@@ -27,183 +99,97 @@
 }
 #st_pb_dex {
     position: relative;
-    top: -493px;
+    top: -521px;
     left: -420px;
 }
 #st_pb_con {
     position: relative;
-    top: 0px;
-    left: 0px;
+    top: -517px;
+    left: -420px;
 }
 #st_pb_int {
     position: relative;
-    top: 657px;
-    left: 325.75px;
+    top: -513px;
+    left: -420px;
 }
 #st_pb_wis {
     position: relative;
-    top: 685px;
-    left: 325.75px;
+    top: -509px;
+    left: -420px;
 }
 #st_pb_cha {
-    position: absolute;
-    top: 713px;
-    left: 325.75px;
-}
-
-/* STRENGTH STATS + SKILLS */
-#str {
-    color:black;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 35px;
-    position: absolute;
-    top: 430px;
-    left: 220px;
-  }
-
-#str_inc {
-    background-color: rgb(59, 152, 59);
-    position: absolute;
-    width: 8px;
-    top: 460px;
-    left: 135px;
-    text-align: left;
-    font-size: 10px;
-}
-
-#str_dec {
-    background-color: rgb(152, 59, 59);
-    position: absolute;
-    width:8px;
-    top: 500px;
-    left: 135px;
-    text-align: left;
-    font-size: 10px; 
-}
-
-#str_mod {
-    text-align: center;
-    color:black;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 18px;
-    position: absolute;
-    top: 511px;
-    left: 231px;
+    position: relative;
+    top: -505px;
+    left: -420px;
 }
 
 #str_st {
-    position: absolute;
-    color: black;
+    position: relative;
     top: 543px;
     left: 363px;
     font-size: 20px;
 }
 
 #athletics {
-    position: absolute;
-    color: black;
+    position: relative;
     top: 868px;
     left: 361px;
     font-size: 20px;
 }
 
 #athletics_pb {
-    position: absolute;
+    position: relative;
     top: 896px;
     left: 325.75px;
 }
 
 /* DEXTERITY STATS + SKILLS */
-  
-#dex {
-    color:black;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 35px;
-    position: absolute;
-    top: 580px;
-    left: 220px;
-  }
-  
-#dex_inc {
-    background-color: rgb(59, 152, 59);
-    position: absolute;
-    width: 8px;
-    top: 610px;
-    left: 135px;
-    text-align: left;
-    font-size: 10px;
-}
-
-#dex_dec {
-    background-color: rgb(152, 59, 59);
-    position: absolute;
-    width:8px;
-    top: 650px;
-    left: 135px;
-    text-align: left;
-    font-size: 10px; 
-}
-
-#dex_mod {
-    text-align: center;
-    color:black;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 18px;
-    position: absolute;
-    top: 661px;
-    left: 231px;
-}
 
 #dex_st {
-    position: absolute;
-    color: black;
+    position: relative;
     top: 572px;
     left: 363px;
     font-size: 20px;
 }
 
 #acrobatics {
-    position: absolute;
-    color: black;
+    position: relative;
     top: 783px;
     left: 361px;
     font-size: 20px;
 }
 #acrobatics_pb {
-    position: absolute;
+    position: relative;
     top: 812px;
     left: 325.75px;
 }
 
 #sleight_of_hand {
-    position: absolute;
-    color: black;
+    position: relative;
     top: 1206px;
     left: 361px;
     font-size: 20px;
 }
 #sleight_of_hand_pb {
-    position: absolute;
+    position: relative;
     top: 1234.5px;
     left: 325.75px;
 }
 
 #stealth {
-    position: absolute;
-    color: black;
+    position: relative;
     top: 1234px;
     left: 361px;
     font-size: 20px;
 }
 #stealth_pb {
-    position: absolute;
+    position: relative;
     top: 1262.5px;
     left: 325.75px;
 }
 
 #initiative {
-    position: absolute;
-    color: black;
+    position: relative;
     top: 390px;
     left: 738px;
     font-size: 45px;
@@ -212,17 +198,15 @@
 /* CONSTITUTION STATS */
 
 #con {
-    color:black;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    position: relative;
     font-size: 35px;
-    position: absolute;
     top: 730px;
     left: 220px;
 }
 
 #con_inc {
+    position: relative;
     background-color: rgb(59, 152, 59);
-    position: absolute;
     width: 8px;
     top: 760px;
     left: 135px;
@@ -231,8 +215,8 @@
 }
 
 #con_dec {
+    position: relative;
     background-color: rgb(152, 59, 59);
-    position: absolute;
     width:8px;
     top: 800px;
     left: 135px;
@@ -241,18 +225,15 @@
 }
 
 #con_mod {
+    position: relative;
     text-align: center;
-    color:black;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 18px;
-    position: absolute;
     top: 810px;
     left: 231px;
 }
 
 #con_st {
-    position: absolute;
-    color: black;
+    position: relative;
     top: 600px;
     left: 363px;
     font-size: 20px;
@@ -261,17 +242,15 @@
 /* INTELLIGENCE STATS + SKILLS */
 
 #int {
-    color:black;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    position: relative;
     font-size: 35px;
-    position: absolute;
     top: 880px;
     left: 220px;
 }
 
 #int_inc {
+    position: relative;
     background-color: rgb(59, 152, 59);
-    position: absolute;
     width: 8px;
     top: 910px;
     left: 135px;
@@ -280,8 +259,8 @@
 }
 
 #int_dec {
+    position: relative;
     background-color: rgb(152, 59, 59);
-    position: absolute;
     width:8px;
     top: 950px;
     left: 135px;
@@ -290,84 +269,76 @@
 }
 
 #int_mod {
+    position: relative;
     text-align: center;
-    color:black;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 18px;
-    position: absolute;
     top: 960px;
     left: 231px;
 }
 
 #int_st {
-    position: absolute;
-    color: black;
+    position: relative;
     top: 627px;
     left: 363px;
     font-size: 20px;
 }
 
 #arcana {
-    position: absolute;
-    color: black;
+    position: relative;
     top: 839px;
     left: 361px;
     font-size: 20px;
 }
 #arcana_pb {
-    position: absolute;
+    position: relative;
     top: 868px;
     left: 325.75px;
 }
 
 #history {
-    position: absolute;
-    color: black;
+    position: relative;
     top: 925px;
     left: 361px;
     font-size: 20px;
 }
 #history_pb {
-    position: absolute;
+    position: relative;
     top: 953px;
     left: 325.75px;
 }
 
 #investigation {
-    position: absolute;
-    color: black;
+    position: relative;
     top: 1009px;
     left: 361px;
     font-size: 20px;
 }
 #investigation_pb {
-    position: absolute;
+    position: relative;
     top: 1037px;
     left: 325.75px;
 }
 
 #nature {
-    position: absolute;
-    color: black;
+    position: relative;
     top: 1065px;
     left: 361px;
     font-size: 20px;
 }
 #nature_pb {
-    position: absolute;
+    position: relative;
     top: 1093.5px;
     left: 325.75px;
 }
 
 #religion {
-    position: absolute;
-    color: black;
+    position: relative;
     top: 1178px;
     left: 361px;
     font-size: 20px;
 }
 #religion_pb {
-    position: absolute;
+    position: relative;
     top: 1205.5px;
     left: 325.75px;
 }
@@ -375,17 +346,15 @@
 /* WISDOM STATS + SKILLS */
   
 #wis {
-    color:black;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    position: relative;
     font-size: 35px;
-    position: absolute;
     top: 1030px;
     left: 220px;
 }
 
 #wis_inc {
+    position: relative;
     background-color: rgb(59, 152, 59);
-    position: absolute;
     width: 8px;
     top: 1060px;
     left: 135px;
@@ -394,8 +363,8 @@
 }
 
 #wis_dec {
+    position: relative;
     background-color: rgb(152, 59, 59);
-    position: absolute;
     width:8px;
     top: 1100px;
     left: 135px;
@@ -404,92 +373,83 @@
 }
 
 #wis_mod {
+    position: relative;
     text-align: center;
-    color:black;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 18px;
-    position: absolute;
     top: 1110px;
     left: 231px;
 }
 
 #wis_st {
-    position: absolute;
-    color: black;
+    position: relative;
     top: 655px;
     left: 363px;
     font-size: 20px;
 }
 
 #animal_handling {
-    position: absolute;
-    color: black;
+    position: relative;
     top: 812px;
     left: 361px;
     font-size: 20px;
 }
 #animal_handling_pb {
-    position: absolute;
+    position: relative;
     top: 840px;
     left: 325.75px;
 }
 
 #insight {
-    position: absolute;
-    color: black;
+    position: relative;
     top: 953px;
     left: 361px;
     font-size: 20px;
 }
 #insight_pb {
-    position: absolute;
+    position: relative;
     top: 981px;
     left: 325.75px;
 }
 
 #medicine {
-    position: absolute;
-    color: black;
+    position: relative;
     top: 1037px;
     left: 361px;
     font-size: 20px;
 }
 #medicine_pb {
-    position: absolute;
+    position: relative;
     top: 1065.5px;
     left: 325.75px;
 }
 
 #passive_perception {
-    position: absolute;
-    color: black;
+    position: relative;
     top: 1355px;
     left: 195px;
     font-size: 20px;
 }
 
 #perception {
-    position: absolute;
-    color: black;
+    position: relative;
     top: 1093px;
     left: 361px;
     font-size: 20px;
 }
 #perception_pb {
-    position: absolute;
+    position: relative;
     top: 1121.5px;
     left: 325.75px;
 }
 
 #survival {
-    position: absolute;
-    color: black;
+    position: relative;
     top: 1262px;
     left: 361px;
     font-size: 20px;
 }
 #survival_pb {
-    position: absolute;
+    position: relative;
     top: 1290.5px;
     left: 325.75px;
 }
@@ -498,17 +458,15 @@
 /* CHARISMA STATS + SKILLS */
 
 #cha {
-    color:black;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    position: relative;
     font-size: 35px;
-    position: absolute;
     top: 1177px;
     left: 220px;
 }
 
 #cha_inc {
+    position: relative;
     background-color: rgb(59, 152, 59);
-    position: absolute;
     width: 8px;
     top: 1210px;
     left: 135px;
@@ -517,8 +475,8 @@
 }
 
 #cha_dec {
+    position: relative;
     background-color: rgb(152, 59, 59);
-    position: absolute;
     width:8px;
     top: 1250px;
     left: 135px;
@@ -527,71 +485,64 @@
 }
 
 #cha_mod {
+    position: relative;
     text-align: center;
-    color:black;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 18px;
-    position: absolute;
     top: 1258px;
     left: 231px;
 }
 
 #cha_st {
-    position: absolute;
-    color: black;
+    position: relative;
     top: 684px;
     left: 363px;
     font-size: 20px;
 }
 
 #deception {
-    position: absolute;
-    color: black;
+    position: relative;
     top: 895px;
     left: 361px;
     font-size: 20px;
 }
 #deception_pb {
-    position: absolute;
+    position: relative;
     top: 925px;
     left: 325.75px;
 }
 
 #intimidation {
-    position: absolute;
-    color: black;
+    position: relative;
     top: 980px;
     left: 361px;
     font-size: 20px;
 }
 #intimidation_pb {
-    position: absolute;
+    position: relative;
     top: 1009px;
     left: 325.75px;
 }
 
 #performance {
-    position: absolute;
-    color: black;
+    position: relative;
     top: 1120px;
     left: 361px;
     font-size: 20px;
 }
 #performance_pb {
-    position: absolute;
+    position: relative;
     top: 1149.5px;
     left: 325.75px;
 }
 
 #persuasion {
-    position: absolute;
-    color: black;
+    position: relative;
     top: 1149px;
     left: 361px;
     font-size: 20px;
 }
 #persuasion_pb {
-    position: absolute;
+    position: relative;
     top: 1177.5px;
     left: 325.75px;
 }

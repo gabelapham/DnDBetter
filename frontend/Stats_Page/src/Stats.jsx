@@ -279,7 +279,8 @@ function Stats() {
 
 return(
     <>
-    <div>
+    <div id="core">
+        <div>
         <label name="Player Stats" />
             <select id="level_select" onChange={() => pbFunc(level_select.value)}>
                 <option value="1">1</option>
@@ -303,27 +304,38 @@ return(
                 <option value="19">19</option>
                 <option value="20">20</option>
             </select>
-
+        </div>
+        <div>
         <label name="Prof Bonus" />
             <p id="pb">
                 +{pb}
             </p>
-
+        </div>
         {/* CORE STATS */}
+        <div>
         <label name="STR Stats">
+            <div>
             <button id="str_inc" checked={strength} onClick={() => setStrengthFunc(strength + 1)}>
                 +
             </button>
+            </div>
+            <div>
             <button id="str_dec" checked={strength} onClick={() => setStrengthFunc(strength - 1)}>
                 -
             </button>
+            </div>
+            <div>
             <p id="str">
                 {strength}
             </p>
+            </div>
+            <div>
             <p id="str_mod">
                 {strengthMod}
             </p>
+            </div>
         </label>
+        </div>
         <label name="DEX Stats">
             <button id="dex_inc" checked={dexterity} onClick={() => setDexterityFunc(dexterity + 1)}>
                 +
@@ -394,9 +406,7 @@ return(
                 {charismaMod}
             </p> 
         </label>
-    </div>
     {/* SAVING THROWS + PB CHECKBOXES */}
-    <div>
         <div>
         <p id="str_st">
             {strengthMod+(strength_st_pb*pb)}
@@ -445,7 +455,7 @@ return(
         <div>
         <input type="checkbox" id="st_pb_cha" checked={charisma_st_pb} onChange={setChaFunc}/>
         </div>
-        
+
         {/* SKILLS */}
             <p id="acrobatics">
                 {dexterityMod+(acrobatics_pb*pb)}
@@ -544,8 +554,7 @@ return(
             <p id="initiative">
                 {dexterityMod}
             </p>
-
-    </div>
+        </div>
     </>
 )
 }
