@@ -397,36 +397,55 @@ return(
     </div>
     {/* SAVING THROWS + PB CHECKBOXES */}
     <div>
+        <div>
         <p id="str_st">
             {strengthMod+(strength_st_pb*pb)}
         </p>
-        <input type="checkbox" id="st_pb_str" checked={strength_st_pb} onChange={setStrFunc}/>
-
+        </div>
+        <div>
+            <input type="checkbox" id="st_pb_str" checked={strength_st_pb} onChange={setStrFunc}/>
+        </div>
+        <div>
         <p id="dex_st">
             {dexterityMod+(dexterity_st_pb*pb)}
         </p>
+        </div>
+        <div>
         <input type="checkbox" id="st_pb_dex" checked={dexterity_st_pb} onChange={setDexFunc}/>
-
+        </div>
+        <div>
         <p id="con_st">
             {constitutionMod+(constitution_st_pb*pb)}
         </p>
+        </div>
+        <div>
         <input type="checkbox" id="st_pb_con" checked={constitution_st_pb} onChange={setConFunc}/>
-
+        </div>
+        <div>
         <p id="int_st">
             {intelligenceMod+(intelligence_st_pb*pb)}
         </p>
+        </div>
+        <div>
         <input type="checkbox" id="st_pb_int" checked={intelligence_st_pb} onChange={setIntFunc}/>
-
+        </div>
+        <div>
         <p id="wis_st">
             {wisdomMod+(wisdom_st_pb*pb)}
         </p>
+        </div>
+        <div>
         <input type="checkbox" id="st_pb_wis" checked={wisdom_st_pb} onChange={setWisFunc}/>
-
+        </div>
+        <div>
         <p id="cha_st">
             {charismaMod+(charisma_st_pb*pb)}
         </p>
+        </div>
+        <div>
         <input type="checkbox" id="st_pb_cha" checked={charisma_st_pb} onChange={setChaFunc}/>
-
+        </div>
+        
         {/* SKILLS */}
             <p id="acrobatics">
                 {dexterityMod+(acrobatics_pb*pb)}

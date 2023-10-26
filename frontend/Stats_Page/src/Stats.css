@@ -26,22 +26,22 @@
     left: -420px;
 }
 #st_pb_dex {
-    position: absolute;
-    top: 600px;
-    left: 325.75px;
+    position: relative;
+    top: -493px;
+    left: -420px;
 }
 #st_pb_con {
-    position: absolute;
-    top: 628px;
-    left: 325.75px;
+    position: relative;
+    top: 0px;
+    left: 0px;
 }
 #st_pb_int {
-    position: absolute;
+    position: relative;
     top: 657px;
     left: 325.75px;
 }
 #st_pb_wis {
-    position: absolute;
+    position: relative;
     top: 685px;
     left: 325.75px;
 }
