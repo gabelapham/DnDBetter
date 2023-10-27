@@ -261,7 +261,6 @@ function Stats() {
 return(
     <>
     <div id="core">
-        <h1 color='black'> {ds_success}</h1>
     <div>
         <label name="Player Stats" />
             <select id="level_select" onChange={() => pbFunc(level_select.value)}>

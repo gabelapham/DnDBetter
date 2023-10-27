@@ -79,7 +79,7 @@ function App() {
       <div id="root">
         <div>
         <button id="leftbutton">Background <br /> ←</button>
-        <button id="rightbutton">Spells <br /> →</button>
+        <a href="./../Spells_Page/src/main.jsx"><button id="rightbutton">Spells<br /> →</button></a>
         </div>
         <h1>
           Character Stats
