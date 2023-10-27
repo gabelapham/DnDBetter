@@ -2,6 +2,7 @@ import { useState } from 'react'
 import stat_sheet from './assets/stats_sheet.png'
 import './App.css'
 import Stats from './Stats.jsx'
+import d20 from './assets/d20.png'
 
 function App() {
   const [playerClass, setClass] = useState("Barbarian")
@@ -77,9 +78,12 @@ function App() {
   return (
     <>
       <div id="root">
+        <div id="d20">
+          <img src={d20} />
+        </div>
         <div>
-        <button id="leftbutton">Background <br /> ←</button>
-        <a href="./../Spells_Page/src/main.jsx"><button id="rightbutton">Spells<br /> →</button></a>
+        <button id="leftbutton">← Background</button>
+        <a href="./../Spells_Page/src/main.jsx"><button id="rightbutton">Spells Page →</button></a>
         </div>
         <h1>
           Character Stats
