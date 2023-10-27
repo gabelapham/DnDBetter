@@ -21,17 +21,19 @@
 #shortRest {
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   position: absolute;
+  background-color: rgb(98, 98, 98);
   font-size: 20px;
-  top: 10px;
-  left: 1000px;
+  top: 60px;
+  left: 1350px;
 }
 
 #longRest {
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   position: absolute;
+  background-color: rgb(98, 98, 98);
   font-size: 20px;
-  top: 10px;
-  left: 1200px;
+  top: 60px;
+  left: 1470px;
 }
 
 #charName {
@@ -74,6 +76,15 @@
   left: 1330px;
   border-color: white;
 }
+
+#speed {
+  color: black;
+  font-size: 55px;
+  position: absolute;
+  top: 345px;
+  left: 954px;
+}
+
 #class {
   border-color: white;
   background-color: white;

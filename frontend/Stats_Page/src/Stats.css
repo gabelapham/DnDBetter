@@ -389,8 +389,10 @@
 }
 #medicine_pb {
     position: absolute;
-    top: 0;
-    left: 0;
+    height: 22px;
+    width: 22px;
+    top: 1230px;
+    left: 275px;
 }
 
 #nature {
@@ -402,8 +404,10 @@
 }
 #nature_pb {
     position: absolute;
-    top: 0px;
-    left: 0;
+    height: 22px;
+    width: 22px;
+    top: 1268px;
+    left: 275px;
 }
 
 #perception {
@@ -415,8 +419,10 @@
 }
 #perception_pb {
     position: absolute;
-    top: 0;
-    left: 0;
+    height: 22px;
+    width: 22px;
+    top: 1306px;
+    left: 275px;
 }
 
 #performance {
@@ -428,8 +434,10 @@
 }
 #performance_pb {
     position: absolute;
-    top: 0;
-    left: 0;
+    height: 22px;
+    width: 22px;
+    top: 1342px;
+    left: 275px;
 }
 
 #persuasion {
@@ -441,8 +449,10 @@
 }
 #persuasion_pb {
     position: absolute;
-    top: 0;
-    left: 0;
+    height: 22px;
+    width: 22px;
+    top: 1380px;
+    left: 275px;
 }
 
 #religion {
@@ -454,8 +464,10 @@
 }
 #religion_pb {
     position: absolute;
-    top: 0;
-    left: 0;
+    height: 22px;
+    width: 22px;
+    top: 1418px;
+    left: 275px;
 }
 
 #sleight_of_hand {
@@ -467,8 +479,10 @@
 }
 #sleight_of_hand_pb {
     position: absolute;
-    top: 0px;
-    left: 0;
+    height: 22px;
+    width: 22px;
+    top: 1455px;
+    left: 275px;
 }
 
 #stealth {
@@ -480,8 +494,10 @@
 }
 #stealth_pb {
     position: absolute;
-    top: 0;
-    left: 0;
+    height: 22px;
+    width: 22px;
+    top: 1493px;
+    left: 275px;
 }
 
 #survival {
@@ -493,8 +509,10 @@
 }
 #survival_pb {
     position: absolute;
-    top: 0;
-    left: 0;
+    height: 22px;
+    width: 22px;
+    top: 1530px;
+    left: 275px;
 }
 
 #initiative {

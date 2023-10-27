@@ -9,6 +9,7 @@ function App() {
   const [playerRace, setRace] = useState("Dragonborn")
   const [playerSubRace, setSubRace] = useState("Black")
   const [playerAlignment, setAlignment] = useState("LG")
+  const [playerSpeed, setSpeed] = useState("30")
 
   function raceFunc(e) {
     setRace(e)
@@ -17,41 +18,49 @@ function App() {
         setRace("Dragonborn")
         subrace.value = "Black"
         setSubRace("Black")
+        setSpeed("30")
         return;
       case "Dwarf":
         setRace("Dwarf")
         subrace.value = "Hill"
         setSubRace("Hill")
+        setSpeed("25")
         return;
       case "Elf":
         setRace("Elf")
         subrace.value = "High"
         setSubRace("High")
+        setSpeed("30")
         return;
       case "Gnome":
         setRace("Gnome")
         subrace.value = "Rock"
         setSubRace("Rock")
+        setSpeed("25")
         return;
       case "Half-Elf":
         setRace("Half-Elf")
         subrace.value = "NA"
         setSubRace("NA")
+        setSpeed("30")
         return;
       case "Halfling":
         setRace("Halfling")
         subrace.value = "Lightfoot"
         setSubRace("Lightfoot")
+        setSpeed("25")
         return;
       case "Half-Orc":
         setRace("Half-Orc")
         subrace.value = "NA"
         setSubRace("NA")
+        setSpeed("30")
         return;
       case "Human":
         setRace("Human")
         subrace.value = "Normal"
         setSubRace("Normal")
+        setSpeed("30")
         return;
       case "Tiefling":
         setRace("Tiefling")
@@ -61,6 +70,7 @@ function App() {
       default:
         subrace.value = "NA"
         setSubRace("NA")
+        setSpeed("30")
         return;
     }
   }
@@ -85,6 +95,7 @@ function App() {
           <input id="charName" />
           <input id="playName" />
           <input type="number" id="exp" />
+          <p id="speed">{playerSpeed}ft</p>
 
           <select id="class">
           <option value="Barbarian">Barbarian</option>
@@ -103,6 +114,7 @@ function App() {
 
         <select id="background">
           <option value="Acolyte">Acolyte</option>
+          {/*}
           <option value="Charlatan">Charlatan</option>
           <option value="Criminal/Spy">Criminal/Spy</option>
           <option value="Entertainer">Entertainer</option>
@@ -118,6 +130,7 @@ function App() {
           <option value="Sailor">Sailor</option>
           <option value="Soldier">Soldier</option>
           <option value="Urchin">Urchin</option>
+  */}
         </select>
 
         <select id="race" onChange={() => raceFunc(race.value)}>
