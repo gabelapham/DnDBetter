@@ -549,24 +549,48 @@
 
 #ds_success_1 {
     position: absolute;
+    height: 30px;
+    width: 30px;
+    top: 891px;
+    left: 955px;
 }
 
 #ds_success_2 {
     position: absolute;
+    height: 30px;
+    width: 30px;
+    top: 891px;
+    left: 991px;
 }
 
 #ds_success_3 {
     position: absolute;
+    height: 30px;
+    width: 30px;
+    top: 891px;
+    left: 1027px;
 }
 
 #ds_fail_1 {
     position: absolute;
+    height: 30px;
+    width: 30px;
+    top: 932px;
+    left: 955px;
 }
 
 #ds_fail_2 {
     position: absolute;
+    height: 30px;
+    width: 30px;
+    top: 932px;
+    left: 991px;
 }
 
 #ds_fail_3 {
     position: absolute;
+    height: 30px;
+    width: 30px;
+    top: 932px;
+    left: 1027px;
 }

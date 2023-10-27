@@ -7,6 +7,19 @@
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+#leftbutton {
+  font-size: 20px;
+  text-align: left;
+  float: left;
+}
+
+#rightbutton {
+  font-size: 20px;
+  text-align: right;
+  float: right;
+  justify-content: flex-end;
+}
+
 #png {
   text-align: center;
   z-index: 0;
@@ -135,15 +148,70 @@
   left: 1060px;
 }
 
-#leftbutton {
+#personality {
+  height: 135px;
+  max-height: 135px;
+  inline-size: 415px;
+  line-height: 27px;
+  min-inline-size: 20px;
+  overflow:auto;
+  padding-inline-start: 5px;
+  background-color: white;
+  color:black;
   font-size: 20px;
-  text-align: left;
-  float: left;
+  position: absolute;
+  border-color: white;
+  top: 370px;
+  left: 1165px;
 }
 
-#rightbutton {
+#ideals {
+  height: 100px;
+  max-height: 100px;
+  inline-size: 415px;
+  line-height: 27px;
+  min-inline-size: 20px;
+  overflow:auto;
+  padding-inline-start: 5px;
+  background-color: white;
+  color:black;
   font-size: 20px;
-  text-align: right;
-  float: right;
-  justify-content: flex-end;
+  position: absolute;
+  border-color: white;
+  top: 560px;
+  left: 1165px;
+}
+
+#bonds {
+  height: 100px;
+  max-height: 100px;
+  inline-size: 415px;
+  line-height: 27px;
+  min-inline-size: 20px;
+  overflow:auto;
+  padding-inline-start: 5px;
+  background-color: white;
+  color:black;
+  font-size: 20px;
+  position: absolute;
+  border-color: white;
+  top: 715px;
+  left: 1165px;
+}
+
+#flaws {
+  height: 100px;
+  max-height: 100px;
+  inline-size: 415px;
+  line-height: 27px;
+  min-inline-size: 20px;
+  overflow:auto;
+  padding-inline-start: 5px;
+  background-color: white;
+  color:black;
+  font-size: 20px;
+  position: absolute;
+  border-color: white;
+  top: 867px;
+  left: 1165px;
 }

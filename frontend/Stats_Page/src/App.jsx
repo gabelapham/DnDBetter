@@ -186,6 +186,10 @@ function App() {
           <option value="CE">Chaotic Evil</option>
         </select>
         <Stats />
+        <p contentEditable id="personality"></p>
+        <p contentEditable id="ideals"></p>
+        <p contentEditable id="bonds"></p>
+        <p contentEditable id="flaws"></p>
         </div>
       </div>
     </>
