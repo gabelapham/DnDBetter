@@ -231,7 +231,7 @@ function Stats() {
 
 return(
     <>
-    <div id="core">
+    <div>
         <label name="Player Stats" />
             <select id="level_select" onChange={() => pbFunc(level_select.value)}>
                 <option value="1">1</option>
@@ -255,11 +255,15 @@ return(
                 <option value="19">19</option>
                 <option value="20">20</option>
             </select>
+    </div>
+    <div>
         <label name="Prof Bonus" />
             <p id="pb">
                 +{pb}
             </p>
-        {/* CORE STATS */}
+    </div>
+    {/* CORE STATS */}
+    <div>
         <label name="STR Stats" />
             <select defaultValue={strength} id="str_select" onChange={() => setStrengthFunc(str_select.value)}>
                 <option value="1">1</option>
@@ -286,6 +290,8 @@ return(
             <p id="str_mod">
                 {strengthMod}
             </p>
+    </div>
+    <div>
         <label name="DEX Stats" />
             <select defaultValue={dexterity} id="dex_select" onChange={() => setDexterityFunc(dex_select.value)}>
                     <option value="1">1</option>
@@ -312,6 +318,8 @@ return(
             <p id="dex_mod">
                 {dexterityMod}
             </p>
+    </div>
+    <div>
         <label name="CON Stats" />
             <select defaultValue={constitution} id="con_select" onChange={() => setConstitutionFunc(con_select.value)}>
                     <option value="1">1</option>
@@ -338,6 +346,8 @@ return(
             <p id="con_mod">
                 {constitutionMod}
             </p>
+    </div>
+    <div>
         <label name="INT Stats" />
             <select defaultValue={intelligence} id="int_select" onChange={() => setIntelligenceFunc(int_select.value)}>
                     <option value="1">1</option>
@@ -364,6 +374,8 @@ return(
             <p id="int_mod">
                 {intelligenceMod}
             </p>
+    </div>
+    <div>
         <label name="WIS Stats" />
             <select defaultValue={wisdom} id="wis_select" onChange={() => setWisdomFunc(wis_select.value)}>
                     <option value="1">1</option>
@@ -390,6 +402,8 @@ return(
             <p id="wis_mod">
                 {wisdomMod}
             </p>
+    </div>
+    <div>
         <label name="CHA Stats" />
         <select defaultValue={charisma} id="cha_select" onChange={() => setCharismaFunc(cha_select.value)}>
                 <option value="1">1</option>
@@ -416,18 +430,20 @@ return(
             <p id="cha_mod">
                 {charismaMod}
             </p> 
+    </div>
         {/* SAVING THROWS + PB CHECKBOXES */}
-        <p id="str_st">
+    <div id="st_container">
+        <div id="st_item">
             {strengthMod+(strength_st_pb*pb)}
-        </p>
+        </div>
             <input type="checkbox" id="st_pb_str" checked={strength_st_pb} onChange={setStrFunc}/>
-        <p id="dex_st">
+        <div id="st_item">
             {dexterityMod+(dexterity_st_pb*pb)}
-        </p>
+        </div>
         <input type="checkbox" id="st_pb_dex" checked={dexterity_st_pb} onChange={setDexFunc}/>
-        <p id="con_st">
+        <div id="st_item">
             {constitutionMod+(constitution_st_pb*pb)}
-        </p>
+        </div>
         <input type="checkbox" id="st_pb_con" checked={constitution_st_pb} onChange={setConFunc}/>
         <p id="int_st">
             {intelligenceMod+(intelligence_st_pb*pb)}
@@ -441,8 +457,9 @@ return(
             {charismaMod+(charisma_st_pb*pb)}
         </p>
         <input type="checkbox" id="st_pb_cha" checked={charisma_st_pb} onChange={setChaFunc}/>
-
+    </div>
         {/* SKILLS */}
+    <div>
             <p id="acrobatics">
                 {dexterityMod+(acrobatics_pb*pb)}
             </p>
@@ -532,34 +549,43 @@ return(
                 {wisdomMod+(survival_pb*pb)}
             </p>
             <input type="checkbox" id="survival_pb" checked={survival_pb} onChange={setSurvivalFunc}/>
-
+    </div>
         {/* OTHER SKILLS */}
+        <div>
             <p id="passive_perception">
                 {10+wisdomMod+pb}
             </p>
+        </div>
+        <div>
             <p id="initiative">
                 {dexterityMod}
             </p>
+        </div>
+        <div>
             <p id="ac">
 
             </p>
+        </div>
+        <div>
             <p id="curr_hp">
 
             </p>
             <p id="temp_hp">
 
             </p>
+        </div>
+        <div>
             <p id="hit_die">
 
             </p>
-
+        </div>
+        <div>
             <input type='checkbox' id="ds_success_1" />
             <input type='checkbox' id="ds_success_2" />
             <input type='checkbox' id="ds_success_3" />
             <input type='checkbox' id="ds_fail_1" />
             <input type='checkbox' id="ds_fail_2" />
             <input type='checkbox' id="ds_fail_3" />
-
         </div>
     </>
 )

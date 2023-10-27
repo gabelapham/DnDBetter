@@ -48,7 +48,7 @@ function App() {
         setSubRace("NA")
         return;
       case "Human":
-        setRace("Half-Orc")
+        setRace("Human")
         subrace.value = "Normal"
         setSubRace("Normal")
         return;
@@ -71,9 +71,6 @@ function App() {
         </h1>
         <div id="png">
           <img src={stat_sheet} />
-        </div>
-      </div>
-      <div>
           <button id="shortRest">
             Short Rest
           </button>
@@ -83,9 +80,8 @@ function App() {
           <input id="charName" />
           <input id="playName" />
           <input type="number" id="exp" />
-      </div>
-      <div>
-        <select id="class">
+
+          <select id="class">
           <option value="Barbarian">Barbarian</option>
           <option value="Bard">Bard</option>
           <option value="Cleric">Cleric</option>
@@ -171,6 +167,9 @@ function App() {
           <option value="NE">Neutral Evil</option>
           <option value="CE">Chaotic Evil</option>
         </select>
+        </div>
+      </div>
+      <div>
       </div>
       <div>
         <button id="leftbutton">←</button>
