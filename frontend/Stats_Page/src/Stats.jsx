@@ -229,9 +229,39 @@ function Stats() {
         setSurvivalPB(e.target.checked)
     }
 
+    const [ds_success, setSuccess] = useState(0)
+    function successFunc(e) {
+        if (e.target.checked == 0) {
+            if (ds_success == 0) {
+                return;
+            } else if (ds_success == 3) {
+                setSuccess(0)
+            } else if (ds_success > 0) {
+                setSuccess(ds_success-1)
+            }
+        } else if (e.target.checked == 1) {
+            setSuccess(ds_success+1)
+        }
+    }
+    const [ds_fail, setFail] = useState(0)
+    function failFunc(e) {
+        if (e.target.checked == 0) {
+            if (ds_fail == 0) {
+                return;
+            } else if (ds_fail == 3) {
+                setFail(0)
+            } else if (ds_fail > 0) {
+                setFail(ds_fail-1)
+            }
+        } else if (e.target.checked == 1) {
+            setFail(ds_fail+1)
+        }
+    }
+
 return(
     <>
     <div id="core">
+        <h1 color='black'> {ds_success}</h1>
     <div>
         <label name="Player Stats" />
             <select id="level_select" onChange={() => pbFunc(level_select.value)}>
@@ -581,12 +611,12 @@ return(
             </p>
         </div>
         <div>
-            <input type='checkbox' id="ds_success_1" />
-            <input type='checkbox' id="ds_success_2" />
-            <input type='checkbox' id="ds_success_3" />
-            <input type='checkbox' id="ds_fail_1" />
-            <input type='checkbox' id="ds_fail_2" />
-            <input type='checkbox' id="ds_fail_3" />
+            <input type='checkbox' id="ds_success_1" disabled={ds_success > 1} checked={ds_success >= 1} onClick={successFunc}/>
+            <input type='checkbox' id="ds_success_2" disabled={ds_success < 1 || ds_success == 3} checked={ds_success >= 2} onClick={successFunc}/>
+            <input type='checkbox' id="ds_success_3" disabled={ds_success < 2} checked={ds_success == 3} onClick={successFunc}/>
+            <input type='checkbox' id="ds_fail_1" disabled={ds_fail > 1} checked={ds_fail >= 1} onClick={failFunc}/>
+            <input type='checkbox' id="ds_fail_2" disabled={ds_fail < 1 || ds_fail == 3} checked={ds_fail >= 2} onClick={failFunc}/>
+            <input type='checkbox' id="ds_fail_3" disabled={ds_fail < 2} checked={ds_fail == 3} onClick={failFunc}/>
         </div>
         </div>
     </>
