@@ -231,6 +231,7 @@ function Stats() {
 
 return(
     <>
+    <div id="core">
     <div>
         <label name="Player Stats" />
             <select id="level_select" onChange={() => pbFunc(level_select.value)}>
@@ -432,18 +433,18 @@ return(
             </p> 
     </div>
         {/* SAVING THROWS + PB CHECKBOXES */}
-    <div id="st_container">
-        <div id="st_item">
+    <div>
+        <p id="str_st">
             {strengthMod+(strength_st_pb*pb)}
-        </div>
+        </p>
             <input type="checkbox" id="st_pb_str" checked={strength_st_pb} onChange={setStrFunc}/>
-        <div id="st_item">
+        <p id="dex_st">
             {dexterityMod+(dexterity_st_pb*pb)}
-        </div>
+        </p>
         <input type="checkbox" id="st_pb_dex" checked={dexterity_st_pb} onChange={setDexFunc}/>
-        <div id="st_item">
+        <p id="con_st">
             {constitutionMod+(constitution_st_pb*pb)}
-        </div>
+        </p>
         <input type="checkbox" id="st_pb_con" checked={constitution_st_pb} onChange={setConFunc}/>
         <p id="int_st">
             {intelligenceMod+(intelligence_st_pb*pb)}
@@ -586,6 +587,7 @@ return(
             <input type='checkbox' id="ds_fail_1" />
             <input type='checkbox' id="ds_fail_2" />
             <input type='checkbox' id="ds_fail_3" />
+        </div>
         </div>
     </>
 )

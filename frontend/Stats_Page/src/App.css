@@ -14,7 +14,7 @@
   height: 2200px;
   width: 100%;
   position: relative;
-  zoom: 70%;
+  zoom: 75%;
   margin: 0 auto;
 }
 
@@ -36,96 +36,102 @@
 
 #charName {
   height: 40px;
-  width: 350px;
-  text-align: center;
+  width: 500px;
+  text-align: left;
+  padding-inline-start: 5px;
   background-color: white;
   color:black;
-  font-size: 25px;
+  font-size: 40px;
   position: absolute;
   border-color: white;
+  top: 172px;
+  left: 120px;
 }
 
 #playName {
-  height: 35px;
-  width: 240px;
-  text-align: center;
+  height: 45px;
+  width: 250px;
+  text-align: left;
+  padding-inline-start: 5px;
   background-color: white;
   color:black;
   font-size: 30px;
   position: absolute;
   border-color: white;
-  top: 130px;
+  top: 128px;
   left: 1330px;
 }
 
 #exp {
-  height: 30px;
-  width: 200px;
-  text-align: center;
+  width: 250px;
+  text-align: left;
+  padding-inline-start: 5px;
   background-color: white;
   color:black;
-  font-size: 25px;
+  font-size: 35px;
   position: absolute;
-  top: -672px;
-  left: 63px;
+  top: 205px;
+  left: 1330px;
   border-color: white;
 }
 #class {
   border-color: white;
   background-color: white;
   color: black;
-  font-size: 25px;
+  font-size: 40px;
   position: absolute;
-  top: -763px;
-  left: 291px;
+  top: 130px;
+  left: 745px;
 }
 
 #background {
   border-color: white;
   background-color: white;
   color: black;
-  font-size: 25px;
+  font-size: 35px;
   position: absolute;
-  top: -763px;
-  left: 398px;
+  top: 130px;
+  left: 1060px;
 }
 
 #race {
   border-color: white;
   background-color: white;
   color: black;
-  font-size: 25px;
+  font-size: 35px;
   position: absolute;
-  top: -710px;
-  left: -25px;
+  top: 205px;
+  left: 745px;
 }
 
 #subrace {
   border-color: white;
   background-color: white;
   color: black;
-  font-size: 15px;
+  font-size: 20px;
   position: absolute;
-  top: -710px;
-  left: -25px;
+  top: 220px;
+  left: 956px;
 }
 
 #alignment {
   border-color: white;
   background-color: white;
   color: black;
-  font-size: 25px;
+  font-size: 35px;
   position: absolute;
-  top: -710px;
-  left: -25px;
+  top: 205px;
+  left: 1060px;
 }
 
 #leftbutton {
+  font-size: 20px;
   text-align: left;
   float: left;
 }
 
 #rightbutton {
+  font-size: 20px;
   text-align: right;
   float: right;
   justify-content: flex-end;

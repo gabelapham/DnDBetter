@@ -10,18 +10,19 @@
     background-color: white;
     border-color: white;
     color: black;
-    font-size: 25px;
-    position: relative;
-    top: -31.82em;
-    left: 4em;
+    text-align: center;
+    font-size: 35px;
+    position: absolute;
+    top: 132px;
+    left: 960px;
 }
 
 #pb {
-    font-size: 30px;
+    font-size: 40px;
     color: black;
-    position: relative;
-    top: -20.4em;
-    left: -13.8em;
+    position: absolute;
+    top: 422px;
+    left: 275px;
 }
 
 /* Core Stats + Mods */
@@ -29,42 +30,42 @@
     background-color: white;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: black;
-    font-size: 40px;
+    font-size: 60px;
     text-align: center;
-    position: relative;
+    position: absolute;
     border-color: white;
-    top: -17.75em;
-    left: -12.9em;
+    top: 433px;
+    left: 118px;
 }
 
 #str_mod {
     color: black;
-    position: relative;
+    position: absolute;
     text-align: center;
-    font-size: 20px;
-    top: -715px;
-    left: -519px;
+    font-size: 30px;
+    top: 485px;
+    left: 150px;
 }
 
 #dex_select {
     background-color: white;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: black;
-    font-size: 40px;
+    font-size: 60px;
     text-align: center;
-    position: relative;
+    position: absolute;
     border-color: white;
-    top: -679px;
-    left: -513px;
+    top: 633px;
+    left: 118px;
   }
 
 #dex_mod {
     color: black;
-    position: relative;
+    position: absolute;
     text-align: center;
-    font-size: 20px;
-    top: -688px;
-    left: -519px;
+    font-size: 30px;
+    top: 683px;
+    left: 150px;
 }
 
 
@@ -72,445 +73,464 @@
     background-color: white;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: black;
-    font-size: 40px;
+    font-size: 60px;
     text-align: center;
-    position: relative;
+    position: absolute;
     border-color: white;
-    top: -650px;
-    left: -513px;
+    top: 833px;
+    left: 118px;
 }
 
 #con_mod {
     color: black;
-    position: relative;
+    position: absolute;
     text-align: center;
-    font-size: 20px;
-    top: -659px;
-    left: -519px;
+    font-size: 30px;
+    top: 883px;
+    left: 150px;
 }
 
 #int_select {
     background-color: white;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: black;
-    font-size: 40px;
+    font-size: 60px;
     text-align: center;
-    position: relative;
+    position: absolute;
     border-color: white;
-    top: -620px;
-    left: -513px;
+    top: 1032px;
+    left: 118px;
 }
 
 #int_mod {
     color: black;
-    position: relative;
+    position: absolute;
     text-align: center;
-    font-size: 20px;
-    top: -630px;
-    left: -519px;
+    font-size: 30px;
+    top: 1083px;
+    left: 150px;
 }
 
 #wis_select {
     background-color: white;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: black;
-    font-size: 40px;
+    font-size: 60px;
     text-align: center;
-    position: relative;
+    position: absolute;
     border-color: white;
-    top: -590px;
-    left: -513px;
+    top: 1231px;
+    left: 118px;
 }
 
 #wis_mod {
     color: black;
-    position: relative;
+    position: absolute;
     text-align: center;
-    font-size: 20px;
-    top: -600px;
-    left: -519px;
+    font-size: 30px;
+    top: 1282px;
+    left: 150px;
 }
 
 #cha_select {
     background-color: white;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: black;
-    font-size: 40px;
+    font-size: 60px;
     text-align: center;
-    position: relative;
+    position: absolute;
     border-color: white;
-    top: -563px;
-    left: -513px;
+    top: 1430px;
+    left: 118px;
 }
 
 #cha_mod {
-    color: black;
-    position: relative;
+    position: absolute;
     text-align: center;
-    font-size: 20px;
-    top: -570px;
-    left: -519px;
+    font-size: 30px;
+    top: 1478px;
+    left: 150px;
 }
 
 /* Saving Throws + PB */
 
-#st_container {
-    display: inline-grid;
-    background-color: aqua;
-    grid-template-columns: auto;
-    position: relative;
-    max-width: 25px;
-    max-height: fit-content;
-    top: -1320px;
-    left: -387px
-}
-
-#st_item {
-    color: black;
-    text-align: center;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 23px;
-}
 #str_st {
-    color: black;
-    top: -500px;
-    left: auto;
-    position: relative;
-    font-size: 23px;
+    position: absolute;
+    text-align: center;
+    font-size: 30px;
+    top: 530px;
+    left: 325px;
 }
 #st_pb_str {
-    position: relative;
-    top: -525.25px;
-    left: -420px;
+    position: absolute;
+    height: 22px;
+    width: 22px;
+    top: 574px;
+    left: 275px;
 }
 
 #dex_st {
-    position: relative;
-    top: 572px;
-    left: 363px;
-    font-size: 20px;
+    position: absolute;
+    text-align: center;
+    font-size: 30px;
+    top: 569px;
+    left: 325px;
 }
 #st_pb_dex {
-    position: relative;
-    top: -521px;
-    left: -420px;
+    position: absolute;
+    height: 22px;
+    width: 22px;
+    top: 611px;
+    left: 275px;
 }
 
 #con_st {
-    position: relative;
-    top: 600px;
-    left: 363px;
-    font-size: 20px;
+    position: absolute;
+    text-align: center;
+    font-size: 30px;
+    top: 605px;
+    left: 325px;
 }
 #st_pb_con {
-    position: relative;
-    top: -517px;
-    left: -420px;
+    position: absolute;
+    height: 22px;
+    width: 22px;
+    top: 648px;
+    left: 275px;
 }
 
 #int_st {
-    position: relative;
-    top: 627px;
-    left: 363px;
-    font-size: 20px;
+    position: absolute;
+    text-align: center;
+    font-size: 30px;
+    top: 643px;
+    left: 325px;
 }
 #st_pb_int {
-    position: relative;
-    top: -513px;
-    left: -420px;
+    position: absolute;
+    height: 22px;
+    width: 22px;
+    top: 686px;
+    left: 275px;
 }
 
 #wis_st {
-    position: relative;
-    top: 655px;
-    left: 363px;
-    font-size: 20px;
+    position: absolute;
+    text-align: center;
+    font-size: 30px;
+    top: 680px;
+    left: 325px;
 }
 #st_pb_wis {
-    position: relative;
-    top: -509px;
-    left: -420px;
+    position: absolute;
+    height: 22px;
+    width: 22px;
+    top: 723px;
+    left: 275px;
 }
 
 #cha_st {
-    position: relative;
-    top: 684px;
-    left: 363px;
-    font-size: 20px;
+    position: absolute;
+    text-align: center;
+    font-size: 30px;
+    top: 717px;
+    left: 325px;
 }
 #st_pb_cha {
-    position: relative;
-    top: -505px;
-    left: -420px;
-}
-
-#athletics {
-    position: relative;
-    top: 868px;
-    left: 361px;
-    font-size: 20px;
-}
-
-#athletics_pb {
-    position: relative;
-    top: 896px;
-    left: 325.75px;
+    position: absolute;
+    height: 22px;
+    width: 22px;
+    top: 760px;
+    left: 275px;
 }
 
 #acrobatics {
-    position: relative;
-    top: 783px;
-    left: 361px;
-    font-size: 20px;
+    position: absolute;
+    text-align: center;
+    font-size: 30px;
+    top: 850px;
+    left: 323px;
 }
 #acrobatics_pb {
-    position: relative;
-    top: 812px;
-    left: 325.75px;
-}
-
-#sleight_of_hand {
-    position: relative;
-    top: 1206px;
-    left: 361px;
-    font-size: 20px;
-}
-#sleight_of_hand_pb {
-    position: relative;
-    top: 1234.5px;
-    left: 325.75px;
-}
-
-#stealth {
-    position: relative;
-    top: 1234px;
-    left: 361px;
-    font-size: 20px;
-}
-#stealth_pb {
-    position: relative;
-    top: 1262.5px;
-    left: 325.75px;
-}
-
-#initiative {
-    position: relative;
-    top: 390px;
-    left: 738px;
-    font-size: 45px;
-}
-
-#arcana {
-    position: relative;
-    top: 839px;
-    left: 361px;
-    font-size: 20px;
-}
-#arcana_pb {
-    position: relative;
-    top: 868px;
-    left: 325.75px;
-}
-
-#history {
-    position: relative;
-    top: 925px;
-    left: 361px;
-    font-size: 20px;
-}
-#history_pb {
-    position: relative;
-    top: 953px;
-    left: 325.75px;
-}
-
-#investigation {
-    position: relative;
-    top: 1009px;
-    left: 361px;
-    font-size: 20px;
-}
-#investigation_pb {
-    position: relative;
-    top: 1037px;
-    left: 325.75px;
-}
-
-#nature {
-    position: relative;
-    top: 1065px;
-    left: 361px;
-    font-size: 20px;
-}
-#nature_pb {
-    position: relative;
-    top: 1093.5px;
-    left: 325.75px;
-}
-
-#religion {
-    position: relative;
-    top: 1178px;
-    left: 361px;
-    font-size: 20px;
-}
-#religion_pb {
-    position: relative;
-    top: 1205.5px;
-    left: 325.75px;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 #animal_handling {
-    position: relative;
-    top: 812px;
-    left: 361px;
-    font-size: 20px;
+    position: absolute;
+    text-align: center;
+    font-size: 30px;
+    top: 888px;
+    left: 323px;
 }
 #animal_handling_pb {
-    position: relative;
-    top: 840px;
-    left: 325.75px;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
-#insight {
-    position: relative;
-    top: 953px;
-    left: 361px;
-    font-size: 20px;
+#arcana {
+    position: absolute;
+    text-align: center;
+    font-size: 30px;
+    top: 924px;
+    left: 323px;
 }
-#insight_pb {
-    position: relative;
-    top: 981px;
-    left: 325.75px;
-}
-
-#medicine {
-    position: relative;
-    top: 1037px;
-    left: 361px;
-    font-size: 20px;
-}
-#medicine_pb {
-    position: relative;
-    top: 1065.5px;
-    left: 325.75px;
+#arcana_pb {
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
-#passive_perception {
-    position: relative;
-    top: 1355px;
-    left: 195px;
-    font-size: 20px;
+#athletics {
+    position: absolute;
+    text-align: center;
+    font-size: 30px;
+    top: 962px;
+    left: 323px;
 }
 
-#perception {
-    position: relative;
-    top: 1093px;
-    left: 361px;
-    font-size: 20px;
-}
-#perception_pb {
-    position: relative;
-    top: 1121.5px;
-    left: 325.75px;
-}
-
-#survival {
-    position: relative;
-    top: 1262px;
-    left: 361px;
-    font-size: 20px;
-}
-#survival_pb {
-    position: relative;
-    top: 1290.5px;
-    left: 325.75px;
+#athletics_pb {
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 #deception {
-    position: relative;
-    top: 895px;
-    left: 361px;
-    font-size: 20px;
+    position: absolute;
+    text-align: center;
+    font-size: 30px;
+    top: 1000px;
+    left: 323px;
 }
 #deception_pb {
-    position: relative;
-    top: 925px;
-    left: 325.75px;
+    position: absolute;
+    top: 0;
+    left: 0px;
+}
+
+#history {
+    position: absolute;
+    text-align: center;
+    font-size: 30px;
+    top: 1037px;
+    left: 323px;
+}
+#history_pb {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#insight {
+    position: absolute;
+    text-align: center;
+    font-size: 30px;
+    top: 1075px;
+    left: 323px;
+}
+#insight_pb {
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 #intimidation {
-    position: relative;
-    top: 980px;
-    left: 361px;
-    font-size: 20px;
+    position: absolute;
+    text-align: center;
+    font-size: 30px;
+    top: 1113px;
+    left: 323px;
 }
 #intimidation_pb {
-    position: relative;
-    top: 1009px;
-    left: 325.75px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#investigation {
+    position: absolute;
+    text-align: center;
+    font-size: 30px;
+    top: 1149px;
+    left: 323px;
+}
+#investigation_pb {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#medicine {
+    position: absolute;
+    text-align: center;
+    font-size: 30px;
+    top: 1187px;
+    left: 323px;
+}
+#medicine_pb {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#nature {
+    position: absolute;
+    text-align: center;
+    font-size: 30px;
+    top: 1225px;
+    left: 323px;
+}
+#nature_pb {
+    position: absolute;
+    top: 0px;
+    left: 0;
+}
+
+#perception {
+    position: absolute;
+    text-align: center;
+    font-size: 30px;
+    top: 1261px;
+    left: 323px;
+}
+#perception_pb {
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 #performance {
-    position: relative;
-    top: 1120px;
-    left: 361px;
-    font-size: 20px;
+    position: absolute;
+    text-align: center;
+    font-size: 30px;
+    top: 1298px;
+    left: 323px;
 }
 #performance_pb {
-    position: relative;
-    top: 1149.5px;
-    left: 325.75px;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 #persuasion {
-    position: relative;
-    top: 1149px;
-    left: 361px;
-    font-size: 20px;
+    position: absolute;
+    text-align: center;
+    font-size: 30px;
+    top: 1337px;
+    left: 323px;
 }
 #persuasion_pb {
-    position: relative;
-    top: 1177.5px;
-    left: 325.75px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#religion {
+    position: absolute;
+    text-align: center;
+    font-size: 30px;
+    top: 1374px;
+    left: 323px;
+}
+#religion_pb {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#sleight_of_hand {
+    position: absolute;
+    text-align: center;
+    font-size: 30px;
+    top: 1412px;
+    left: 323px;
+}
+#sleight_of_hand_pb {
+    position: absolute;
+    top: 0px;
+    left: 0;
+}
+
+#stealth {
+    position: absolute;
+    text-align: center;
+    font-size: 30px;
+    top: 1449px;
+    left: 323px;
+}
+#stealth_pb {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#survival {
+    position: absolute;
+    text-align: center;
+    font-size: 30px;
+    top: 1488px;
+    left: 323px;
+}
+#survival_pb {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#initiative {
+    position: absolute;
+    text-align: center;
+    top: 335px;
+    left: 825px;
+    font-size: 60px;
+}
+
+#passive_perception {
+    position: absolute;
+    text-align: center;
+    top: 1604px;
+    left: 98px;
+    font-size: 35px;
 }
 
 #ac {
-    position: relative;
+    position: absolute;
 }
 
 #curr_hp {
-    position: relative;
+    position: absolute;
 }
 
 #temp_hp {
-    position: relative;
+    position: absolute;
 }
 
 #hit_die {
-    position: relative;
+    position: absolute;
 }
 
 #ds_success_1 {
-    position: relative;
+    position: absolute;
 }
 
 #ds_success_2 {
-    position: relative;
+    position: absolute;
 }
 
 #ds_success_3 {
-    position: relative;
+    position: absolute;
 }
 
 #ds_fail_1 {
-    position: relative;
+    position: absolute;
 }
 
 #ds_fail_2 {
-    position: relative;
+    position: absolute;
 }
 
 #ds_fail_3 {
-    position: relative;
+    position: absolute;
 }

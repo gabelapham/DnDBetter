@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import stat_sheet from './assets/stats_sheet.png'
 import './App.css'
+import Stats from './Stats.jsx'
 
 function App() {
   const [playerClass, setClass] = useState("Barbarian")
@@ -66,6 +67,10 @@ function App() {
   return (
     <>
       <div id="root">
+        <div>
+        <button id="leftbutton">Background <br /> ←</button>
+        <button id="rightbutton">Spells <br /> →</button>
+        </div>
         <h1>
           Character Stats
         </h1>
@@ -167,13 +172,8 @@ function App() {
           <option value="NE">Neutral Evil</option>
           <option value="CE">Chaotic Evil</option>
         </select>
+        <Stats />
         </div>
-      </div>
-      <div>
-      </div>
-      <div>
-        <button id="leftbutton">←</button>
-        <button id="rightbutton">→</button>
       </div>
     </>
   )
