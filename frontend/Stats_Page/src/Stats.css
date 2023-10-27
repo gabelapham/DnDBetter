@@ -253,8 +253,10 @@
 }
 #acrobatics_pb {
     position: absolute;
-    top: 0;
-    left: 0;
+    height: 22px;
+    width: 22px;
+    top: 893px;
+    left: 275px;
 }
 
 #animal_handling {
@@ -266,8 +268,10 @@
 }
 #animal_handling_pb {
     position: absolute;
-    top: 0;
-    left: 0;
+    height: 22px;
+    width: 22px;
+    top: 931px;
+    left: 275px;
 }
 
 #arcana {
@@ -279,8 +283,10 @@
 }
 #arcana_pb {
     position: absolute;
-    top: 0;
-    left: 0;
+    height: 22px;
+    width: 22px;
+    top: 969px;
+    left: 275px;
 }
 
 #athletics {
@@ -293,8 +299,10 @@
 
 #athletics_pb {
     position: absolute;
-    top: 0;
-    left: 0;
+    height: 22px;
+    width: 22px;
+    top: 1006px;
+    left: 275px;
 }
 
 #deception {
@@ -306,8 +314,10 @@
 }
 #deception_pb {
     position: absolute;
-    top: 0;
-    left: 0px;
+    height: 22px;
+    width: 22px;
+    top: 1044px;
+    left: 275px;
 }
 
 #history {
@@ -319,8 +329,10 @@
 }
 #history_pb {
     position: absolute;
-    top: 0;
-    left: 0;
+    height: 22px;
+    width: 22px;
+    top: 1081px;
+    left: 275px;
 }
 
 #insight {
@@ -332,8 +344,10 @@
 }
 #insight_pb {
     position: absolute;
-    top: 0;
-    left: 0;
+    height: 22px;
+    width: 22px;
+    top: 1118px;
+    left: 275px;
 }
 
 #intimidation {
@@ -345,8 +359,10 @@
 }
 #intimidation_pb {
     position: absolute;
-    top: 0;
-    left: 0;
+    height: 22px;
+    width: 22px;
+    top: 1155px;
+    left: 275px;
 }
 
 #investigation {
@@ -358,8 +374,10 @@
 }
 #investigation_pb {
     position: absolute;
-    top: 0;
-    left: 0;
+    height: 22px;
+    width: 22px;
+    top: 1193px;
+    left: 275px;
 }
 
 #medicine {
