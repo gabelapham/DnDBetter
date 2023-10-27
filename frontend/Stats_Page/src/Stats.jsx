@@ -283,9 +283,6 @@ return(
                 <option value="19">19</option>
                 <option value="20">20</option>
             </select>
-            <p id="str">
-                {strength}
-            </p>
             <p id="str_mod">
                 {strengthMod}
             </p>
@@ -312,9 +309,6 @@ return(
                     <option value="19">19</option>
                     <option value="20">20</option>
                 </select>
-            <p id="dex">
-                {dexterity}
-            </p>
             <p id="dex_mod">
                 {dexterityMod}
             </p>
@@ -341,9 +335,6 @@ return(
                     <option value="19">19</option>
                     <option value="20">20</option>
                 </select>
-            <p id="con">
-                {constitution}
-            </p>
             <p id="con_mod">
                 {constitutionMod}
             </p>
@@ -370,9 +361,6 @@ return(
                     <option value="19">19</option>
                     <option value="20">20</option>
                 </select>
-            <p id="int">
-                {intelligence}
-            </p>
             <p id="int_mod">
                 {intelligenceMod}
             </p>
@@ -399,9 +387,6 @@ return(
                     <option value="19">19</option>
                     <option value="20">20</option>
                 </select>
-            <p id="wis">
-                {wisdom}
-            </p>
             <p id="wis_mod">
                 {wisdomMod}
             </p>
@@ -428,9 +413,6 @@ return(
                 <option value="19">19</option>
                 <option value="20">20</option>
             </select>
-            <p id="cha">
-                {charisma}
-            </p>
             <p id="cha_mod">
                 {charismaMod}
             </p> 
@@ -558,6 +540,26 @@ return(
             <p id="initiative">
                 {dexterityMod}
             </p>
+            <p id="ac">
+
+            </p>
+            <p id="curr_hp">
+
+            </p>
+            <p id="temp_hp">
+
+            </p>
+            <p id="hit_die">
+
+            </p>
+
+            <input type='checkbox' id="ds_success_1" />
+            <input type='checkbox' id="ds_success_2" />
+            <input type='checkbox' id="ds_success_3" />
+            <input type='checkbox' id="ds_fail_1" />
+            <input type='checkbox' id="ds_fail_2" />
+            <input type='checkbox' id="ds_fail_3" />
+
         </div>
     </>
 )

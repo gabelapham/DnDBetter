@@ -8,11 +8,12 @@
 
 #level_select {
     background-color: white;
+    border-color: white;
     color: black;
     font-size: 25px;
     position: relative;
-    top: -745px;
-    left: 130px;
+    top: -795px;
+    left: 80px;
 }
 
 #pb {
@@ -22,39 +23,24 @@
     top: -556px;
 }
 
-#str_inc {
+#str_select {
+    background-color: white;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: black;
+    font-size: 40px;
+    text-align: center;
     position: relative;
-    background-color: rgb(59, 152, 59);
-    width: auto;
-    overflow: hidden;
-    size:initial;
+    border-color: white;
     top: -650px;
-    left: -608px;
-    font-size: 10px;
+    left: -513px;
 }
-
-#str_dec {
-    position: relative;
-    background-color: rgb(152, 59, 59);
-    size: 2px;
-    top: -630px;
-    left: -608px;
-    font-size: 10px; 
-}
-
-#str {
-    position: relative;
-    font-size: 35px;
-    top: -743px;
-    left: -517px;
-  }
 
 #str_mod {
     position: relative;
     text-align: center;
     font-size: 18px;
-    top: -765px;
-    left: -517px;
+    top: -656px;
+    left: -518px;
 }
 
 #dex_inc {
@@ -545,4 +531,44 @@
     position: relative;
     top: 1177.5px;
     left: 325.75px;
+}
+
+#ac {
+    position: relative;
+}
+
+#curr_hp {
+    position: relative;
+}
+
+#temp_hp {
+    position: relative;
+}
+
+#hit_die {
+    position: relative;
+}
+
+#ds_success_1 {
+    position: relative;
+}
+
+#ds_success_2 {
+    position: relative;
+}
+
+#ds_success_3 {
+    position: relative;
+}
+
+#ds_fail_1 {
+    position: relative;
+}
+
+#ds_fail_2 {
+    position: relative;
+}
+
+#ds_fail_3 {
+    position: relative;
 }

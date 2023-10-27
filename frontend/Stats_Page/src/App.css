@@ -4,16 +4,35 @@
   padding: 0.5rem;
   text-align: center;
   color: white;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 #png {
+  z-index: -1;
   width: 1920px;
   height: 1080px;
   margin: auto;
   align-items: center;
   zoom: 75%;
   position: static;
+}
+
+#shortRest {
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  position: relative;
+  font-size: 20px;
+  size: 20px;
+  top: -790px;
+  left: 780px;
+}
+
+#longRest {
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  position: relative;
+  font-size: 20px;
+  size: 20px;
+  top: -790px;
+  left: 790px;
 }
 
 #charName {
@@ -24,22 +43,84 @@
   color:black;
   font-size: 25px;
   position: relative;
-  top: 0px;
-  left: 0px;
+  top: -690px;
+  left: -265px;
   border-color: white;
 }
 
 #playName {
   height: 35px;
-  width: 222px;
+  width: 200px;
   text-align: center;
   background-color: white;
   color:black;
   font-size: 25px;
   position: relative;
-  top: 0px;
-  left: 0px;
+  top: -728.5px;
+  left: 270px;
   border-color: white;
+}
+
+#exp {
+  height: 30px;
+  width: 200px;
+  text-align: center;
+  background-color: white;
+  color:black;
+  font-size: 25px;
+  position: relative;
+  top: -672px;
+  left: 63px;
+  border-color: white;
+}
+#class {
+  border-color: white;
+  background-color: white;
+  color: black;
+  font-size: 25px;
+  position: relative;
+  top: -763px;
+  left: 291px;
+}
+
+#background {
+  border-color: white;
+  background-color: white;
+  color: black;
+  font-size: 25px;
+  position: relative;
+  top: -763px;
+  left: 398px;
+}
+
+#race {
+  border-color: white;
+  background-color: white;
+  color: black;
+  font-size: 25px;
+  position: relative;
+  top: -710px;
+  left: -25px;
+}
+
+#subrace {
+  border-color: white;
+  background-color: white;
+  color: black;
+  font-size: 15px;
+  position: relative;
+  top: -710px;
+  left: -25px;
+}
+
+#alignment {
+  border-color: white;
+  background-color: white;
+  color: black;
+  font-size: 25px;
+  position: relative;
+  top: -710px;
+  left: -25px;
 }
 
 #leftbutton {
