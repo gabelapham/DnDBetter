@@ -35,7 +35,7 @@
     justify-content: center;
     
     /* background-color: lightgreen; */
-    padding-bottom: 60px;
+    padding-bottom: 59.5px;
 
 }
 
@@ -61,6 +61,7 @@
     font-size: 18px;
     text-align: center;
     font-family: "papyrus";
+    /* zoom: 75%; */
 }
 
 .spell-ability, .attack-bonus{
@@ -111,22 +112,27 @@
 }
 
 .lvl-0{
-    height: 213px;
+    height: 212px;
     /* border: solid;
     border-color: black;
     border-width: 2px; */
 }
 
 .lvl-1{
-    height: 289px;
+    padding-top: 1.5px;
+    margin-left: -1.4px;
+    height: 286.5px;
     /* border: solid;
     border-color: black;
     border-width: 2px; */
     display: flex;
     flex-direction: column;
+    /* background-color: lightblue; */
 }
+
 .lvl-2{
     flex: 1;
+    margin-left: -1.5px;
     /* border: solid;
     border-color: black;
     border-width: 2px; */
@@ -134,7 +140,7 @@
     flex-direction: column;
 }
 .lvl-3{
-    height: 284px;
+    height: 284.5px;
     /* border: solid;
     border-color: black;
     border-width: 2px; */
@@ -161,38 +167,45 @@
     flex-direction: column;
 
 }
-.lvl-6, .lvl-7{
-    height: 215px;
+.lvl-6{
+    height: 214px;
     /* border: solid;
     border-color: black;
     border-width: 2px; */
     display: flex;
     flex-direction: column;
-
+    margin-left: -1.5px;
+    /* background-color: lightblue; */
 }
-/* .lvl-7{
-    height: 210px;
-    border: solid;
-    border-color: black;
-    border-width: 2px;
-} */
-.lvl-8{
-    height: 177px;
+.lvl-7{
+    height: 214px;
     /* border: solid;
     border-color: black;
     border-width: 2px; */
     display: flex;
     flex-direction: column;
-
+    margin-left: -1.5px;
+}
+.lvl-8{
+    height: 178.5px;
+    margin-left: -1.5px;
+    /* border: solid;
+    border-color: black;
+    border-width: 2px; */
+    display: flex;
+    flex-direction: column;
+    /* background-color: lightblue; */
 }
 .lvl-9{
     flex: 1;
+    /* background-color: lightpink; */
+    margin-bottom: -2px;
     /* border: solid;
     border-color: black;
     border-width: 2px; */
     display: flex;
     flex-direction: column;
-
+    margin-left: -1.5px;
 }
 
 .total-slot, .total-slot-left, .total-slot-right{

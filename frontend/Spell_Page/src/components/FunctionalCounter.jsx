@@ -30,6 +30,12 @@ function FunctionalCounter(){
             </div>
             <div className="spellContent">
                 <SpellLog count={counter} />
+                <SpellLog count={counter} />
+                <SpellLog count={counter} />
+                <SpellLog count={counter} />
+                <SpellLog count={counter} />
+                <SpellLog count={counter} />
+                <SpellLog count={counter} />
             </div>
         </div>
 

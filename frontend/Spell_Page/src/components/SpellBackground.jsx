@@ -2,7 +2,6 @@ import React from 'react';
 import './SpellBackground.css';
 import { useState } from 'react';
 import SpellCounter from '../components/FunctionalCounter';
-import SpellLog from './SpellLog';
 
 const SpellBackground = () =>{
 

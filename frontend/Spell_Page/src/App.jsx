@@ -1,9 +1,6 @@
 import { useState } from 'react';
 
 import './App.css';
-import Func from './components/Functional';
-import ClassComp from './components/Class';
-import Counter from './components/Counter';
 import SpellBackground from './components/SpellBackground';
 import Navbar from './components/Navbar';
 

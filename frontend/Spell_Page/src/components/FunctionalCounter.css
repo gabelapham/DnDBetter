@@ -15,7 +15,6 @@
     flex-direction: column;
     /* background-color: lightpink; */
     width: 130px;
-
 }
 
 .counterContainer{
@@ -23,11 +22,11 @@
     /* background-color: lightblue; */
 
     width: 130px;
-    height: 25px;
+    height: 28px;
     margin-top: 6.5px;
     align-items: center;
     justify-content: space-around;
-    margin-bottom: 6px;
+    margin-bottom: 7.8px;
 }
 
 .spellContent{

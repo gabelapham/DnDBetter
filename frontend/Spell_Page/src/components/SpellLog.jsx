@@ -1,6 +1,13 @@
 import "./SpellLog.css";
+import { useState } from "react";
 
 function SpellLog(prop){
+    
+    const [isActive, setActivation] = useState(false);
+    
+    const handleClick = () => {
+        setActivation(!isActive);
+    }
 
     const output = [];
     for(let i = 0; i < prop; i++){
@@ -9,15 +16,20 @@ function SpellLog(prop){
 
     return(
         <>
-            <div className="spellContainer">            
-                    {output}    
-                    <input className="spell" type="text"/>  
-                    <input className="spell" type="text"/>  
-                    <input className="spell" type="text"/>  
-                    <input className="spell" type="text"/>  
-                    <input className="spell" type="text"/>  
-                    <input className="spell" type="text"/>  
-                    <input className="spell" type="text"/>  
+            <div className="spellContainer">  
+
+                <div className="indivSpell">
+                    <div className="prepContainer">
+                        <button  className={`spellPreparation ${isActive ? 'active' : ''}`} onClick={handleClick}></button>
+                        
+                    </div>    
+                    <div className="spellNameContainer">
+                        <input className="spell" type="text"/>  
+                    </div>
+                </div>      
+
+                 
+                  
             </div>
         
         </>
