@@ -47,7 +47,7 @@ const SpellBackground = () =>{
                             <div className='lvl-1'>
                                 <div className='lvl-header'>
                                     <input className='total-slot-left' type="text" />
-                                    <SpellCounter />
+                                    <SpellCounter id={1}/>
 
                                 </div>
                             </div>
@@ -55,7 +55,7 @@ const SpellBackground = () =>{
                             <div className='lvl-2'>
                                 <div className='lvl-header'>
                                     <input className='total-slot-left' type="text" />
-                                    <SpellCounter />
+                                    <SpellCounter id={2}/>
 
                                 </div>
                             </div>
@@ -67,7 +67,7 @@ const SpellBackground = () =>{
                             <div className='lvl-3'>
                                 <div className='lvl-header'>
                                     <input className='total-slot' type="text" />
-                                    <SpellCounter />
+                                    <SpellCounter id={3}/>
 
                                 </div>
                             </div>
@@ -75,7 +75,7 @@ const SpellBackground = () =>{
                             <div className='lvl-4'>
                                 <div className='lvl-header'>
                                     <input className='total-slot' type="text" />
-                                    <SpellCounter />
+                                    <SpellCounter id={4}/>
 
                                 </div>
                             </div>
@@ -83,7 +83,7 @@ const SpellBackground = () =>{
                             <div className='lvl-5'>
                                 <div className='lvl-header'>
                                     <input className='total-slot' type="text" />
-                                    <SpellCounter />
+                                    <SpellCounter id={5}/>
 
                                 </div>
                             </div>
@@ -95,26 +95,26 @@ const SpellBackground = () =>{
                             <div className='lvl-6'>
                                 <div className='lvl-header'>
                                     <input className='total-slot-right' type="text" />
-                                    <SpellCounter />
+                                    <SpellCounter id={6}/>
                                 </div>
                             </div>
                             <div className='lvl-7'>
                             <div className='lvl-header'>
                                     <input className='total-slot-right' type="text" />
-                                    <SpellCounter />
+                                    <SpellCounter id={7}/>
                                 </div>
                             </div>
                             <div className='lvl-8'>
                             <div className='lvl-header'>
                                     <input className='total-slot-right' type="text" />
-                                    <SpellCounter />
+                                    <SpellCounter id={8}/>
 
                                 </div>
                             </div>
                             <div className='lvl-9'>
                             <div className='lvl-header'>
                                     <input className='total-slot-right' type="text" />
-                                    <SpellCounter />
+                                    <SpellCounter id={9}/>
 
                                 </div>
                             </div>

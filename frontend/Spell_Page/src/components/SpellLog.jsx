@@ -1,7 +1,7 @@
 import "./SpellLog.css";
 import { useState } from "react";
 
-function SpellLog(prop){
+function SpellLog(props){
     
     const [isActive, setActivation] = useState(false);
     
@@ -10,15 +10,27 @@ function SpellLog(prop){
     }
 
     const output = [];
-    for(let i = 0; i < prop; i++){
-        output.push(<input className="spell" type="text" />);
+    for(let i = 0; i < props.count; i++){
+        output.push(
+            
+            <div className="indivSpell">
+                <div className="prepContainer">
+                    <button  className={`spellPreparation ${isActive ? 'active' : ''}`} onClick={handleClick}></button>
+                    
+                </div>    
+                <div className="spellNameContainer">
+                    <input className="spell" type="text"/>  
+                </div>
+            </div>    
+        );
     }
 
     return(
-        <>
+        <>  
             <div className="spellContainer">  
+                {output}
 
-                <div className="indivSpell">
+                {/* <div className="indivSpell">
                     <div className="prepContainer">
                         <button  className={`spellPreparation ${isActive ? 'active' : ''}`} onClick={handleClick}></button>
                         
@@ -26,9 +38,7 @@ function SpellLog(prop){
                     <div className="spellNameContainer">
                         <input className="spell" type="text"/>  
                     </div>
-                </div>      
-
-                 
+                </div>       */}                 
                   
             </div>
         

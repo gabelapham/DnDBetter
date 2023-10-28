@@ -112,14 +112,14 @@
 }
 
 .lvl-0{
-    height: 212px;
+    height: 210px;
     /* border: solid;
     border-color: black;
     border-width: 2px; */
 }
 
 .lvl-1{
-    padding-top: 1.5px;
+    padding-top: 3px;
     margin-left: -1.4px;
     height: 286.5px;
     /* border: solid;

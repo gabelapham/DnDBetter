@@ -2,7 +2,7 @@ import { useState } from "react";
 import './FunctionalCounter.css';
 import SpellLog from './SpellLog';
 
-function FunctionalCounter(){
+function FunctionalCounter(props){
 
     /*useState() will create a State variable and its function
     you can also pass in initial value of the state variable you just created into useState */
@@ -10,7 +10,26 @@ function FunctionalCounter(){
     // const [varname, funcname] = useState("inital value");
 
     const handleIncrement = ()=>{
-        setCounter(counter + 1);
+        switch(props.id){
+            case 1: case 2: case 3: case 4:
+                if(counter < 13){
+                    setCounter(counter + 1);
+                }
+                break;
+            case 5: case 6: case 7:
+                if(counter < 9){
+                    setCounter(counter + 1);
+                }
+                break;
+            case 8: case 9:
+                if(counter < 7){
+                    setCounter(counter + 1);
+                }
+                break;
+            default:
+                break;
+        }
+
     }
 
     const handleDecrement = ()=>{
@@ -29,12 +48,6 @@ function FunctionalCounter(){
 
             </div>
             <div className="spellContent">
-                <SpellLog count={counter} />
-                <SpellLog count={counter} />
-                <SpellLog count={counter} />
-                <SpellLog count={counter} />
-                <SpellLog count={counter} />
-                <SpellLog count={counter} />
                 <SpellLog count={counter} />
             </div>
         </div>
