@@ -441,11 +441,244 @@ monkClassFeatures.append(ASI)
 
 monkClassFeatures.append(practice)
 
-for i in monkClassFeatures:
-    print(i)
+URL = "http://dnd5e.wikidot.com/paladin"
+page = requests.get(URL)
+soup = BeautifulSoup(page.content, "html.parser")
+results = soup.find("div", class_="col-lg-12")
+practice = results.text
+practice = practice.partition("Hit Points")[1] + practice.partition("Hit Points")[2]
+paladinLevelUp = [0, 0, 0, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 5, 6, 7, 8, 8, 10, 11, 12, 12, 14, 15, 16, 16, 18, 19, 19, 20]
 
-print(len(monkLevelUp))
-print(len(monkClassFeatures))
+paladinClassFeatures = [practice.partition("Proficiencies")[0]]
+practice = practice.partition("Proficiencies")[1] + practice.partition("Proficiencies")[2]
+
+paladinClassFeatures.append(practice.partition("Equipment")[0])
+practice = practice.partition("Equipment")[1] + practice.partition("Equipment")[2]
+
+paladinClassFeatures.append(practice.partition("Divine Sense")[0])
+practice = practice.partition("Divine Sense")[1] + practice.partition("Divine Sense")[2]
+
+paladinClassFeatures.append(practice.partition("Lay on Hands")[0])
+practice = practice.partition("Lay on Hands")[1] + practice.partition("Lay on Hands")[2]
+
+paladinClassFeatures.append(practice.partition("Fighting Style")[0])
+practice = practice.partition("Fighting Style")[1] + practice.partition("Fighting Style")[2]
+
+paladinClassFeatures.append(practice.partition("Close Quarters Shooter (UA)")[0])
+practice = practice.partition("Spellcasting")[1] + practice.partition("Spellcasting")[2]
+
+paladinClassFeatures.append(practice.partition("Divine Smite")[0])
+practice = practice.partition("Divine Smite")[1] + practice.partition("Divine Smite")[2]
+
+paladinClassFeatures.append(practice.partition("Divine Health")[0])
+practice = practice.partition("Divine Health")[1] + practice.partition("Divine Health")[2]
+
+paladinClassFeatures.append(practice.partition("Sacred Oath")[0])
+practice = practice.partition("Sacred Oath")[1] + practice.partition("Sacred Oath")[2]
+
+paladinClassFeatures.append(practice.partition("Harness Divine Power (Optional)")[0])
+practice = practice.partition("Harness Divine Power")[1] + practice.partition("Harness Divine Power")[2]
+
+paladinClassFeatures.append(practice.partition("Ability Score Improvement")[0])
+practice = practice.partition("Ability Score Improvement")[1] + practice.partition("Ability Score Improvement")[2]
+
+paladinClassFeatures.append(practice.partition("Martial Versatility (Optional)")[0])
+practice = practice.partition("Martial Versatility (Optional)")[1] + practice.partition("Martial Versatility (Optional)")[2]
+
+paladinClassFeatures.append(practice.partition("Extra Attack")[0])
+practice = practice.partition("Extra Attack")[1] + practice.partition("Extra Attack")[2]
+
+paladinClassFeatures.append(practice.partition("Aura of Protection")[0])
+practice = practice.partition("Aura of Protection")[1] + practice.partition("Aura of Protection")[2]
+
+paladinClassFeatures.append(practice.partition("Aura of Courage")[0])
+practice = practice.partition("Aura of Courage")[1] + practice.partition("Aura of Courage")[2]
+
+paladinClassFeatures.append("Sacred Oath Feature")
+paladinClassFeatures.append(ASI)
+paladinClassFeatures.append(paladinClassFeatures[12])
+
+paladinClassFeatures.append(practice.partition("Improved Divine Smite")[0])
+practice = practice.partition("Improved Divine Smite")[1] + practice.partition("Improved Divine Smite")[2]
+
+paladinClassFeatures.append(practice.partition("Cleansing Touch")[0])
+practice = practice.partition("Cleansing Touch")[1] + practice.partition("Cleansing Touch")[2]
+
+paladinClassFeatures.append(ASI)
+paladinClassFeatures.append(paladinClassFeatures[12])
+
+paladinClassFeatures.append(practice)
+
+paladinClassFeatures.append("Sacred Oath Feature")
+paladinClassFeatures.append(ASI)
+paladinClassFeatures.append(paladinClassFeatures[12])
+
+paladinClassFeatures.append("All aura ranges increased to 30 feet")
+
+paladinClassFeatures.append(ASI)
+paladinClassFeatures.append(paladinClassFeatures[12])
+paladinClassFeatures.append("Sacred Oath Feature")
+
+martVers = paladinClassFeatures[12]
+
+URL = "http://dnd5e.wikidot.com/ranger"
+page = requests.get(URL)
+soup = BeautifulSoup(page.content, "html.parser")
+results = soup.find("div", class_="col-lg-12")
+practice = results.text
+practice = practice.partition("Hit Points")[1] + practice.partition("Hit Points")[2]
+rangerLevelUp =[0, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 6, 6, 7, 8, 8, 8, 10, 10, 11, 12, 12, 14, 14, 15, 16, 16, 18, 19, 19, 20]
+
+rangerClassFeatures = [practice.partition("Proficiencies")[0]]
+practice = practice.partition("Proficiencies")[1] + practice.partition("Proficiencies")[2]
+
+rangerClassFeatures.append(practice.partition("Equipment")[0])
+practice = practice.partition("Equipment")[1] + practice.partition("Equipment")[2]
+
+rangerClassFeatures.append(practice.partition("Favored Enemy")[0])
+practice = practice.partition("Favored Enemy")[1] + practice.partition("Favored Enemy")[2]
+
+rangerClassFeatures.append(practice.partition("Favored Foe (Optional)")[0])
+practice = practice.partition("Natural Explorer")[1] + practice.partition("Natural Explorer")[2]
+
+# rangerClassFeatures.append(practice.partition("Natural Explorer")[0])
+# practice = practice.partition("Natural Explorer")[1] + practice.partition("Natural Explorer")[2]
+
+rangerClassFeatures.append(practice.partition("Deft Explorer (Optional)")[0])
+practice = practice.partition("Fighting Style")[1] + practice.partition("Fighting Style")[2]
+
+rangerClassFeatures.append(practice.partition("Close Quarters Shooter (UA)")[0])
+practice = practice.partition("Spellcasting")[1] + practice.partition("Spellcasting")[2]
+
+rangerClassFeatures.append(practice.partition("Spellcasting Focus (Optional)")[0])
+practice = practice.partition("Primeval Awareness")[1] + practice.partition("Primeval Awareness")[2]
+
+rangerClassFeatures.append(practice.partition("Primal Awareness")[0])
+practice = practice.partition("Ranger Conclave")[1] + practice.partition("Ranger Conclave")[2]
+
+rangerClassFeatures.append(practice.partition("Ability Score Improvement")[0])
+practice = practice.partition("Ability Score Improvement")[1] + practice.partition("Ability Score Improvement")[2]
+
+rangerClassFeatures.append(practice.partition("Martial Versatility (Optional)")[0])
+practice = practice.partition("Martial Versatility (Optional)")[1] + practice.partition("Martial Versatility (Optional)")[2]
+
+rangerClassFeatures.append(practice.partition("Extra Attack")[0])
+practice = practice.partition("Extra Attack")[1] + practice.partition("Extra Attack")[2]
+
+rangerClassFeatures.append(practice.partition("Land's Stride")[0])
+practice = practice.partition("Land's Stride")[1] + practice.partition("Land's Stride")[2]
+
+rangerClassFeatures.append("Favored Enemy Improvement" + rangerClassFeatures[3].partition("if they speak one at all.")[2])
+FEI = rangerClassFeatures[len(rangerClassFeatures)-1]
+
+rangerClassFeatures.append("Natural Explorer Improvement" + rangerClassFeatures[4].partition("how long ago they passed through the area.\n")[2])
+NEI = rangerClassFeatures[len(rangerClassFeatures)-1]
+
+rangerClassFeatures.append("Ranger Conclave Feature")
+
+rangerClassFeatures.append(practice.partition("Hide in Plain Sight")[0])
+practice = practice.partition("Hide in Plain Sight")[1] + practice.partition("Hide in Plain Sight")[2]
+
+rangerClassFeatures.append(ASI)
+rangerClassFeatures.append(martVers)
+rangerClassFeatures.append(NEI)
+
+rangerClassFeatures.append(practice.partition("Nature's Veil (Optional)")[0])
+practice = practice.partition("Vanish")[1] + practice.partition("Vanish")[2]
+
+rangerClassFeatures.append("Ranger Conclave Feature")
+rangerClassFeatures.append(ASI)
+rangerClassFeatures.append(martVers)
+rangerClassFeatures.append(FEI)
+
+rangerClassFeatures.append(practice.partition("Feral Senses")[0])
+practice = practice.partition("Feral Sense")[1] + practice.partition("Feral Senses")[2]
+
+rangerClassFeatures.append("Ranger Conclave Feature")
+rangerClassFeatures.append(ASI)
+rangerClassFeatures.append(martVers)
+
+rangerClassFeatures.append(practice.partition("Foe Slayer")[0])
+practice = practice.partition("Foe Slayer")[1] + practice.partition("Foe Slayer")[2]
+
+rangerClassFeatures.append(ASI)
+rangerClassFeatures.append(martVers)
+
+rangerClassFeatures.append(practice)
+
+URL = "http://dnd5e.wikidot.com/rogue"
+page = requests.get(URL)
+soup = BeautifulSoup(page.content, "html.parser")
+results = soup.find("div", class_="col-lg-12")
+practice = results.text
+practice = practice.partition("Hit Points")[1] + practice.partition("Hit Points")[2]
+rogueLevelUp =[0, 0, 0, 1, 1, 1, 2, 3, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+
+rogueClassFeatures = [practice.partition("Proficiencies")[0]]
+practice = practice.partition("Proficiencies")[1] + practice.partition("Proficiencies")[2]
+
+rogueClassFeatures.append(practice.partition("Equipment")[0])
+practice = practice.partition("Equipment")[1] + practice.partition("Equipment")[2]
+
+rogueClassFeatures.append(practice.partition("Expertise")[0])
+practice = practice.partition("Expertise")[1] + practice.partition("Expertise")[2]
+
+rogueClassFeatures.append(practice.partition("Sneak Attack")[0])
+practice = practice.partition("Sneak Attack")[1] + practice.partition("Sneak Attack")[2]
+
+rogueClassFeatures.append(practice.partition("Thieves' Cant")[0])
+practice = practice.partition("Thieves' Cant")[1] + practice.partition("Thieves' Cant")[2]
+
+rogueClassFeatures.append(practice.partition("Cunning Action")[0])
+practice = practice.partition("Cunning Action")[1] + practice.partition("Cunning Action")[2]
+
+rogueClassFeatures.append(practice.partition("Roguish Archetype")[0])
+practice = practice.partition("Roguish Archetype")[1] + practice.partition("Roguish Archetype")[2]
+
+rogueClassFeatures.append(practice.partition("Steady Aim (Optional)")[0])
+practice = practice.partition("Steady Aim (Optional)")[1] + practice.partition("Steady Aim (Optional)")[2]
+
+rogueClassFeatures.append(practice.partition("Ability Score Improvement")[0])
+practice = practice.partition("Ability Score Improvement")[1] + practice.partition("Ability Score Improvement")[2]
+
+rogueClassFeatures.append(practice.partition("Uncanny Dodge")[0])
+practice = practice.partition("Uncanny Dodge")[1] + practice.partition("Uncanny Dodge")[2]
+
+rogueClassFeatures.append(practice.partition("Evasion")[0])
+practice = practice.partition("Evasion")[1] + practice.partition("Evasion")[2]
+
+rogueClassFeatures.append("Expertise Improvement" + rogueClassFeatures[3].partition("either of the chosen proficiencies.")[2])
+
+rogueClassFeatures.append(practice.partition("Reliable Talent")[0])
+practice = practice.partition("Reliable Talent")[1] + practice.partition("Reliable Talent")[2]
+
+rogueClassFeatures.append(ASI)
+rogueClassFeatures.append("Roguish Archetype Feature")
+rogueClassFeatures.append(ASI)
+
+rogueClassFeatures.append(practice.partition("Blindsense")[0])
+practice = practice.partition("Blindsense")[1] + practice.partition("Blindsense")[2]
+
+rogueClassFeatures.append(ASI)
+rogueClassFeatures.append("Roguish Archetype Feature")
+
+rogueClassFeatures.append(practice.partition("Slippery Mind")[0])
+practice = practice.partition("Slippery Mind")[1] + practice.partition("Slippery Mind")[2]
+
+rogueClassFeatures.append(practice.partition("Elusive")[0])
+practice = practice.partition("Elusive")[1] + practice.partition("Elusive")[2]
+
+rogueClassFeatures.append(ASI)
+rogueClassFeatures.append("Roguish Archetype Feature")
+
+rogueClassFeatures.append(practice.partition("Stroke of Luck")[0])
+practice = practice.partition("Stroke of Luck")[1] + practice.partition("Stroke of Luck")[2]
+
+rogueClassFeatures.append(ASI)
+rogueClassFeatures.append(practice)
+
+for i in rogueClassFeatures:
+    print(i)
 
 # Once the data has been scraped, it's info is then stored into a dictionary to associate the poper features with the proper levels. The dictionary is then made into a
 # pandas dataframe.
@@ -490,13 +723,34 @@ df5 = pd.DataFrame(fighterData)
 
 monkData = {
     "class": classNames[5],
-    "leve": monkLevelUp,
+    "level": monkLevelUp,
     "features": monkClassFeatures
 }
 df6 = pd.DataFrame(monkData)
+
+paladinData = {
+    "class": classNames[6],
+    "level": paladinLevelUp,
+    "features": paladinClassFeatures
+}
+df7 = pd.DataFrame(paladinData)
+
+rangerData = {
+    "class": classNames[7],
+    "level": rangerLevelUp,
+    "features": rangerClassFeatures
+}
+df8 = pd.DataFrame(rangerData)
+
+rogueData = {
+    "class": classNames[8],
+    "level": rogueLevelUp,
+    "features": rogueClassFeatures
+}
+df9 = pd.DataFrame(rogueData)
 # Once all of our dictionaries have been created, we than make a list of dictionaries and convert the entire list into a pandas dataframe. This allows all of the
 # information to be stored in a single data structure
-table = [df1, df2, df3, df4, df5, df6]
+table = [df1, df2, df3, df4, df5, df6, df7, df8, df9]
 
 finalDf = pd.concat(table)
 finalDf = finalDf.reset_index()
@@ -507,4 +761,3 @@ with pd.option_context('display.max_rows', None,
                        'display.precision', 4,
                        ):
     print(finalDf)
-
