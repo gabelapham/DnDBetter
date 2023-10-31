@@ -6,24 +6,6 @@
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
   
-  #leftbutton {
-    width: 150px;
-    padding-block: 10px;
-    font-size: 20px;
-    text-align: left;
-    float: left;
-  }
-  
-  #rightbutton {
-    padding-block: 10px;
-    width: 150px;
-    font-size: 20px;
-    text-align: right;
-    float: right;
-    justify-content: flex-end;
-    word-spacing: 3px;
-  }
-  
   #png {
     text-align: center;
     z-index: 0;

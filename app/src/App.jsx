@@ -13,7 +13,7 @@ function App() {
     <>
       <BrowserRouter id="nav">
         <div>
-          <div> 
+          <div>
             <nav>
             <NavLink to="/landing" id="d20">
               <img src={d20} />

@@ -8,6 +8,15 @@
   height: auto;
 }
 
+.h1 {
+  letter-spacing: 20px;
+  word-spacing: 10px;
+  font-size: 40px;
+  line-height: 5px;
+  padding-bottom: 10px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
 .text-box {
   position: absolute;
   top: 50px;

@@ -77,9 +77,7 @@ const StatsApp = () => {
   return (
     <>
       <div id="root">
-        <h1>
-          Character Stats
-        </h1>
+        <br />
         <div id="png">
           <img src={stat_sheet} />
           <button id="shortRest">

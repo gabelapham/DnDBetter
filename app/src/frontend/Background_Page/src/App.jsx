@@ -22,25 +22,28 @@ function App() {
   }
 
   return (
-    <div className="container">
-      <div className="image-wrapper">
-        <div className="image-box1">
-          {image1 && <img src={image1} alt="Uploaded" className="resized-image" />}
+    <>
+    <br></br>
+      <div className="container">
+        <div className="image-wrapper">
+          <div className="image-box1">
+            {image1 && <img src={image1} alt="Uploaded" className="resized-image" />}
+          </div>
+          <div className="file-upload-button1">
+            <input type="file" accept="image/*" onChange={handleImageChange1} />
+          </div>
         </div>
-        <div className="file-upload-button1">
-          <input type="file" accept="image/*" onChange={handleImageChange1} />
+        <div className="image-wrapper">
+          <div className="image-box2">
+            {image2 && <img src={image2} alt="Uploaded" className="resized-image" />}
+          </div>
+          <div className="file-upload-button2">
+            <input type="file" accept="image/*" onChange={handleImageChange2} />
+          </div>
         </div>
+        <ImageComponent userText={text} onUserTextChange={handleTextChange} />
       </div>
-      <div className="image-wrapper">
-        <div className="image-box2">
-          {image2 && <img src={image2} alt="Uploaded" className="resized-image" />}
-        </div>
-        <div className="file-upload-button2">
-          <input type="file" accept="image/*" onChange={handleImageChange2} />
-        </div>
-      </div>
-      <ImageComponent userText={text} onUserTextChange={handleTextChange} />
-    </div>
+    </>
   );
 }
 
