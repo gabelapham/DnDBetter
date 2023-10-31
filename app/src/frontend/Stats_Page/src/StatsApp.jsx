@@ -3,11 +3,6 @@ import stat_sheet from './assets/stats_sheet.png'
 import './StatsApp.css'
 import Stats from './Stats.jsx'
 
-import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom"
-import Landing from '/Landing_Page/src/App.jsx'
-import d20 from './assets/d20.png'
-import Spells from '/Spell_Page/src/SpellApp.jsx'
-
 const StatsApp = () => {
   const [playerClass, setClass] = useState("Barbarian")
   const [playerBackground, setBackground] = useState("Acolyte")

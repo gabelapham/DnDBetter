@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import './Stats.css'
-import './index.css'
 
 function Stats() {
     const [level, setLevel] = useState(1)

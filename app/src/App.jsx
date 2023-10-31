@@ -1,16 +1,16 @@
-import { useState } from 'react'
 import './App.css'
 import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom"
-import Landing from '/Landing_Page/src/App.jsx'
-import Spells from '/Spell_Page/src/SpellApp.jsx'
-import StatsApp from './StatsApp.jsx'
-import Background from '/Background_Page/src/App.jsx'
+import Landing from '../frontend/Landing_Page/src/App.jsx'
+import Spells from '../frontend/Spell_Page/src/SpellApp.jsx'
+import StatsApp from '../frontend/Stats_Page/src/StatsApp.jsx'
+import Background from '../frontend/Background_Page/src/App.jsx'
 import d20 from './assets/d20.png'
 
 function App() {
   
   return (
     <>
+    <h1> hi </h1>
       <BrowserRouter id="nav">
         <div>
           <div> 
@@ -41,7 +41,7 @@ function App() {
         </div>
       </BrowserRouter>
     </>
-  );
+  )
 }
 
 export default App
