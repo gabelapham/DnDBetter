@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './App.css'
+import './index.css'
 
 const Landing = () => {
   const [count, setCount] = useState(0)

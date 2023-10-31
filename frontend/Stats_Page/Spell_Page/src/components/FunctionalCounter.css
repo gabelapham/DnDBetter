@@ -1,0 +1,40 @@
+
+.incr, .decr{
+    background-color: transparent;
+    border: solid;
+    border-color: black;
+    border-width: 0.5px;
+    border-radius: 120px;
+    font-size: 10px;
+    margin-top: 4px;
+
+}
+
+.spellGrid{
+    display: flex;
+    flex-direction: column;
+    /* background-color: lightpink; */
+    width: 130px;
+}
+
+.counterContainer{
+    display: flex;
+    /* background-color: lightblue; */
+
+    width: 130px;
+    height: 28px;
+    margin-top: 6.5px;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 7.8px;
+}
+
+.spellContent{
+    margin-left: -94px;
+}
+
+p{
+    font-family: "papyrus";
+    font-size: larger;
+    padding-top: 3px;
+}

@@ -1,0 +1,78 @@
+.spellContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.indivSpell{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 16.1px;
+    
+    border-style: solid;
+    border-color: transparent;
+    border-width: 0.01px;
+    /* background-color: lightblue; */
+    width: 230px;
+
+}
+
+.spellNameContainer{
+    /* background-color: lightblue; */
+
+}
+
+.spell{
+    display: flex;
+    background-color: transparent;
+    border: none;
+   
+    width: 197.1px;
+    height: 16px;
+    /* border-style: solid;
+    border-width: 0.1px; */
+    /* background-color: lightblue; */
+}
+
+.spell:hover{
+    border-color: orange;
+}
+
+
+.prepContainer{
+    /* background-color: lightpink; */
+    display: flex;
+    /* border-style: solid;
+    border-width: .1px;
+    border-color: lightpink; */
+    /* height: 17px; */
+    width: 8px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: -10px;
+}
+
+.spellPreparation{
+   
+    border-radius: 100%;
+    font-size: 3px;
+    
+    border-style: solid;
+    border-color: black;
+   
+    background-color:transparent;
+    padding-top: 5px;
+}
+
+.spellPreparation.active{
+    background-color: green;
+}
+
+.spellPreparation:hover{
+    background-color: lightgreen;
+}
+
+.spellPreparation:active{
+    background-color: green;
+}

@@ -1,0 +1,42 @@
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.067);
+    width: 100vw;
+    
+}
+
+.logo{
+    width: auto;
+    height: 75px;
+    margin: 0;
+    transition: border .1s;
+}
+
+
+.link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.link li{
+    list-style: none;
+    padding-left: 10px;
+    padding-right: 40px;
+}
+
+.link li a{
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: 600;
+    color: yellowgreen;
+    padding: 4px 4px;
+}
+
+.link li a:hover{
+    color: white;
+    box-shadow: 5px 5px yellowgreen;
+    padding: 5px 5px 5px 5px;
+}
