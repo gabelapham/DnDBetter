@@ -4,10 +4,13 @@
     border: solid;
     border-color: black;
     border-width: 0.5px;
-    border-radius: 120px;
-    font-size: 10px;
+    border-radius: 60px;
+    font-size: 17px;
     margin-top: 4px;
-
+    width: 30px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
 }
 
 .spellGrid{
@@ -26,6 +29,7 @@
     margin-top: 6.5px;
     align-items: center;
     justify-content: space-around;
+    align-items: center;
     margin-bottom: 7.8px;
 }
 
@@ -37,4 +41,5 @@ p{
     font-family: "papyrus";
     font-size: larger;
     padding-top: 3px;
+    color: black;
 }

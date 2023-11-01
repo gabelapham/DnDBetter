@@ -1,44 +1,30 @@
 import "./SpellLog.css";
 import { useState } from "react";
+import SpellPrep from "./SpellPrep"
 
 function SpellLog(props){
-    
-    const [isActive, setActivation] = useState(false);
-    
-    const handleClick = () => {
-        setActivation(!isActive);
-    }
 
     const output = [];
     for(let i = 0; i < props.count; i++){
         output.push(
-            
-            <div className="indivSpell">
-                <div className="prepContainer">
-                    <button  className={`spellPreparation ${isActive ? 'active' : ''}`} onClick={handleClick}></button>
+            <SpellPrep />
+            // <div className="indivSpell" id={i}>
+            //     <div className="prepContainer">
                     
-                </div>    
-                <div className="spellNameContainer">
-                    <input className="spell" type="text"/>  
-                </div>
-            </div>    
+            //         <button  className={`spellPreparation ${spell1Active ? 'active' : ''}`} onClick={handleClick}>.</button>
+                    
+            //     </div>    
+            //     <div className="spellNameContainer">
+            //         <input className="spell" type="text"/>  
+            //     </div>
+            // </div>    
         );
     }
 
     return(
         <>  
             <div className="spellContainer">  
-                {output}
-
-                {/* <div className="indivSpell">
-                    <div className="prepContainer">
-                        <button  className={`spellPreparation ${isActive ? 'active' : ''}`} onClick={handleClick}></button>
-                        
-                    </div>    
-                    <div className="spellNameContainer">
-                        <input className="spell" type="text"/>  
-                    </div>
-                </div>       */}                 
+                {output}               
                   
             </div>
         

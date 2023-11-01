@@ -8,7 +8,7 @@ function App() {
 
   return (
     <>
-      <br />
+        <br />
         <div>
             <SpellBackground />
         </div>
