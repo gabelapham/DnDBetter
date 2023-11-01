@@ -1,0 +1,87 @@
+.indivSpell{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 16.1px;
+    
+    border-style: solid;
+    border-color: transparent;
+    border-width: 0.01px;
+    /* background-color: lightblue; */
+    width: 230px;
+
+}
+
+.spellNameContainer{
+    display: flex;
+    margin-right: -5px;
+    margin-left: 5px;
+    /* background-color: lightblue; */
+    /* padding-left: 10px; */
+}
+
+.spell{
+    display: flex;
+    background-color: transparent;
+    border: none;
+    font-family: "papyrus";
+    align-items: center;
+    width: 197.1px;
+    height: 16px;
+    color: black;
+    /* border-style: solid;
+    border-width: 0.1px; */
+    /* background-color: lightblue; */
+}
+
+.spell:hover{
+    border-color: orange;
+    border-style:dotted;
+    border-width: 2px;
+    border-radius: 5px;
+}
+
+
+
+.prepContainer{
+    /* background-color: lightpink; */
+    display: flex;
+    /* border-style: solid;
+    border-width: .1px;
+    border-color: lightpink; */
+    /* height: 17px; */
+    width: 6px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: -10px;
+    border-radius: 100%;
+
+}
+
+.spellPreparation{
+    border-radius: 100%;
+    font-size: 5px;
+    border-style: solid;
+    border-color: black;
+    color: transparent;
+   
+    background-color:transparent;
+    max-width: 8px;
+    max-height: 8px;
+    /* padding-top: 5px; */
+    cursor: pointer;
+}
+
+.spellPreparation.active{
+    background-color: rgb(34, 243, 34);
+}
+
+
+.spellPreparation:hover{
+    background-color: lightgreen;
+}
+
+.spellPreparation:active{
+    background-color: rgb(34, 243, 34);
+}

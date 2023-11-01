@@ -1,0 +1,5 @@
+.spellContainer{
+    display: flex;
+    flex-direction: column;
+}
+
