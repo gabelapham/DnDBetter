@@ -84,7 +84,7 @@ const Landing = () => {
           <img src={placeholder}/>
         </div>
         <div className="description">
-          <h2>Seungwoo An</h2>
+          <h2>Seungwoo "Aiden" An</h2>
           <p>About me</p>
         </div>
       </div>
@@ -93,7 +93,7 @@ const Landing = () => {
           <img src={placeholder}/>
         </div>
         <div className="description">
-          <h2>Frank</h2>
+          <h2>Zichen "Frank" Fu</h2>
           <p>About me</p>
         </div>
       </div>
