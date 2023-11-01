@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './index.css'
 import placeholder from './assets/placeholder.png'
+import jon from './assets/jon_lapham.jpg'
 
 const Landing = () => {
   const [count, setCount] = useState(0)
