@@ -1,0 +1,947 @@
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400   1) import requests
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400   2) from bs4 import BeautifulSoup
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400   3) import pandas as pd
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400   4) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400   5) # Used later for creating pandas dataframe. May become obsolete if classes are broken into individual files
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400   6) classNames = ["barbarian", "bard", "cleric", "druid", "fighter", "monk", "paladin", "ranger", "rogue", "sorcerer", "warlock", "wizard"]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400   7) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400   8) URL = "http://dnd5e.wikidot.com/barbarian"
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400   9) page = requests.get(URL)
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  10) soup = BeautifulSoup(page.content, "html.parser")
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  11) results = soup.find("div", class_="col-lg-12")
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  12) practice = results.text
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  13) # Every class gets a different # of features per level, so a table is used to hold the number of features per level per class
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  14) barbLevelUp = [0, 0, 0, 1, 1, 2, 2, 3, 3, 4, 5, 5, 6, 7, 7, 8, 9, 10, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  15) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  16) # Unfortunately, the wikidot website we are scraping from is not particularly well formatted when it comes to class information. As such, there is no means by which I
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  17) # can loop through the entire page to gather information, and must instead individually partition the data
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  18) practice = practice.partition("Hit Points")[1] + practice.partition("Hit Points")[2]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  19) barbClassFeatures = [practice.partition("Proficiencies")[0]]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  20) practice = practice.partition("Proficiencies")[1] + practice.partition("Proficiencies")[2]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  21) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  22) barbClassFeatures.append(practice.partition("Equipment")[0])
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400  23) practice = practice.partition("Equipment")[1] + practice.partition("Equipment")[2]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  24) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  25) barbClassFeatures.append(practice.partition("Rage")[0])
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  26) practice = practice.partition("Rage")[1] + practice.partition("Rage")[2]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  27) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  28) barbClassFeatures.append(practice.partition("Unarmored Defense")[0])
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  29) practice = practice.partition("Unarmored Defense")[1] + practice.partition("Unarmored Defense")[2]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  30) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  31) barbClassFeatures.append(practice.partition("Danger Sense")[0])
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  32) practice = practice.partition("Danger Sense")[1] + practice.partition("Danger Sense")[2]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  33) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  34) barbClassFeatures.append(practice.partition("Reckless Attack")[0])
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  35) practice = practice.partition("Reckless Attack")[1] + practice.partition("Reckless Attack")[2]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  36) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  37) barbClassFeatures.append(practice.partition("Primal Path")[0])
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  38) practice = practice.partition("Primal Path")[1] + practice.partition("Primal Path")[2]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  39) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  40) barbClassFeatures.append(practice.partition("Primal Knowledge (Optional)")[0])
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  41) practice = practice.partition("Primal Knowledge (Optional)")[1] + practice.partition("Primal Knowledge (Optional)")[2]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  42) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  43) barbClassFeatures.append(practice.partition("Ability Score Improvement")[0])
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  44) practice = practice.partition("Ability Score Improvement")[1] + practice.partition("Ability Score Improvement")[2]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  45) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  46) barbClassFeatures.append(practice.partition("Extra Attack")[0])
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  47) practice = practice.partition("Extra Attack")[1] + practice.partition("Extra Attack")[2]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  48) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  49) barbClassFeatures.append(practice.partition("Fast Movement")[0])
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  50) practice = practice.partition("Fast Movement")[1] + practice.partition("Fast Movement")[2]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  51) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  52) barbClassFeatures.append(practice.partition("Feral Instinct")[0])
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  53) barbClassFeatures.append("Path Feature")
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  54) practice = practice.partition("Feral Instinct")[1] + practice.partition("Feral Instinct")[2]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  55) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  56) barbClassFeatures.append(practice.partition("Instinctive Pounce (Optional)")[0])
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  57) practice = (practice.partition("Instinctive Pounce (Optional)")[1] +
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  58)             practice.partition("Instinctive Pounce (Optional)")[2])
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  59) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  60) barbClassFeatures.append(practice.partition("Brutal Critical")[0])
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  61) practice = practice.partition("Brutal Critical")[1] + practice.partition("Brutal Critical")[2]
+648c9d699 backend/class-scraping/main.py         (JonClark28        2023-10-18 15:45:31 -0400  62) barbClassFeatures.append(barbClassFeatures[9])
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  63) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  64) barbClassFeatures.append(practice.partition("Relentless Rage")[0])
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  65) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  66) # Certain pieces of class information, typical those that occur multiple times, are not included in wikidot's class description. So I occasionally had to append to the
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  67) # information by hand, and not by partition the website
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  68) barbClassFeatures.append("Path Feature")
+648c9d699 backend/class-scraping/main.py         (JonClark28        2023-10-18 15:45:31 -0400  69) barbClassFeatures.append(barbClassFeatures[8])
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  70) practice = practice.partition("Relentless Rage")[1] + practice.partition("Relentless Rage")[2]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  71) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  72) barbClassFeatures.append(practice.partition("Persistent Rage")[0])
+648c9d699 backend/class-scraping/main.py         (JonClark28        2023-10-18 15:45:31 -0400  73) barbClassFeatures.append(barbClassFeatures[9])
+648c9d699 backend/class-scraping/main.py         (JonClark28        2023-10-18 15:45:31 -0400  74) barbClassFeatures.append(barbClassFeatures[16])
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  75) barbClassFeatures.append("Path Feature")
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  76) practice = practice.partition("Persistent Rage")[1] + practice.partition("Persistent Rage")[2]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  77) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  78) barbClassFeatures.append(practice.partition("Indomitable Might")[0])
+648c9d699 backend/class-scraping/main.py         (JonClark28        2023-10-18 15:45:31 -0400  79) barbClassFeatures.append(barbClassFeatures[9])
+648c9d699 backend/class-scraping/main.py         (JonClark28        2023-10-18 15:45:31 -0400  80) barbClassFeatures.append(barbClassFeatures[16])
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  81) practice = practice.partition("Indomitable Might")[1] + practice.partition("Indomitable Might")[2]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  82) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  83) barbClassFeatures.append(practice.partition("Primal Champion")[0])
+648c9d699 backend/class-scraping/main.py         (JonClark28        2023-10-18 15:45:31 -0400  84) barbClassFeatures.append(barbClassFeatures[9])
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  85) practice = practice.partition("Primal Champion")[1] + practice.partition("Primal Champion")[2]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  86) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  87) barbClassFeatures.append(practice)
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  88) barbClassFeatures = [i for i in barbClassFeatures if i]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  89) 
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400  90) ASI = barbClassFeatures[9]
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400  91) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  92) # The process above repeats, but now for the bard class
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  93) URL = "http://dnd5e.wikidot.com/bard"
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  94) page = requests.get(URL)
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  95) soup = BeautifulSoup(page.content, "html.parser")
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  96) results = soup.find("div", class_="col-lg-12")
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  97) practice = results.text
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  98) bardLevelUp = [0, 0, 0, 1, 1, 2, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 8, 8, 9, 10, 10, 10, 12, 12, 13, 14, 14, 15, 16,
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400  99)                16, 17, 18, 19, 19, 20]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 100) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 101) practice = practice.partition("Hit Points")[1] + practice.partition("Hit Points")[2]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 102) bardClassFeatures = [(practice.partition("Proficiencies")[0])]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 103) practice = practice.partition("Proficiencies")[1] + practice.partition("Proficiencies")[2]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 104) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 105) bardClassFeatures.append(practice.partition("Equipment")[0])
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 106) practice = practice.partition("Equipment")[1] + practice.partition("Equipment")[2]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 107) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 108) bardClassFeatures.append(practice.partition("Spellcasting")[0])
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 109) practice = practice.partition("Spellcasting")[1] + practice.partition("Spellcasting")[2]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 110) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 111) bardClassFeatures.append(practice.partition("Bardic Inspiration")[0])
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 112) practice = practice.partition("Bardic Inspiration")[1] + practice.partition("Bardic Inspiration")[2]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 113) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 114) bardClassFeatures.append(practice.partition("Jack of All Trades")[0])
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 115) practice = practice.partition("Jack of All Trades")[1] + practice.partition("Jack of All Trades")[2]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 116) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 117) bardClassFeatures.append(practice.partition("Song of Rest")[0])
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 118) practice = practice.partition("Song of Rest")[1] + practice.partition("Song of Rest")[2]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 119) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 120) bardClassFeatures.append(practice.partition("Magical Inspiration (Optional)")[0])
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 121) practice = (practice.partition("Magical Inspiration (Optional)")[1] +
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 122)             practice.partition("Magical Inspiration (Optional)")[2])
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 123) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 124) bardClassFeatures.append(practice.partition("Bard College")[0])
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 125) practice = practice.partition("Bard College")[1] + practice.partition("Bard College")[2]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 126) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 127) bardClassFeatures.append(practice.partition("Expertise")[0])
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 128) practice = practice.partition("Expertise")[1] + practice.partition("Expertise")[2]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 129) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 130) bardClassFeatures.append(practice.partition("Ability Score Improvement")[0])
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 131) practice = practice.partition("Ability Score Improvement")[1] + practice.partition("Ability Score Improvement")[2]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 132) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 133) bardClassFeatures.append(practice.partition("Bardic Versatility")[0])
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 134) practice = practice.partition("Bardic Versatility")[1] + practice.partition("Bardic Versatility")[2]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 135) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 136) bardClassFeatures.append(practice.partition("Font of Inspiration")[0])
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 137) practice = practice.partition("Font of Inspiration")[1] + practice.partition("Font of Inspiration")[2]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 138) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 139) bardClassFeatures.append("Bardic Inspiration (d8)")
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 140) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 141) bardClassFeatures.append(practice.partition("Countercharm")[0])
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 142) practice = practice.partition("Countercharm")[1] + practice.partition("Countercharm")[2]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 143) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 144) bardClassFeatures.append(practice.partition("Magical Secrets")[0])
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 145) practice = practice.partition("Magical Secrets")[1] + practice.partition("Magical Secrets")[2]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 146) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 147) bardClassFeatures.append("Bard College Feature")
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 148) bardClassFeatures.append("ASI")
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 149) bardClassFeatures.append("Bardic Versatility (Optional)")
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 150) bardClassFeatures.append("Song of Rest (d8)")
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 151) bardClassFeatures.append("Bardic Inspiration (d10)")
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 152) bardClassFeatures.append("Expertise")
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 153) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 154) bardClassFeatures.append(practice.partition("Superior Inspiration")[0])
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 155) practice = practice.partition("Superior Inspiration")[1] + practice.partition("Superior Inspiration")[2]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 156) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 157) bardClassFeatures.append("ASI")
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 158) bardClassFeatures.append("Bardic Versatility (Optional)")
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 159) bardClassFeatures.append("Song of rest (d10)")
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 160) bardClassFeatures.append("Magical Secrets")
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 161) bardClassFeatures.append("Bard College Feature")
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 162) bardClassFeatures.append("Bardic Inspiration (d12)")
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 163) bardClassFeatures.append("ASI")
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 164) bardClassFeatures.append("Bardic Versatility (Optional)")
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 165) bardClassFeatures.append("Song of rest (d12)")
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 166) bardClassFeatures.append("Magical Secrets")
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 167) bardClassFeatures.append("ASI")
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 168) bardClassFeatures.append("Bardic Versatility (Optional)")
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 169) bardClassFeatures.append(practice)
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 170) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 171) # Cleric information scraped by Tyler Catuncan. Same process as bard and barbarian
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 172) URL = "http://dnd5e.wikidot.com/cleric"
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 173) page = requests.get(URL)
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 174) soup = BeautifulSoup(page.content, "html.parser")
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 175) results = soup.find("div", class_="col-lg-12")
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 176) practice = results.text
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 177) practice = practice.partition("Hit Points")[1] + practice.partition("Hit Points")[2]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 178) clericLevelUp = [0, 0, 0, 1, 1, 2, 2, 2, 4, 4, 5, 6, 6, 8, 8, 8, 8, 10, 11, 12, 12, 14, 16, 16, 17, 17, 18, 19, 19, 20]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 179) clericClassFeatures = [practice.partition("Proficiencies")[0]]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 180) practice = practice.partition("Proficiencies")[1] + practice.partition("Proficiencies")[2]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 181) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 182) clericClassFeatures.append(practice.partition("Equipment")[0])
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 183) practice = practice.partition("Equipment")[1] + practice.partition("Equipment")[2]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 184) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 185) clericClassFeatures.append(practice.partition("Spellcasting")[0])
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 186) practice = practice.partition("Spellcasting")[1] + practice.partition("Spellcasting")[2]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 187) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 188) clericClassFeatures.append(practice.partition("Divine Domain")[0])
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 189) practice = practice.partition("Divine Domain")[1] + practice.partition("Divine Domain")[2]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 190) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 191) clericClassFeatures.append(practice.partition("Channel Divinity")[0])
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 192) practice = practice.partition("Channel Divinity")[1] + practice.partition("Channel Divinity")[2]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 193) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 194) clericClassFeatures.append(practice.partition("Harness Divine Power (Optional)")[0])
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 195) practice = (practice.partition("Harness Divine Power (Optional)")[1] +
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 196)             practice.partition("Harness Divine Power (Optional)")[2])
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 197) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 198) clericClassFeatures.append("Divine Domain Feature")
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 199) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 200) clericClassFeatures.append(practice.partition("Ability Score Improvement")[0])
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 201) practice = practice.partition("Ability Score Improvement")[1] + practice.partition("Ability Score Improvement")[2]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 202) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 203) clericClassFeatures.append(practice.partition("Cantrip Versatility (Optional)")[0])
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 204) practice = (practice.partition("Cantrip Versatility (Optional)")[1] +
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 205)             practice.partition("Cantrip Versatility (Optional)")[2])
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 206) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 207) clericClassFeatures.append(practice.partition("Destroy Undead")[0])
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 208) practice = practice.partition("Destroy Undead")[1] + practice.partition("Destroy Undead")[2]
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 209) cantVers = clericClassFeatures[9]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 210) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 211) clericClassFeatures.append("Channel Divinity 2")
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 212) clericClassFeatures.append("Divine Domain Feature")
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 213) 
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 214) clericClassFeatures.append(ASI)
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 215) clericClassFeatures.append("Destroy Undead (CR 1)")
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 216) clericClassFeatures.append("Divine Domain Feature")
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 217) clericClassFeatures.append(cantVers)
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 218) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 219) clericClassFeatures.append(practice.partition("Divine Intervention")[0])
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 220) practice = practice.partition("Dive Intervention")[1] + practice.partition("Divine Intervention")[2]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 221) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 222) clericClassFeatures.append(practice)
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 223) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 224) clericClassFeatures.append("Destroy Undead (CR 2)")
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 225) clericClassFeatures.append(ASI)
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 226) clericClassFeatures.append(cantVers)
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 227) clericClassFeatures.append("Destroy Undead (CR 3)")
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 228) clericClassFeatures.append(ASI)
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 229) clericClassFeatures.append(cantVers)
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 230) clericClassFeatures.append("Destroy Undead (CR 4)")
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 231) clericClassFeatures.append("Divine Domain Feature")
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 232) clericClassFeatures.append("Channel Divinity 3")
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 233) clericClassFeatures.append(ASI)
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 234) clericClassFeatures.append(cantVers)
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 235) clericClassFeatures.append(practice.partition("long rest.")[2])
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 236) 
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 237) cantVers = clericClassFeatures[9]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 238) 
+648c9d699 backend/class-scraping/main.py         (JonClark28        2023-10-18 15:45:31 -0400 239) URL = "http://dnd5e.wikidot.com/druid"
+648c9d699 backend/class-scraping/main.py         (JonClark28        2023-10-18 15:45:31 -0400 240) page = requests.get(URL)
+648c9d699 backend/class-scraping/main.py         (JonClark28        2023-10-18 15:45:31 -0400 241) soup = BeautifulSoup(page.content, "html.parser")
+648c9d699 backend/class-scraping/main.py         (JonClark28        2023-10-18 15:45:31 -0400 242) results = soup.find("div", class_="col-lg-12")
+648c9d699 backend/class-scraping/main.py         (JonClark28        2023-10-18 15:45:31 -0400 243) practice = results.text
+648c9d699 backend/class-scraping/main.py         (JonClark28        2023-10-18 15:45:31 -0400 244) practice = practice.partition("Hit Points")[1] + practice.partition("Hit Points")[2]
+648c9d699 backend/class-scraping/main.py         (JonClark28        2023-10-18 15:45:31 -0400 245) druidLevelUp = [0, 0, 0, 1, 1, 2, 2, 2, 4, 4, 4, 6, 8, 8, 8, 10, 12, 12, 14, 16, 16, 18, 18, 19, 19, 20]
+648c9d699 backend/class-scraping/main.py         (JonClark28        2023-10-18 15:45:31 -0400 246) druidClassFeatures = [practice.partition("Proficiencies")[0]]
+648c9d699 backend/class-scraping/main.py         (JonClark28        2023-10-18 15:45:31 -0400 247) practice = practice.partition("Proficiencies")[1] + practice.partition("Proficiencies")[2]
+648c9d699 backend/class-scraping/main.py         (JonClark28        2023-10-18 15:45:31 -0400 248) 
+648c9d699 backend/class-scraping/main.py         (JonClark28        2023-10-18 15:45:31 -0400 249) druidClassFeatures.append(practice.partition("Equipment")[0])
+648c9d699 backend/class-scraping/main.py         (JonClark28        2023-10-18 15:45:31 -0400 250) practice = practice.partition("Equipment")[1] + practice.partition("Equipment")[2]
+648c9d699 backend/class-scraping/main.py         (JonClark28        2023-10-18 15:45:31 -0400 251) 
+648c9d699 backend/class-scraping/main.py         (JonClark28        2023-10-18 15:45:31 -0400 252) druidClassFeatures.append(practice.partition("Druidic")[0])
+648c9d699 backend/class-scraping/main.py         (JonClark28        2023-10-18 15:45:31 -0400 253) practice = practice.partition("Druidic")[1] + practice.partition("Druidic")[2]
+648c9d699 backend/class-scraping/main.py         (JonClark28        2023-10-18 15:45:31 -0400 254) 
+648c9d699 backend/class-scraping/main.py         (JonClark28        2023-10-18 15:45:31 -0400 255) druidClassFeatures.append(practice.partition("Spellcasting")[0])
+648c9d699 backend/class-scraping/main.py         (JonClark28        2023-10-18 15:45:31 -0400 256) practice = practice.partition("Spellcasting")[1] + practice.partition("Spellcasting")[2]
+648c9d699 backend/class-scraping/main.py         (JonClark28        2023-10-18 15:45:31 -0400 257) 
+648c9d699 backend/class-scraping/main.py         (JonClark28        2023-10-18 15:45:31 -0400 258) druidClassFeatures.append(practice.partition("Wild Shape")[0])
+648c9d699 backend/class-scraping/main.py         (JonClark28        2023-10-18 15:45:31 -0400 259) practice = practice.partition("Wild Shape")[1] + practice.partition("Wild Shape")[2]
+648c9d699 backend/class-scraping/main.py         (JonClark28        2023-10-18 15:45:31 -0400 260) 
+648c9d699 backend/class-scraping/main.py         (JonClark28        2023-10-18 15:45:31 -0400 261) druidClassFeatures.append(practice.partition("Druid Circle")[0])
+648c9d699 backend/class-scraping/main.py         (JonClark28        2023-10-18 15:45:31 -0400 262) practice = practice.partition("Druid Circle")[1] + practice.partition("Druid Circle")[2]
+648c9d699 backend/class-scraping/main.py         (JonClark28        2023-10-18 15:45:31 -0400 263) 
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 264) druidClassFeatures.append(practice.partition("Wild Companion (Optional)")[0])
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 265) practice = practice.partition("Wild Companion")[1] + practice.partition("Wild Companion")[2]
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 266) 
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 267) druidClassFeatures.append(practice.partition("Ability Score Improvement")[0])
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 268) 
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 269) druidClassFeatures.append("Wild Shape Improvement")
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 270) druidClassFeatures.append(ASI)
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 271) druidClassFeatures.append(cantVers)
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 272) practice = practice.partition("druid spell list.\n")[2]
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 273) 
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 274) druidClassFeatures.append("Druid Circle Feature")
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 275) druidClassFeatures.append("Wild Shape Improvement")
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 276) druidClassFeatures.append(ASI)
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 277) druidClassFeatures.append(cantVers)
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 278) 
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 279) druidClassFeatures.append("Druid Circle Feature")
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 280) druidClassFeatures.append(ASI)
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 281) druidClassFeatures.append(cantVers)
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 282) 
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 283) druidClassFeatures.append("Druid Circle Feature")
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 284) druidClassFeatures.append(ASI)
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 285) druidClassFeatures.append(cantVers)
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 286) 
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 287) druidClassFeatures.append(practice.partition("Beast Spells")[0])
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 288) practice = practice.partition("Beast Spells")[1] + practice.partition("Beast Spells")[2]
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 289) 
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 290) druidClassFeatures.append(practice.partition("Archdruid")[0])
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 291) practice = practice.partition("Archdruid")[1] + practice.partition("Archdruid")[2]
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 292) 
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 293) druidClassFeatures.append(ASI)
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 294) druidClassFeatures.append(cantVers)
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 295) 
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 296) druidClassFeatures.append(practice)
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 297) 
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 298) URL = "https://5thsrd.org/character/classes/fighter/"
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 299) page = requests.get(URL)
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 300) soup = BeautifulSoup(page.content, "html.parser")
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 301) test = soup.find("div", id="page-content")
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 302) names = test.findAll("h3")
+471cb12fa backend/class-scraping/main.py         (JonClark28        2023-10-25 13:43:41 -0400 303) fighterLevelUp = [0, 0, 0, 1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 17, 18, 19, 20]
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 304) properties = test.findAll("p")
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 305) propertiesList = []
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 306) 
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 307) for i in range(len(properties)):
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 308)     propertiesList.append(properties[i].text)
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 309) 
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 310) equipment = test.findAll("ul")
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 311) equipmentString = ""
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 312) for i in range(len(equipment)):
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 313)     equipmentString += equipment[i].text
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 314) 
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 315) propertiesList[3] += equipmentString
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 316) 
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 317) h4s = test.findAll("h4")
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 318) fightingStyles = []
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 319) for i in range(6):
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 320)     fightingStyles.append(h4s[i].text)
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 321) 
+471cb12fa backend/class-scraping/main.py         (JonClark28        2023-10-25 13:43:41 -0400 322) # YOU ARE CURRENTLY HERE, TRYING TO GET ALL THE FIGHTING STYLES INTO A SINGLE INDEX. IT MAY BE A FOOL's ERRAND
+471cb12fa backend/class-scraping/main.py         (JonClark28        2023-10-25 13:43:41 -0400 323) for i in range(6):
+471cb12fa backend/class-scraping/main.py         (JonClark28        2023-10-25 13:43:41 -0400 324)     propertiesList[4] += '\n' + fightingStyles[i] + ": " + propertiesList[4+i+1]
+471cb12fa backend/class-scraping/main.py         (JonClark28        2023-10-25 13:43:41 -0400 325) 
+471cb12fa backend/class-scraping/main.py         (JonClark28        2023-10-25 13:43:41 -0400 326) for i in range(6):
+471cb12fa backend/class-scraping/main.py         (JonClark28        2023-10-25 13:43:41 -0400 327)     j = 5
+471cb12fa backend/class-scraping/main.py         (JonClark28        2023-10-25 13:43:41 -0400 328)     propertiesList.pop(j)
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 329) 
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 330) propertiesList.pop(0)
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 331) 
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 332) features = [names[0].text + "\n" + propertiesList[0], names[1].text + "\n" + propertiesList[1],
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 333)             names[2].text + "\n" + propertiesList[2], names[3].text + "\n" + propertiesList[3],
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 334)             names[4].text + "\n" + propertiesList[4], names[5].text + "\n" + propertiesList[5],
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 335)             names[6].text + "\n" + propertiesList[6], names[7].text + "\n" + propertiesList[7],
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 336)             names[8].text + "\n" + propertiesList[8], names[7].text + "\n" + propertiesList[7],
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 337)             names[6].text + "\n" + propertiesList[6], names[7].text + "\n" + propertiesList[7],
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 338)             names[9].text + "\n" + propertiesList[9], names[6].text + "\n" + propertiesList[6],
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 339)             names[8].text + "\n" + propertiesList[8], names[7].text + "\n" + propertiesList[7],
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 340)             names[9].text + "\n" + propertiesList[9], names[7].text + "\n" + propertiesList[7],
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 341)             names[6].text + "\n" + propertiesList[6], names[7].text + "\n" + propertiesList[7],
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 342)             names[5].text + "\n" + propertiesList[5], names[9].text + "\n" + propertiesList[9],
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 343)             names[6].text + "\n" + propertiesList[6], names[7].text + "\n" + propertiesList[7],
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 344)             names[8].text + "\n" + propertiesList[8]]
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 345) 
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 346) URL = "http://dnd5e.wikidot.com/monk"
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 347) page = requests.get(URL)
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 348) soup = BeautifulSoup(page.content, "html.parser")
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 349) results = soup.find("div", class_="col-lg-12")
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 350) practice = results.text
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 351) practice = practice.partition("Hit Points")[1] + practice.partition("Hit Points")[2]
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 352) monkLevelUp = [0, 0, 0, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 7, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 353) 
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 354) monkClassFeatures = [practice.partition("Proficiencies")[0]]
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 355) practice = practice.partition("Proficiencies")[1] + practice.partition("Proficiencies")[2]
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 356) 
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 357) monkClassFeatures.append(practice.partition("Equipment")[0])
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 358) practice = practice.partition("Equipment")[1] + practice.partition("Equipment")[2]
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 359) 
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 360) monkClassFeatures.append(practice.partition("Unarmored Defense")[0])
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 361) practice = practice.partition("Unarmored Defense")[1] + practice.partition("Unarmored Defense")[2]
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 362) 
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 363) monkClassFeatures.append(practice.partition("Martial Arts")[0])
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 364) practice = practice.partition("Martial Arts")[1] + practice.partition("Martial Arts")[2]
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 365) 
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 366) monkClassFeatures.append(practice.partition("Ki")[0])
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 367) practice = practice.partition("Ki")[1] + practice.partition("Ki")[2]
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 368) 
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 369) monkClassFeatures.append(practice.partition("Unarmored Movement")[0])
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 370) practice = practice.partition("Unarmored Movement")[1] + practice.partition("Unarmored Movement")[2]
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 371) 
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 372) monkClassFeatures.append(practice.partition("Dedicated Weapon (Optional)")[0])
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 373) practice = practice.partition("Dedicated Weapon (Optional)")[1] + practice.partition("Dedicated Weapon (Optional)")[2]
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 374) 
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 375) monkClassFeatures.append(practice.partition("Monastic Tradition")[0])
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 376) practice = practice.partition("Monastic Tradition")[1] + practice.partition("Monastic Tradition")[2]
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 377) 
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 378) monkClassFeatures.append(practice.partition("Deflect Missiles")[0])
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 379) practice = practice.partition("Deflect Missiles")[1] + practice.partition("Deflect Missiles")[2]
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 380) 
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 381) monkClassFeatures.append(practice.partition("Ki-Fueled Attack (Optional)")[0])
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 382) practice = practice.partition("Ki-Fueled Attack (Optional)")[1] + practice.partition("Ki-Fueled Attack (Optional)")[2]
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 383) 
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 384) monkClassFeatures.append(practice.partition("Ability Score Improvement")[0])
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 385) practice = practice.partition("Ability Score Improvement")[1] + practice.partition("Ability Score Improvement")[2]
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 386) 
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 387) monkClassFeatures.append(practice.partition("Slow Fall")[0])
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 388) practice = practice.partition("Slow Fall")[1] + practice.partition("Slow Fall")[2]
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 389) 
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 390) monkClassFeatures.append(practice.partition("Quickened Healing (Optional)")[0])
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 391) practice = practice.partition("Quickened Healing (Optional)")[1] + practice.partition("Quickened Healing (Optional)")[2]
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 392) 
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 393) monkClassFeatures.append(practice.partition("Extra Attack")[0])
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 394) practice = practice.partition("Extra Attack")[1] + practice.partition("Extra Attack")[2]
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 395) 
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 396) monkClassFeatures.append(practice.partition("Stunning Strike")[0])
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 397) practice = practice.partition("Stunning Strike")[1] + practice.partition("Stunning Strike")[2]
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 398) 
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 399) monkClassFeatures.append(practice.partition("Focused Aim (Optional)")[0])
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 400) practice = practice.partition("Focused Aim (Optional)")[1] + practice.partition("Focused Aim (Optional)")[2]
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 401) 
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 402) monkClassFeatures.append(practice.partition("Ki-Empowered Strikes")[0])
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 403) practice = practice.partition("Ki-Empowered Strikes")[1] + practice.partition("Ki-Empowered Strikes")[2]
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 404) 
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 405) monkClassFeatures.append(practice.partition("Evasion")[0])
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 406) practice = practice.partition("Evasion")[1] + practice.partition("Evasion")[2]
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 407) 
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 408) monkClassFeatures.append("Monastic Tradition Feature")
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 409) 
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 410) monkClassFeatures.append(practice.partition("Stillness of Mind")[0])
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 411) practice = practice.partition("Stillness of Mind")[1] + practice.partition("Stillness of Mind")[2]
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 412) 
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 413) monkClassFeatures.append(practice.partition("Purity of Body")[0])
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 414) practice = practice.partition("Purity of Body")[1] + practice.partition("Purity of Body")[2]
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 415) 
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 416) monkClassFeatures.append(ASI)
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 417) monkClassFeatures.append(monkClassFeatures[6])
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 418) 
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 419) monkClassFeatures.append(practice.partition("Tongue of the Sun and Moon")[0])
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 420) practice = practice.partition("Tongue of the Sun and Moon")[1] + practice.partition("Tongue of the Sun and Moon")[2]
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 421) 
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 422) monkClassFeatures.append(ASI)
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 423) monkClassFeatures.append("Monastic Tradition Feature")
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 424) 
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 425) monkClassFeatures.append(practice.partition("Diamond Soul")[0])
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 426) practice = practice.partition("Diamond Soul")[1] + practice.partition("Diamond Soul")[2]
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 427) 
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 428) monkClassFeatures.append(practice.partition("Timeless Body")[0])
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 429) practice = practice.partition("Timeless Body")[1] + practice.partition("Timeless Body")[2]
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 430) 
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 431) monkClassFeatures.append(practice.partition("Empty Body")[0])
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 432) practice = practice.partition("Empty Body")[1] + practice.partition("Empty Body")[2]
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 433) 
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 434) monkClassFeatures.append(ASI)
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 435) monkClassFeatures.append("Monastic Tradition Feature")
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 436) 
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 437) monkClassFeatures.append(practice.partition("Perfect Self")[0])
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 438) practice = practice.partition("Perfect Self")[1] + practice.partition("Perfect Self")[2]
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 439) 
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 440) monkClassFeatures.append(ASI)
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 441) 
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 442) monkClassFeatures.append(practice)
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 443) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 444) URL = "http://dnd5e.wikidot.com/paladin"
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 445) page = requests.get(URL)
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 446) soup = BeautifulSoup(page.content, "html.parser")
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 447) results = soup.find("div", class_="col-lg-12")
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 448) practice = results.text
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 449) practice = practice.partition("Hit Points")[1] + practice.partition("Hit Points")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 450) paladinLevelUp = [0, 0, 0, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 5, 6, 7, 8, 8, 10, 11, 12, 12, 14, 15, 16, 16, 18, 19, 19, 20]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 451) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 452) paladinClassFeatures = [practice.partition("Proficiencies")[0]]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 453) practice = practice.partition("Proficiencies")[1] + practice.partition("Proficiencies")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 454) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 455) paladinClassFeatures.append(practice.partition("Equipment")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 456) practice = practice.partition("Equipment")[1] + practice.partition("Equipment")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 457) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 458) paladinClassFeatures.append(practice.partition("Divine Sense")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 459) practice = practice.partition("Divine Sense")[1] + practice.partition("Divine Sense")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 460) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 461) paladinClassFeatures.append(practice.partition("Lay on Hands")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 462) practice = practice.partition("Lay on Hands")[1] + practice.partition("Lay on Hands")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 463) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 464) paladinClassFeatures.append(practice.partition("Fighting Style")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 465) practice = practice.partition("Fighting Style")[1] + practice.partition("Fighting Style")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 466) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 467) paladinClassFeatures.append(practice.partition("Close Quarters Shooter (UA)")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 468) practice = practice.partition("Spellcasting")[1] + practice.partition("Spellcasting")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 469) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 470) paladinClassFeatures.append(practice.partition("Divine Smite")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 471) practice = practice.partition("Divine Smite")[1] + practice.partition("Divine Smite")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 472) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 473) paladinClassFeatures.append(practice.partition("Divine Health")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 474) practice = practice.partition("Divine Health")[1] + practice.partition("Divine Health")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 475) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 476) paladinClassFeatures.append(practice.partition("Sacred Oath")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 477) practice = practice.partition("Sacred Oath")[1] + practice.partition("Sacred Oath")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 478) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 479) paladinClassFeatures.append(practice.partition("Harness Divine Power (Optional)")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 480) practice = practice.partition("Harness Divine Power")[1] + practice.partition("Harness Divine Power")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 481) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 482) paladinClassFeatures.append(practice.partition("Ability Score Improvement")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 483) practice = practice.partition("Ability Score Improvement")[1] + practice.partition("Ability Score Improvement")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 484) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 485) paladinClassFeatures.append(practice.partition("Martial Versatility (Optional)")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 486) practice = practice.partition("Martial Versatility (Optional)")[1] + practice.partition("Martial Versatility (Optional)")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 487) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 488) paladinClassFeatures.append(practice.partition("Extra Attack")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 489) practice = practice.partition("Extra Attack")[1] + practice.partition("Extra Attack")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 490) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 491) paladinClassFeatures.append(practice.partition("Aura of Protection")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 492) practice = practice.partition("Aura of Protection")[1] + practice.partition("Aura of Protection")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 493) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 494) paladinClassFeatures.append(practice.partition("Aura of Courage")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 495) practice = practice.partition("Aura of Courage")[1] + practice.partition("Aura of Courage")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 496) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 497) paladinClassFeatures.append("Sacred Oath Feature")
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 498) paladinClassFeatures.append(ASI)
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 499) paladinClassFeatures.append(paladinClassFeatures[12])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 500) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 501) paladinClassFeatures.append(practice.partition("Improved Divine Smite")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 502) practice = practice.partition("Improved Divine Smite")[1] + practice.partition("Improved Divine Smite")[2]
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 503) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 504) paladinClassFeatures.append(practice.partition("Cleansing Touch")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 505) practice = practice.partition("Cleansing Touch")[1] + practice.partition("Cleansing Touch")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 506) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 507) paladinClassFeatures.append(ASI)
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 508) paladinClassFeatures.append(paladinClassFeatures[12])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 509) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 510) paladinClassFeatures.append(practice)
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 511) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 512) paladinClassFeatures.append("Sacred Oath Feature")
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 513) paladinClassFeatures.append(ASI)
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 514) paladinClassFeatures.append(paladinClassFeatures[12])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 515) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 516) paladinClassFeatures.append("All aura ranges increased to 30 feet")
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 517) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 518) paladinClassFeatures.append(ASI)
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 519) paladinClassFeatures.append(paladinClassFeatures[12])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 520) paladinClassFeatures.append("Sacred Oath Feature")
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 521) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 522) martVers = paladinClassFeatures[12]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 523) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 524) URL = "http://dnd5e.wikidot.com/ranger"
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 525) page = requests.get(URL)
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 526) soup = BeautifulSoup(page.content, "html.parser")
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 527) results = soup.find("div", class_="col-lg-12")
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 528) practice = results.text
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 529) practice = practice.partition("Hit Points")[1] + practice.partition("Hit Points")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 530) rangerLevelUp =[0, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 6, 6, 7, 8, 8, 8, 10, 10, 11, 12, 12, 14, 14, 15, 16, 16, 18, 19, 19, 20]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 531) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 532) rangerClassFeatures = [practice.partition("Proficiencies")[0]]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 533) practice = practice.partition("Proficiencies")[1] + practice.partition("Proficiencies")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 534) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 535) rangerClassFeatures.append(practice.partition("Equipment")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 536) practice = practice.partition("Equipment")[1] + practice.partition("Equipment")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 537) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 538) rangerClassFeatures.append(practice.partition("Favored Enemy")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 539) practice = practice.partition("Favored Enemy")[1] + practice.partition("Favored Enemy")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 540) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 541) rangerClassFeatures.append(practice.partition("Favored Foe (Optional)")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 542) practice = practice.partition("Natural Explorer")[1] + practice.partition("Natural Explorer")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 543) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 544) # rangerClassFeatures.append(practice.partition("Natural Explorer")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 545) # practice = practice.partition("Natural Explorer")[1] + practice.partition("Natural Explorer")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 546) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 547) rangerClassFeatures.append(practice.partition("Deft Explorer (Optional)")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 548) practice = practice.partition("Fighting Style")[1] + practice.partition("Fighting Style")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 549) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 550) rangerClassFeatures.append(practice.partition("Close Quarters Shooter (UA)")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 551) practice = practice.partition("Spellcasting")[1] + practice.partition("Spellcasting")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 552) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 553) rangerClassFeatures.append(practice.partition("Spellcasting Focus (Optional)")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 554) practice = practice.partition("Primeval Awareness")[1] + practice.partition("Primeval Awareness")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 555) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 556) rangerClassFeatures.append(practice.partition("Primal Awareness")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 557) practice = practice.partition("Ranger Conclave")[1] + practice.partition("Ranger Conclave")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 558) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 559) rangerClassFeatures.append(practice.partition("Ability Score Improvement")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 560) practice = practice.partition("Ability Score Improvement")[1] + practice.partition("Ability Score Improvement")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 561) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 562) rangerClassFeatures.append(practice.partition("Martial Versatility (Optional)")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 563) practice = practice.partition("Martial Versatility (Optional)")[1] + practice.partition("Martial Versatility (Optional)")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 564) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 565) rangerClassFeatures.append(practice.partition("Extra Attack")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 566) practice = practice.partition("Extra Attack")[1] + practice.partition("Extra Attack")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 567) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 568) rangerClassFeatures.append(practice.partition("Land's Stride")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 569) practice = practice.partition("Land's Stride")[1] + practice.partition("Land's Stride")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 570) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 571) rangerClassFeatures.append("Favored Enemy Improvement" + rangerClassFeatures[3].partition("if they speak one at all.")[2])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 572) FEI = rangerClassFeatures[len(rangerClassFeatures)-1]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 573) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 574) rangerClassFeatures.append("Natural Explorer Improvement" + rangerClassFeatures[4].partition("how long ago they passed through the area.\n")[2])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 575) NEI = rangerClassFeatures[len(rangerClassFeatures)-1]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 576) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 577) rangerClassFeatures.append("Ranger Conclave Feature")
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 578) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 579) rangerClassFeatures.append(practice.partition("Hide in Plain Sight")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 580) practice = practice.partition("Hide in Plain Sight")[1] + practice.partition("Hide in Plain Sight")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 581) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 582) rangerClassFeatures.append(ASI)
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 583) rangerClassFeatures.append(martVers)
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 584) rangerClassFeatures.append(NEI)
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 585) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 586) rangerClassFeatures.append(practice.partition("Nature's Veil (Optional)")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 587) practice = practice.partition("Vanish")[1] + practice.partition("Vanish")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 588) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 589) rangerClassFeatures.append("Ranger Conclave Feature")
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 590) rangerClassFeatures.append(ASI)
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 591) rangerClassFeatures.append(martVers)
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 592) rangerClassFeatures.append(FEI)
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 593) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 594) rangerClassFeatures.append(practice.partition("Feral Senses")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 595) practice = practice.partition("Feral Sense")[1] + practice.partition("Feral Senses")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 596) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 597) rangerClassFeatures.append("Ranger Conclave Feature")
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 598) rangerClassFeatures.append(ASI)
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 599) rangerClassFeatures.append(martVers)
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 600) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 601) rangerClassFeatures.append(practice.partition("Foe Slayer")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 602) practice = practice.partition("Foe Slayer")[1] + practice.partition("Foe Slayer")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 603) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 604) rangerClassFeatures.append(ASI)
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 605) rangerClassFeatures.append(martVers)
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 606) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 607) rangerClassFeatures.append(practice)
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 608) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 609) URL = "http://dnd5e.wikidot.com/rogue"
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 610) page = requests.get(URL)
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 611) soup = BeautifulSoup(page.content, "html.parser")
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 612) results = soup.find("div", class_="col-lg-12")
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 613) practice = results.text
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 614) practice = practice.partition("Hit Points")[1] + practice.partition("Hit Points")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 615) rogueLevelUp =[0, 0, 0, 1, 1, 1, 2, 3, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 616) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 617) rogueClassFeatures = [practice.partition("Proficiencies")[0]]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 618) practice = practice.partition("Proficiencies")[1] + practice.partition("Proficiencies")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 619) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 620) rogueClassFeatures.append(practice.partition("Equipment")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 621) practice = practice.partition("Equipment")[1] + practice.partition("Equipment")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 622) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 623) rogueClassFeatures.append(practice.partition("Expertise")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 624) practice = practice.partition("Expertise")[1] + practice.partition("Expertise")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 625) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 626) rogueClassFeatures.append(practice.partition("Sneak Attack")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 627) practice = practice.partition("Sneak Attack")[1] + practice.partition("Sneak Attack")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 628) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 629) rogueClassFeatures.append(practice.partition("Thieves' Cant")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 630) practice = practice.partition("Thieves' Cant")[1] + practice.partition("Thieves' Cant")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 631) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 632) rogueClassFeatures.append(practice.partition("Cunning Action")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 633) practice = practice.partition("Cunning Action")[1] + practice.partition("Cunning Action")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 634) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 635) rogueClassFeatures.append(practice.partition("Roguish Archetype")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 636) practice = practice.partition("Roguish Archetype")[1] + practice.partition("Roguish Archetype")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 637) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 638) rogueClassFeatures.append(practice.partition("Steady Aim (Optional)")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 639) practice = practice.partition("Steady Aim (Optional)")[1] + practice.partition("Steady Aim (Optional)")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 640) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 641) rogueClassFeatures.append(practice.partition("Ability Score Improvement")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 642) practice = practice.partition("Ability Score Improvement")[1] + practice.partition("Ability Score Improvement")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 643) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 644) rogueClassFeatures.append(practice.partition("Uncanny Dodge")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 645) practice = practice.partition("Uncanny Dodge")[1] + practice.partition("Uncanny Dodge")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 646) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 647) rogueClassFeatures.append(practice.partition("Evasion")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 648) practice = practice.partition("Evasion")[1] + practice.partition("Evasion")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 649) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 650) rogueClassFeatures.append("Expertise Improvement" + rogueClassFeatures[3].partition("either of the chosen proficiencies.")[2])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 651) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 652) rogueClassFeatures.append(practice.partition("Reliable Talent")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 653) practice = practice.partition("Reliable Talent")[1] + practice.partition("Reliable Talent")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 654) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 655) rogueClassFeatures.append(ASI)
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 656) rogueClassFeatures.append("Roguish Archetype Feature")
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 657) rogueClassFeatures.append(ASI)
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 658) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 659) rogueClassFeatures.append(practice.partition("Blindsense")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 660) practice = practice.partition("Blindsense")[1] + practice.partition("Blindsense")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 661) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 662) rogueClassFeatures.append(ASI)
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 663) rogueClassFeatures.append("Roguish Archetype Feature")
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 664) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 665) rogueClassFeatures.append(practice.partition("Slippery Mind")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 666) practice = practice.partition("Slippery Mind")[1] + practice.partition("Slippery Mind")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 667) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 668) rogueClassFeatures.append(practice.partition("Elusive")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 669) practice = practice.partition("Elusive")[1] + practice.partition("Elusive")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 670) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 671) rogueClassFeatures.append(ASI)
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 672) rogueClassFeatures.append("Roguish Archetype Feature")
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 673) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 674) rogueClassFeatures.append(practice.partition("Stroke of Luck")[0])
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 675) practice = practice.partition("Stroke of Luck")[1] + practice.partition("Stroke of Luck")[2]
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 676) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 677) rogueClassFeatures.append(ASI)
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 678) rogueClassFeatures.append(practice)
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 679) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 680) URL = "http://dnd5e.wikidot.com/sorcerer"
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 681) page = requests.get(URL)
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 682) soup = BeautifulSoup(page.content, "html.parser")
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 683) results = soup.find("div", class_="col-lg-12")
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 684) practice = results.text
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 685) practice = practice.partition("Hit Points")[1] + practice.partition("Hit Points")[2]
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 686) sorcererLevelUp = [0, 0, 0, 1, 1, 2, 3, 4, 4, 5, 6, 8, 8, 10, 12, 12, 14, 16, 16, 17, 18, 19, 19, 20]
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 687) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 688) sorcererClassFeatures = [practice.partition("Proficiencies")[0]]
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 689) practice = practice.partition("Proficiencies")[1] + practice.partition("Proficiencies")[2]
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 690) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 691) sorcererClassFeatures.append(practice.partition("Equipment")[0])
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 692) practice = practice.partition("Equipment")[1] + practice.partition("Equipment")[2]
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 693) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 694) sorcererClassFeatures.append(practice.partition("Spellcasting")[0])
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 695) practice = practice.partition("Spellcasting")[1] + practice.partition("Spellcasting")[2]
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 696) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 697) sorcererClassFeatures.append(practice.partition("Sorcerous Origin")[0])
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 698) practice = practice.partition("Sorcerours Origin")[1] + practice.partition("Sorcerous Origin")[2]
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 699) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 700) sorcererClassFeatures.append(practice.partition("Font of Magic")[0])
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 701) practice = practice.partition("Font of Magic")[1] + practice.partition("Font of Magic")[2]
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 702) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 703) sorcererClassFeatures.append(practice.partition("Metamagic")[0])
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 704) practice = practice.partition("Metamagic")[1] + practice.partition("Metamagic")[2]
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 705) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 706) sorcererClassFeatures.append(practice.partition("Seeking Spell (UA).")[0])
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 707) practice = practice.partition("cover against targets of the spell.\n\n\n")[2]
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 708) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 709) sorcererClassFeatures[len(sorcererClassFeatures)-1] = (sorcererClassFeatures[len(sorcererClassFeatures)-1] +
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 710)                                                        practice.partition("Ability Score Improvement")[0])
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 711) practice = practice.partition("Ability Score Improvement")[1] + practice.partition("Ability Score Improvement")[2]
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 712) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 713) sorcererClassFeatures.append(practice.partition("Sorcerous Versatility (Optional)")[0])
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 714) practice = practice.partition("Sorcerous Versatility (Optional)")[1] + practice.partition("Sorcerous Versatility (Optional)")[2]
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 715) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 716) sorcererClassFeatures.append(practice.partition("Magical Guidance (Optional)")[0])
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 717) practice = practice.partition("Magical Guidance (Optional)")[1] + practice.partition("Magical Guidance (Optional)")[2]
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 718) sorVert = sorcererClassFeatures[len(sorcererClassFeatures)-1]
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 719) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 720) sorcererClassFeatures.append(practice.partition("Sorcerous Restoration")[0])
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 721) practice = practice.partition("Sorcerous Restoration")[1] + practice.partition("Sorcerous Restoration")[2]
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 722) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 723) sorcererClassFeatures.append("Sorcerous Origin Feature")
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 724) sorcererClassFeatures.append(ASI)
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 725) sorcererClassFeatures.append(sorVert)
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 726) sorcererClassFeatures.append("Metamagic Improvement\nYou gain another metamagic option at 10th and 17th level.")
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 727) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 728) sorcererClassFeatures.append(ASI)
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 729) sorcererClassFeatures.append(sorVert)
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 730) sorcererClassFeatures.append("Sorcerous Origin Feature")
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 731) sorcererClassFeatures.append(ASI)
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 732) sorcererClassFeatures.append(sorVert)
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 733) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 734) sorcererClassFeatures.append("Metamagic Improvement\nYou gain another metamagic option at 10th and 17th level.")
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 735) sorcererClassFeatures.append("Sorcerous Origin Feature")
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 736) sorcererClassFeatures.append(ASI)
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 737) sorcererClassFeatures.append(sorVert)
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 738) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 739) sorcererClassFeatures.append(practice)
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 740) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 741) URL = "http://dnd5e.wikidot.com/warlock"
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 742) page = requests.get(URL)
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 743) soup = BeautifulSoup(page.content, "html.parser")
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 744) results = soup.find("div", class_="col-lg-12")
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 745) practice = results.text
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 746) practice = practice.partition("Hit Points")[1] + practice.partition("Hit Points")[2]
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 747) warlockLevelUp = [0, 0, 0, 1, 1, 2, 3, 4, 4, 6, 8, 8, 10, 11, 12, 12, 13, 14, 15, 16, 16, 17, 19, 19, 20]
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 748) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 749) warlockClassFeatures = [practice.partition("Proficiencies")[0]]
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 750) practice = practice.partition("Proficiencies")[1] + practice.partition("Proficiencies")[2]
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 751) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 752) warlockClassFeatures.append(practice.partition("Equipment")[0])
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 753) practice = practice.partition("Equipment")[1] + practice.partition("Equipment")[2]
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 754) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 755) warlockClassFeatures.append(practice.partition("Otherworldly Patron")[0])
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 756) practice = practice.partition("Otherworldly Patron")[1] + practice.partition("Otherworldly Patron")[2]
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 757) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 758) warlockClassFeatures.append(practice.partition("Pact Magic")[0])
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 759) practice = practice.partition("Pact Magic")[1] + practice.partition("Pact Magic")[2]
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 760) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 761) warlockClassFeatures.append(practice.partition("Eldritch Invocations")[0])
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 762) practice = practice.partition("Eldritch Invocations")[1] + practice.partition("Eldritch Invocations")[2]
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 763) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 764) warlockClassFeatures.append(practice.partition("Pact Boon")[0])
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 765) practice = practice.partition("Pact Boon")[1] + practice.partition("Pact Boon")[2]
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 766) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 767) warlockClassFeatures.append(practice.partition("Pact of the Star Chain (UA)")[0])
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 768) practice = practice.partition("Ability Score Improvement")[1] + practice.partition("Ability Score Improvement")[2]
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 769) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 770) warlockClassFeatures.append(practice.partition("Eldritch Versatility (Optional)")[0])
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 771) practice = practice.partition("Eldritch Versatility (Optional)")[1] + practice.partition("Eldritch Versatility (Optional)")[2]
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 772) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 773) warlockClassFeatures.append(practice.partition("Mystic Arcanum\n")[0])
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 774) practice = practice.partition("Mystic Arcanum\n")[1] + practice.partition("Mystic Arcanum\n")[2]
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 775) eldVers = warlockClassFeatures[len(warlockClassFeatures)-1]
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 776) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 777) warlockClassFeatures.append("Otherworldly Patron Feature")
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 778) warlockClassFeatures.append(ASI)
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 779) warlockClassFeatures.append(eldVers)
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 780) warlockClassFeatures.append("Otherworldly Patron Feature")
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 781) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 782) warlockClassFeatures.append(practice.partition("Eldritch Master")[0])
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 783) practice = practice.partition("Eldritch Master")[1] + practice.partition("Eldritch Master")[2]
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 784) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 785) warlockClassFeatures.append(ASI)
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 786) warlockClassFeatures.append(eldVers)
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 787) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 788) warlockClassFeatures.append("Mystic Arcanum Improvement\n" + warlockClassFeatures[13].partition("you can do so again.\n")[2])
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 789) warlockClassFeatures.append("Otherworldly Patron Feature")
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 790) warlockClassFeatures.append("Mystic Arcanum Improvement\n" + warlockClassFeatures[13].partition("you can do so again.\n")[2])
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 791) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 792) warlockClassFeatures.append(ASI)
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 793) warlockClassFeatures.append(eldVers)
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 794) warlockClassFeatures.append("Mystic Arcanum Improvement\n" + warlockClassFeatures[13].partition("you can do so again.\n")[2])
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 795) warlockClassFeatures.append(ASI)
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 796) warlockClassFeatures.append(eldVers)
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 797) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 798) warlockClassFeatures.append(practice)
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 799) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 800) URL = "http://dnd5e.wikidot.com/wizard"
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 801) page = requests.get(URL)
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 802) soup = BeautifulSoup(page.content, "html.parser")
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 803) results = soup.find("div", class_="col-lg-12")
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 804) practice = results.text
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 805) practice = practice.partition("Hit Points")[1] + practice.partition("Hit Points")[2]
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 806) wizardLevelUp = [0, 0, 0, 1, 1, 2, 3, 4, 6, 8, 10, 12, 14, 16, 18, 19, 20]
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 807) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 808) wizardClassFeatures = [practice.partition("Proficiencies")[0]]
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 809) practice = practice.partition("Proficiencies")[1] + practice.partition("Proficiencies")[2]
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 810) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 811) wizardClassFeatures.append(practice.partition("Equipment")[0])
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 812) practice = practice.partition("Equipment")[1] + practice.partition("Equipment")[2]
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 813) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 814) wizardClassFeatures.append(practice.partition("Spellcasting")[0])
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 815) practice = practice.partition("Spellcasting")[1] + practice.partition("Spellcasting")[2]
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 816) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 817) wizardClassFeatures.append(practice.partition("Arcane Recovery")[0])
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 818) practice = practice.partition("Arcane Recovery")[1] + practice.partition("Arcane Recovery")[2]
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 819) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 820) wizardClassFeatures.append(practice.partition("Arcane Tradition")[0])
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 821) practice = practice.partition("Arcane Tradition")[1] + practice.partition("Arcane Tradition")[2]
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 822) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 823) wizardClassFeatures.append(practice.partition("Cantrip Formulas (Optional)")[0])
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 824) practice = practice.partition("Cantrip Formulas (Optional)")[1] + practice.partition("Cantrip Formulas (Optional)")[2]
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 825) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 826) wizardClassFeatures.append(practice.partition("Ability Score Improvement")[0])
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 827) practice = practice.partition("Ability Score Improvement")[1] + practice.partition("Ability Score Improvement")[2]
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 828) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 829) wizardClassFeatures.append(practice.partition("Spell Mastery")[0])
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 830) practice = practice.partition("Spell Mastery")[1] + practice.partition("Spell Mastery")[2]
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 831) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 832) wizardClassFeatures.append("Wizard Tradition Feature")
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 833) wizardClassFeatures.append(ASI)
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 834) wizardClassFeatures.append("Wizard Tradition Feature")
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 835) wizardClassFeatures.append(ASI)
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 836) wizardClassFeatures.append("Wizard Tradition Feature")
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 837) wizardClassFeatures.append(ASI)
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 838) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 839) wizardClassFeatures.append(practice.partition("Signature Spells")[0])
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 840) practice = practice.partition("Signature Spells")[1] + practice.partition("Signature Spells")[2]
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 841) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 842) wizardClassFeatures.append(ASI)
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 843) wizardClassFeatures.append(practice)
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 844) 
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 847) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 848) # Once the data has been scraped, it's info is then stored into a dictionary to associate the poper features with the proper levels. The dictionary is then made into a
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 849) # pandas dataframe.
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 850) barbData = {
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 851)     "class": classNames[0],
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 852)     "level": barbLevelUp,
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 853)     "features": barbClassFeatures,
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 854) }
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 855) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 856) df1 = pd.DataFrame(barbData)
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 857) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 858) bardData = {
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 859)     "class": classNames[1],
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 860)     "level": bardLevelUp,
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 861)     "features": bardClassFeatures
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 862) }
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 863) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 864) df2 = pd.DataFrame(bardData)
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 865) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 866) clericData = {
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 867)     "class": classNames[2],
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 868)     "level": clericLevelUp,
+648c9d699 backend/class-scraping/main.py         (JonClark28        2023-10-18 15:45:31 -0400 869)     "features": clericClassFeatures,
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 870) }
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 871) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 872) df3 = pd.DataFrame(clericData)
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 873) 
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 874) druidData = {
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 875)     "class": classNames[3],
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 876)     "level": druidLevelUp,
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 877)     "features": druidClassFeatures
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 878) }
+471cb12fa backend/class-scraping/main.py         (JonClark28        2023-10-25 13:43:41 -0400 879) 
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 880) df4 = pd.DataFrame(druidData)
+471cb12fa backend/class-scraping/main.py         (JonClark28        2023-10-25 13:43:41 -0400 881) 
+471cb12fa backend/class-scraping/main.py         (JonClark28        2023-10-25 13:43:41 -0400 882) fighterData = {
+471cb12fa backend/class-scraping/main.py         (JonClark28        2023-10-25 13:43:41 -0400 883)     "class": classNames[4],
+471cb12fa backend/class-scraping/main.py         (JonClark28        2023-10-25 13:43:41 -0400 884)     "level": fighterLevelUp,
+471cb12fa backend/class-scraping/main.py         (JonClark28        2023-10-25 13:43:41 -0400 885)     "features": features,
+471cb12fa backend/class-scraping/main.py         (JonClark28        2023-10-25 13:43:41 -0400 886) }
+471cb12fa backend/class-scraping/main.py         (JonClark28        2023-10-25 13:43:41 -0400 887) df5 = pd.DataFrame(fighterData)
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 888) 
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 889) monkData = {
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 890)     "class": classNames[5],
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 891)     "level": monkLevelUp,
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 892)     "features": monkClassFeatures
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 893) }
+3f9dd85d6 backend/class-scraping/main.py         (JonClark28        2023-10-25 15:16:52 -0400 894) df6 = pd.DataFrame(monkData)
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 895) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 896) paladinData = {
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 897)     "class": classNames[6],
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 898)     "level": paladinLevelUp,
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 899)     "features": paladinClassFeatures
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 900) }
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 901) df7 = pd.DataFrame(paladinData)
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 902) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 903) rangerData = {
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 904)     "class": classNames[7],
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 905)     "level": rangerLevelUp,
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 906)     "features": rangerClassFeatures
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 907) }
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 908) df8 = pd.DataFrame(rangerData)
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 909) 
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 910) rogueData = {
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 911)     "class": classNames[8],
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 912)     "level": rogueLevelUp,
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 913)     "features": rogueClassFeatures
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 914) }
+11d1cdbb9 backend/class-scraping/main.py         (JonClark28        2023-10-30 19:55:56 -0400 915) df9 = pd.DataFrame(rogueData)
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 916) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 917) sorcererData = {
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 918)     "class": classNames[9],
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 919)     "level": sorcererLevelUp,
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 920)     "features": sorcererClassFeatures
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 921) }
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 922) df10 = pd.DataFrame(sorcererData)
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 923) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 924) warlockData = {
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 925)     "class": classNames[10],
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 926)     "level": warlockLevelUp,
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 927)     "features": warlockClassFeatures
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 928) }
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 929) df11 = pd.DataFrame(warlockData)
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 930) 
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 931) wizardData = {
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 932)     "class": classNames[11],
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 933)     "level": wizardLevelUp,
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 934)     "features": wizardClassFeatures
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 935) }
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 936) df12 = pd.DataFrame(wizardData)
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 937) # Once all of our dictionaries have been created, we than make a list of dictionaries and convert the entire list into a pandas dataframe. This allows all of the
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 938) # information to be stored in a single data structure
+cf550782f app/src/backend/class-scraping/main.py (JonClark28        2023-10-31 21:48:54 -0400 939) table = [df1, df2, df3, df4, df5, df6, df7, df8, df9, df10, df11, df12]
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 940) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 941) finalDf = pd.concat(table)
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 942) finalDf = finalDf.reset_index()
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 943) 
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 944) # Allows the entire dataframe to be printed, rather than just the beginning and end. Purely for testing purposes
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 945) with pd.option_context('display.max_rows', None,
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 946)                        'display.max_columns', None,
+bc239937f backend/class-scraping/main.py         (JonClark28        2023-10-22 21:58:44 -0400 947)                        'display.precision', 4,
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 948)                        ):
+29131ae30 backend/class-scraping/main.py         (JonClark28        2023-10-16 19:36:59 -0400 949)     print(finalDf)
