@@ -32,9 +32,7 @@ Seungwoo An, A-Swoo18, DnDBetter
 - ./DnDbetter/frontend/Background_Page/src/ImageComponent.js
 - ./DnDbetter/frontend/Background_Page/src/ImageComponent.css
 - THE FILES ABOVE ARE MERGED TO THE MAIN PAGE NOW.
-- ./DnDbetter/app/src/frontend/Background_Page/src/App.jsx
 - ./DnDbetter/app/src/frontend/Background_Page/src/App.css
-- ./DnDbetter/app/src/frontend/Background_Page/src/ImagrComponent.jsx
 - ./DnDbetter/app/src/frontend/Background_Page/src/ImagrComponent.css
 
 ## Accomplishments
