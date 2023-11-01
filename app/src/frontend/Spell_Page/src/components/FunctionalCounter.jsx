@@ -43,7 +43,7 @@ function FunctionalCounter(props){
         <div className="spellGrid">
             <div className="counterContainer">
                 <button className="decr" onClick={handleDecrement}> - </button>
-                <p>{counter}</p>
+                <p className="counterFont">{counter}</p>
                 <button className="incr" onClick={handleIncrement}> + </button>
 
             </div>

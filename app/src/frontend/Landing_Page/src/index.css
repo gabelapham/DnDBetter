@@ -32,8 +32,8 @@ body {
 }
 
 h1 {
-  letter-spacing: 20px;
-  word-spacing: 10px;
+  /* letter-spacing: 20px; */
+  /* word-spacing: 10px; */
   font-size: 40px;
   line-height: 5px;
   padding-bottom: 10px;
@@ -70,3 +70,24 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.features {
+  text-align: left;
+  display: inline-block;
+}
+
+.aboutme {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ }
+ 
+ .founderimage {
+   max-width: 100%;
+   max-height:100%;
+ }
+ 
+ .description {
+   font-size: 20px;
+   padding-left: 20px;
+ }

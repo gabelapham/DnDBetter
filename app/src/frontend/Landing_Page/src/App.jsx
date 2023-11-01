@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './index.css'
+import placeholder from './assets/placeholder.png'
 
 const Landing = () => {
   const [count, setCount] = useState(0)
@@ -9,15 +10,15 @@ const Landing = () => {
       <h1>Welcome to DnDBetter!</h1>
       <h2>What is DnDBetter?</h2>
       <p>DnDBetter is a better way to play DnD! Kind of. DnDBetter is an intuitive and interactive character sheet creator and manager.</p>
-      <div>
+      {/* <div>
         <button>Login</button>
         <br></br>
         <br></br>
         <button>Sign Up</button>
-      </div>
+      </div> */}
       <div>
         <h2>Features</h2>
-        <ul>  
+        <ul className="features">  
           <li>Comprehensive character sheet creator</li>
           <li>Intuitive editor that makes editing the character sheet easy</li>
           <li>Account management that allows users to create and store multiple character sheets</li>
@@ -32,6 +33,69 @@ const Landing = () => {
       </div>
       <div>
         <h2>About the Founders</h2>
+      </div>
+      <div className="aboutme">
+        <div className="founderimage">
+          <img src={placeholder}/>
+        </div>
+        <div className="description">
+          <h2>Jonathan Clark</h2>
+          <p>About me</p>
+        </div>
+      </div>
+      <div className="aboutme">
+        <div className="founderimage">
+          <img src={placeholder}/>
+        </div>
+        <div className="description">
+          <h2>Gabe Lapham</h2>
+          <p>About me</p>
+        </div>
+      </div>
+      <div className="aboutme">
+        <div className="founderimage">
+          <img src={placeholder}/>
+        </div>
+        <div className="description">
+          <h2>Triton Eden</h2>
+          <p>About me</p>
+        </div>
+      </div>
+      <div className="aboutme">
+        <div className="founderimage">
+          <img src={placeholder}/>
+        </div>
+        <div className="description">
+          <h2>Tyler Catuncan</h2>
+          <p>About me</p>
+        </div>
+      </div>
+      <div className="aboutme">
+        <div className="founderimage">
+          <img src={placeholder}/>
+        </div>
+        <div className="description">
+          <h2>Cooper</h2>
+          <p>About me</p>
+        </div>
+      </div>
+      <div className="aboutme">
+        <div className="founderimage">
+          <img src={placeholder}/>
+        </div>
+        <div className="description">
+          <h2>Seungwoo An</h2>
+          <p>About me</p>
+        </div>
+      </div>
+      <div className="aboutme">
+        <div className="founderimage">
+          <img src={placeholder}/>
+        </div>
+        <div className="description">
+          <h2>Frank</h2>
+          <p>About me</p>
+        </div>
       </div>
     </>
   )
