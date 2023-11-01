@@ -77,12 +77,16 @@ button:focus-visible {
 }
 
 .aboutme {
-  display: flex;
+  display: grid;
   align-items: center;
-  justify-content: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 5px;
  }
  
  .founderimage {
+   position: relative;
+   display: block;
+   place-items: center;
    max-width: 100%;
    max-height:100%;
  }
