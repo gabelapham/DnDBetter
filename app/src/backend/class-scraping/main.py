@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 
 # Used later for creating pandas dataframe. May become obsolete if classes are broken into individual files
-classNames = ["barbarian", "bard", "cleric", "druid", "fighter", "monk", "paladin", "ranger", "rogue", "wizard"]
+classNames = ["barbarian", "bard", "cleric", "druid", "fighter", "monk", "paladin", "ranger", "rogue", "sorcerer", "warlock", "wizard"]
 
 URL = "http://dnd5e.wikidot.com/barbarian"
 page = requests.get(URL)
@@ -677,7 +677,172 @@ practice = practice.partition("Stroke of Luck")[1] + practice.partition("Stroke 
 rogueClassFeatures.append(ASI)
 rogueClassFeatures.append(practice)
 
-for i in rogueClassFeatures:
+URL = "http://dnd5e.wikidot.com/sorcerer"
+page = requests.get(URL)
+soup = BeautifulSoup(page.content, "html.parser")
+results = soup.find("div", class_="col-lg-12")
+practice = results.text
+practice = practice.partition("Hit Points")[1] + practice.partition("Hit Points")[2]
+sorcererLevelUp = [0, 0, 0, 1, 1, 2, 3, 4, 4, 5, 6, 8, 8, 10, 12, 12, 14, 16, 16, 17, 18, 19, 19, 20]
+
+sorcererClassFeatures = [practice.partition("Proficiencies")[0]]
+practice = practice.partition("Proficiencies")[1] + practice.partition("Proficiencies")[2]
+
+sorcererClassFeatures.append(practice.partition("Equipment")[0])
+practice = practice.partition("Equipment")[1] + practice.partition("Equipment")[2]
+
+sorcererClassFeatures.append(practice.partition("Spellcasting")[0])
+practice = practice.partition("Spellcasting")[1] + practice.partition("Spellcasting")[2]
+
+sorcererClassFeatures.append(practice.partition("Sorcerous Origin")[0])
+practice = practice.partition("Sorcerours Origin")[1] + practice.partition("Sorcerous Origin")[2]
+
+sorcererClassFeatures.append(practice.partition("Font of Magic")[0])
+practice = practice.partition("Font of Magic")[1] + practice.partition("Font of Magic")[2]
+
+sorcererClassFeatures.append(practice.partition("Metamagic")[0])
+practice = practice.partition("Metamagic")[1] + practice.partition("Metamagic")[2]
+
+sorcererClassFeatures.append(practice.partition("Seeking Spell (UA).")[0])
+practice = practice.partition("cover against targets of the spell.\n\n\n")[2]
+
+sorcererClassFeatures[len(sorcererClassFeatures)-1] = (sorcererClassFeatures[len(sorcererClassFeatures)-1] +
+                                                       practice.partition("Ability Score Improvement")[0])
+practice = practice.partition("Ability Score Improvement")[1] + practice.partition("Ability Score Improvement")[2]
+
+sorcererClassFeatures.append(practice.partition("Sorcerous Versatility (Optional)")[0])
+practice = practice.partition("Sorcerous Versatility (Optional)")[1] + practice.partition("Sorcerous Versatility (Optional)")[2]
+
+sorcererClassFeatures.append(practice.partition("Magical Guidance (Optional)")[0])
+practice = practice.partition("Magical Guidance (Optional)")[1] + practice.partition("Magical Guidance (Optional)")[2]
+sorVert = sorcererClassFeatures[len(sorcererClassFeatures)-1]
+
+sorcererClassFeatures.append(practice.partition("Sorcerous Restoration")[0])
+practice = practice.partition("Sorcerous Restoration")[1] + practice.partition("Sorcerous Restoration")[2]
+
+sorcererClassFeatures.append("Sorcerous Origin Feature")
+sorcererClassFeatures.append(ASI)
+sorcererClassFeatures.append(sorVert)
+sorcererClassFeatures.append("Metamagic Improvement\nYou gain another metamagic option at 10th and 17th level.")
+
+sorcererClassFeatures.append(ASI)
+sorcererClassFeatures.append(sorVert)
+sorcererClassFeatures.append("Sorcerous Origin Feature")
+sorcererClassFeatures.append(ASI)
+sorcererClassFeatures.append(sorVert)
+
+sorcererClassFeatures.append("Metamagic Improvement\nYou gain another metamagic option at 10th and 17th level.")
+sorcererClassFeatures.append("Sorcerous Origin Feature")
+sorcererClassFeatures.append(ASI)
+sorcererClassFeatures.append(sorVert)
+
+sorcererClassFeatures.append(practice)
+
+URL = "http://dnd5e.wikidot.com/warlock"
+page = requests.get(URL)
+soup = BeautifulSoup(page.content, "html.parser")
+results = soup.find("div", class_="col-lg-12")
+practice = results.text
+practice = practice.partition("Hit Points")[1] + practice.partition("Hit Points")[2]
+warlockLevelUp = [0, 0, 0, 1, 1, 2, 3, 4, 4, 6, 8, 8, 10, 11, 12, 12, 13, 14, 15, 16, 16, 17, 19, 19, 20]
+
+warlockClassFeatures = [practice.partition("Proficiencies")[0]]
+practice = practice.partition("Proficiencies")[1] + practice.partition("Proficiencies")[2]
+
+warlockClassFeatures.append(practice.partition("Equipment")[0])
+practice = practice.partition("Equipment")[1] + practice.partition("Equipment")[2]
+
+warlockClassFeatures.append(practice.partition("Otherworldly Patron")[0])
+practice = practice.partition("Otherworldly Patron")[1] + practice.partition("Otherworldly Patron")[2]
+
+warlockClassFeatures.append(practice.partition("Pact Magic")[0])
+practice = practice.partition("Pact Magic")[1] + practice.partition("Pact Magic")[2]
+
+warlockClassFeatures.append(practice.partition("Eldritch Invocations")[0])
+practice = practice.partition("Eldritch Invocations")[1] + practice.partition("Eldritch Invocations")[2]
+
+warlockClassFeatures.append(practice.partition("Pact Boon")[0])
+practice = practice.partition("Pact Boon")[1] + practice.partition("Pact Boon")[2]
+
+warlockClassFeatures.append(practice.partition("Pact of the Star Chain (UA)")[0])
+practice = practice.partition("Ability Score Improvement")[1] + practice.partition("Ability Score Improvement")[2]
+
+warlockClassFeatures.append(practice.partition("Eldritch Versatility (Optional)")[0])
+practice = practice.partition("Eldritch Versatility (Optional)")[1] + practice.partition("Eldritch Versatility (Optional)")[2]
+
+warlockClassFeatures.append(practice.partition("Mystic Arcanum\n")[0])
+practice = practice.partition("Mystic Arcanum\n")[1] + practice.partition("Mystic Arcanum\n")[2]
+eldVers = warlockClassFeatures[len(warlockClassFeatures)-1]
+
+warlockClassFeatures.append("Otherworldly Patron Feature")
+warlockClassFeatures.append(ASI)
+warlockClassFeatures.append(eldVers)
+warlockClassFeatures.append("Otherworldly Patron Feature")
+
+warlockClassFeatures.append(practice.partition("Eldritch Master")[0])
+practice = practice.partition("Eldritch Master")[1] + practice.partition("Eldritch Master")[2]
+
+warlockClassFeatures.append(ASI)
+warlockClassFeatures.append(eldVers)
+
+warlockClassFeatures.append("Mystic Arcanum Improvement\n" + warlockClassFeatures[13].partition("you can do so again.\n")[2])
+warlockClassFeatures.append("Otherworldly Patron Feature")
+warlockClassFeatures.append("Mystic Arcanum Improvement\n" + warlockClassFeatures[13].partition("you can do so again.\n")[2])
+
+warlockClassFeatures.append(ASI)
+warlockClassFeatures.append(eldVers)
+warlockClassFeatures.append("Mystic Arcanum Improvement\n" + warlockClassFeatures[13].partition("you can do so again.\n")[2])
+warlockClassFeatures.append(ASI)
+warlockClassFeatures.append(eldVers)
+
+warlockClassFeatures.append(practice)
+
+URL = "http://dnd5e.wikidot.com/wizard"
+page = requests.get(URL)
+soup = BeautifulSoup(page.content, "html.parser")
+results = soup.find("div", class_="col-lg-12")
+practice = results.text
+practice = practice.partition("Hit Points")[1] + practice.partition("Hit Points")[2]
+wizardLevelUp = [0, 0, 0, 1, 1, 2, 3, 4, 6, 8, 10, 12, 14, 16, 18, 19, 20]
+
+wizardClassFeatures = [practice.partition("Proficiencies")[0]]
+practice = practice.partition("Proficiencies")[1] + practice.partition("Proficiencies")[2]
+
+wizardClassFeatures.append(practice.partition("Equipment")[0])
+practice = practice.partition("Equipment")[1] + practice.partition("Equipment")[2]
+
+wizardClassFeatures.append(practice.partition("Spellcasting")[0])
+practice = practice.partition("Spellcasting")[1] + practice.partition("Spellcasting")[2]
+
+wizardClassFeatures.append(practice.partition("Arcane Recovery")[0])
+practice = practice.partition("Arcane Recovery")[1] + practice.partition("Arcane Recovery")[2]
+
+wizardClassFeatures.append(practice.partition("Arcane Tradition")[0])
+practice = practice.partition("Arcane Tradition")[1] + practice.partition("Arcane Tradition")[2]
+
+wizardClassFeatures.append(practice.partition("Cantrip Formulas (Optional)")[0])
+practice = practice.partition("Cantrip Formulas (Optional)")[1] + practice.partition("Cantrip Formulas (Optional)")[2]
+
+wizardClassFeatures.append(practice.partition("Ability Score Improvement")[0])
+practice = practice.partition("Ability Score Improvement")[1] + practice.partition("Ability Score Improvement")[2]
+
+wizardClassFeatures.append(practice.partition("Spell Mastery")[0])
+practice = practice.partition("Spell Mastery")[1] + practice.partition("Spell Mastery")[2]
+
+wizardClassFeatures.append("Wizard Tradition Feature")
+wizardClassFeatures.append(ASI)
+wizardClassFeatures.append("Wizard Tradition Feature")
+wizardClassFeatures.append(ASI)
+wizardClassFeatures.append("Wizard Tradition Feature")
+wizardClassFeatures.append(ASI)
+
+wizardClassFeatures.append(practice.partition("Signature Spells")[0])
+practice = practice.partition("Signature Spells")[1] + practice.partition("Signature Spells")[2]
+
+wizardClassFeatures.append(ASI)
+wizardClassFeatures.append(practice)
+
+for i in wizardClassFeatures:
     print(i)
 
 # Once the data has been scraped, it's info is then stored into a dictionary to associate the poper features with the proper levels. The dictionary is then made into a
@@ -748,9 +913,30 @@ rogueData = {
     "features": rogueClassFeatures
 }
 df9 = pd.DataFrame(rogueData)
+
+sorcererData = {
+    "class": classNames[9],
+    "level": sorcererLevelUp,
+    "features": sorcererClassFeatures
+}
+df10 = pd.DataFrame(sorcererData)
+
+warlockData = {
+    "class": classNames[10],
+    "level": warlockLevelUp,
+    "features": warlockClassFeatures
+}
+df11 = pd.DataFrame(warlockData)
+
+wizardData = {
+    "class": classNames[11],
+    "level": wizardLevelUp,
+    "features": wizardClassFeatures
+}
+df12 = pd.DataFrame(wizardData)
 # Once all of our dictionaries have been created, we than make a list of dictionaries and convert the entire list into a pandas dataframe. This allows all of the
 # information to be stored in a single data structure
-table = [df1, df2, df3, df4, df5, df6, df7, df8, df9]
+table = [df1, df2, df3, df4, df5, df6, df7, df8, df9, df10, df11, df12]
 
 finalDf = pd.concat(table)
 finalDf = finalDf.reset_index()
