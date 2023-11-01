@@ -1,0 +1,354 @@
+c191155ee (Zichen 2023-10-31 23:50:09 -0400  1) import { useState } from "react";
+c191155ee (Zichen 2023-10-31 23:50:09 -0400  2) import './SpellPrep.css'
+c191155ee (Zichen 2023-10-31 23:50:09 -0400  3) 
+c191155ee (Zichen 2023-10-31 23:50:09 -0400  4) function SpellPrep(){
+c191155ee (Zichen 2023-10-31 23:50:09 -0400  5)     const [spell1Active, set1Activation] = useState(false);
+c191155ee (Zichen 2023-10-31 23:50:09 -0400  6)     // const [spell2Active, set2Activation] = useState(false);
+c191155ee (Zichen 2023-10-31 23:50:09 -0400  7)     
+c191155ee (Zichen 2023-10-31 23:50:09 -0400  8)     const handleClick = () => {
+c191155ee (Zichen 2023-10-31 23:50:09 -0400  9)         set1Activation(!spell1Active);
+c191155ee (Zichen 2023-10-31 23:50:09 -0400 10)     }
+c191155ee (Zichen 2023-10-31 23:50:09 -0400 11) 
+c191155ee (Zichen 2023-10-31 23:50:09 -0400 12)     return(
+c191155ee (Zichen 2023-10-31 23:50:09 -0400 13)         <>
+c191155ee (Zichen 2023-10-31 23:50:09 -0400 14)             <div className="indivSpell">
+c191155ee (Zichen 2023-10-31 23:50:09 -0400 15)                 <div className="prepContainer">
+c191155ee (Zichen 2023-10-31 23:50:09 -0400 16)                     
+c191155ee (Zichen 2023-10-31 23:50:09 -0400 17)                     <button  className={`spellPreparation ${spell1Active ? 'active' : ''}`} onClick={handleClick}>.</button>
+c191155ee (Zichen 2023-10-31 23:50:09 -0400 18)                     
+c191155ee (Zichen 2023-10-31 23:50:09 -0400 19)                 </div>    
+c191155ee (Zichen 2023-10-31 23:50:09 -0400 20)                 <div className="spellNameContainer">
+c191155ee (Zichen 2023-10-31 23:50:09 -0400 21)                     <input className="spell" type="text"/>  
+c191155ee (Zichen 2023-10-31 23:50:09 -0400 22)                 </div>
+c191155ee (Zichen 2023-10-31 23:50:09 -0400 23)             </div>   
+c191155ee (Zichen 2023-10-31 23:50:09 -0400 24)         </>
+c191155ee (Zichen 2023-10-31 23:50:09 -0400 25) 
+c191155ee (Zichen 2023-10-31 23:50:09 -0400 26)     )
+c191155ee (Zichen 2023-10-31 23:50:09 -0400 27) 
+c191155ee (Zichen 2023-10-31 23:50:09 -0400 28) }
+c191155ee (Zichen 2023-10-31 23:50:09 -0400 29) 
+c191155ee (Zichen 2023-10-31 23:50:09 -0400 30) 
+c191155ee (Zichen 2023-10-31 23:50:09 -0400 31) export default SpellPrep
+
+c191155ee (Zichen         2023-10-31 23:50:09 -0400  1) .indivSpell{
+c191155ee (Zichen         2023-10-31 23:50:09 -0400  2)     display: flex;
+c191155ee (Zichen         2023-10-31 23:50:09 -0400  3)     flex-direction: row;
+c191155ee (Zichen         2023-10-31 23:50:09 -0400  4)     align-items: center;
+c191155ee (Zichen         2023-10-31 23:50:09 -0400  5)     justify-content: center;
+c191155ee (Zichen         2023-10-31 23:50:09 -0400  6)     height: 16.1px;
+c191155ee (Zichen         2023-10-31 23:50:09 -0400  7)     
+c191155ee (Zichen         2023-10-31 23:50:09 -0400  8)     border-style: solid;
+c191155ee (Zichen         2023-10-31 23:50:09 -0400  9)     border-color: transparent;
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 10)     border-width: 0.01px;
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 11)     /* background-color: lightblue; */
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 12)     width: 230px;
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 13) 
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 14) }
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 15) 
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 16) .spellNameContainer{
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 17)     display: flex;
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 18)     margin-right: -5px;
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 19)     margin-left: 5px;
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 20)     /* background-color: lightblue; */
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 21)     /* padding-left: 10px; */
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 22) }
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 23) 
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 24) .spell{
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 25)     display: flex;
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 26)     background-color: transparent;
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 27)     border: none;
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 28)     font-family: "papyrus";
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 29)     align-items: center;
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 30)     width: 197.1px;
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 31)     height: 16px;
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 33)     /* border-style: solid;
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 34)     border-width: 0.1px; */
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 35)     /* background-color: lightblue; */
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 36) }
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 37) 
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 38) .spell:hover{
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 39)     border-color: orange;
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 40)     border-style:dotted;
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 41)     border-width: 2px;
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 42)     border-radius: 5px;
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 43) }
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 44) 
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 45) 
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 46) 
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 47) .prepContainer{
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 48)     /* background-color: lightpink; */
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 49)     display: flex;
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 50)     /* border-style: solid;
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 51)     border-width: .1px;
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 52)     border-color: lightpink; */
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 53)     /* height: 17px; */
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 54)     width: 6px;
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 55)     align-items: center;
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 56)     justify-content: center;
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 57)     margin-bottom: -10px;
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 58)     border-radius: 100%;
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 59) 
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 60) }
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 61) 
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 62) .spellPreparation{
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 63)     border-radius: 100%;
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 64)     font-size: 5px;
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 65)     border-style: solid;
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 66)     border-color: black;
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 67)     color: transparent;
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 68)    
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 69)     background-color:transparent;
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 70)     max-width: 8px;
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 71)     max-height: 8px;
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 72)     /* padding-top: 5px; */
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 73)     cursor: pointer;
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 74) }
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 75) 
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 76) .spellPreparation.active{
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 77)     background-color: rgb(34, 243, 34);
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 78) }
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 79) 
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 80) 
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 81) .spellPreparation:hover{
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 82)     background-color: lightgreen;
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 83) }
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 84) 
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 85) .spellPreparation:active{
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 86)     background-color: rgb(34, 243, 34);
+c191155ee (Zichen         2023-10-31 23:50:09 -0400 87) }
+
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400   1) import requests
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400   2) from bs4 import BeautifulSoup
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400   3) import pandas as pd
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400   4) 
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400   5) 
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400   6) url = "http://dnd5e.wikidot.com/spells:paladin"
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400   7) response = requests.get(url)
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400   8) 
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400   9) html_content = response.text
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  10) 
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  11) soup = BeautifulSoup(html_content, "lxml")
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  12) 
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  13) content = soup.find("div", class_ = "yui-content")
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  14) 
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  15) title = ["level", "spell_name", "school", "casting_time", "range", "duration", "component"]
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  16) 
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  17) # spell_df = pd.DataFrame(columns=features)
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  18) 
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  19) 
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  20) if content:
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  21)     cantrip = content.find("div", id= "wiki-tab-0-0")
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  22)     paladinSpell = []
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  23)     paladinSpell.append(title)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  24)     
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  25)     if cantrip:
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  26)         
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  27)         itr = 0
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  28)         for individual_spell in cantrip.find_all("tr"):
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  29)             features = []
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  30)             for element in individual_spell.find_all("td"):
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  31)     
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  32)                 if itr == 0:
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  33)                     level = 0
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  34)                     features.append(level)
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  35)                     spell_name = element.text
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  36)                     features.append(spell_name)
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  37)                 elif itr == 1:
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  38)                     school = element.text
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  39)                     features.append(school)
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  40)                 elif itr == 2:
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  41)                     cast_time = element.text
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  42)                     features.append(cast_time)
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  43)                 elif itr == 3:
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  44)                     spell_range = element.text
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  45)                     features.append(spell_range)
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  46)                 elif itr == 4:
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  47)                     duration = element.text
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  48)                     features.append(duration)
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  49)                 elif itr == 5:
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  50)                     component = element.text
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  51)                     features.append(component)
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  52)                     itr = 0
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  53)                     # print("spell:  ", spell_name)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  54)                     # print("school:  ", school)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  55)                     # print("cast:  ", cast_time)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  56)                     # print("range:  ", spell_range)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  57)                     # print("duration:", duration)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  58)                     # print("component", component)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  59)                     paladinSpell.append(features)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  60) 
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  61)                     continue
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  62) 
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  63)                 itr += 1
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  64) 
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  65)         
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  66)     cantrip = content.find("div", id= "wiki-tab-0-1")
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  67)     
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  68)     if cantrip:
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  69)         
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  70)         itr = 0
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  71)         for individual_spell in cantrip.find_all("tr"):
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  72)             features = []
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  73)             for element in individual_spell.find_all("td"):
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  74)     
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  75)                 if itr == 0:
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  76)                     level = 1
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  77)                     features.append(level)
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  78)                     spell_name = element.text
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  79)                     features.append(spell_name)
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  80)                 elif itr == 1:
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  81)                     school = element.text
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  82)                     features.append(school)
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  83)                 elif itr == 2:
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  84)                     cast_time = element.text
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  85)                     features.append(cast_time)
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  86)                 elif itr == 3:
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  87)                     spell_range = element.text
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  88)                     features.append(spell_range)
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  89)                 elif itr == 4:
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  90)                     duration = element.text
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  91)                     features.append(duration)
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  92)                 elif itr == 5:
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  93)                     component = element.text
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  94)                     features.append(component)
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400  95)                     itr = 0
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  96)                     # print("spell:  ", spell_name)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  97)                     # print("school:  ", school)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  98)                     # print("cast:  ", cast_time)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  99)                     # print("range:  ", spell_range)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 100)                     # print("duration:", duration)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 101)                     # print("component", component)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 102)                     paladinSpell.append(features)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 103) 
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 104)                     continue
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 105) 
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 106)                 itr += 1
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 107)     cantrip = content.find("div", id= "wiki-tab-0-2")
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 108)     
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 109)     if cantrip:
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 110)         
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 111)         itr = 0
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 112)         for individual_spell in cantrip.find_all("tr"):
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 113)             features = []
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 114)             for element in individual_spell.find_all("td"):
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 115)     
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 116)                 if itr == 0:
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 117)                     level = 2
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 118)                     features.append(level)
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 119)                     spell_name = element.text
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 120)                     features.append(spell_name)
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 121)                 elif itr == 1:
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 122)                     school = element.text
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 123)                     features.append(school)
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 124)                 elif itr == 2:
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 125)                     cast_time = element.text
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 126)                     features.append(cast_time)
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 127)                 elif itr == 3:
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 128)                     spell_range = element.text
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 129)                     features.append(spell_range)
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 130)                 elif itr == 4:
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 131)                     duration = element.text
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 132)                     features.append(duration)
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 133)                 elif itr == 5:
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 134)                     component = element.text
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 135)                     features.append(component)
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 136)                     itr = 0
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 137)                     # print("spell:  ", spell_name)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 138)                     # print("school:  ", school)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 139)                     # print("cast:  ", cast_time)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 140)                     # print("range:  ", spell_range)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 141)                     # print("duration:", duration)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 142)                     # print("component", component)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 143)                     paladinSpell.append(features)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 144) 
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 145)                     continue
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 146) 
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 147)                 itr += 1
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 148)     cantrip = content.find("div", id= "wiki-tab-0-3")
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 149)     
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 150)     if cantrip:
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 151)         
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 152)         itr = 0
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 153)         for individual_spell in cantrip.find_all("tr"):
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 154)             features = []
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 155)             for element in individual_spell.find_all("td"):
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 156)     
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 157)                 if itr == 0:
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 158)                     level = 3
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 159)                     features.append(level)
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 160)                     spell_name = element.text
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 161)                     features.append(spell_name)
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 162)                 elif itr == 1:
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 163)                     school = element.text
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 164)                     features.append(school)
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 165)                 elif itr == 2:
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 166)                     cast_time = element.text
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 167)                     features.append(cast_time)
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 168)                 elif itr == 3:
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 169)                     spell_range = element.text
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 170)                     features.append(spell_range)
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 171)                 elif itr == 4:
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 172)                     duration = element.text
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 173)                     features.append(duration)
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 174)                 elif itr == 5:
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 175)                     component = element.text
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 176)                     features.append(component)
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 177)                     itr = 0
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 178)                     # print("spell:  ", spell_name)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 179)                     # print("school:  ", school)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 180)                     # print("cast:  ", cast_time)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 181)                     # print("range:  ", spell_range)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 182)                     # print("duration:", duration)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 183)                     # print("component", component)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 184)                     paladinSpell.append(features)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 185) 
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 186)                     continue
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 187) 
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 188)                 itr += 1
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 189)     cantrip = content.find("div", id= "wiki-tab-0-4")
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 190)     
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 191)     if cantrip:
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 192)         
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 193)         itr = 0
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 194)         for individual_spell in cantrip.find_all("tr"):
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 195)             features = []
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 196)             for element in individual_spell.find_all("td"):
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 197)     
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 198)                 if itr == 0:
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 199)                     level = 4
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 200)                     features.append(level)
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 201)                     spell_name = element.text
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 202)                     features.append(spell_name)
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 203)                 elif itr == 1:
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 204)                     school = element.text
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 205)                     features.append(school)
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 206)                 elif itr == 2:
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 207)                     cast_time = element.text
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 208)                     features.append(cast_time)
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 209)                 elif itr == 3:
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 210)                     spell_range = element.text
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 211)                     features.append(spell_range)
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 212)                 elif itr == 4:
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 213)                     duration = element.text
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 214)                     features.append(duration)
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 215)                 elif itr == 5:
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 216)                     component = element.text
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 217)                     features.append(component)
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 218)                     itr = 0
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 219)                     # print("spell:  ", spell_name)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 220)                     # print("school:  ", school)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 221)                     # print("cast:  ", cast_time)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 222)                     # print("range:  ", spell_range)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 223)                     # print("duration:", duration)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 224)                     # print("component", component)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 225)                     paladinSpell.append(features)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 226) 
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 227)                     continue
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 228) 
+ed445b34b (Zichen 2023-11-01 00:04:34 -0400 229)                 itr += 1
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 230) 
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 231) 
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 232)     paladinSpell_df = pd.DataFrame(paladinSpell)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 233)     print(paladinSpell_df)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 234)         
+
