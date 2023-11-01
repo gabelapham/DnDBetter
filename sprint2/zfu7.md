@@ -1,0 +1,33 @@
+# Sprint 2
+Zichen Fu (Frank), Celestial Trace, DnDBetter
+
+# sprint planned
+- for this sprint I planned to fix and finish up the last of the spells page functionality 
+- help with the data scraping so that I'll be able to obtain the necessary spell data and present it to the user
+
+# sprint didn't do
+- I mainly focused on formatting the web page so that it would have the correct layout so I yet have focused on the styling of the web page
+
+# problems encountered
+- a problem I encountered is that I splitted up the web page into parts with div. Because some of the component of the page were so closely positioned, it caused some issue with format of certain elements. 
+
+# issue
+- there wasn't an issue created associated with the work 
+
+
+# files worked on
+- DnDBetter/app/src/frontend/Spell_Page/src/component/SpellPrep.jsx
+- DnDBetter/app/src/frontend/Spell_Page/src/component/SpellPrep.css
+- DnDBetter/app/src/frontend/Spell_Page/src/component/FunctionalCounter.jsx
+- DnDBetter/app/src/frontend/Spell_Page/src/component/FunctionalCounter.css
+- DnDBetter/app/src/backend/spell-scraping/bard.py
+- DnDBetter/app/src/backend/spell-scraping/cleric.py
+- DnDBetter/app/src/backend/spell-scraping/druid.py
+- DnDBetter/app/src/backend/spell-scraping/paladin.py
+
+# accomplishment
+- I was able to connect the spell slot input with the counter of each level 
+- I set up the spell preparation indicator button so that each is their individual component and not all connected as one
+- I was able to scrap spell component such as spell name, range, and duration of each level for 4 character classes
+
+
