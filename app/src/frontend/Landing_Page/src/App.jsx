@@ -9,7 +9,7 @@ const Landing = () => {
     <>
       <h1>Welcome to DnDBetter!</h1>
       <h2>What is DnDBetter?</h2>
-      <p>DnDBetter is a better way to play DnD! Kind of. DnDBetter is an intuitive and interactive character sheet creator and manager.</p>
+      <p>DnDBetter is a better way to play DnD! <i>Kind of...</i> DnDBetter is an intuitive and interactive character sheet creator and manager.</p>
       {/* <div>
         <button>Login</button>
         <br></br>
@@ -75,7 +75,7 @@ const Landing = () => {
           <img src={placeholder}/>
         </div>
         <div className="description">
-          <h2>Cooper</h2>
+          <h2>Cooper Sarphie</h2>
           <p>About me</p>
         </div>
       </div>
