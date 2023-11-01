@@ -93,5 +93,5 @@ button:focus-visible {
  
  .description {
    font-size: 20px;
-   padding-left: 20px;
+   /* padding-left: 20px; */
  }
