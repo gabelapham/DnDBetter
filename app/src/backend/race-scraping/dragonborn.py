@@ -1,7 +1,8 @@
 import requests
+import pandas as pd
 from bs4 import BeautifulSoup
 
-URL = "http://dnd5e.wikidot.com/dwarf"
+URL = "http://dnd5e.wikidot.com/dragonborn"
 page = requests.get(URL)
 
 soup = BeautifulSoup(page.content, "html.parser")
@@ -35,11 +36,11 @@ for section in data.find_all('div', class_='row'):
                     print(text + ".", end="")
                 elif index == len(text_list) - 1:
                     print()
-    # iteration 2 is for hill dwarf
+    # iteration 2 is for the standard dragon
     if i == 2:
         print()
         variant1_header = section.h3.span.text
-        print(variant1_header, end='')
+        print(variant1_header)
         variant1_list = section.find('div', class_='col-lg-12')
         for feature1 in variant1_list.find_all('ul'):
             feature1_text = feature1.li.text
@@ -52,21 +53,4 @@ for section in data.find_all('div', class_='row'):
                     print(text + ".", end="")
                 elif index == len(text1_list) - 1:
                     print()
-    # iteration 3 is for mountain dwarf
-    if i == 3:
-        print('\n')
-        variant2_header = section.h3.span.text
-        print(variant2_header, end='')
-        variant2_list = section.find('div', class_='col-lg-12')
-        for feature2 in variant2_list.find_all('ul'):
-            feature2_text = feature2.li.text
-            text2_list = feature2.text.split('.')
-            # print the feature and its description
-            for index, text in enumerate(text2_list):
-                if index == 0:
-                    print(text + ":")
-                elif index != len(text2_list) - 1:
-                    print(text + ".", end="")
-                elif index == len(text2_list) - 1:
-                    print()
-    i += 1
+    i+=1

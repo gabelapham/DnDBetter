@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
-URL = "http://dnd5e.wikidot.com/dwarf"
+URL = "http://dnd5e.wikidot.com/tiefling"
 page = requests.get(URL)
 
 soup = BeautifulSoup(page.content, "html.parser")
@@ -21,9 +21,9 @@ i = 1
 for section in data.find_all('div', class_='row'):
     # iteration 1 is for features
     if i == 1:
-        feature_header = section.h1.span.text
-        print(feature_header)
         features_list = section.find('div', class_='col-lg-12')
+        feature_header = features_list.h1.span.text
+        print(feature_header)
         for feature in features_list.find_all('ul'):
             feature_text = feature.li.text
             text_list = feature_text.split('.')
@@ -35,13 +35,19 @@ for section in data.find_all('div', class_='row'):
                     print(text + ".", end="")
                 elif index == len(text_list) - 1:
                     print()
-    # iteration 2 is for hill dwarf
+    # iteration 2 is for bloodline of asmodeus
+    # NOTE: Infernal Legacy has links for cantrips and spells
     if i == 2:
         print()
-        variant1_header = section.h3.span.text
-        print(variant1_header, end='')
-        variant1_list = section.find('div', class_='col-lg-12')
-        for feature1 in variant1_list.find_all('ul'):
+        bloodline_header = section.h3.span.text
+        print(bloodline_header, end="")
+        bloodline_list = section.find('div', class_='col-lg-12')
+        # print the variant description
+        print("searching for desc:")
+        for index, desc in enumerate(bloodline_list.find_all('p')):
+            if index == 1:
+                print(desc.text)
+        for feature1 in bloodline_list.find_all('ul'):
             feature1_text = feature1.li.text
             text1_list = feature1.text.split('.')
             # print the feature and its description
@@ -51,22 +57,5 @@ for section in data.find_all('div', class_='row'):
                 elif index != len(text1_list) - 1:
                     print(text + ".", end="")
                 elif index == len(text1_list) - 1:
-                    print()
-    # iteration 3 is for mountain dwarf
-    if i == 3:
-        print('\n')
-        variant2_header = section.h3.span.text
-        print(variant2_header, end='')
-        variant2_list = section.find('div', class_='col-lg-12')
-        for feature2 in variant2_list.find_all('ul'):
-            feature2_text = feature2.li.text
-            text2_list = feature2.text.split('.')
-            # print the feature and its description
-            for index, text in enumerate(text2_list):
-                if index == 0:
-                    print(text + ":")
-                elif index != len(text2_list) - 1:
-                    print(text + ".", end="")
-                elif index == len(text2_list) - 1:
                     print()
     i += 1
