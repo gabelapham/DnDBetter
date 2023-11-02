@@ -14,6 +14,106 @@
 4db5eb103 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 20:59:48 -0400  9)   margin: 0 auto;
 4db5eb103 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 20:59:48 -0400 10) }
 4db5eb103 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 20:59:48 -0400 11) 
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  22)   border-color: white;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  23)   top: 108px;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  24)   left: 92px;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  25) }
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  26) 
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  27) #age {
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  28)   height: 30px;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  29)   width: 100px;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  30)   text-align: left;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  31)   padding-inline-start: 5px;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  32)   background-color: white;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  33)   color: black;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  34)   font-size: 20px;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  35)   position: absolute;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  36)   border-color: white;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  37)   top: 87px;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  38)   left: 550px;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  39) }
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  40) 
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  41) #eyes {
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  42)   height: 30px;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  43)   width: 100px;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  44)   text-align: left;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  45)   padding-inline-start: 5px;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  46)   background-color: white;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  47)   color: black;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  48)   font-size: 20px;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  49)   position: absolute;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  50)   border-color: white;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  51)   top: 142px;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  52)   left: 550px;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  53) }
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  54) 
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  55) #character_height {
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  56)   height: 30px;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  57)   width: 100px;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  58)   text-align: left;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  59)   padding-inline-start: 5px;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  60)   background-color: white;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  61)   color: black;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  62)   font-size: 20px;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  63)   position: absolute;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  64)   border-color: white;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  65)   top: 87px;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  66)   left: 785px;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  69) #skin {
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  70)   height: 30px;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  71)   width: 100px;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  72)   text-align: left;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  73)   padding-inline-start: 5px;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  74)   background-color: white;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  75)   color: black;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  76)   font-size: 20px;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  77)   position: absolute;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  78)   border-color: white;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  79)   top: 142px;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  80)   left: 785px;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  81) }
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  82) 
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  83) #weight {
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  84)   height: 30px;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  85)   width: 100px;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  86)   text-align: left;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  87)   padding-inline-start: 5px;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  88)   background-color: white;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  89)   color: black;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  90)   font-size: 20px;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  91)   position: absolute;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  92)   border-color: white;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  93)   top: 87px;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  94)   left: 990px;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  95) }
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  96) 
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  97) #hair {
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  98)   height: 30px;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400  99)   width: 100px;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400 100)   text-align: left;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400 101)   padding-inline-start: 5px;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400 102)   background-color: white;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400 103)   color: black;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400 104)   font-size: 20px;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400 105)   position: absolute;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400 106)   border-color: white;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400 107)   top: 142px;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400 108)   left: 990px;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400 109) }
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400 110) 
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400 111) /* .image-container {
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400 112)   position: absolute;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400 113)   display: inline-block;
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400 114) } */
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400 115) 
+725806700 app/src/frontend/Background_Page/src/ImageComponent.css (tylerjcatuncan 2023-11-01 21:55:41 -0400 116) /* .image-container img {
+725806700 app/src/frontend/Background_Page/src/ImageComponent.jsx    (tylerjcatuncan 2023-11-01 21:55:41 -0400 59)       <p contentEditable id="character_name"></p>
+725806700 app/src/frontend/Background_Page/src/ImageComponent.jsx    (tylerjcatuncan 2023-11-01 21:55:41 -0400 60)       <p contentEditable id="age"></p>
+725806700 app/src/frontend/Background_Page/src/ImageComponent.jsx    (tylerjcatuncan 2023-11-01 21:55:41 -0400 61)       <p contentEditable id="eyes"></p>
+725806700 app/src/frontend/Background_Page/src/ImageComponent.jsx    (tylerjcatuncan 2023-11-01 21:55:41 -0400 62)       <p contentEditable id="character_height"></p>
+725806700 app/src/frontend/Background_Page/src/ImageComponent.jsx    (tylerjcatuncan 2023-11-01 21:55:41 -0400 63)       <p contentEditable id="skin"></p>
+725806700 app/src/frontend/Background_Page/src/ImageComponent.jsx    (tylerjcatuncan 2023-11-01 21:55:41 -0400 64)       <p contentEditable id="weight"></p>
+725806700 app/src/frontend/Background_Page/src/ImageComponent.jsx    (tylerjcatuncan 2023-11-01 21:55:41 -0400 65)       <p contentEditable id="hair"></p>
 606fa29fd app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-11-01 05:50:10 -0400   3) import placeholder from './assets/placeholder.png'
 e56d2db7d app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-11-01 08:01:39 -0400   4) import jon from './assets/jon_lapham.jpg'
 fc83911f5 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-11-01 06:23:55 -0400  13)       <p>DnDBetter is a better way to play DnD! <i>Kind of...</i> DnDBetter is an intuitive and interactive character sheet creator and manager.</p>
