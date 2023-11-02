@@ -1,5 +1,5 @@
 # Sprint 2
-Tyler Catuncan, tylerjcatuncan, DNDBetter
+Tyler Catuncan, tcatunca, DNDBetter
 
 ## What I planned to do
 - Expand upon landing page
