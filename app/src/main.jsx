@@ -1,9 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
+import { ThemeUIProvider } from "theme-ui";
+import theme from "./index.css?inline"
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    <ThemeUIProvider theme={theme}>
+      <App />
+    </ThemeUIProvider>
   </React.StrictMode>,
 )
