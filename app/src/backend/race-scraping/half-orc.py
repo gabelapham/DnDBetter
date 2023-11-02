@@ -22,7 +22,11 @@ features_list = features.find('div', class_='col-lg-12')
 for feature in features_list.find_all('ul'):
     feature_text = feature.li.text
     text_list = feature_text.split('.')
-    # print the feature
-    print(text_list[0] + ': ')
-    # print the feature description
-    print(text_list[1])
+    # print the feature and its description
+    for index, text in enumerate(text_list):
+        if index == 0:
+            print(text + ":")
+        elif index != len(text_list) - 1:
+            print(text + ".", end="")
+        elif index == len(text_list) - 1:
+            print()
