@@ -2,6 +2,7 @@
   text-align: center;
   z-index: 0;
   width: 1700px;
+  min-width: 1700px;
   height: 2200px;
   width: 100%;
   position: relative;
@@ -9,15 +10,113 @@
   margin: 0 auto;
 }
 
-.image-container {
+#character_name {
+  height: 40px;
+  width: 400px;
+  text-align: left;
+  padding-inline-start: 5px;
+  background-color: white;
+  color:black;
+  font-size: 28px;
   position: absolute;
-  display: inline-block;
+  border-color: white;
+  top: 108px;
+  left: 92px;
 }
 
-.image-container img {
+#age {
+  height: 30px;
+  width: 100px;
+  text-align: left;
+  padding-inline-start: 5px;
+  background-color: white;
+  color: black;
+  font-size: 20px;
+  position: absolute;
+  border-color: white;
+  top: 87px;
+  left: 550px;
+}
+
+#eyes {
+  height: 30px;
+  width: 100px;
+  text-align: left;
+  padding-inline-start: 5px;
+  background-color: white;
+  color: black;
+  font-size: 20px;
+  position: absolute;
+  border-color: white;
+  top: 142px;
+  left: 550px;
+}
+
+#character_height {
+  height: 30px;
+  width: 100px;
+  text-align: left;
+  padding-inline-start: 5px;
+  background-color: white;
+  color: black;
+  font-size: 20px;
+  position: absolute;
+  border-color: white;
+  top: 87px;
+  left: 785px;
+}
+
+#skin {
+  height: 30px;
+  width: 100px;
+  text-align: left;
+  padding-inline-start: 5px;
+  background-color: white;
+  color: black;
+  font-size: 20px;
+  position: absolute;
+  border-color: white;
+  top: 142px;
+  left: 785px;
+}
+
+#weight {
+  height: 30px;
+  width: 100px;
+  text-align: left;
+  padding-inline-start: 5px;
+  background-color: white;
+  color: black;
+  font-size: 20px;
+  position: absolute;
+  border-color: white;
+  top: 87px;
+  left: 990px;
+}
+
+#hair {
+  height: 30px;
+  width: 100px;
+  text-align: left;
+  padding-inline-start: 5px;
+  background-color: white;
+  color: black;
+  font-size: 20px;
+  position: absolute;
+  border-color: white;
+  top: 142px;
+  left: 990px;
+}
+
+/* .image-container {
+  position: absolute;
+  display: inline-block;
+} */
+
+/* .image-container img {
   width: 100%;
   height: auto;
-}
+} */
 
 .text-box {
   position: relative;

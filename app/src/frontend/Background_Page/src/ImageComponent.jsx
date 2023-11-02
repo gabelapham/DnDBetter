@@ -1,5 +1,6 @@
 import React from 'react';
 import image from './char_sheet.jpg';
+import './ImageComponent.css'
 
 function ImageComponent({ userText, onUserTextChange }) {
   const positions = [
@@ -55,6 +56,13 @@ function ImageComponent({ userText, onUserTextChange }) {
           </div>
         );
       })}
+      <p contentEditable id="character_name"></p>
+      <p contentEditable id="age"></p>
+      <p contentEditable id="eyes"></p>
+      <p contentEditable id="character_height"></p>
+      <p contentEditable id="skin"></p>
+      <p contentEditable id="weight"></p>
+      <p contentEditable id="hair"></p>
     </div>
   );
 }
