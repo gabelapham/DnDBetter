@@ -1,0 +1,285 @@
+dragonborn.py
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400  1) import requests
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400  2) import pandas as pd
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400  3) from bs4 import BeautifulSoup
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400  4) 
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400  5) URL = "http://dnd5e.wikidot.com/dragonborn"
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400  6) page = requests.get(URL)
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400  7) 
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400  8) soup = BeautifulSoup(page.content, "html.parser")
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400  9) 
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 10) # title
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 11) title = soup.find('div', class_='page-title page-header').text
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 12) print(title + ':')
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 13) 
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 14) # description
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 15) desc = soup.find('strong').text
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 16) print(desc + '\n')
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 17) 
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 18) # data
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 19) data = soup.find('div', class_='feature')
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 20) # iterate through the rows to access the features and variants
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 21) i = 1
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 22) for section in data.find_all('div', class_='row'):
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 23)     # iteration 1 is for features
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 24)     if i == 1:
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 25)         feature_header = section.h1.span.text
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 26)         print(feature_header)
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 27)         features_list = section.find('div', class_='col-lg-12')
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 28)         for feature in features_list.find_all('ul'):
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 29)             feature_text = feature.li.text
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 30)             text_list = feature_text.split('.')
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 31)             # print the feature and its description
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 32)             for index, text in enumerate(text_list):
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 33)                 if index == 0:
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 34)                     print(text + ":")
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 35)                 elif index != len(text_list) - 1:
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 36)                     print(text + ".", end="")
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 37)                 elif index == len(text_list) - 1:
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 38)                     print()
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 39)     # iteration 2 is for the standard dragon
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 40)     if i == 2:
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 41)         print()
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 42)         variant1_header = section.h3.span.text
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 43)         print(variant1_header)
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 44)         variant1_list = section.find('div', class_='col-lg-12')
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 45)         for feature1 in variant1_list.find_all('ul'):
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 46)             feature1_text = feature1.li.text
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 47)             text1_list = feature1.text.split('.')
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 48)             # print the feature and its description
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 49)             for index, text in enumerate(text1_list):
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 50)                 if index == 0:
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 51)                     print(text + ":")
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 52)                 elif index != len(text1_list) - 1:
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 53)                     print(text + ".", end="")
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 54)                 elif index == len(text1_list) - 1:
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 55)                     print()
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 56)     i+=1
+
+dwarf.py
+5fddba4ac app/src/backend/race-scraping/dwarf.py (TritonEden     2023-11-01 21:26:22 -0400 30)             # print the feature and its description
+5fddba4ac app/src/backend/race-scraping/dwarf.py (TritonEden     2023-11-01 21:26:22 -0400 31)             for index, text in enumerate(text_list):
+5fddba4ac app/src/backend/race-scraping/dwarf.py (TritonEden     2023-11-01 21:26:22 -0400 32)                 if index == 0:
+5fddba4ac app/src/backend/race-scraping/dwarf.py (TritonEden     2023-11-01 21:26:22 -0400 33)                     print(text + ":")
+5fddba4ac app/src/backend/race-scraping/dwarf.py (TritonEden     2023-11-01 21:26:22 -0400 34)                 elif index != len(text_list) - 1:
+5fddba4ac app/src/backend/race-scraping/dwarf.py (TritonEden     2023-11-01 21:26:22 -0400 35)                     print(text + ".", end="")
+5fddba4ac app/src/backend/race-scraping/dwarf.py (TritonEden     2023-11-01 21:26:22 -0400 36)                 elif index == len(text_list) - 1:
+5fddba4ac app/src/backend/race-scraping/dwarf.py (TritonEden     2023-11-01 21:26:22 -0400 37)                     print()
+5fddba4ac app/src/backend/race-scraping/dwarf.py (TritonEden     2023-11-01 21:26:22 -0400 47)             # print the feature and its description
+5fddba4ac app/src/backend/race-scraping/dwarf.py (TritonEden     2023-11-01 21:26:22 -0400 48)             for index, text in enumerate(text1_list):
+5fddba4ac app/src/backend/race-scraping/dwarf.py (TritonEden     2023-11-01 21:26:22 -0400 49)                 if index == 0:
+5fddba4ac app/src/backend/race-scraping/dwarf.py (TritonEden     2023-11-01 21:26:22 -0400 50)                     print(text + ":")
+5fddba4ac app/src/backend/race-scraping/dwarf.py (TritonEden     2023-11-01 21:26:22 -0400 51)                 elif index != len(text1_list) - 1:
+5fddba4ac app/src/backend/race-scraping/dwarf.py (TritonEden     2023-11-01 21:26:22 -0400 52)                     print(text + ".", end="")
+5fddba4ac app/src/backend/race-scraping/dwarf.py (TritonEden     2023-11-01 21:26:22 -0400 53)                 elif index == len(text1_list) - 1:
+5fddba4ac app/src/backend/race-scraping/dwarf.py (TritonEden     2023-11-01 21:26:22 -0400 54)                     print()
+5fddba4ac app/src/backend/race-scraping/dwarf.py (TritonEden     2023-11-01 21:26:22 -0400 64)             # print the feature and its description
+5fddba4ac app/src/backend/race-scraping/dwarf.py (TritonEden     2023-11-01 21:26:22 -0400 65)             for index, text in enumerate(text2_list):
+5fddba4ac app/src/backend/race-scraping/dwarf.py (TritonEden     2023-11-01 21:26:22 -0400 66)                 if index == 0:
+5fddba4ac app/src/backend/race-scraping/dwarf.py (TritonEden     2023-11-01 21:26:22 -0400 67)                     print(text + ":")
+5fddba4ac app/src/backend/race-scraping/dwarf.py (TritonEden     2023-11-01 21:26:22 -0400 68)                 elif index != len(text2_list) - 1:
+5fddba4ac app/src/backend/race-scraping/dwarf.py (TritonEden     2023-11-01 21:26:22 -0400 69)                     print(text + ".", end="")
+5fddba4ac app/src/backend/race-scraping/dwarf.py (TritonEden     2023-11-01 21:26:22 -0400 70)                 elif index == len(text2_list) - 1:
+5fddba4ac app/src/backend/race-scraping/dwarf.py (TritonEden     2023-11-01 21:26:22 -0400 71)                     print()
+  
+elf.py
+5fddba4ac app/src/backend/race-scraping/elf.py (TritonEden     2023-11-01 21:26:22 -0400 30)             # print the feature and its description
+5fddba4ac app/src/backend/race-scraping/elf.py (TritonEden     2023-11-01 21:26:22 -0400 31)             for index, text in enumerate(text_list):
+5fddba4ac app/src/backend/race-scraping/elf.py (TritonEden     2023-11-01 21:26:22 -0400 32)                 if index == 0:
+5fddba4ac app/src/backend/race-scraping/elf.py (TritonEden     2023-11-01 21:26:22 -0400 33)                     print(text + ":")
+5fddba4ac app/src/backend/race-scraping/elf.py (TritonEden     2023-11-01 21:26:22 -0400 34)                 elif index != len(text_list) - 1:
+5fddba4ac app/src/backend/race-scraping/elf.py (TritonEden     2023-11-01 21:26:22 -0400 35)                     print(text + ".", end="")
+5fddba4ac app/src/backend/race-scraping/elf.py (TritonEden     2023-11-01 21:26:22 -0400 36)                 elif index == len(text_list) - 1:
+5fddba4ac app/src/backend/race-scraping/elf.py (TritonEden     2023-11-01 21:26:22 -0400 37)                     print()
+5fddba4ac app/src/backend/race-scraping/elf.py (TritonEden     2023-11-01 21:26:22 -0400 38)     # iteration 5 is for high elf
+5fddba4ac app/src/backend/race-scraping/elf.py (TritonEden     2023-11-01 21:26:22 -0400 39)     if i == 5:
+5fddba4ac app/src/backend/race-scraping/elf.py (TritonEden     2023-11-01 21:26:22 -0400 47)             # print the feature and its description
+5fddba4ac app/src/backend/race-scraping/elf.py (TritonEden     2023-11-01 21:26:22 -0400 48)             for index, text in enumerate(text1_list):
+5fddba4ac app/src/backend/race-scraping/elf.py (TritonEden     2023-11-01 21:26:22 -0400 49)                 if index == 0:
+5fddba4ac app/src/backend/race-scraping/elf.py (TritonEden     2023-11-01 21:26:22 -0400 50)                     print(text + ":")
+5fddba4ac app/src/backend/race-scraping/elf.py (TritonEden     2023-11-01 21:26:22 -0400 51)                 elif index != len(text1_list) - 1:
+5fddba4ac app/src/backend/race-scraping/elf.py (TritonEden     2023-11-01 21:26:22 -0400 52)                     print(text + ".", end="")
+5fddba4ac app/src/backend/race-scraping/elf.py (TritonEden     2023-11-01 21:26:22 -0400 53)                 elif index == len(text1_list) - 1:
+5fddba4ac app/src/backend/race-scraping/elf.py (TritonEden     2023-11-01 21:26:22 -0400 54)                     print()
+5fddba4ac app/src/backend/race-scraping/elf.py (TritonEden     2023-11-01 21:26:22 -0400 55)     # iteration 8 is for high elf
+5fddba4ac app/src/backend/race-scraping/elf.py (TritonEden     2023-11-01 21:26:22 -0400 56)     if i == 8:
+5fddba4ac app/src/backend/race-scraping/elf.py (TritonEden     2023-11-01 21:26:22 -0400 57)         print()
+5fddba4ac app/src/backend/race-scraping/elf.py (TritonEden     2023-11-01 21:26:22 -0400 58)         variant2_header = section.h3.span.text
+5fddba4ac app/src/backend/race-scraping/elf.py (TritonEden     2023-11-01 21:26:22 -0400 59)         print(variant2_header, end='')
+5fddba4ac app/src/backend/race-scraping/elf.py (TritonEden     2023-11-01 21:26:22 -0400 60)         variant2_list = section.find('div', class_='col-lg-12')
+5fddba4ac app/src/backend/race-scraping/elf.py (TritonEden     2023-11-01 21:26:22 -0400 61)         for feature2 in variant2_list.find_all('ul'):
+5fddba4ac app/src/backend/race-scraping/elf.py (TritonEden     2023-11-01 21:26:22 -0400 62)             feature2_text = feature2.li.text
+5fddba4ac app/src/backend/race-scraping/elf.py (TritonEden     2023-11-01 21:26:22 -0400 63)             text2_list = feature2.text.split('.')
+5fddba4ac app/src/backend/race-scraping/elf.py (TritonEden     2023-11-01 21:26:22 -0400 64)             # print the feature and its description
+5fddba4ac app/src/backend/race-scraping/elf.py (TritonEden     2023-11-01 21:26:22 -0400 65)             for index, text in enumerate(text2_list):
+5fddba4ac app/src/backend/race-scraping/elf.py (TritonEden     2023-11-01 21:26:22 -0400 66)                 if index == 0:
+5fddba4ac app/src/backend/race-scraping/elf.py (TritonEden     2023-11-01 21:26:22 -0400 67)                     print(text + ":")
+5fddba4ac app/src/backend/race-scraping/elf.py (TritonEden     2023-11-01 21:26:22 -0400 68)                 elif index != len(text2_list) - 1:
+5fddba4ac app/src/backend/race-scraping/elf.py (TritonEden     2023-11-01 21:26:22 -0400 69)                     print(text + ".", end="")
+5fddba4ac app/src/backend/race-scraping/elf.py (TritonEden     2023-11-01 21:26:22 -0400 70)                 elif index == len(text2_list) - 1:
+5fddba4ac app/src/backend/race-scraping/elf.py (TritonEden     2023-11-01 21:26:22 -0400 71)                     print()
+
+gnome.py
+5fddba4ac app/src/backend/race-scraping/gnome.py (TritonEden 2023-11-01 21:26:22 -0400 30)             # print the feature and its description
+5fddba4ac app/src/backend/race-scraping/gnome.py (TritonEden 2023-11-01 21:26:22 -0400 31)             for index, text in enumerate(text_list):
+5fddba4ac app/src/backend/race-scraping/gnome.py (TritonEden 2023-11-01 21:26:22 -0400 32)                 if index == 0:
+5fddba4ac app/src/backend/race-scraping/gnome.py (TritonEden 2023-11-01 21:26:22 -0400 33)                     print(text + ":")
+5fddba4ac app/src/backend/race-scraping/gnome.py (TritonEden 2023-11-01 21:26:22 -0400 34)                 elif index != len(text_list) - 1:
+5fddba4ac app/src/backend/race-scraping/gnome.py (TritonEden 2023-11-01 21:26:22 -0400 35)                     print(text + ".", end="")
+5fddba4ac app/src/backend/race-scraping/gnome.py (TritonEden 2023-11-01 21:26:22 -0400 36)                 elif index == len(text_list) - 1:
+5fddba4ac app/src/backend/race-scraping/gnome.py (TritonEden 2023-11-01 21:26:22 -0400 37)                     print()
+5fddba4ac app/src/backend/race-scraping/gnome.py (TritonEden 2023-11-01 21:26:22 -0400 47)             # print the feature and its description
+5fddba4ac app/src/backend/race-scraping/gnome.py (TritonEden 2023-11-01 21:26:22 -0400 48)             for index, text in enumerate(text1_list):
+5fddba4ac app/src/backend/race-scraping/gnome.py (TritonEden 2023-11-01 21:26:22 -0400 49)                 if index == 0:
+5fddba4ac app/src/backend/race-scraping/gnome.py (TritonEden 2023-11-01 21:26:22 -0400 50)                     print(text + ":")
+5fddba4ac app/src/backend/race-scraping/gnome.py (TritonEden 2023-11-01 21:26:22 -0400 51)                 elif index != len(text1_list) - 1:
+5fddba4ac app/src/backend/race-scraping/gnome.py (TritonEden 2023-11-01 21:26:22 -0400 52)                     print(text + ".", end="")
+5fddba4ac app/src/backend/race-scraping/gnome.py (TritonEden 2023-11-01 21:26:22 -0400 53)                 elif index == len(text1_list) - 1:
+5fddba4ac app/src/backend/race-scraping/gnome.py (TritonEden 2023-11-01 21:26:22 -0400 54)                     print()
+5fddba4ac app/src/backend/race-scraping/gnome.py (TritonEden 2023-11-01 21:26:22 -0400 64)             # print the feature and its description
+5fddba4ac app/src/backend/race-scraping/gnome.py (TritonEden 2023-11-01 21:26:22 -0400 65)             for index, text in enumerate(text2_list):
+5fddba4ac app/src/backend/race-scraping/gnome.py (TritonEden 2023-11-01 21:26:22 -0400 66)                 if index == 0:
+5fddba4ac app/src/backend/race-scraping/gnome.py (TritonEden 2023-11-01 21:26:22 -0400 67)                     if text == "\nClockwork Toy":
+5fddba4ac app/src/backend/race-scraping/gnome.py (TritonEden 2023-11-01 21:26:22 -0400 68)                         break
+5fddba4ac app/src/backend/race-scraping/gnome.py (TritonEden 2023-11-01 21:26:22 -0400 69)                     print(text + ":")
+5fddba4ac app/src/backend/race-scraping/gnome.py (TritonEden 2023-11-01 21:26:22 -0400 70)                 elif index != len(text2_list) - 1:
+5fddba4ac app/src/backend/race-scraping/gnome.py (TritonEden 2023-11-01 21:26:22 -0400 71)                     print(text + ".", end="")
+5fddba4ac app/src/backend/race-scraping/gnome.py (TritonEden 2023-11-01 21:26:22 -0400 72)                 elif index == len(text2_list) - 1:
+5fddba4ac app/src/backend/race-scraping/gnome.py (TritonEden 2023-11-01 21:26:22 -0400 73)                     print()
+
+half-elf.py
+5fddba4ac app/src/backend/race-scraping/half-elf.py (TritonEden 2023-11-01 21:26:22 -0400 25)     # print the feature and its description
+5fddba4ac app/src/backend/race-scraping/half-elf.py (TritonEden 2023-11-01 21:26:22 -0400 26)     for index, text in enumerate(text_list):
+5fddba4ac app/src/backend/race-scraping/half-elf.py (TritonEden 2023-11-01 21:26:22 -0400 27)         if index == 0:
+5fddba4ac app/src/backend/race-scraping/half-elf.py (TritonEden 2023-11-01 21:26:22 -0400 28)             print(text + ":")
+5fddba4ac app/src/backend/race-scraping/half-elf.py (TritonEden 2023-11-01 21:26:22 -0400 29)         elif index != len(text_list) - 1:
+5fddba4ac app/src/backend/race-scraping/half-elf.py (TritonEden 2023-11-01 21:26:22 -0400 30)             print(text + ".", end="")
+5fddba4ac app/src/backend/race-scraping/half-elf.py (TritonEden 2023-11-01 21:26:22 -0400 31)         elif index == len(text_list) - 1:
+5fddba4ac app/src/backend/race-scraping/half-elf.py (TritonEden 2023-11-01 21:26:22 -0400 32)             print()
+
+half-orc.py
+5fddba4ac app/src/backend/race-scraping/half-orc.py (TritonEden 2023-11-01 21:26:22 -0400 25)     # print the feature and its description
+5fddba4ac app/src/backend/race-scraping/half-orc.py (TritonEden 2023-11-01 21:26:22 -0400 26)     for index, text in enumerate(text_list):
+5fddba4ac app/src/backend/race-scraping/half-orc.py (TritonEden 2023-11-01 21:26:22 -0400 27)         if index == 0:
+5fddba4ac app/src/backend/race-scraping/half-orc.py (TritonEden 2023-11-01 21:26:22 -0400 28)             print(text + ":")
+5fddba4ac app/src/backend/race-scraping/half-orc.py (TritonEden 2023-11-01 21:26:22 -0400 29)         elif index != len(text_list) - 1:
+5fddba4ac app/src/backend/race-scraping/half-orc.py (TritonEden 2023-11-01 21:26:22 -0400 30)             print(text + ".", end="")
+5fddba4ac app/src/backend/race-scraping/half-orc.py (TritonEden 2023-11-01 21:26:22 -0400 31)         elif index == len(text_list) - 1:
+5fddba4ac app/src/backend/race-scraping/half-orc.py (TritonEden 2023-11-01 21:26:22 -0400 32)             print()
+
+halfling.py
+5fddba4ac app/src/backend/race-scraping/halfling.py (TritonEden     2023-11-01 21:26:22 -0400 30)             # print the feature and its description
+5fddba4ac app/src/backend/race-scraping/halfling.py (TritonEden     2023-11-01 21:26:22 -0400 31)             for index, text in enumerate(text_list):
+5fddba4ac app/src/backend/race-scraping/halfling.py (TritonEden     2023-11-01 21:26:22 -0400 32)                 if index == 0:
+5fddba4ac app/src/backend/race-scraping/halfling.py (TritonEden     2023-11-01 21:26:22 -0400 33)                     print(text + ":")
+5fddba4ac app/src/backend/race-scraping/halfling.py (TritonEden     2023-11-01 21:26:22 -0400 34)                 elif index != len(text_list) - 1:
+5fddba4ac app/src/backend/race-scraping/halfling.py (TritonEden     2023-11-01 21:26:22 -0400 35)                     print(text + ".", end="")
+5fddba4ac app/src/backend/race-scraping/halfling.py (TritonEden     2023-11-01 21:26:22 -0400 36)                 elif index == len(text_list) - 1:
+5fddba4ac app/src/backend/race-scraping/halfling.py (TritonEden     2023-11-01 21:26:22 -0400 37)                     print()
+5fddba4ac app/src/backend/race-scraping/halfling.py (TritonEden     2023-11-01 21:26:22 -0400 40)         print('\n')
+5fddba4ac app/src/backend/race-scraping/halfling.py (TritonEden     2023-11-01 21:26:22 -0400 47)             # print the feature and its description
+5fddba4ac app/src/backend/race-scraping/halfling.py (TritonEden     2023-11-01 21:26:22 -0400 48)             for index, text in enumerate(text1_list):
+5fddba4ac app/src/backend/race-scraping/halfling.py (TritonEden     2023-11-01 21:26:22 -0400 49)                 if index == 0:
+5fddba4ac app/src/backend/race-scraping/halfling.py (TritonEden     2023-11-01 21:26:22 -0400 50)                     print(text + ":")
+5fddba4ac app/src/backend/race-scraping/halfling.py (TritonEden     2023-11-01 21:26:22 -0400 51)                 elif index != len(text1_list) - 1:
+5fddba4ac app/src/backend/race-scraping/halfling.py (TritonEden     2023-11-01 21:26:22 -0400 52)                     print(text + ".", end="")
+5fddba4ac app/src/backend/race-scraping/halfling.py (TritonEden     2023-11-01 21:26:22 -0400 53)                 elif index == len(text1_list) - 1:
+5fddba4ac app/src/backend/race-scraping/halfling.py (TritonEden     2023-11-01 21:26:22 -0400 54)                     print()
+5fddba4ac app/src/backend/race-scraping/halfling.py (TritonEden     2023-11-01 21:26:22 -0400 64)             # print the feature and its description
+5fddba4ac app/src/backend/race-scraping/halfling.py (TritonEden     2023-11-01 21:26:22 -0400 65)             for index, text in enumerate(text2_list):
+5fddba4ac app/src/backend/race-scraping/halfling.py (TritonEden     2023-11-01 21:26:22 -0400 66)                 if index == 0:
+5fddba4ac app/src/backend/race-scraping/halfling.py (TritonEden     2023-11-01 21:26:22 -0400 67)                     print(text + ":")
+5fddba4ac app/src/backend/race-scraping/halfling.py (TritonEden     2023-11-01 21:26:22 -0400 68)                 elif index != len(text2_list) - 1:
+5fddba4ac app/src/backend/race-scraping/halfling.py (TritonEden     2023-11-01 21:26:22 -0400 69)                     print(text + ".", end="")
+5fddba4ac app/src/backend/race-scraping/halfling.py (TritonEden     2023-11-01 21:26:22 -0400 70)                 elif index == len(text2_list) - 1:
+5fddba4ac app/src/backend/race-scraping/halfling.py (TritonEden     2023-11-01 21:26:22 -0400 71)                     print()
+
+human.py
+5fddba4ac app/src/backend/race-scraping/human.py (TritonEden 2023-11-01 21:26:22 -0400 30)             # print the feature and its description
+5fddba4ac app/src/backend/race-scraping/human.py (TritonEden 2023-11-01 21:26:22 -0400 31)             for index, text in enumerate(text_list):
+5fddba4ac app/src/backend/race-scraping/human.py (TritonEden 2023-11-01 21:26:22 -0400 32)                 if index == 0:
+5fddba4ac app/src/backend/race-scraping/human.py (TritonEden 2023-11-01 21:26:22 -0400 33)                     print(text + ":")
+5fddba4ac app/src/backend/race-scraping/human.py (TritonEden 2023-11-01 21:26:22 -0400 34)                 elif index != len(text_list) - 1:
+5fddba4ac app/src/backend/race-scraping/human.py (TritonEden 2023-11-01 21:26:22 -0400 35)                     print(text + ".", end="")
+5fddba4ac app/src/backend/race-scraping/human.py (TritonEden 2023-11-01 21:26:22 -0400 36)                 elif index == len(text_list) - 1:
+5fddba4ac app/src/backend/race-scraping/human.py (TritonEden 2023-11-01 21:26:22 -0400 37)                     print()
+5fddba4ac app/src/backend/race-scraping/human.py (TritonEden 2023-11-01 21:26:22 -0400 47)             # print the feature and its description
+5fddba4ac app/src/backend/race-scraping/human.py (TritonEden 2023-11-01 21:26:22 -0400 48)             for index, text in enumerate(text1_list):
+5fddba4ac app/src/backend/race-scraping/human.py (TritonEden 2023-11-01 21:26:22 -0400 49)                 if index == 0:
+5fddba4ac app/src/backend/race-scraping/human.py (TritonEden 2023-11-01 21:26:22 -0400 50)                     print(text + ":")
+5fddba4ac app/src/backend/race-scraping/human.py (TritonEden 2023-11-01 21:26:22 -0400 51)                 elif index != len(text1_list) - 1:
+5fddba4ac app/src/backend/race-scraping/human.py (TritonEden 2023-11-01 21:26:22 -0400 52)                     print(text + ".", end="")
+5fddba4ac app/src/backend/race-scraping/human.py (TritonEden 2023-11-01 21:26:22 -0400 53)                 elif index == len(text1_list) - 1:
+5fddba4ac app/src/backend/race-scraping/human.py (TritonEden 2023-11-01 21:26:22 -0400 54)                     print()
+5fddba4ac app/src/backend/race-scraping/human.py (TritonEden 2023-11-01 21:26:22 -0400 64)             # print the feature and its description
+5fddba4ac app/src/backend/race-scraping/human.py (TritonEden 2023-11-01 21:26:22 -0400 65)             for index, text in enumerate(text2_list):
+5fddba4ac app/src/backend/race-scraping/human.py (TritonEden 2023-11-01 21:26:22 -0400 66)                 if index == 0:
+5fddba4ac app/src/backend/race-scraping/human.py (TritonEden 2023-11-01 21:26:22 -0400 67)                     print(text + ":")
+5fddba4ac app/src/backend/race-scraping/human.py (TritonEden 2023-11-01 21:26:22 -0400 68)                 elif index != len(text2_list) - 1:
+5fddba4ac app/src/backend/race-scraping/human.py (TritonEden 2023-11-01 21:26:22 -0400 69)                     print(text + ".", end="")
+5fddba4ac app/src/backend/race-scraping/human.py (TritonEden 2023-11-01 21:26:22 -0400 70)                 elif index == len(text2_list) - 1:
+5fddba4ac app/src/backend/race-scraping/human.py (TritonEden 2023-11-01 21:26:22 -0400 71)                     print()
+5fddba4ac app/src/backend/race-scraping/human.py (TritonEden 2023-11-01 21:26:22 -0400 72)     i += 1
+
+tiefling.py
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400  1) import requests
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400  2) from bs4 import BeautifulSoup
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400  3) 
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400  4) URL = "http://dnd5e.wikidot.com/tiefling"
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400  5) page = requests.get(URL)
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400  6) 
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400  7) soup = BeautifulSoup(page.content, "html.parser")
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400  8) 
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400  9) # title
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 10) title = soup.find('div', class_='page-title page-header').text
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 11) print(title + ':')
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 12) 
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 13) # description
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 14) desc = soup.find('strong').text
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 15) print(desc + '\n')
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 16) 
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 17) # data
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 18) data = soup.find('div', class_='feature')
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 19) # iterate through the rows to access the features and variants
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 20) i = 1
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 21) for section in data.find_all('div', class_='row'):
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 22)     # iteration 1 is for features
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 23)     if i == 1:
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 24)         features_list = section.find('div', class_='col-lg-12')
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 25)         feature_header = features_list.h1.span.text
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 26)         print(feature_header)
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 27)         for feature in features_list.find_all('ul'):
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 28)             feature_text = feature.li.text
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 29)             text_list = feature_text.split('.')
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 30)             # print the feature and its description
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 31)             for index, text in enumerate(text_list):
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 32)                 if index == 0:
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 33)                     print(text + ":")
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 34)                 elif index != len(text_list) - 1:
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 35)                     print(text + ".", end="")
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 36)                 elif index == len(text_list) - 1:
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 37)                     print()
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 38)     # iteration 2 is for bloodline of asmodeus
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 39)     # NOTE: Infernal Legacy has links for cantrips and spells
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 40)     if i == 2:
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 41)         print()
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 42)         bloodline_header = section.h3.span.text
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 43)         print(bloodline_header, end="")
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 44)         bloodline_list = section.find('div', class_='col-lg-12')
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 45)         # print the variant description
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 46)         print("searching for desc:")
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 47)         for index, desc in enumerate(bloodline_list.find_all('p')):
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 48)             if index == 1:
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 49)                 print(desc.text)
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 50)         for feature1 in bloodline_list.find_all('ul'):
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 51)             feature1_text = feature1.li.text
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 52)             text1_list = feature1.text.split('.')
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 53)             # print the feature and its description
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 54)             for index, text in enumerate(text1_list):
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 55)                 if index == 0:
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 56)                     print(text + ":")
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 57)                 elif index != len(text1_list) - 1:
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 58)                     print(text + ".", end="")
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 59)                 elif index == len(text1_list) - 1:
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 60)                     print()
+5fddba4ac (TritonEden 2023-11-01 21:26:22 -0400 61)     i += 1
