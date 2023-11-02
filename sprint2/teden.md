@@ -32,7 +32,7 @@ Triton Eden, teden, DnDBetter
 - gnome.py https://github.com/gabelapham/DnDBetter/blob/main/app/src/backend/race-scraping/gnome.py
 
 ### What you accomplished
-- For sprint 2 I completely scraped all 9 race information pages from the http://dnd5e.wikidot.com/ website. Similar to sprint 1 I had to scrape the title from the these pages as well as 
+- For sprint 2 I finished scraping the last 3 race information pages from the http://dnd5e.wikidot.com/ website. Similar to sprint 1 I had to scrape the title from the these pages as well as 
 the race description, features, and variants using BeautifulSoup. The webpages for the 3 races I scraped in sprint 2 had formatting that prevented me from using the methods I used to
-scrape the previous 6 races. I found a new was to parse through the data that allowed me to get the information from the last 3 races I needed to scrape, and made the data from the races
+scrape the previous 6 races. I found a new ways to parse through the data that allowed me to get the information from the last 3 races I needed to scrape, and made the data from the races
 I scraped in sprint 1 look more presentable.
