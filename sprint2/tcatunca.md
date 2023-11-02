@@ -2,9 +2,9 @@
 Tyler Catuncan, tylerjcatuncan, DNDBetter
 
 ## What I planned to do
-- Expand upon landing page
-- Formalize CSS between some of the front end pages
-- Establish a theme for the website so that it looks the same in both light and dark mode
+- [#62](https://github.com/gabelapham/DnDBetter/issues/62) Expand upon landing page
+- [#63](https://github.com/gabelapham/DnDBetter/issues/63) Formalize CSS between some of the front end pages 
+- [#64](https://github.com/gabelapham/DnDBetter/issues/64) Establish a theme for the website so that it looks the same in both light and dark mode
 
 ## What I did not do
 I achieved all of my assigned issues, and accomplished all I set out to do.
