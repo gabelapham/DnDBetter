@@ -20,12 +20,12 @@ I achieved all of my assigned issues, and accomplished all I set out to do.
 - Create a standard theme for the webpage [Issue 64](https://github.com/gabelapham/DnDBetter/issues/64)
 
 ## Files I worked on
-/DNDBetter/app/src/main.jsx
-/DNDBetter/app/src/frontend/Background_Page/src/ImageComponent.css
-/DNDBetter/app/src/frontend/Background_Page/src/ImageComponent.jsx
-/DNDBetter/app/src/frontend/Landing_Page/src/App.jsx
-/DNDBetter/app/src/frontend/Spell_Page/src/components/FunctionalCounter.css
-/DNDBettr/app/src/frontend/Spell_Page/src/components/FunctionalCounter.jsx
+- /DNDBetter/app/src/main.jsx
+- /DNDBetter/app/src/frontend/Background_Page/src/ImageComponent.css
+- /DNDBetter/app/src/frontend/Background_Page/src/ImageComponent.jsx
+- /DNDBetter/app/src/frontend/Landing_Page/src/App.jsx
+- /DNDBetter/app/src/frontend/Spell_Page/src/components/FunctionalCounter.css
+- /DNDBettr/app/src/frontend/Spell_Page/src/components/FunctionalCounter.jsx
 
 ## What I accomplished
 I managed to accomplish my goal of beginning the process of standardizing the CSS between the frontend pages. This has been a particularly daunting task,
