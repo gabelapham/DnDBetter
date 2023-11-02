@@ -1,3 +1,14 @@
+#png {
+  text-align: center;
+  z-index: 0;
+  width: 1700px;
+  height: 2200px;
+  width: 100%;
+  position: relative;
+  zoom: 75%;
+  margin: 0 auto;
+}
+
 .image-container {
   position: absolute;
   display: inline-block;
