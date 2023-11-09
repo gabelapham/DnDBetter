@@ -615,6 +615,8 @@ return(
             <input type='checkbox' id="ds_fail_1" disabled={ds_fail > 1} checked={ds_fail >= 1} onClick={failFunc}/>
             <input type='checkbox' id="ds_fail_2" disabled={ds_fail < 1 || ds_fail == 3} checked={ds_fail >= 2} onClick={failFunc}/>
             <input type='checkbox' id="ds_fail_3" disabled={ds_fail < 2} checked={ds_fail == 3} onClick={failFunc}/>
+            
+            <input type="number" id="temp_hp"></input>
         </div>
         </div>
     </>

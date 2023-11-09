@@ -594,3 +594,16 @@
     top: 932px;
     left: 1027px;
 }
+
+#temp_hp {
+    width: 250px;
+    text-align: center;
+    padding-inline-start: 5px;
+    background-color: white;
+    color:black;
+    font-size: 60px;
+    position: absolute;
+    top: 730px;
+    left: 730px;
+    border-color: white;
+}
