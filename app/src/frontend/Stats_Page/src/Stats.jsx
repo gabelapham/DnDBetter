@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './Stats.css'
 
 function Stats() {
+
     const [level, setLevel] = useState(1)
 
     const [strength, setStrength] = useState(10)

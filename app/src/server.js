@@ -5,13 +5,14 @@ var con = mysql.createConnection({
     user: "admin",
     password: "DnDisAwesome",
     port: 3306,
-    connectionLimit: 10
 });
 
 con.connect(function (err) {
     if (err) throw err;
-    con.query("SELECT email FROM dndbetter.users", function (err, result, fields) {
+    con.query("SELECT * FROM dndbetter.classes WHERE class = 'barbarian'", function (err, result, fields) {
         if (err) throw err;
         console.log(result);
     });
 });
+
+const test = 10;

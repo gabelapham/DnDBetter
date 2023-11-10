@@ -2,8 +2,10 @@ import { useState } from 'react'
 import stat_sheet from './assets/stats_sheet.png'
 import './StatsApp.css'
 import Stats from './Stats.jsx'
+//import { test } from '../../../server.js'
 
 const StatsApp = () => {
+
   const [playerClass, setClass] = useState("Barbarian")
   const [playerBackground, setBackground] = useState("Acolyte")
   const [playerRace, setRace] = useState("Dragonborn")
