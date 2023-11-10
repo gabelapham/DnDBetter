@@ -2,7 +2,6 @@ import { useState } from 'react'
 import stat_sheet from './assets/stats_sheet.png'
 import './StatsApp.css'
 import Stats from './Stats.jsx'
-//import { test } from '../../../server.js'
 
 const StatsApp = () => {
 
