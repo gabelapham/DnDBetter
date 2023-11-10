@@ -63,6 +63,13 @@ function ImageComponent({ userText, onUserTextChange }) {
       <p contentEditable id="skin"></p>
       <p contentEditable id="weight"></p>
       <p contentEditable id="hair"></p>
+      <p contentEditable id="symbol_name"></p>
+      <p contentEditable id="allies_and_organizations"></p>
+      <p contentEditable id="character_backstory"></p>
+      <p contentEditable id="additional_features_traits"></p>
+      <p contentEditable id="treasure"></p>
+      
+      
     </div>
   );
 }

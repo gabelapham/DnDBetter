@@ -108,6 +108,78 @@
   left: 990px;
 }
 
+
+#symbol_name {
+  height: 30px;
+  width: 100px;
+  text-align: left;
+  padding-inline-start: 5px;
+  background-color: white;
+  color: black;
+  font-size: 20px;
+  position: absolute;
+  border-color: white;
+  top: 300px;
+  left: 900px;
+}
+
+#allies_and_organizations {
+  height: 450px;
+  width: 350px;
+  text-align: left;
+  padding-inline-start: 5px;
+  background-color: white;
+  color: black;
+  font-size: 20px;
+  position: absolute;
+  border-color: white;
+  top: 260px;
+  left: 475px;
+}
+
+#character_backstory {
+  height: 750px;
+  width: 325px;
+  text-align: left;
+  padding-inline-start: 5px;
+  background-color: white;
+  color: black;
+  font-size: 20px;
+  position: absolute;
+  border-color: white;
+  top: 800px;
+  left: 75px;
+}
+
+
+#additional_features_traits {
+  height: 400px;
+  width: 700px;
+  text-align: left;
+  padding-inline-start: 5px;
+  background-color: white;
+  color: black;
+  font-size: 20px;
+  position: absolute;
+  border-color: white;
+  top: 775px;
+  left: 475px;
+}
+
+#treasure {
+  height: 300px;
+  width: 700px;
+  text-align: left;
+  padding-inline-start: 5px;
+  background-color: white;
+  color: black;
+  font-size: 20px;
+  position: absolute;
+  border-color: white;
+  top: 1250px;
+  left: 475px;
+}
+
 /* .image-container {
   position: absolute;
   display: inline-block;

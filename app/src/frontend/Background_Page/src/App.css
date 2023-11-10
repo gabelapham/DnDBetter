@@ -18,7 +18,7 @@
 }
 
 .text-box {
-  position: absolute;
+  position: relative;
   top: 50px;
   left: 50px;
   background-color: none;
@@ -43,12 +43,12 @@
 /* Set specific dimensions and position for the image box */
 .image-box1 {
   position: absolute; /* Change to relative positioning */
-  width: 400px; /* Set the desired width for the image box */
-  height: 500px; /* Set the desired height for the image box */
+  width: 310px; /* Set the desired width for the image box */
+  height: 450px; /* Set the desired height for the image box */
   border: 1px solid #000; /* Add a border around the image box (optional) */
   margin: 0 auto; /* Center the image box horizontally (optional) */
   top:360px; /* Adjust the top value to position the image box vertically */
-  left: 90px; /* Adjust the left value to position the image box horizontally */
+  left: 200px; /* Adjust the left value to position the image box horizontally */
   z-index: 2; /* Ensure the image box is behind the text boxes */
 }
 
@@ -62,7 +62,7 @@
 .file-upload-button1 {
   position: absolute; /* Change to absolute positioning */
   top: 335px; /* Adjust the top value to position the button vertically */
-  left: 100px; /* Adjust the left value to position the button horizontally */
+  left: 200px; /* Adjust the left value to position the button horizontally */
   z-index: 3;
 }
 
@@ -70,70 +70,70 @@
 .file-upload-button2 {
   position: absolute; /* Change to absolute positioning */
   top: 430px; /* Adjust the top value to position the button vertically */
-  left: 1050px; /* Adjust the left value to position the button horizontally */
+  left: 1000px; /* Adjust the left value to position the button horizontally */
   z-index: 3;
 }
 
 .image-box2 {
   position: absolute; /* Change to relative positioning */
-  width: 340px; /* Set the desired width for the image box */
-  height: 240px; /* Set the desired height for the image box */
+  width: 280px; /* Set the desired width for the image box */
+  height: 200px; /* Set the desired height for the image box */
   border: 1px solid #000; /* Add a border around the image box (optional) */
   margin: 0 auto; /* Center the image box horizontally (optional) */
   top:460px; /* Adjust the top value to position the image box vertically */
-  left: 1050px; /* Adjust the left value to position the image box horizontally */
+  left: 1000px; /* Adjust the left value to position the image box horizontally */
   z-index: 2; /* Ensure the image box is behind the text boxes */
 }
 
 /* ... (other styles) */
 
 /* Styles for the first text box */
-.text-box:nth-child(1) {
+/* .text-box:nth-child(1) {
   width: 20%;
   height: 10%;
-}
+} */
 
 /* Styles for the second text box */
-.text-box:nth-child(2) {
+/* .text-box:nth-child(2) {
   width: 15%;
   height: 7%;
-}
+} */
 
 /* Styles for the third text box */
-.text-box:nth-child(3) {
+/* .text-box:nth-child(3) {
   width: 10%;
   height: 5%;
-}
+} */
 
 /* Styles for the fourth text box */
-.text-box:nth-child(4) {
+/* .text-box:nth-child(4) {
   width: 12%;
   height: 6%;
-}
+} */
 
 /* Styles for the fifth text box */
-.text-box:nth-child(5) {
+/* .text-box:nth-child(5) {
   width: 15%;
   height: 7%;
-}
+} */
 
 /* Styles for the sixth text box */
-.text-box:nth-child(6) {
+/* .text-box:nth-child(6) {
   width: 10%;
   height: 5%;
-}
+} */
 
 /* Styles for the seventh text box */
-.text-box:nth-child(7) {
+/* .text-box:nth-child(7) {
   width: 12%;
   height: 6%;
-}
+} */
 
 /* Styles for the eighth text box */
-.text-box:nth-child(8) {
+/* .text-box:nth-child(8) {
   width: 20%;
   height: 12%;
-}
+} */
 
 
 /* ... (other styles) */
