@@ -1,0 +1,452 @@
+.\MySqlApp\frontend\src\App.css
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500   1) :root {
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500   2)   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500   3)   line-height: 1.5;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500   4)   font-weight: 400;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500   5) 
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500   6)   color-scheme: dark;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500   7)   color: rgba(255, 255, 255, 0.87);
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500   8)   background-color: #242424;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500   9) 
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  10)   font-synthesis: none;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  11)   text-rendering: optimizeLegibility;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  12)   -webkit-font-smoothing: antialiased;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  13)   -moz-osx-font-smoothing: grayscale;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  14)   -webkit-text-size-adjust: 100%;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  15) }
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  16) 
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  17) body {
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  18)   margin: 0;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  19)   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  20)     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  21)     sans-serif;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  22)   -webkit-font-smoothing: antialiased;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  23)   -moz-osx-font-smoothing: grayscale;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  24) }
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  25) 
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  26) code {
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  27)   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  28)     monospace;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  29) }
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  30) 
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  31) .App {
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  32)   text-align: center;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  33) }
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  34) 
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  35) .App-logo {
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  36)   height: 40vmin;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  37)   pointer-events: none;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  38) }
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  39) 
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  40) @media (prefers-reduced-motion: no-preference) {
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  41)   .App-logo {
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  42)     animation: App-logo-spin infinite 20s linear;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  43)   }
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  44) }
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  45) 
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  46) .App-header {
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  47)   background-color: #282c34;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  48)   min-height: 100vh;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  49)   display: flex;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  50)   flex-direction: column;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  51)   align-items: center;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  52)   justify-content: center;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  53)   font-size: calc(10px + 2vmin);
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  54)   color: white;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  55) }
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  56) 
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  57) .App-link {
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  58)   color: #61dafb;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  59) }
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  60) 
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  61) @keyframes App-logo-spin {
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  62)   from {
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  63)     transform: rotate(0deg);
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  64)   }
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  65) 
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  66)   to {
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  67)     transform: rotate(360deg);
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  68)   }
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  69) }
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  70) 
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  71) #d20 {
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  72)   zoom: 4%;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  73)   align-items: center;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  74)   justify-content: center;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  75)   padding: 50px;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  76) }
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  77) 
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  78) nav {
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  79)   display: flex;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  80)   align-items: center;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  81)   justify-content: space-between;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  82)   max-width: max-content;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  83) }
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  84) 
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  85) #logo {
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  86)   width: auto;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  87)   height: 75px;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  88)   margin: 0;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  89)   transition: border .1s;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  90) }
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  91) 
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  92) 
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  93) #link {
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  94)   justify-content: center;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  95)   align-items: center;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  96)   padding: 5px;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  97) }
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  98) 
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  99) #link li {
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 100)   list-style: none;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 101)   padding-left: 10px;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 102)   padding-right: 40px;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 103) }
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 104) 
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 105) #link li a {
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 106)   text-decoration: none;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 107)   font-size: 22px;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 108)   font-weight: 600;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 109)   color: yellowgreen;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 110)   padding: 4px 4px;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 111) }
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 112) 
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 113) #link li a:hover {
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 114)   color: white;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 115)   box-shadow: 5px 5px yellowgreen;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 116)   padding: 5px 5px 5px 5px;
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 117) }
+.\MySqlApp\frontend\src\App.js
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  1) import React, { useState } from 'react';
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  2) import './App.css';
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  3) import axios from 'axios';
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  4) function App() {
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  5)   const [username, setUsername] = useState('');
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  6)   const [password, setPassword] = useState('');
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  7) 
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  8)   const handleUsernameChange = (event) => {
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500  9)     setUsername(event.target.value);
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 10)   };
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 11) 
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 12)   const handlePasswordChange = (event) => {
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 13)     setPassword(event.target.value);
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 14)   };
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 15) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 16)   const handleLogin = (event) => {
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 17)     event.preventDefault();
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 18)     axios.post('http://database-1.cmqlznpoxxy9.us-east-2.rds.amazonaws.com:3306/login', { username, password })
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 19)       .then(res => console.log(res))
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 20)       .catch(err => console.log(err));
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 21)   };
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 22)   return (
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 23)     <div className="App">
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 24)       <h1>Login Page</h1>
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 25)       <form>
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 26)         <div className="form-group">
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 27)           <label htmlFor="username">Username:</label>
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 28)           <input
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 29)             type="text"
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 30)             id="username"
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 31)             value={username}
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 32)             onChange={handleUsernameChange}
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 33)           />
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 34)         </div>
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 35)         <div className="form-group">
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 36)           <label htmlFor="password">Password:</label>
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 37)           <input
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 38)             type="password"
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 39)             id="password"
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 40)             value={password}
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 41)             onChange={handlePasswordChange}
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 42)           />
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 43)         </div>
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 44)         <button type="button" onClick={handleLogin}>Register</button>
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 45)       </form>
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 46)     </div>
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 47)   );
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 48) }
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 49) 
+cfa897bbd (Cooper Sarphie 2023-11-08 00:32:31 -0500 50) export default App;
+.\MySqlApp\react_node_sql\react-node-mysql-authentication-master\server\index.js
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500   1) const express =require('express');
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500   2) const mysql=require('mysql');
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500   3) const cors = require("cors");
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500   4) const bcrypt = require('bcrypt');
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500   5) const bodyParser=require("body-parser");
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500   6) const cookieparser=require("cookie-parser")
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500   7) const session=require("express-session");
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500   8) const saltRounds = 10;
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500   9) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  10) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  11) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  12) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  13) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  14) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  15) const PORT=process.env.PORT || 8000;
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  16) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  17) const app=express();
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  18) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  19) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  20) app.use(cors({
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  21)     origin:"http://localhost:3000",
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  22)     credentials:true,
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  23) }));
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  24) app.use(express.json());
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  25) app.use(cookieparser());
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  26) app.use(bodyParser.urlencoded({extended:true}));
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  27) app.use(session({
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  28)     key:"userId",
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  29)     secret:"atanu",
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  30)     resave:false,
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  31)     saveUninitialized:false,
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  32)     // cookie:{
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  33)     //     expires:60*60*60*24,
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  34)     // }
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  35) }))
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  36) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  37) const db=mysql.createConnection({
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  38)     host:'localhost',
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  39)     user:'root',
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  40)     password:'',
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  41)     database:'login_react'
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  42) })
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  43) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  44) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  45) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  46) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  47) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  48) app.get("/",(req,res)=>{
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  49)     res.send("hi");
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  50) })
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  51) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  52) app.post("/register",(req,res)=>{
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  53)     const email=req.body.email;
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  54)     const password=req.body.password;
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  55)     bcrypt.hash(password,saltRounds,(errr,hash)=>{
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  56)         const data={
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  57)        
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  58)             email:req.body.email,
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  59)             password:hash,        
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  60)        
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  61)        };
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  62)        if(errr)
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  63)        {
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  64)         console.log(err);
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  65)        }
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  66)        else{
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  67)         let sqll=`select * from users where email='${email}'`;
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  68)         db.query(sqll,(er,ress)=>{
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  69)             if(ress.length > 0)
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  70)             {
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  71)                 res.send({msg:"User Email Already Present"})
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  72) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  73)             }
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  74)             else{
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  75)                 let sql="INSERT INTO `users` SET ?";
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  76)                 db.query(sql,data,(err,result)=>{
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  77)                     if(err)
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  78)                     {
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  79)                         console.log(err)
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  80)                     }
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  81)                     else{
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  82)                         //  console.log(result);
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  83)                          res.send(result);
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  84)                         // res.send()
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  85)             
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  86)                     }
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  87)                 })
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  88)             }
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  89)         })
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  90) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  91)        
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  92) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  93)        }
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  94)       
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  95) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  96)     })
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  97)    
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  98)     
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  99)      
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 100) })
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 101) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 102) app.post("/login",(req,res)=>{
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 103)    const email=req.body.email;
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 104)     const password=req.body.password;
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 105) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 106)     // console.log(email);
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 107)         
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 108)       
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 109)         let sql=`select * from users where email='${email}'`;
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 110)         // console.log(sql);
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 111)         db.query(sql,(err,result)=>{
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 112)             if(err)
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 113)             {
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 114)                 // res.send({err:err})
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 115)                 console.log(err);
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 116)             }
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 117)             else{
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 118)               
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 119)                if(result.length > 0)
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 120)                {
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 121)                 bcrypt.compare(password,result[0].password,(errr,response)=>{
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 122)                     if(response)
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 123)                     {
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 124)                         req.session.user=result;
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 125)                         // console.log(req.session.user);
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 126)                      
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 127)                      res.send({login:true,useremail:email});
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 128)                     }
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 129)                     else{
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 130)                      res.send({login:false,msg:"Wrong Password"});
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 131)                     
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 132)                     }
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 133)                 })
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 134) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 135)                 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 136) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 137)                }
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 138)                else{
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 139)                     res.send({login:false,msg:"User Email Not Exits"});
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 140)                 // console.log("noo email ")
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 141)                }
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 142)                 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 143)     
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 144)             }
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 145)         })
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 146) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 147)       
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 148)     
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 149)      
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 150) })
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 151) app.get("/login",(req,res)=>{
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 152)     if(req.session.user)
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 153)     {
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 154)         res.send({login:true,user:req.session.user});
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 155)     }
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 156)     else{
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 157)         res.send({login:false});
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 158)     }
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 159) })
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 160) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 161) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 162) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 163) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 164) app.listen(PORT,()=>{
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 165)     console.log(`app running in ${PORT}` )
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 166) })
+.\MySqlApp\react_node_sql\react-node-mysql-authentication-master\client\src\component\Login.jsx
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500   1) import React,{useState,useEffect} from 'react'
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500   2) import {NavLink, useHistory} from 'react-router-dom'
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500   3) import axios from 'axios';
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500   4) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500   5) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500   6) const Login = () => {
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500   7)     const [user, setUser] = useState({
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500   8)         email:"",
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500   9)         password:""
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  10)     })
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  11)     
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  12)     const [show,setShow]= useState(false);
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  13)     const [msg,setMsg]= useState("");
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  14) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  15)     
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  16) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  17)     const his =useHistory();
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  18) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  19)     const onSub=async (e)=>{
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  20)         e.preventDefault();
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  21)         let val=  await axios.post("http://localhost:8000/login",user);
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  22)  console.log(val);
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  23) setShow(val.data.login);
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  24) if(val.data.msg)
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  25) {
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  26)  setMsg(val.data.msg);
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  27) }
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  28) // console.log(show)
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  29) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  30)  
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  31)  
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  32) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  33)     }
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  34) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  35)     useEffect(() => {
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  36)         if(show)
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  37)             {
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  38)                 his.push("/profile");
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  39)                 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  40)             }
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  41)         
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  42)     }, [show])
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  43) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  44) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  45)     axios.defaults.withCredentials = true;
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  46) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  47)     useEffect(() => {
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  48)        const checkLogin= async ()=>{
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  49)         let val= await axios.get("http://localhost:8000/login");
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  50)         console.log(val);
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  51)         if(val.data.user)
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  52)         {
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  53)             his.push("/profile")
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  54)             // console.log(val.data.user[0].email);
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  55)         }
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  56)        }
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  57)        checkLogin();
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  58)     }, [])
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  59) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  60) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  61) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  62)     const userInput=(event)=>{
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  63)         const {name,value}=event.target;
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  64)         setUser((prev)=>{
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  65)             return {
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  66)                 ...prev,
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  67)                 [name]:value
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  68)             }
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  69)         })
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  70) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  71)     }
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  72)     return (
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  73)         <>
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  74)        <div className="container" id="formm">
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  75)        <div className="row">
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  76)            <div className="col-lg-6 col-md-8 col-12 mx-auto">
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  77) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  78)                {
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  79)                   msg ? (
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  80)                        <>
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  81)                       <div class="alert alert-danger alert-dismissible">
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  82)   <button type="button" class="close" data-dismiss="alert">&times;</button>
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  83)   <strong>ERROR!</strong> {msg}
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  84) </div>
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  85)                        
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  86)                        
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  87)                        </>
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  88)                    ):null
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  89)                }
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  90)                <br />
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  91)            <form onSubmit={onSub}>
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  92)   <div className="form-group">
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  93)     <label >Email address:</label>
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  94)     <input type="email" className="form-control" placeholder="Enter email" name="email" value={user.email} onChange={userInput} required />
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  95)   </div>
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  96)   <div className="form-group">
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  97)     <label for="pwd">Password:</label>
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  98)     <input type="password" className="form-control" placeholder="Enter password" name="password" value={user.password} onChange={userInput}  required/>
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500  99)   </div>
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 100)   
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 101)   <button type="submit" className="btn btn-primary">Submit</button>
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 102) </form>
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 103) <br />
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 104) <NavLink to="/register">create a account </NavLink>
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 105) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 106)            </div>
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 107)           
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 108)        </div>
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 109)        </div>
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 110)             
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 111)         </>
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 112)     )
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 113) }
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 114) 
+4148fabd7 (Cooper Sarphie 2023-11-09 22:52:44 -0500 115) export default Login
