@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-
+import axios from 'axios';
 function App() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -13,7 +13,11 @@ function App() {
     setPassword(event.target.value);
   };
 
-  const handleLogin = () => {
+  const handleLogin = (event) => {
+    event.preventDefault();
+    axios.post('http://database-1.cmqlznpoxxy9.us-east-2.rds.amazonaws.com:3306/login', { username, password })
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
   };
   return (
     <div className="App">
@@ -37,7 +41,7 @@ function App() {
             onChange={handlePasswordChange}
           />
         </div>
-        <button type="button" onClick={handleLogin}>Login</button>
+        <button type="button" onClick={handleLogin}>Register</button>
       </form>
     </div>
   );
