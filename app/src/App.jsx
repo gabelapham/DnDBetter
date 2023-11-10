@@ -8,7 +8,7 @@ import Login from './frontend/Login_Page/src/App.jsx'
 import d20 from './assets/d20.png'
 
 function App() {
-  
+
   return (
     <>
       <BrowserRouter id="nav">
