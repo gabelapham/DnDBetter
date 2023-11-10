@@ -2,7 +2,7 @@
 Zichen Fu (Frank), Celestial Trace, DnDBetter
 
 # sprint planned
-- for this sprint I planned to fix and finish up the last of the spells page functionality 
+- for this sprint I planned to fix and finish up the main functionality of the spell page 
 - help with the data scraping so that I'll be able to obtain the necessary spell data and present it to the user
 
 # sprint didn't do
@@ -30,6 +30,6 @@ Zichen Fu (Frank), Celestial Trace, DnDBetter
 # accomplishment
 - I was able to connect the spell slot input with the counter of each level so user can manage through increment and decrement
 - I set up the spell preparation indicator button so that each is their individual component and not all connected as one
-- I was able to scrap and store spell attribute such as spell name, range, and duration of each level for 4 of the character classes
+- I was able to scrape and store spell attribute such as spell name, range, and duration of each level for 4 of the character classes
 
 

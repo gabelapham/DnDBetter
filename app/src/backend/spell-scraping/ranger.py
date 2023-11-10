@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 
 
-url = "http://dnd5e.wikidot.com/spells:paladin"
+url = "http://dnd5e.wikidot.com/spells:ranger"
 response = requests.get(url)
 
 html_content = response.text
@@ -19,8 +19,8 @@ title = ["level", "spell_name", "school", "casting_time", "range", "duration", "
 
 if content:
     cantrip = content.find("div", id= "wiki-tab-0-0")
-    paladinSpell = []
-    paladinSpell.append(title)
+    rangerSpell = []
+    rangerSpell.append(title)
     
     if cantrip:
         
@@ -56,7 +56,7 @@ if content:
                     # print("range:  ", spell_range)
                     # print("duration:", duration)
                     # print("component", component)
-                    paladinSpell.append(features)
+                    rangerSpell.append(features)
 
                     continue
 
@@ -99,7 +99,7 @@ if content:
                     # print("range:  ", spell_range)
                     # print("duration:", duration)
                     # print("component", component)
-                    paladinSpell.append(features)
+                    rangerSpell.append(features)
 
                     continue
 
@@ -140,7 +140,7 @@ if content:
                     # print("range:  ", spell_range)
                     # print("duration:", duration)
                     # print("component", component)
-                    paladinSpell.append(features)
+                    rangerSpell.append(features)
 
                     continue
 
@@ -181,7 +181,7 @@ if content:
                     # print("range:  ", spell_range)
                     # print("duration:", duration)
                     # print("component", component)
-                    paladinSpell.append(features)
+                    rangerSpell.append(features)
 
                     continue
 
@@ -222,15 +222,15 @@ if content:
                     # print("range:  ", spell_range)
                     # print("duration:", duration)
                     # print("component", component)
-                    paladinSpell.append(features)
+                    rangerSpell.append(features)
 
                     continue
 
                 itr += 1
 
 
-    paladinSpell_df = pd.DataFrame(paladinSpell)
-    print(paladinSpell_df)
+    rangerSpell_df = pd.DataFrame(rangerSpell)
+    print(rangerSpell_df)
         
       
 
