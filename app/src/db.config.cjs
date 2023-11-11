@@ -4,7 +4,14 @@ module.exports = {
     user: "admin",
     password: "DnDisAwesome",
     db: "test",
-    dialect: "mysql"
+    dialect: "mysql",
+
+    pool: {
+        max: 5,
+        min: 0,
+        acquire: 30000,
+        idle: 10000
+      }
 }
 
 /*const {createPool} = require('mysql')
