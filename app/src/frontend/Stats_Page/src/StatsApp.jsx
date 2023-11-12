@@ -2,6 +2,8 @@ import { useState } from 'react'
 import stat_sheet from './assets/stats_sheet.png'
 import './StatsApp.css'
 import Stats from './Stats.jsx'
+import DiceRoller from './DiceRoller.jsx'
+
 
 const StatsApp = () => {
 
@@ -81,6 +83,10 @@ const StatsApp = () => {
         <br />
         <div id="png">
           <img src={stat_sheet} />
+          //
+          <DiceRoller /> {/* Render the DiceRoller component here */}
+          //
+
           <button id="shortRest">
             Short Rest
           </button>
