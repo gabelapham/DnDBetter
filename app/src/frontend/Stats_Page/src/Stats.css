@@ -539,6 +539,13 @@
     position: absolute;
 }
 
+#max_hp {
+    position: absolute;
+    font-size: 30px;
+    top: 507px;
+    left: 900px;
+}
+
 #temp_hp {
     position: absolute;
 }
@@ -553,6 +560,10 @@
 
 #hit_die_num {
     position: absolute;
+    top: 860px;
+    left: 675px;
+    font-size: 20px;
+    text-align: left;
 }
 
 #ds_success_1 {

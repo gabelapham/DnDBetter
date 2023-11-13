@@ -13,6 +13,9 @@ function Stats() {
     const [playerAlignment, setAlignment] = useState("LG")
     const [playerSpeed, setSpeed] = useState("30")
     const [playerHitDice, setHitDice] = useState(12)
+    const [currHitDice, setCurrHitDice] = useState(1)
+    const [maxHP, setMaxHP] = useState(12)
+    const [currHP, setCurrHP] = useState(12)
 
     const [buttonPopup, setButtonPopup] = useState(false)
 
@@ -129,20 +132,21 @@ function Stats() {
 
     function pbFunc(lvl) {
         setLevel(lvl)
+        setMaxHP((playerHitDice + (lvl * playerHitDice) + (2 * lvl) + (2 * lvl * constitutionMod) - 2) / 2)
         switch(lvl) {
-            case "1":
-            case "2":
-            case "3":
-            case "4":
+            case '1':
+            case '2':
+            case '3':
+            case '4':
                 setPb(2)
                 break
-            case "5":
-            case "6":
-            case "7":
-            case "8":
+            case '5':
+            case '6':
+            case '7':
+            case '8':
                 setPb(3)
                 break
-            case "9":
+            case '9':
             case "10":
             case "11":
             case "12":
@@ -216,6 +220,7 @@ function Stats() {
     function setConstitutionFunc(e) {
         setConstitution(e)
         setConstitutionMod(Mod(e))
+        setMaxHP((playerHitDice + (level * playerHitDice) + (2 * level) + (2 * level * Mod(e)) - 2) / 2)
         return;
     }
     function setIntelligenceFunc(e) {
@@ -342,10 +347,12 @@ function Stats() {
         {
             case "Barbarian":
                 setHitDice(12);
+                setMaxHP((12 + (level * 12) + (2 * level) + (2 * level * constitutionMod) - 2) / 2)
                 break;
             case "Paladin":
             case "Fighter":
                 setHitDice(10);
+                setMaxHP((10 + (level * 10) + (2 * level) + (2 * level * constitutionMod) - 2) / 2)
                 break;
             case 'Bard':
             case 'Cleric':
@@ -354,15 +361,22 @@ function Stats() {
             case 'Rogue':
             case 'Warlock':
                 setHitDice(8);
+                setMaxHP((8 + (level * 8) + (2 * level) + (2 * level * constitutionMod) - 2) / 2)
                 break;
             case 'Sorcerer':
             case 'Wizard':
                 setHitDice(6);
+                setMaxHP((6 + (level * 6) + (2 * level) + (2 * level * constitutionMod) - 2) / 2)
                 break;
             default:
                 setHitDice(-1);
                 break;
         }
+    }
+
+    function hpFunc(e) {
+        setMaxHP((e) / 2);
+        
     }
 
 return(
@@ -806,10 +820,15 @@ return(
             <p id="curr_hp">
 
             </p>
+            <p id="max_hp">
+                {maxHP}
+            </p>
             <input type="number" id="temp_hp"></input>
         </div>
         <div>
-            <input type="number" id="hit_die_num"></input>
+            <p id="hit_die_num">
+
+            </p>
             <p id="hit_die">
                 {level}d{playerHitDice}
             </p>
