@@ -201,3 +201,72 @@
     top: 867px;
     left: 1165px;
   }
+
+  #cp {
+    width: 75px;
+    text-align: center;
+    padding-inline-start: 5px;
+    background-color: white;
+    color:black;
+    font-size: 25px;
+    position: absolute;
+    top: 1669px;
+    left: 635px;
+    border-color: white;
+  }
+  #sp {
+    width: 75px;
+    text-align: center;
+    padding-inline-start: 5px;
+    background-color: white;
+    color:black;
+    font-size: 25px;
+    position: absolute;
+    top: 1742px;
+    left: 635px;
+    border-color: white;
+  }
+  #ep {
+    width: 75px;
+    text-align: center;
+    padding-inline-start: 5px;
+    background-color: white;
+    color:black;
+    font-size: 25px;
+    position: absolute;
+    top: 1816px;
+    left: 635px;
+    border-color: white;
+  }
+  #gp {
+    width: 75px;
+    text-align: center;
+    padding-inline-start: 5px;
+    background-color: white;
+    color:black;
+    font-size: 25px;
+    position: absolute;
+    top: 1885px;
+    left: 635px;
+    border-color: white;
+  }
+  #pp {
+    width: 75px;
+    text-align: center;
+    padding-inline-start: 5px;
+    background-color: white;
+    color:black;
+    font-size: 25px;
+    position: absolute;
+    top: 1959px;
+    left: 635px;
+    border-color: white;
+  }
+
+  #inspiration {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    top: 360px;
+    left: 269px;
+  }

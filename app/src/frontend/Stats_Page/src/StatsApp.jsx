@@ -191,6 +191,14 @@ const StatsApp = () => {
         <p contentEditable id="ideals"></p>
         <p contentEditable id="bonds"></p>
         <p contentEditable id="flaws"></p>
+
+        <input type="number" id="cp"></input>
+        <input type="number" id="sp"></input>
+        <input type="number" id="ep"></input>
+        <input type="number" id="gp"></input>
+        <input type="number" id="pp"></input>
+
+        <input type="checkbox" id="inspiration"></input>
         </div>
       </div>
     </>
