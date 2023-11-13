@@ -3,7 +3,8 @@ import stat_sheet from './assets/stats_sheet.png'
 import './StatsApp.css'
 import Stats from './Stats.jsx'
 import DiceRoller from './DiceRoller.jsx'
-
+import Popup from './ItemSearch.jsx'
+import search from './assets/search.png'
 
 const StatsApp = () => {
 
@@ -13,6 +14,8 @@ const StatsApp = () => {
   const [playerSubRace, setSubRace] = useState("Black")
   const [playerAlignment, setAlignment] = useState("LG")
   const [playerSpeed, setSpeed] = useState("30")
+
+  const [buttonPopup, setButtonPopup] = useState(false)
 
   function raceFunc(e) {
     setRace(e)
@@ -199,6 +202,9 @@ const StatsApp = () => {
         <input type="number" id="pp"></input>
 
         <input type="checkbox" id="inspiration"></input>
+
+        <button id="item-search-button" onClick={() => setButtonPopup(true)}><img id="search-button" src={search} /></button>
+        <Popup trigger={buttonPopup} setTrigger={setButtonPopup}/>
         </div>
       </div>
     </>

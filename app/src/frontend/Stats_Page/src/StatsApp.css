@@ -270,3 +270,16 @@
     top: 360px;
     left: 269px;
   }
+
+  #item-search-button {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    top: 1640px;
+    left: 1030px;
+    background-color: white;
+  }
+
+  #search-button {
+    zoom: 3%;
+  }
