@@ -545,6 +545,14 @@
 
 #hit_die {
     position: absolute;
+    top: 860px;
+    left: 675px;
+    font-size: 50px;
+    text-align: left;
+}
+
+#hit_die_num {
+    position: absolute;
 }
 
 #ds_success_1 {
@@ -607,3 +615,271 @@
     left: 730px;
     border-color: white;
 }
+
+
+#shortRest {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    position: absolute;
+    background-color: rgb(98, 98, 98);
+    font-size: 20px;
+    top: 60px;
+    left: 1350px;
+  }
+  
+  #longRest {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    position: absolute;
+    background-color: rgb(98, 98, 98);
+    font-size: 20px;
+    top: 60px;
+    left: 1470px;
+  }
+  
+  #charName {
+    height: 40px;
+    width: 500px;
+    text-align: left;
+    padding-inline-start: 5px;
+    background-color: white;
+    color:black;
+    font-size: 40px;
+    position: absolute;
+    border-color: white;
+    top: 172px;
+    left: 120px;
+  }
+  
+  #playName {
+    height: 45px;
+    width: 250px;
+    text-align: left;
+    padding-inline-start: 5px;
+    background-color: white;
+    color:black;
+    font-size: 30px;
+    position: absolute;
+    border-color: white;
+    top: 128px;
+    left: 1330px;
+  }
+  
+  #exp {
+    width: 250px;
+    text-align: left;
+    padding-inline-start: 5px;
+    background-color: white;
+    color:black;
+    font-size: 35px;
+    position: absolute;
+    top: 205px;
+    left: 1330px;
+    border-color: white;
+  }
+  
+  #speed {
+    color: black;
+    font-size: 55px;
+    position: absolute;
+    top: 345px;
+    left: 954px;
+  }
+  
+  #thisclass {
+    border-color: white;
+    background-color: white;
+    color: black;
+    font-size: 40px;
+    position: absolute;
+    top: 130px;
+    left: 745px;
+  }
+  
+  #background {
+    border-color: white;
+    background-color: white;
+    color: black;
+    font-size: 35px;
+    position: absolute;
+    top: 130px;
+    left: 1060px;
+  }
+  
+  #race {
+    border-color: white;
+    background-color: white;
+    color: black;
+    font-size: 35px;
+    position: absolute;
+    top: 205px;
+    left: 745px;
+  }
+  
+  #subrace {
+    border-color: white;
+    background-color: white;
+    color: black;
+    font-size: 20px;
+    position: absolute;
+    top: 220px;
+    left: 956px;
+  }
+  
+  #alignment {
+    border-color: white;
+    background-color: white;
+    color: black;
+    font-size: 35px;
+    position: absolute;
+    top: 205px;
+    left: 1060px;
+  }
+  
+  #personality {
+    height: 135px;
+    max-height: 135px;
+    inline-size: 415px;
+    line-height: 27px;
+    min-inline-size: 20px;
+    overflow:auto;
+    padding-inline-start: 5px;
+    background-color: white;
+    color:black;
+    font-size: 20px;
+    position: absolute;
+    border-color: white;
+    top: 370px;
+    left: 1165px;
+  }
+  
+  #ideals {
+    height: 100px;
+    max-height: 100px;
+    inline-size: 415px;
+    line-height: 27px;
+    min-inline-size: 20px;
+    overflow:auto;
+    padding-inline-start: 5px;
+    background-color: white;
+    color:black;
+    font-size: 20px;
+    position: absolute;
+    border-color: white;
+    top: 560px;
+    left: 1165px;
+  }
+  
+  #bonds {
+    height: 100px;
+    max-height: 100px;
+    inline-size: 415px;
+    line-height: 27px;
+    min-inline-size: 20px;
+    overflow:auto;
+    padding-inline-start: 5px;
+    background-color: white;
+    color:black;
+    font-size: 20px;
+    position: absolute;
+    border-color: white;
+    top: 715px;
+    left: 1165px;
+  }
+  
+  #flaws {
+    height: 100px;
+    max-height: 100px;
+    inline-size: 415px;
+    line-height: 27px;
+    min-inline-size: 20px;
+    overflow:auto;
+    padding-inline-start: 5px;
+    background-color: white;
+    color:black;
+    font-size: 20px;
+    position: absolute;
+    border-color: white;
+    top: 867px;
+    left: 1165px;
+  }
+
+  #cp {
+    width: 75px;
+    text-align: center;
+    padding-inline-start: 5px;
+    background-color: white;
+    color:black;
+    font-size: 25px;
+    position: absolute;
+    top: 1669px;
+    left: 635px;
+    border-color: white;
+  }
+  #sp {
+    width: 75px;
+    text-align: center;
+    padding-inline-start: 5px;
+    background-color: white;
+    color:black;
+    font-size: 25px;
+    position: absolute;
+    top: 1742px;
+    left: 635px;
+    border-color: white;
+  }
+  #ep {
+    width: 75px;
+    text-align: center;
+    padding-inline-start: 5px;
+    background-color: white;
+    color:black;
+    font-size: 25px;
+    position: absolute;
+    top: 1816px;
+    left: 635px;
+    border-color: white;
+  }
+  #gp {
+    width: 75px;
+    text-align: center;
+    padding-inline-start: 5px;
+    background-color: white;
+    color:black;
+    font-size: 25px;
+    position: absolute;
+    top: 1885px;
+    left: 635px;
+    border-color: white;
+  }
+  #pp {
+    width: 75px;
+    text-align: center;
+    padding-inline-start: 5px;
+    background-color: white;
+    color:black;
+    font-size: 25px;
+    position: absolute;
+    top: 1959px;
+    left: 635px;
+    border-color: white;
+  }
+
+  #inspiration {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    top: 360px;
+    left: 269px;
+  }
+
+  #item-search-button {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    top: 1640px;
+    left: 1030px;
+    background-color: white;
+  }
+
+  #search-button {
+    zoom: 3%;
+  }

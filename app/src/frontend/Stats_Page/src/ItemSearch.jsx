@@ -1,10 +1,8 @@
 import React from 'react'
-import { useState } from 'react'
 import "./ItemSearch.css"
 import search from "./assets/search.png"
 
 const Popup = ({trigger, setTrigger}) => {
-    //const [close, setClose] = useState(true);
 
     return (trigger) ? (
         <div className="popup">
