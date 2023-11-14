@@ -1,18 +1,90 @@
 import { useState } from 'react'
 import './Stats.css'
-
-//
-
-
-
-
-//
-
-
+import Popup from './ItemSearch.jsx'
+import search from './assets/search.png'
 
 function Stats() {
 
+    
+    const [playerClass, setClass] = useState("Barbarian")
+    const [playerBackground, setBackground] = useState("Acolyte")
+    const [playerRace, setRace] = useState("Dragonborn")
+    const [playerSubRace, setSubRace] = useState("Black")
+    const [playerAlignment, setAlignment] = useState("LG")
+    const [playerSpeed, setSpeed] = useState("30")
+    const [playerHitDice, setHitDice] = useState(12)
+    const [currHitDice, setCurrHitDice] = useState(1)
+    const [maxHP, setMaxHP] = useState(12)
+    const [currHP, setCurrHP] = useState(12)
+
+    const [buttonPopup, setButtonPopup] = useState(false)
+
     const [level, setLevel] = useState(1)
+
+    
+    function raceFunc(e) {
+        setRace(e)
+        switch(e) {
+        case "Dragonborn":
+            setRace("Dragonborn")
+            subrace.value = "Black"
+            setSubRace("Black")
+            setSpeed("30")
+            return;
+        case "Dwarf":
+            setRace("Dwarf")
+            subrace.value = "Hill"
+            setSubRace("Hill")
+            setSpeed("25")
+            return;
+        case "Elf":
+            setRace("Elf")
+            subrace.value = "High"
+            setSubRace("High")
+            setSpeed("30")
+            return;
+        case "Gnome":
+            setRace("Gnome")
+            subrace.value = "Rock"
+            setSubRace("Rock")
+            setSpeed("25")
+            return;
+        case "Half-Elf":
+            setRace("Half-Elf")
+            subrace.value = "NA"
+            setSubRace("NA")
+            setSpeed("30")
+            return;
+        case "Halfling":
+            setRace("Halfling")
+            subrace.value = "Lightfoot"
+            setSubRace("Lightfoot")
+            setSpeed("25")
+            return;
+        case "Half-Orc":
+            setRace("Half-Orc")
+            subrace.value = "NA"
+            setSubRace("NA")
+            setSpeed("30")
+            return;
+        case "Human":
+            setRace("Human")
+            subrace.value = "Normal"
+            setSubRace("Normal")
+            setSpeed("30")
+            return;
+        case "Tiefling":
+            setRace("Tiefling")
+            subrace.value = "NA"
+            setSubRace("NA")
+            return;
+        default:
+            subrace.value = "NA"
+            setSubRace("NA")
+            setSpeed("30")
+            return;
+        }
+    }
 
     const [strength, setStrength] = useState(10)
     const [strengthMod, setStrengthMod] = useState(0)
@@ -60,20 +132,21 @@ function Stats() {
 
     function pbFunc(lvl) {
         setLevel(lvl)
+        setMaxHP((playerHitDice + (lvl * playerHitDice) + (2 * lvl) + (2 * lvl * constitutionMod) - 2) / 2)
         switch(lvl) {
-            case "1":
-            case "2":
-            case "3":
-            case "4":
+            case '1':
+            case '2':
+            case '3':
+            case '4':
                 setPb(2)
                 break
-            case "5":
-            case "6":
-            case "7":
-            case "8":
+            case '5':
+            case '6':
+            case '7':
+            case '8':
                 setPb(3)
                 break
-            case "9":
+            case '9':
             case "10":
             case "11":
             case "12":
@@ -147,6 +220,7 @@ function Stats() {
     function setConstitutionFunc(e) {
         setConstitution(e)
         setConstitutionMod(Mod(e))
+        setMaxHP((playerHitDice + (level * playerHitDice) + (2 * level) + (2 * level * Mod(e)) - 2) / 2)
         return;
     }
     function setIntelligenceFunc(e) {
@@ -267,6 +341,44 @@ function Stats() {
         }
     }
 
+    function classFunc(e) {
+        setClass(e);
+        switch(e)
+        {
+            case "Barbarian":
+                setHitDice(12);
+                setMaxHP((12 + (level * 12) + (2 * level) + (2 * level * constitutionMod) - 2) / 2)
+                break;
+            case "Paladin":
+            case "Fighter":
+                setHitDice(10);
+                setMaxHP((10 + (level * 10) + (2 * level) + (2 * level * constitutionMod) - 2) / 2)
+                break;
+            case 'Bard':
+            case 'Cleric':
+            case 'Druid':
+            case 'Monk':
+            case 'Rogue':
+            case 'Warlock':
+                setHitDice(8);
+                setMaxHP((8 + (level * 8) + (2 * level) + (2 * level * constitutionMod) - 2) / 2)
+                break;
+            case 'Sorcerer':
+            case 'Wizard':
+                setHitDice(6);
+                setMaxHP((6 + (level * 6) + (2 * level) + (2 * level * constitutionMod) - 2) / 2)
+                break;
+            default:
+                setHitDice(-1);
+                break;
+        }
+    }
+
+    function hpFunc(e) {
+        setMaxHP((e) / 2);
+        
+    }
+
 return(
     <>
     <div id="core">
@@ -295,6 +407,105 @@ return(
                 <option value="20">20</option>
             </select>
     </div>
+    <button id="shortRest">
+            Short Rest
+          </button>
+          <button id="longRest">
+            Long Rest
+          </button>
+          <input id="charName" />
+          <input id="playName" />
+          <input type="number" id="exp" />
+          <p id="speed">{playerSpeed}ft</p>
+
+          <select id="thisclass" onChange={() => classFunc(thisclass.value)}>
+          <option value="Barbarian">Barbarian</option>
+          <option value="Bard">Bard</option>
+          <option value="Cleric">Cleric</option>
+          <option value="Druid">Druid</option>
+          <option value="Fighter">Fighter</option>
+          <option value="Monk">Monk</option>
+          <option value="Paladin">Paladin</option>
+          <option value="Ranger">Ranger</option>
+          <option value="Rogue">Rogue</option>
+          <option value="Sorcerer">Sorcerer</option>
+          <option value="Warlock">Warlock</option>
+          <option value="Wizard">Wizard</option>
+        </select>
+
+        <select id="background">
+          <option value="Acolyte">Acolyte</option>
+          {/*}
+          <option value="Charlatan">Charlatan</option>
+          <option value="Criminal/Spy">Criminal/Spy</option>
+          <option value="Entertainer">Entertainer</option>
+          <option value="Folk Hero">Folk Hero</option>
+          <option value="Gladiator">Gladiator</option>
+          <option value="Guild Merchant">Guild Merchant</option>
+          <option value="Hermit">Hermit</option>
+          <option value="Knight">Knight</option>
+          <option value="Noble">Noble</option>
+          <option value="Outlander">Outlander</option>
+          <option value="Pirate">Pirate</option>
+          <option value="Sage">Sage</option>
+          <option value="Sailor">Sailor</option>
+          <option value="Soldier">Soldier</option>
+          <option value="Urchin">Urchin</option>
+  */}
+        </select>
+
+        <select id="race" onChange={() => raceFunc(race.value)}>
+          <option value="Dragonborn">Dragonborn</option>
+          <option value="Dwarf">Dwarf</option>
+          <option value="Elf">Elf</option>
+          <option value="Gnome">Gnome</option>
+          <option value="Half-Elf">Half-Elf</option>
+          <option value="Halfling">Halfling</option>
+          <option value="Half-Orc">Half-Orc</option>
+          <option value="Human">Human</option>
+          <option value="Tiefling">Tiefling</option>
+        </select>
+
+        <select id="subrace" onChange={() => setSubRace(subrace.value)}>
+          <option disabled={(playerRace != "Dragonborn")} value="Black">Black</option>
+          <option disabled={(playerRace != "Dragonborn")} value="Blue">Blue</option>
+          <option disabled={(playerRace != "Dragonborn")} value="Brass">Brass</option>
+          <option disabled={(playerRace != "Dragonborn")} value="Bronze">Bronze</option>
+          <option disabled={(playerRace != "Dragonborn")} value="Copper">Copper</option>
+          <option disabled={(playerRace != "Dragonborn")} value="Gold">Gold</option>
+          <option disabled={(playerRace != "Dragonborn")} value="Green">Green</option>
+          <option disabled={(playerRace != "Dragonborn")} value="Red">Red</option>
+          <option disabled={(playerRace != "Dragonborn")} value="Silver">Silver</option>
+          <option disabled={(playerRace != "Dragonborn")} value="White">White</option>
+
+          <option disabled={(playerRace != "Dwarf")} value="Hill">Hill</option>
+          <option disabled={(playerRace != "Dwarf")} value="Mountain">Mountain</option>
+
+          <option disabled={(playerRace != "Elf")} value="High">High</option>
+          <option disabled={(playerRace != "Elf")} value="Wood">Wood</option>
+
+          <option disabled={(playerRace != "Gnome")} value="Rock">Rock</option>
+
+          <option disabled={(playerRace != "Halfling")} value="Lightfoot">Lightfoot</option>
+          <option disabled={(playerRace != "Halfling")} value="Stout">Stout</option>
+
+          <option disabled={(playerRace != "Human")} value="Normal">Normal</option>
+          <option disabled={(playerRace != "Human")} value="Variant">Variant</option>
+
+          <option disabled={(playerRace != "Half-Elf" || playerRace != "Half-Orc" || playerRace != "Tiefling")} value="NA">N/A</option>
+        </select>
+
+        <select id="alignment">
+          <option value="LG">Lawful Good</option>
+          <option value="NG">Neutral Good</option>
+          <option value="CG">Chaotic Good</option>
+          <option value="LN">Lawful Neutral</option>
+          <option value="TN">True Neutral</option>
+          <option value="CN">Chaotic Neutral</option>
+          <option value="LE">Lawful Evil</option>
+          <option value="NE">Neutral Evil</option>
+          <option value="CE">Chaotic Evil</option>
+        </select>
     <div>
         <label name="Prof Bonus" />
             <p id="pb">
@@ -609,13 +820,17 @@ return(
             <p id="curr_hp">
 
             </p>
-            <p id="temp_hp">
-
+            <p id="max_hp">
+                {maxHP}
             </p>
+            <input type="number" id="temp_hp"></input>
         </div>
         <div>
-            <p id="hit_die">
+            <p id="hit_die_num">
 
+            </p>
+            <p id="hit_die">
+                {level}d{playerHitDice}
             </p>
         </div>
         <div>
@@ -625,9 +840,22 @@ return(
             <input type='checkbox' id="ds_fail_1" disabled={ds_fail > 1} checked={ds_fail >= 1} onClick={failFunc}/>
             <input type='checkbox' id="ds_fail_2" disabled={ds_fail < 1 || ds_fail == 3} checked={ds_fail >= 2} onClick={failFunc}/>
             <input type='checkbox' id="ds_fail_3" disabled={ds_fail < 2} checked={ds_fail == 3} onClick={failFunc}/>
-            
-            <input type="number" id="temp_hp"></input>
         </div>
+        <p contentEditable id="personality"></p>
+        <p contentEditable id="ideals"></p>
+        <p contentEditable id="bonds"></p>
+        <p contentEditable id="flaws"></p>
+
+        <input type="number" id="cp"></input>
+        <input type="number" id="sp"></input>
+        <input type="number" id="ep"></input>
+        <input type="number" id="gp"></input>
+        <input type="number" id="pp"></input>
+
+        <input type="checkbox" id="inspiration"></input>
+
+        <button id="item-search-button" onClick={() => setButtonPopup(true)}><img id="search-button" src={search} /></button>
+        <Popup trigger={buttonPopup} setTrigger={setButtonPopup}/>
         </div>
     </>
 )
