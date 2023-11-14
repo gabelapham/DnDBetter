@@ -1,7 +1,12 @@
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
+from sqlalchemy import create_engine
 
+host = "database-1.cmqlznpoxxy9.us-east-2.rds.amazonaws.com"
+user =  "admin"
+password = "DnDisAwesome"
+db = "dndbetter"
 
 url = "http://dnd5e.wikidot.com/spells:druid"
 response = requests.get(url)
@@ -17,7 +22,7 @@ title = ["level", "spell_name", "description","school", "casting_time", "range",
 # spell_df = pd.DataFrame(columns=features)
 
 druidSpell = []
-druidSpell.append(title)
+# druidSpell.append(title)
 
 if content:
     cantrip = content.find("div", id= "wiki-tab-0-0")
@@ -665,8 +670,11 @@ if content:
    
 
 
-    druidSpell_df = pd.DataFrame(druidSpell)
-    print(druidSpell_df)
-        
+druidSpell_df = pd.DataFrame(druidSpell, columns=title, index=None)
+# druidSpell_df.to_csv("./druid.csv", index=False, mode='w');     
+engine = create_engine(f'mysql+pymysql://{user}:{password}@{host}/{db}')
+
+druidSpell_df.to_sql(name='druidSpell', con=engine, if_exists='replace', index=False)
+
       
 

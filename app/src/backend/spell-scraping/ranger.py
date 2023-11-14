@@ -1,6 +1,12 @@
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
+from sqlalchemy import create_engine
+
+host = "database-1.cmqlznpoxxy9.us-east-2.rds.amazonaws.com"
+user =  "admin"
+password = "DnDisAwesome"
+db = "dndbetter"
 
 
 url = "http://dnd5e.wikidot.com/spells:ranger"
@@ -17,7 +23,7 @@ title = ["level", "spell_name", "description","school", "casting_time", "range",
 # spell_df = pd.DataFrame(columns=features)
 
 rangerSpell = []
-rangerSpell.append(title)
+# rangerSpell.append(title)
 
 if content:
     cantrip = content.find("div", id= "wiki-tab-0-0")
@@ -358,8 +364,12 @@ if content:
    
 
 
-    rangerSpell_df = pd.DataFrame(rangerSpell)
-    print(rangerSpell_df)
+rangerSpell_df = pd.DataFrame(rangerSpell, columns=title, index=None)
+    
+engine = create_engine(f'mysql+pymysql://{user}:{password}@{host}/{db}')
+
+rangerSpell_df.to_sql(name='rangerSpell', con=engine, if_exists='replace', index=False)
+
         
       
 

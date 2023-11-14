@@ -1,6 +1,12 @@
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
+from sqlalchemy import create_engine
+
+host = "database-1.cmqlznpoxxy9.us-east-2.rds.amazonaws.com"
+user =  "admin"
+password = "DnDisAwesome"
+db = "dndbetter"
 
 
 url = "http://dnd5e.wikidot.com/spells:paladin"
@@ -17,7 +23,7 @@ title = ["level", "spell_name", "description","school", "casting_time", "range",
 # spell_df = pd.DataFrame(columns=features)
 
 paladinSpell = []
-paladinSpell.append(title)
+# paladinSpell.append(title)
 
 if content:
     cantrip = content.find("div", id= "wiki-tab-0-0")
@@ -358,8 +364,11 @@ if content:
    
 
 
-    paladinSpell_df = pd.DataFrame(paladinSpell)
-    print(paladinSpell_df)
-        
+paladinSpell_df = pd.DataFrame(paladinSpell, columns=title, index=None)
+    
+engine = create_engine(f'mysql+pymysql://{user}:{password}@{host}/{db}')
+
+paladinSpell_df.to_sql(name='paladinSpell', con=engine, if_exists='replace', index=False)
+
       
 
