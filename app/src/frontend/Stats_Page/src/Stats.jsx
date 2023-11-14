@@ -2,6 +2,8 @@ import { useState } from 'react'
 import './Stats.css'
 import Popup from './ItemSearch.jsx'
 import search from './assets/search.png'
+import healpng from './assets/heal.png'
+import dmgpng from './assets/damage.png'
 
 function Stats() {
 
@@ -372,11 +374,6 @@ function Stats() {
                 setHitDice(-1);
                 break;
         }
-    }
-
-    function hpFunc(e) {
-        setMaxHP((e) / 2);
-        
     }
 
 return(
@@ -817,17 +814,19 @@ return(
             </p>
         </div>
         <div>
+            <button id="heal"><img id="healpngid" src={healpng} /></button>
+            <button id="damage"><img id="damagepngid" src={dmgpng} /></button>
             <p id="curr_hp">
-
+                {currHP}
             </p>
             <p id="max_hp">
                 {maxHP}
             </p>
-            <input type="number" id="temp_hp"></input>
+            <input type="number" id="temp_hp" />
         </div>
         <div>
             <p id="hit_die_num">
-
+                {currHitDice}
             </p>
             <p id="hit_die">
                 {level}d{playerHitDice}
