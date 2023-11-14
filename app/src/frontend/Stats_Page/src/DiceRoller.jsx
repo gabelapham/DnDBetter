@@ -17,7 +17,6 @@ const DiceRoller = () => {
 
   return (
     <div>
-      <h2>Dice Roller</h2>
       <button onClick={() => handleRollClick(4)}>Roll D4</button>
       <button onClick={() => handleRollClick(6)}>Roll D6</button>
       <button onClick={() => handleRollClick(8)}>Roll D8</button>
