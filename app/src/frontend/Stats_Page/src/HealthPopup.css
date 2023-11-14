@@ -1,3 +1,7 @@
+#health_submit {
+
+}
+
 .popup {
     position: fixed;
     top: 0;
@@ -28,18 +32,4 @@
 
 .p {
     color: black;
-}
-
-#search-bar {
-    width: auto;
-    font-size: 35px;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-#search-png {
-    zoom: 2%;
-}
-
-#submit-button {
-    background-color: white;
 }

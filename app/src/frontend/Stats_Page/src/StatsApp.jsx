@@ -17,7 +17,7 @@ const StatsApp = () => {
         <br />
         <div id="png">
           <img src={stat_sheet} />
-          <button id="diceRollerButton" onClick={toggleDicePopup}>
+          <button id="diceRollerButton" onClick={() => toggleDicePopup}>
             Open Dice Roller
           </button>
           {isDicePopupOpen && <DiceRollerPopup onClose={() => setDicePopupOpen(false)} />}
