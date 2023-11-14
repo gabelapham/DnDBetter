@@ -1,13 +1,9 @@
-#health_submit {
-
-}
-
 .popup {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 500px;
+    height: 100%;
     
     display: flex;
     justify-content: center;
@@ -16,20 +12,50 @@
 
 .inside-popup {
     position: relative;
-    padding: 10px;
+    padding: 50px;
     width: 100%;
-    max-width: 80%;
+    max-width: 30%;
+    height: 100%;
+    max-height: 20%;
     background-color: gray;
 }
 
 .close-button {
     position: absolute;
-    width: auto;
-    font-size: 20px;
+    width: 55px;
+    height: 60px;
+    font-size: 50px;
     top: 16px;
     left: 16px;
 }
 
 .p {
     color: black;
+}
+
+#healnum {
+    width: 50%;
+    text-align: center;
+    padding-inline-start: 5px;
+    background-color: white;
+    color:black;
+    font-size: 60px;
+    position: absolute;
+    top: 100px;
+    left: 175px;
+    border-color: white;
+}
+
+#heal_submit {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: 200px;
+    left: 330px;
+    background-color: white;
+}
+
+#healpng {
+    height: 40px;
+    width: 40px;
 }

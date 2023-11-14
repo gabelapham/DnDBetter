@@ -9,7 +9,6 @@ import DamagePopup from './DamagePopup.jsx'
 
 function Stats() {
 
-    
     const [playerClass, setClass] = useState("Barbarian")
     const [playerBackground, setBackground] = useState("Acolyte")
     const [playerRace, setRace] = useState("Dragonborn")
@@ -26,7 +25,6 @@ function Stats() {
     const [damagePopup, setDamagePopup] = useState(false)
 
     const [level, setLevel] = useState(1)
-
     
     function raceFunc(e) {
         setRace(e)
@@ -396,20 +394,20 @@ function Stats() {
     }
 
     function healFunc(e) {
-        if (e + currHP >= maxHP) {
-            setCurrHP(maxHP)
+        if ((currHP - e) <= 0) {
+            setCurrHP(0)
         } else if (e <= 0) {
-            return;
+            setCurrHP(currHP)
         } else {
             setCurrHP(currHP + e)
         }
     }
 
     function damageFunc(e) {
-        if (e - currHP <= 0) {
+        if ((currHP - e) <= 0) {
             setCurrHP(0)
         } else if (e <= 0) {
-            return;
+            setCurrHP(currHP)
         } else {
             setCurrHP(currHP - e)
         }
@@ -894,11 +892,12 @@ return(
         <input type="checkbox" id="inspiration"></input>
 
         <button id="item-search-button" onClick={() => setButtonPopup(true)}><img id="search-button" src={search} /></button>
-        <Popup trigger={buttonPopup} setTrigger={setButtonPopup}/>
+
         <button id="heal" onClick={() => setHealthPopup(true)}><img id="healpngid" src={healpng} /></button>
-            <button id="damage" onClick={() => setDamagePopup(true)}><img id="damagepngid" src={dmgpng} /></button>
-            <HealthPopup trigger={healthPopup} setTrigger={setHealthPopup} />
-            <DamagePopup trigger={damagePopup} setTrigger={setDamagePopup} />
+        <button id="damage" onClick={() => setDamagePopup(true)}><img id="damagepngid" src={dmgpng} /></button>
+        <Popup trigger={buttonPopup} setTrigger={setButtonPopup}/>
+        <HealthPopup trigger={healthPopup} setTrigger={setHealthPopup} setHeal={healFunc} />
+        <DamagePopup trigger={damagePopup} setTrigger={setDamagePopup} setDmg={damageFunc} />
         </div>
     </>
 )

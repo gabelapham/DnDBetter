@@ -1,9 +1,15 @@
 import React from 'react'
 import "./DamagePopup.css"
-import dmg from './assets/damage.png'
+import dmgimage from './assets/damage.png'
+
 //import search from "./assets/search.png"
 
-const DamagePopup = ({trigger, setTrigger}) => {
+const DamagePopup = ({trigger, setTrigger, setDmg}) => {
+
+    function doDamage(num, st) {
+        setDmg(num)
+        setTrigger(st)
+    }
 
     return (trigger) ? (
         <div className="popup">
@@ -11,10 +17,8 @@ const DamagePopup = ({trigger, setTrigger}) => {
                 <div class="topnav">
                 <button className="close-button" onClick={() => setTrigger(false)}>X</button>
                 <br />
-                <form>
-                    <input type="number" id="dmgnum" />
-                    <button id="damage_submit" type="submit"><img id="dmgpng" src={dmg} /></button>
-                </form>
+                <input type="number" id="dmgnum"/>
+                <button id="damage_submit" type="button" onClick={() => doDamage(dmgnum.value, false)}><img id="dmgpng" src={dmgimage} /></button>
                 </div>
             </div>
         </div>
