@@ -4,5 +4,8 @@
     left: 50%; /* Center horizontally */
     transform: translateX(-50%); /* Center horizontally */
     z-index: 1;
+    background-color: rgb(98, 98, 98);
+    width: 100%;
+    max-width: 10%;
   }
   
