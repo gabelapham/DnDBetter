@@ -375,3 +375,76 @@ e1337a74a (Zichen 2023-10-31 22:05:00 -0400 673)
 42f14e6fe (Zichen 2023-11-13 19:58:03 -0500 683) 
 42f14e6fe (Zichen 2023-11-13 19:58:03 -0500 684) # bardSpell_df.to_csv("./bard.csv", index=False, mode='w');     
 
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500  1) import express from "express"
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500  2) // import mysql from "mysql"
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500  3) import mysql from "mysql2/promise"
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500  4) import cors from "cors"
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500  5) 
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500  6) 
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500  7) const app = express();
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500  8) app.use(cors());
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500  9) app.use(express.json())
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 10) 
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 11) const db = mysql.createPool({
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 12)     host: "database-1.cmqlznpoxxy9.us-east-2.rds.amazonaws.com",
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 13)     user: "admin",
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 14)     password: "DnDisAwesome",
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 15)     database: "dndbetter",
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 16)     waitForConnections: true,
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 17) });
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 18) 
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 19) 
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 20) //routers
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 21) import router from "./spell-router.js"
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 22) 
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 23) app.use('/bardSpell', router)
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 24) app.use('/clericSpell', router)
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 25) app.use('/druidSpell', router)
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 26) app.use('/paladinSpell', router)
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 27) app.use('/rangerSpell', router)
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 28) 
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 29) 
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 30) //test api
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 31) app.get('/', (req, res) => {
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 32)     res.send('hello world');
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 33) })
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 34) 
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 35) //set api endpoint for getting bardSpell datas
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 36) // app.get("/bardSpell", async (req, res)=>{
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 37) //     try{
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 38) //         const [rows, fields] = await db.query('SELECT * FROM bardSpell');
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 39) //         res.json(rows);
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 40) //     }catch (error){
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 41) //         console.error('Error: ', error.message);
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 42) //         res.status(500).json({error: 'Internal Server Error'});
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 43) //     }
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 44) // });
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 45) 
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 46) 
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 47) 
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 48) app.listen(3001, () => {
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 49)     console.log("running on port 3001");
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 50) });
+
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500  1) import { Router } from 'express';
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500  2) 
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500  3) // const bardSpellController = require('./bard-spell-controller.cjs');
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500  4) // const clericSpellController = require('./cleric-spell-controller.cjs');
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500  5) import bardSpellController from "./bard-spell-controller.js"
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500  6) // import clericSpellController from './cleric-spell-controller.js';
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500  7) 
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500  8) 
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500  9) const router = Router();
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 10) 
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 11) router.get('/bardSpell', bardSpellController.getAll);
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 12) 
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 13) router.get('/bardSpell/getAll', bardSpellController.getAll);
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 14) 
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 15) router.get('/bardSpell/getAllByName', bardSpellController.getAllByName);
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 16) 
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 17) router.get('/bardSpell/getAllByAttribute', bardSpellController.getAllByAttribute);
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 18) 
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 19) 
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 20) export default router;
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 21) // module.exports = router;
+
