@@ -10,8 +10,8 @@ const LongRestPopup = ({lrtrigger, setlrTrigger, doFunc}) => {
     }
 
     return (lrtrigger) ? (
-        <div className="popup">
-            <div className="inside-popup">
+        <div className="popup3">
+            <div className="inside-popup3">
                 <div class="topnav">
                 <p className='p'>
                     Would you like to take a LONG REST?

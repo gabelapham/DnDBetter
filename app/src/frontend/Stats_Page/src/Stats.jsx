@@ -856,9 +856,6 @@ return(
             </p>
         </div>
         <div>
-           
-
-
             <p id="curr_hp">
                 {currHP}
             </p>
