@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './SpellApp.css';
 import SpellBackground from './components/SpellBackground';
-import Navbar from './components/Navbar';
 import SpellDiceRoller from './components/DiceRoller'; // Adjust the path based on your folder structure
 
 function App() {

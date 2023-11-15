@@ -14,6 +14,15 @@
     color: black;
 }
 
+.incr:hover{
+    border-color: black;
+    background-color: lightgreen;
+}
+.decr:hover{
+    border-color: black;
+    background-color: lightcoral;
+}
+
 .spellGrid{
     display: flex;
     flex-direction: column;

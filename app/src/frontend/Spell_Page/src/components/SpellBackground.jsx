@@ -2,6 +2,7 @@ import React from 'react';
 import './SpellBackground.css';
 import { useState } from 'react';
 import SpellCounter from '../components/FunctionalCounter';
+import SpellCreate from './SpellCreate';
 
 const SpellBackground = () =>{
 
@@ -12,20 +13,26 @@ const SpellBackground = () =>{
             
 
             <header className='header'>
-
-                <div className='left-section'>
-                    <input className="spell-class" type="text"/>
+                <div className='info'>
+                    <div className='left-section'>
+                        <input className="spell-class" type="text"/>
+                    </div>
+                    <div className='right-section'>
+                        <div className='right-input'>
+                            <input className='spell-ability' type="text" />
+                        </div>
+                        <div className='right-input'>
+                            <input className='save-dc' type="text" />
+                        </div>
+                        <div className='right-input'>
+                            <input className='attack-bonus' type="text" />
+                        </div>
+                    </div>
                 </div>
-                <div className='right-section'>
-                    <div className='right-input'>
-                        <input className='spell-ability' type="text" />
-                    </div>
-                    <div className='right-input'>
-                        <input className='save-dc' type="text" />
-                    </div>
-                    <div className='right-input'>
-                        <input className='attack-bonus' type="text" />
-                    </div>
+
+                <div className='spell-create-div'>
+                    <SpellCreate />
+
                 </div>
 
             </header>
