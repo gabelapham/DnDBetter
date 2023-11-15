@@ -1,11 +1,28 @@
-import React from 'react';
 import './SpellBackground.css';
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SpellCounter from '../components/FunctionalCounter';
 import SpellCreate from './SpellCreate';
+import axios from 'axios'
 
 const SpellBackground = () =>{
 
+    const [bardSpell, setBardSpell] = useState([]);
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    const fetchData = async () => {
+        try {
+            const response = await axios.get('http://localhost:3001/bardSpell/addAll');    
+            setBardSpell(response.data);
+        
+            console.log(bardSpell);
+
+        } catch (error) {
+            console.error('Error fetching data:', error.message);
+        }
+    }
 
     return(
 
