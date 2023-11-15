@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import './Stats.css'
-import Popup from './ItemSearch.jsx'
+import Popup from './components/ItemSearch.jsx'
 import search from './assets/search.png'
 import healpng from './assets/heal.png'
 import dmgpng from './assets/damage.png'
-import HealthPopup from './HealthPopup.jsx'
-import DamagePopup from './DamagePopup.jsx'
+import HealthPopup from './components/HealthPopup.jsx'
+import DamagePopup from './components/DamagePopup.jsx'
 
 function Stats() {
 
@@ -23,6 +23,8 @@ function Stats() {
     const [buttonPopup, setButtonPopup] = useState(false)
     const [healthPopup, setHealthPopup] = useState(false)
     const [damagePopup, setDamagePopup] = useState(false)
+    const [shortRestPopup, setShortRestPopup] = useState(false)
+    const [longRestPopup, setLongRestPopup] = useState(false)
 
     const [level, setLevel] = useState(1)
     

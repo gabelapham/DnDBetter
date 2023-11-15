@@ -1,6 +1,6 @@
 import React from 'react'
 import "./DamagePopup.css"
-import dmgimage from './assets/damage.png'
+import dmgimage from '../assets/damage.png'
 
 const DamagePopup = ({dtrigger, setdTrigger, setDmg}) => {
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import "./HealthPopup.css"
-import healimage from './assets/heal.png'
+import healimage from '../assets/heal.png'
 
 const HealthPopup = ({htrigger, sethTrigger, setHeal}) => {
 

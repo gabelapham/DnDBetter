@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import stat_sheet from './assets/stats_sheet.png';
 import './StatsApp.css';
 import Stats from './Stats.jsx';
-import DiceRollerPopup from './DiceRollerPopup.jsx';
+import DiceRollerPopup from './components/DiceRollerPopup.jsx';
 
 const StatsApp = () => {
   const [isDicePopupOpen, setDicePopupOpen] = useState(false);

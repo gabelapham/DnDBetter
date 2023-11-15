@@ -1,6 +1,6 @@
 import React from 'react'
 import "./ItemSearch.css"
-import search from "./assets/search.png"
+import search from "../assets/search.png"
 
 const Popup = ({trigger, setTrigger}) => {
 
