@@ -1,0 +1,38 @@
+,index,name,cost,damage,weight,properties
+0,0,Club,1 sp,1d4 bludgeoning,2 lb.,Light
+1,1,Dagger,2 gp,1d4 piercing,1 lb.,"Finesse, light, thrown (20/60)"
+2,2,Greatclub,2 sp,1d8 bludgeoning,10 lb.,Two-handed
+3,3,Handaxe,5 gp,1d6 slashing,2 lb.,"Light, thrown (20/60)"
+4,4,Javelin,5 sp,1d6 piercing,2 lb.,Thrown (30/120)
+5,5,Light hammer,2 gp,1d4 bludgeoning,2 lb.,"Light, thrown (20/60)"
+6,6,Mace,5 gp,1d6 bludgeoning,4 lb.,—
+7,7,Quarterstaff,2 sp,1d6 bludgeoning,4 lb.,Versatile (1d8)
+8,8,Sickle,1 gp,1d4 slashing,2 lb.,Light
+9,9,Spear,1 gp,1d6 piercing,3 lb.,"Thrown (20/60), versatile (1d8)"
+10,10,"Crossbow, light",25 gp,1d8 piercing,5 lb.,"Ammunition, range (80/320), loading, two-handed"
+11,11,Dart,5 cp,1d4 piercing,1/4 lb.,"Finesse, thrown (20/60)"
+12,12,Shortbow,25 gp,1d6 piercing,2 lb.,"Ammunition, range (80/320), two-handed"
+13,13,Sling,1 sp,1d4 piercing,—,"Ammunition, range (30/120)"
+14,14,Battleaxe,10 gp,1d8 slashing,4 lb.,Versatile (1d10)
+15,15,Flail,10 gp,1d8 bludgeoning,2 lb.,—
+16,16,Glaive,20 gp,1d10 slashing,6 lb.,"Heavy, reach, two-handed"
+17,17,Greataxe,30 gp,1d12 slashing,7 lb.,"Heavy, two-handed"
+18,18,Greatsword,50 gp,2d6 slashing,6 lb.,"Heavy, two-handed"
+19,19,Halberd,20 gp,1d10 slashing,6 lb.,"Heavy, reach, two-handed"
+20,20,Lance,10 gp,1d12 piercing,6 lb.,"Reach, special"
+21,21,Longsword,15 gp,1d8 slashing,3 lb.,Versatile (1d10)
+22,22,Maul,10 gp,2d6 bludgeoning,10 lb.,"Heavy, two-handed"
+23,23,Morningstar,15 gp,1d8 piercing,4 lb.,—
+24,24,Pike,5 gp,1d10 piercing,18 lb.,"Heavy, reach, two-handed"
+25,25,Rapier,25 gp,1d8 piercing,2 lb.,Finesse
+26,26,Scimitar,25 gp,1d6 slashing,3 lb.,"Finesse, light"
+27,27,Shortsword,10 gp,1d6 piercing,2 lb.,"Finesse, light"
+28,28,Trident,5 gp,1d6 piercing,4 lb.,"Thrown (20/60), versatile (1d8)"
+29,29,War pick,5 gp,1d8 piercing,2 lb.,—
+30,30,Warhammer,15 gp,1d8 bludgeoning,2 lb.,Versatile (1d10)
+31,31,Whip,2 gp,1d4 slashing,3 lb.,"Finesse, reach"
+32,32,Blowgun,10 gp,1 piercing,1 lb.,"Ammunition, range (25/100), loading"
+33,33,"Crossbow, hand",75 gp,1d6 piercing,3 lb.,"Ammunition, range (30/120), light, loading"
+34,34,"Crossbow, heavy",50 gp,1d10 piercing,18 lb.,"Ammunition, range (100/400), heavy, loading, two-handed"
+35,35,Longbow,50 gp,1d8 piercing,2 lb.,"Ammunition, range (150/600), heavy, two-Handed"
+36,36,Net,1 gp,—,3 lb.,"Special, thrown (5/15)"
