@@ -1,0 +1,28 @@
+.create{
+    border-color: black;
+    border-style: solid;
+    background-color: transparent;
+    color: black;
+    /* font-family: "papyrus"; */
+    /* font-weight: bold; */
+}
+
+.create:hover{
+    background-color: transparent;
+    border-color: black;
+}
+
+.createButtonContainer{
+    /* background-color: lightblue; */
+    /* left: 500px;
+    top: 220px; */
+   
+}
+.createPageContainer{
+    display: flex;
+    flex-direction: row;
+    /* height: 500px; */
+    border-style: none;
+    /* background-color: transparent; */
+    margin-left: -40px;
+}

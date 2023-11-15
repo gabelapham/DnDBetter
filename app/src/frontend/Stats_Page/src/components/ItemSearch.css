@@ -15,7 +15,7 @@
     padding: 10px;
     width: 100%;
     max-width: 80%;
-    background-color: gray;
+    background-color: rgb(185, 185, 185);
 }
 
 .close-button {
@@ -28,9 +28,11 @@
 
 .p {
     color: black;
+    position: relative;
+    font-size: 20px;
 }
 
-#search-bar {
+#searchbar {
     width: auto;
     font-size: 35px;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -41,5 +43,5 @@
 }
 
 #submit-button {
-    background-color: white;
+    background-color: rgb(255, 255, 255);
 }

@@ -2,16 +2,17 @@ import './RestPopup.css'
 import React from 'react'
 import healimage from '../assets/heal.png'
 
-const LongRestPopup = ({lrtrigger, setlrTrigger, doFunc}) => {
+const LongRestPopup = ({lrtrigger, setlrTrigger, doFunc, fillHD, hdmax}) => {
 
     function doHeal(num, st) {
         doFunc(num)
+        fillHD(hdmax)
         setlrTrigger(st)
     }
 
     return (lrtrigger) ? (
-        <div className="popup">
-            <div className="inside-popup">
+        <div className="popup3">
+            <div className="inside-popup3">
                 <div class="topnav">
                 <p className='p'>
                     Would you like to take a LONG REST?

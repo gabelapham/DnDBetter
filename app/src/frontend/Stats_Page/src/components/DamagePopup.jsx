@@ -10,11 +10,12 @@ const DamagePopup = ({dtrigger, setdTrigger, setDmg}) => {
     }
 
     return (dtrigger) ? (
-        <div className="popup">
-            <div className="inside-popup">
+        <div className="popup2">
+            <div className="inside-popup2">
                 <div class="topnav">
-                <button className="close-button" onClick={() => setdTrigger(false)}>X</button>
+                <button className="close-button2" onClick={() => setdTrigger(false)}>X</button>
                 <br />
+                <p id="dmgamnt">DAMAGE RECIEVED:</p>
                 <input type="number" id="dmgnum"/>
                 <button id="damage_submit" type="button" onClick={() => doDamage(dmgnum.value, false)}><img id="dmgpng" src={dmgimage} /></button>
                 </div>
