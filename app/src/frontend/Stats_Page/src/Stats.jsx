@@ -394,12 +394,12 @@ function Stats() {
     }
 
     function healFunc(e) {
-        if ((currHP - e) <= 0) {
-            setCurrHP(0)
-        } else if (e <= 0) {
+        if (Number(e) <= 0) {
             setCurrHP(currHP)
+        } else if ((Number(e) + currHP) >= maxHP) {
+            setCurrHP(maxHP)
         } else {
-            setCurrHP(currHP + e)
+            setCurrHP(currHP + Number(e))
         }
     }
 
@@ -896,8 +896,8 @@ return(
         <button id="heal" onClick={() => setHealthPopup(true)}><img id="healpngid" src={healpng} /></button>
         <button id="damage" onClick={() => setDamagePopup(true)}><img id="damagepngid" src={dmgpng} /></button>
         <Popup trigger={buttonPopup} setTrigger={setButtonPopup}/>
-        <HealthPopup trigger={healthPopup} setTrigger={setHealthPopup} setHeal={healFunc} />
-        <DamagePopup trigger={damagePopup} setTrigger={setDamagePopup} setDmg={damageFunc} />
+        <HealthPopup htrigger={healthPopup} sethTrigger={setHealthPopup} setHeal={healFunc} />
+        <DamagePopup dtrigger={damagePopup} setdTrigger={setDamagePopup} setDmg={damageFunc} />
         </div>
     </>
 )
