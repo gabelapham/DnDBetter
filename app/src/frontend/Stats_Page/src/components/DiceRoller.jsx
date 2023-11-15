@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './DiceRoller.css'; // Import the CSS file
 
 const DiceRoller = () => {
   const [result, setResult] = useState(null);
