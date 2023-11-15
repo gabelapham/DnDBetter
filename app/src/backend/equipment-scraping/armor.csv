@@ -1,0 +1,15 @@
+,index,name,armor class,strength,stealth,weight,cost
+0,0,Padded,11 + Dex modifier,-,Disadvantage,8 lb.,5 gp
+1,1,Leather,11 + Dex modifier,-,-,10 lb.,10 gp
+2,2,Studded Leather,12 + Dex Modifier,-,-,13 lb.,45 gp
+3,3,Hide,12 + Dex modifier (max 2),-,-,12 lb.,10 gp
+4,4,Chain Shirt,13 + Dex modifier (max 2),-,-,20 lb.,50 gp
+5,5,Scale Mail,14 + Dex modifier (max 2),-,Disadvantage,45 lb.,50 gp
+6,6,Spiked Armor,14 + Dex modifier (max 2),-,Disadvantage,45 lb.,75 gp
+7,7,Breastplate,14 + Dex modifier (max 2),-,-,20 lb.,400 gp
+8,8,Halfplate,15 + Dex modifier (max 2),-,Disadvantage,40 lb.,750 gp
+9,9,Ring Mail,14,-,Disadvantage,40 lb.,30 gp
+10,10,Chain Mail,16,Str 13,Disadvantage,55 lb.,75 gp
+11,11,Splint,17,Str 15,Disadvantage,60 lb.,200 gp
+12,12,Plate,18,Str 15,Disadvantage,65 lb.,"1,500 gp"
+13,13,Shield,+2,-,-,6 lb.,10 gp
