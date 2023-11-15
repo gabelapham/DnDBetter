@@ -536,7 +536,14 @@
 }
 
 #curr_hp {
+    width: 250px;
+    text-align: center;
+    padding-inline-start: 5px;
+    color:black;
+    font-size: 60px;
     position: absolute;
+    top: 520px;
+    left: 720px;
 }
 
 #max_hp {
@@ -547,7 +554,16 @@
 }
 
 #temp_hp {
+    width: 250px;
+    text-align: center;
+    padding-inline-start: 5px;
+    background-color: white;
+    color:black;
+    font-size: 60px;
     position: absolute;
+    top: 730px;
+    left: 730px;
+    border-color: white;
 }
 
 #hit_die {
@@ -560,9 +576,9 @@
 
 #hit_die_num {
     position: absolute;
-    top: 860px;
-    left: 675px;
-    font-size: 20px;
+    top: 855px;
+    left: 735px;
+    font-size: 25px;
     text-align: left;
 }
 
@@ -612,19 +628,6 @@
     width: 30px;
     top: 932px;
     left: 1027px;
-}
-
-#temp_hp {
-    width: 250px;
-    text-align: center;
-    padding-inline-start: 5px;
-    background-color: white;
-    color:black;
-    font-size: 60px;
-    position: absolute;
-    top: 730px;
-    left: 730px;
-    border-color: white;
 }
 
 
@@ -893,4 +896,28 @@
 
   #search-button {
     zoom: 3%;
+  }
+
+  #heal {
+    position: absolute;
+    top: 610px;
+    left: 1000px;
+    background-color: white;
+  }
+
+  #healpngid {
+    height: 40px;
+    width: 40px;
+  }
+
+  #damage {
+    position: absolute;
+    top: 610px;
+    left: 645px;
+    background-color: white;
+  }
+
+  #damagepngid {
+    height: 40px;
+    width: 40px;
   }

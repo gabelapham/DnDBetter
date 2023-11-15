@@ -21,7 +21,7 @@ function ImageComponent({ userText, onUserTextChange }) {
   return (
     <div className="image-container">
       <img src={image} alt="Character Sheet" id="png"/>
-      {positions.map((position, index) => {
+      {/* {positions.map((position, index) => {
         let textareaStyle = {
           fontSize: '20px', // Adjust the font size as needed
           width: '180px',   // Default width for most text areas
@@ -55,7 +55,7 @@ function ImageComponent({ userText, onUserTextChange }) {
             />
           </div>
         );
-      })}
+      })} */}
       <p contentEditable id="character_name"></p>
       <p contentEditable id="age"></p>
       <p contentEditable id="eyes"></p>

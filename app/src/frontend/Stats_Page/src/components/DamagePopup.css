@@ -1,0 +1,67 @@
+.popup2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inside-popup2 {
+    position: relative;
+    padding: 50px;
+    width: 100%;
+    max-width: 30%;
+    height: 100%;
+    max-height: 20%;
+    background-color: rgb(185, 185, 185);
+    outline: auto;
+    outline-color: black;
+}
+
+.close-button2 {
+    position: absolute;
+    width: 55px;
+    height: 60px;
+    font-size: 50px;
+    top: 16px;
+    left: 16px;
+}
+
+#dmgamnt {
+    color: black;
+    position: absolute;
+    top: 0px;
+    left: 178px;
+    font-size: 40px;
+}
+
+#dmgnum {
+    width: 50%;
+    text-align: center;
+    padding-inline-start: 5px;
+    background-color: white;
+    color:black;
+    font-size: 60px;
+    position: absolute;
+    top: 100px;
+    left: 175px;
+    border-color: white;
+}
+
+#damage_submit {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: 200px;
+    left: 330px;
+    background-color: white;
+}
+
+#dmgpng {
+    height: 40px;
+    width: 40px;
+}

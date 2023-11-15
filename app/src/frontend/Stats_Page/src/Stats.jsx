@@ -1,11 +1,17 @@
 import { useState } from 'react'
 import './Stats.css'
-import Popup from './ItemSearch.jsx'
+import Popup from './components/ItemSearch.jsx'
 import search from './assets/search.png'
+import healpng from './assets/heal.png'
+import dmgpng from './assets/damage.png'
+import HealthPopup from './components/HealthPopup.jsx'
+import DamagePopup from './components/DamagePopup.jsx'
+import LongRestPopUp from './components/LongRestPopup.jsx'
+//import ShortRestPopUp from './components/ShortRestPopup.jsx'
+import song from './assets/song.mp3'
 
 function Stats() {
 
-    
     const [playerClass, setClass] = useState("Barbarian")
     const [playerBackground, setBackground] = useState("Acolyte")
     const [playerRace, setRace] = useState("Dragonborn")
@@ -18,9 +24,12 @@ function Stats() {
     const [currHP, setCurrHP] = useState(12)
 
     const [buttonPopup, setButtonPopup] = useState(false)
+    const [healthPopup, setHealthPopup] = useState(false)
+    const [damagePopup, setDamagePopup] = useState(false)
+    const [shortRestPopup, setShortRestPopup] = useState(false)
+    const [longRestPopup, setLongRestPopup] = useState(false)
 
     const [level, setLevel] = useState(1)
-
     
     function raceFunc(e) {
         setRace(e)
@@ -133,6 +142,7 @@ function Stats() {
     function pbFunc(lvl) {
         setLevel(lvl)
         setMaxHP((playerHitDice + (lvl * playerHitDice) + (2 * lvl) + (2 * lvl * constitutionMod) - 2) / 2)
+        hpCheck(currHP, (playerHitDice + (lvl * playerHitDice) + (2 * lvl) + (2 * lvl * constitutionMod) - 2) / 2)
         switch(lvl) {
             case '1':
             case '2':
@@ -221,6 +231,7 @@ function Stats() {
         setConstitution(e)
         setConstitutionMod(Mod(e))
         setMaxHP((playerHitDice + (level * playerHitDice) + (2 * level) + (2 * level * Mod(e)) - 2) / 2)
+        hpCheck(currHP, (playerHitDice + (level * playerHitDice) + (2 * level) + (2 * level * Mod(e)) - 2) / 2)
         return;
     }
     function setIntelligenceFunc(e) {
@@ -343,16 +354,19 @@ function Stats() {
 
     function classFunc(e) {
         setClass(e);
+        
         switch(e)
         {
             case "Barbarian":
                 setHitDice(12);
                 setMaxHP((12 + (level * 12) + (2 * level) + (2 * level * constitutionMod) - 2) / 2)
+                hpCheck(currHP, (12 + (level * 12) + (2 * level) + (2 * level * constitutionMod) - 2) / 2)
                 break;
             case "Paladin":
             case "Fighter":
                 setHitDice(10);
                 setMaxHP((10 + (level * 10) + (2 * level) + (2 * level * constitutionMod) - 2) / 2)
+                hpCheck(currHP, (10 + (level * 10) + (2 * level) + (2 * level * constitutionMod) - 2) / 2)
                 break;
             case 'Bard':
             case 'Cleric':
@@ -362,21 +376,46 @@ function Stats() {
             case 'Warlock':
                 setHitDice(8);
                 setMaxHP((8 + (level * 8) + (2 * level) + (2 * level * constitutionMod) - 2) / 2)
+                hpCheck(currHP, (8 + (level * 8) + (2 * level) + (2 * level * constitutionMod) - 2) / 2)
                 break;
             case 'Sorcerer':
             case 'Wizard':
                 setHitDice(6);
                 setMaxHP((6 + (level * 6) + (2 * level) + (2 * level * constitutionMod) - 2) / 2)
-                break;
-            default:
-                setHitDice(-1);
+                hpCheck(currHP, (6 + (level * 6) + (2 * level) + (2 * level * constitutionMod) - 2) / 2)
                 break;
         }
     }
 
-    function hpFunc(e) {
-        setMaxHP((e) / 2);
-        
+
+    function hpCheck(c, m) {
+        if (c > m) {
+            setCurrHP(m)
+        } else if (c == maxHP) {
+            setCurrHP(m)
+        } else {
+            setCurrHP(c)
+        }
+    }
+
+    function healFunc(e) {
+        if (Number(e) <= 0) {
+            setCurrHP(currHP)
+        } else if ((Number(e) + currHP) >= maxHP) {
+            setCurrHP(maxHP)
+        } else {
+            setCurrHP(currHP + Number(e))
+        }
+    }
+
+    function damageFunc(e) {
+        if ((currHP - e) <= 0) {
+            setCurrHP(0)
+        } else if (e <= 0) {
+            setCurrHP(currHP)
+        } else {
+            setCurrHP(currHP - e)
+        }
     }
 
 return(
@@ -410,7 +449,7 @@ return(
     <button id="shortRest">
             Short Rest
           </button>
-          <button id="longRest">
+          <button id="longRest" onClick={() => setLongRestPopup(true)}>
             Long Rest
           </button>
           <input id="charName" />
@@ -818,16 +857,16 @@ return(
         </div>
         <div>
             <p id="curr_hp">
-
+                {currHP}
             </p>
             <p id="max_hp">
                 {maxHP}
             </p>
-            <input type="number" id="temp_hp"></input>
+            <input type="number" id="temp_hp" />
         </div>
         <div>
             <p id="hit_die_num">
-
+                {currHitDice}
             </p>
             <p id="hit_die">
                 {level}d{playerHitDice}
@@ -855,8 +894,18 @@ return(
         <input type="checkbox" id="inspiration"></input>
 
         <button id="item-search-button" onClick={() => setButtonPopup(true)}><img id="search-button" src={search} /></button>
+
+        <button id="heal" onClick={() => setHealthPopup(true)}><img id="healpngid" src={healpng} /></button>
+        <button id="damage" onClick={() => setDamagePopup(true)}><img id="damagepngid" src={dmgpng} /></button>
         <Popup trigger={buttonPopup} setTrigger={setButtonPopup}/>
+        <HealthPopup htrigger={healthPopup} sethTrigger={setHealthPopup} setHeal={healFunc} />
+        <DamagePopup dtrigger={damagePopup} setdTrigger={setDamagePopup} setDmg={damageFunc} />
+        {/*<ShortRestPopUp srtrigger={shortRestPopup} setsrTrigger={setShortRestPopup} doFunc={healFunc} />*/}
+        <LongRestPopUp lrtrigger={longRestPopup} setlrTrigger={setLongRestPopup} doFunc={healFunc} />
         </div>
+        <video controls height={70} width={600}>
+            <source src={song} type='audio/mp3'></source>
+        </video>
     </>
 )
 }

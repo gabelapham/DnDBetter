@@ -16,3 +16,11 @@
     zoom: 75%;
     margin: 0 auto;
   }
+
+  #diceRollerButton {
+    position: absolute;
+    top: 20px;
+    right: 20px; /* Adjust the right position as needed */
+    z-index: 1;
+  }
+  

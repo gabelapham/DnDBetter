@@ -1,13 +1,17 @@
 import { useState } from 'react'
 import './index.css'
 import placeholder from './assets/placeholder.png'
-import jon from './assets/jon_lapham.jpg'
+import jon from './assets/jon.png'
+import gabe from './assets/gabe.png'
+import triton from './assets/triton.png'
+import tyler from './assets/tyler.png'
 
 const Landing = () => {
   const [count, setCount] = useState(0)
 
   return (
     <>
+    <div id="root">
       <h1>Welcome to DnDBetter!</h1>
       <h2>What is DnDBetter?</h2>
       <p>DnDBetter is a better way to play DnD! <i>Kind of...</i> DnDBetter is an intuitive and interactive character sheet creator and manager.</p>
@@ -37,67 +41,74 @@ const Landing = () => {
       </div>
       <div className="aboutme">
         <div className="founderimage">
-          <img src={placeholder}/>
+          <img src={jon} height={150} width={150}/>
         </div>
         <div className="description">
           <h2>Jonathan Clark</h2>
           <p>About me</p>
         </div>
       </div>
+      <br />
       <div className="aboutme">
         <div className="founderimage">
-          <img src={placeholder}/>
+          <img src={gabe} height={150} width={150}/>
         </div>
         <div className="description">
           <h2>Gabe Lapham</h2>
           <p>About me</p>
         </div>
       </div>
+      <br />
       <div className="aboutme">
         <div className="founderimage">
-          <img src={placeholder}/>
+          <img src={triton} height={150} width={150}/>
         </div>
         <div className="description">
           <h2>Triton Eden</h2>
           <p>About me</p>
         </div>
       </div>
+      <br />
       <div className="aboutme">
         <div className="founderimage">
-          <img src={placeholder}/>
+          <img src={tyler} height={150} width={150}/>
         </div>
         <div className="description">
           <h2>Tyler Catuncan</h2>
           <p>About me</p>
         </div>
       </div>
+      <br />
       <div className="aboutme">
         <div className="founderimage">
-          <img src={placeholder}/>
+          <img src={placeholder} height={150} width={150}/>
         </div>
         <div className="description">
           <h2>Cooper Sarphie</h2>
           <p>About me</p>
         </div>
       </div>
+      <br />
       <div className="aboutme">
         <div className="founderimage">
-          <img src={placeholder}/>
+          <img src={placeholder} height={150} width={150}/>
         </div>
         <div className="description">
           <h2>Seungwoo "Aiden" An</h2>
           <p>About me</p>
         </div>
       </div>
+      <br />
       <div className="aboutme">
         <div className="founderimage">
-          <img src={placeholder}/>
+          <img src={placeholder} height={150} width={150}/>
         </div>
         <div className="description">
           <h2>Zichen "Frank" Fu</h2>
           <p>About me</p>
         </div>
       </div>
+    </div>
     </>
   )
 }

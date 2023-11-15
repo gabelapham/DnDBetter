@@ -1,11 +1,16 @@
-import { useState } from 'react'
-import stat_sheet from './assets/stats_sheet.png'
-import './StatsApp.css'
-import Stats from './Stats.jsx'
-import DiceRoller from './DiceRoller.jsx'
-
+import React, { useState } from 'react';
+import stat_sheet from './assets/stats_sheet.png';
+import './StatsApp.css';
+import Stats from './Stats.jsx';
+import DiceRoller from './components/DiceRoller.jsx';
+import DiceRollerPopup from './components/DiceRollerPopup.jsx';
 
 const StatsApp = () => {
+  const [isDicePopupOpen, setDicePopupOpen] = useState(false);
+
+  const toggleDicePopup = () => {
+    setDicePopupOpen(!isDicePopupOpen);
+  };
 
   return (
     <>
@@ -13,14 +18,15 @@ const StatsApp = () => {
         <br />
         <div id="png">
           <img src={stat_sheet} />
-          //
-          <DiceRoller /> {/* Render the DiceRoller component here */}
-          //
-        <Stats />
+          <button id="diceRollerButton" onClick={toggleDicePopup}>
+            Open Dice Roller
+          </button>
+          {isDicePopupOpen && <DiceRollerPopup onClose={() => setDicePopupOpen(false)} />}
+          <Stats />
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default StatsApp
+export default StatsApp;
