@@ -20,6 +20,7 @@ const StatsApp = () => {
           <button id="diceRollerButton" onClick={() => toggleDicePopup}>
             Open Dice Roller
           </button>
+
           {isDicePopupOpen && <DiceRollerPopup onClose={() => setDicePopupOpen(false)} />}
           <Stats />
         </div>

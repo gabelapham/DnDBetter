@@ -6,6 +6,7 @@ import healpng from './assets/heal.png'
 import dmgpng from './assets/damage.png'
 import HealthPopup from './components/HealthPopup.jsx'
 import DamagePopup from './components/DamagePopup.jsx'
+import song from './assets/song.mp3'
 
 function Stats() {
 
@@ -901,6 +902,9 @@ return(
         <HealthPopup htrigger={healthPopup} sethTrigger={setHealthPopup} setHeal={healFunc} />
         <DamagePopup dtrigger={damagePopup} setdTrigger={setDamagePopup} setDmg={damageFunc} />
         </div>
+        <video controls height={70} width={600}>
+            <source src={song} type='audio/mp3'></source>
+        </video>
     </>
 )
 }
