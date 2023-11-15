@@ -15,6 +15,7 @@ const HealthPopup = ({htrigger, sethTrigger, setHeal}) => {
                 <div class="topnav">
                 <button className="close-button1" onClick={() => sethTrigger(false)}>X</button>
                 <br />
+                <p id="healamnt">HEALTH RECIEVED:</p>
                 <input type="number" id="healnum"/>
                 <button id="heal_submit" type="button" onClick={() => doHeal(healnum.value, false)}><img id="healpng" src={healimage} /></button>
                 </div>

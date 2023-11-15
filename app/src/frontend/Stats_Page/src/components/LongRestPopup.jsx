@@ -2,10 +2,11 @@ import './RestPopup.css'
 import React from 'react'
 import healimage from '../assets/heal.png'
 
-const LongRestPopup = ({lrtrigger, setlrTrigger, doFunc}) => {
+const LongRestPopup = ({lrtrigger, setlrTrigger, doFunc, fillHD, hdmax}) => {
 
     function doHeal(num, st) {
         doFunc(num)
+        fillHD(hdmax)
         setlrTrigger(st)
     }
 

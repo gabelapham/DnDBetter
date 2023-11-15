@@ -61,3 +61,11 @@
     height: 40px;
     width: 40px;
 }
+
+#healamnt {
+    color: black;
+    position: absolute;
+    top: 0px;
+    left: 187px;
+    font-size: 40px;
+}

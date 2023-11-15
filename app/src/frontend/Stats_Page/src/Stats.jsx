@@ -7,7 +7,7 @@ import dmgpng from './assets/damage.png'
 import HealthPopup from './components/HealthPopup.jsx'
 import DamagePopup from './components/DamagePopup.jsx'
 import LongRestPopUp from './components/LongRestPopup.jsx'
-//import ShortRestPopUp from './components/ShortRestPopup.jsx'
+import ShortRestPopUp from './components/ShortRestPopup.jsx'
 import song from './assets/song.mp3'
 
 function Stats() {
@@ -19,6 +19,7 @@ function Stats() {
     const [playerAlignment, setAlignment] = useState("LG")
     const [playerSpeed, setSpeed] = useState("30")
     const [playerHitDice, setHitDice] = useState(12)
+    const [maxHitDice, setMaxHitDice] = useState(1)
     const [currHitDice, setCurrHitDice] = useState(1)
     const [maxHP, setMaxHP] = useState(12)
     const [currHP, setCurrHP] = useState(12)
@@ -143,6 +144,10 @@ function Stats() {
         setLevel(lvl)
         setMaxHP((playerHitDice + (lvl * playerHitDice) + (2 * lvl) + (2 * lvl * constitutionMod) - 2) / 2)
         hpCheck(currHP, (playerHitDice + (lvl * playerHitDice) + (2 * lvl) + (2 * lvl * constitutionMod) - 2) / 2)
+        if (currHitDice == maxHitDice) {
+            setCurrHitDice(lvl)
+        }
+        setMaxHitDice(lvl)
         switch(lvl) {
             case '1':
             case '2':
@@ -446,7 +451,7 @@ return(
                 <option value="20">20</option>
             </select>
     </div>
-    <button id="shortRest">
+    <button id="shortRest" onClick={() => setShortRestPopup(true)}>
             Short Rest
           </button>
           <button id="longRest" onClick={() => setLongRestPopup(true)}>
@@ -900,8 +905,12 @@ return(
         <Popup trigger={buttonPopup} setTrigger={setButtonPopup}/>
         <HealthPopup htrigger={healthPopup} sethTrigger={setHealthPopup} setHeal={healFunc} />
         <DamagePopup dtrigger={damagePopup} setdTrigger={setDamagePopup} setDmg={damageFunc} />
-        {/*<ShortRestPopUp srtrigger={shortRestPopup} setsrTrigger={setShortRestPopup} doFunc={healFunc} />*/}
-        <LongRestPopUp lrtrigger={longRestPopup} setlrTrigger={setLongRestPopup} doFunc={healFunc} />
+
+        <ShortRestPopUp srtrigger={shortRestPopup} setsrTrigger={setShortRestPopup} doFunc={healFunc}
+        hd={playerHitDice} hdrem={currHitDice} hdremTrigger={setCurrHitDice} hpCurr={currHP} hpMax={maxHP}/>
+        <LongRestPopUp lrtrigger={longRestPopup} setlrTrigger={setLongRestPopup} doFunc={healFunc}
+        fillHD={setCurrHitDice} hdmax={maxHitDice}/>
+
         </div>
         <video controls height={70} width={600}>
             <source src={song} type='audio/mp3'></source>
