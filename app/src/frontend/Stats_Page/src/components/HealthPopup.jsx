@@ -10,10 +10,10 @@ const HealthPopup = ({htrigger, sethTrigger, setHeal}) => {
     }
 
     return (htrigger) ? (
-        <div className="popup">
-            <div className="inside-popup">
+        <div className="popup1">
+            <div className="inside-popup1">
                 <div class="topnav">
-                <button className="close-button" onClick={() => sethTrigger(false)}>X</button>
+                <button className="close-button1" onClick={() => sethTrigger(false)}>X</button>
                 <br />
                 <input type="number" id="healnum"/>
                 <button id="heal_submit" type="button" onClick={() => doHeal(healnum.value, false)}><img id="healpng" src={healimage} /></button>
