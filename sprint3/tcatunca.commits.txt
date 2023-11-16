@@ -1,0 +1,119 @@
+bc60daab3 app/src/frontend/Spell_Page/src/components/FunctionalCounter.css (tylerjcatuncan 2023-11-15 23:07:03 -0500  9)     width: 40px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/FunctionalCounter.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 10)     height: 40px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/FunctionalCounter.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 11)     margin-top: -10px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/FunctionalCounter.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 37)     width: 210px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/FunctionalCounter.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 38)     height: 55px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/FunctionalCounter.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 39)     margin-left: 10px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/FunctionalCounter.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 48)     margin-left: -76px;
+606fa29fd app/src/frontend/Spell_Page/src/components/FunctionalCounter.css (tylerjcatuncan 2023-11-01 05:50:10 -0400 51) .counterFont{
+bc60daab3 app/src/frontend/Spell_Page/src/components/FunctionalCounter.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 52)     margin-top: 0px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500  12)     /* display: flex;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500  13)     flex-direction: column; */
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500  14)     position: relative;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500  15) }
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500  16) 
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500  17) #spell_page {
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500  18)     text-align: center;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500  19)     z-index: 0;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500  20)     width: 1700px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500  21)     height: 2200px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500  22)     width: 100%;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500  23)     zoom: 50%;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500  24)     margin: 0 auto;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500  40)     /* padding-top: 60px; */
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500  41)     /* display: flex;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500  42)     height: 0px; */
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500  43)     /* flex-direction: column; */
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500  44)     /* align-items: center; */
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500  45)     /* position: absolute;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500  46)     top: 215px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500  47)     left: 215px; */
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500  58)     /* display: flex; */
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500  59)     /* flex-direction: row; */
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500  60)     /* position: absolute; */
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500  62)     /* align-items: center; */
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500  63)     /* width: 630px; */
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500  64)     /* justify-content: space-between; */
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500  65)     /* padding-top: 30px; */
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500  97)     top: 135px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500  98)     left: 130px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500  99)     position: absolute;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 100)     max-width: 600px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 101)     height: 40px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 102)     /* margin-right: 40px; */
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 110) .spell-ability{
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 111)     top: 110px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 112)     left: 597px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 113)     position: absolute;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 114)     max-width: 115px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 115)     height: 60px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 116)     /* margin-right: 40px; */
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 118)     font-size: 32px;
+606fa29fd app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-01 05:50:10 -0400 121)     color: black;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 124) .attack-bonus{
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 125)     top: 110px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 126)     left: 1024px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 127)     position: absolute;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 128)     max-width: 115px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 129)     height: 60px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 130)     /* margin-right: 40px; */
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 131)     background-color: transparent;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 132)     font-size: 32px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 133)     text-align: center;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 134)     font-family: "papyrus";
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 135)     color: black;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 136) }
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 137) 
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 139)     top: 110px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 140)     left: 806px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 141)     position: absolute;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 142)     max-width: 115px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 143)     height: 60px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 144)     /* margin-right: 40px; */
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 146)     font-size: 32px;
+606fa29fd app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-01 05:50:10 -0400 149)     color: black;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 158)     top: 275px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 159)     left: 46px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 160)     position: absolute;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 172)     height: 1300px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 177)     width: 392px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 185)     height: 365.7px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 192)     padding-top: 4px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 193)     margin-left: 25px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 194)     height: 475.5px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 205)     margin-left: 25px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 213)     margin-top: 20px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 214)     margin-left: 25px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 215)     height: 470px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 224)     height: 472px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 225)     margin-left: 25px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 236)     margin-left: 25px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 245)     margin-top: 20px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 246)     height: 354px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 252)     margin-left: 24px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 256)     height: 353px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 262)     margin-left: 24px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 265)     height: 293px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 266)     margin-left: 24px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 283)     margin-left: 24px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 287)     width: 80px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 288)     height: 45px;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-15 23:07:03 -0500 297)     font-size: 30px;
+606fa29fd app/src/frontend/Spell_Page/src/components/SpellBackground.css (tylerjcatuncan 2023-11-01 05:50:10 -0400 299)     color: black;
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.jsx (tylerjcatuncan 2023-11-15 23:07:03 -0500  34)                 <div id="spell_page">
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.jsx (tylerjcatuncan 2023-11-15 23:07:03 -0500  35)                     <img src={spell_sheet}/>
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.jsx (tylerjcatuncan 2023-11-15 23:07:03 -0500  36)                 </div>
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.jsx (tylerjcatuncan 2023-11-15 23:07:03 -0500  37) 
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.jsx (tylerjcatuncan 2023-11-15 23:07:03 -0500  38)             <header /*className='header'*/>
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.jsx (tylerjcatuncan 2023-11-15 23:07:03 -0500  39)                 <div /*className='info'*/>
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.jsx (tylerjcatuncan 2023-11-15 23:07:03 -0500  40)                     <div /*className='left-section'*/>
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.jsx (tylerjcatuncan 2023-11-15 23:07:03 -0500  43)                     <div /*className='right-section'*/>
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.jsx (tylerjcatuncan 2023-11-15 23:07:03 -0500  44)                         <div /*className='right-input'*/>
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.jsx (tylerjcatuncan 2023-11-15 23:07:03 -0500  47)                         <div /*className='right-input'*/>
+bc60daab3 app/src/frontend/Spell_Page/src/components/SpellBackground.jsx (tylerjcatuncan 2023-11-15 23:07:03 -0500  50)                         <div /*className='right-input'*/>
+bc60daab3 (tylerjcatuncan 2023-11-15 23:07:03 -0500  6)     height: 27.5px;
+bc60daab3 (tylerjcatuncan 2023-11-15 23:07:03 -0500 30)     width: 330px;
+bc60daab3 (tylerjcatuncan 2023-11-15 23:07:03 -0500 31)     height: 20px;
+606fa29fd (tylerjcatuncan 2023-11-01 05:50:10 -0400 32)     color: black;
+bc60daab3 (tylerjcatuncan 2023-11-15 23:07:03 -0500 71)     max-height: 12px;
+bc60daab3 app/src/frontend/Spell_Page/src/SpellApp.css    (tylerjcatuncan 2023-11-15 23:07:03 -0500  4)     padding: 0.5rem;
