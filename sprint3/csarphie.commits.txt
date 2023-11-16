@@ -1,0 +1,330 @@
+app/src/frontend/Login_page/src/App.jsx
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500   1) import React, { useState, useRef, useEffect } from 'react';
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500   2) import axios from 'axios';
+cdaf87b15 frontend/Login_page/src/App.js          (Cooper Sarphie 2023-10-14 23:31:57 -0400   3) 
+cdaf87b15 frontend/Login_page/src/App.js          (Cooper Sarphie 2023-10-14 23:31:57 -0400   4) function App() {
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500   5)     const userRef = useRef();
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500   6)     const errRef = useRef();
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500   7) 
+cdaf87b15 frontend/Login_page/src/App.js          (Cooper Sarphie 2023-10-14 23:31:57 -0400   8)     const [username, setUsername] = useState('');
+cdaf87b15 frontend/Login_page/src/App.js          (Cooper Sarphie 2023-10-14 23:31:57 -0400   9)     const [password, setPassword] = useState('');
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  10)     const [isLoggedIn, setIsLoggedIn] = useState(false);
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  11)     const [error, setError] = useState('');
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  12)     const [auth, setAuth] = useState(null);
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  13) 
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  14)     useEffect(() => {
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  15)         userRef.current.focus();
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  16)     }, []);
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  17) 
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  18)     useEffect(() => {
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  19)         setError('');
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  20)     }, [username, password])
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  21) 
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  22)     useEffect(() => {
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  23)         const storedAuth = localStorage.getItem('auth');
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  24)         if (storedAuth) {
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  25)             setAuth(JSON.parse(storedAuth));
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  26)             setIsLoggedIn(true); // Make sure to set the logged-in state
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  27)         }
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  28)     }, []);
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  29) 
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  30)     const handleSetAuth = (data) => {
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  31)         setAuth(data);
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  32)         localStorage.setItem('auth', JSON.stringify(data)); // Save to local storage
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  33)     };
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  34) 
+cdaf87b15 frontend/Login_page/src/App.js          (Cooper Sarphie 2023-10-14 23:31:57 -0400  35) 
+cdaf87b15 frontend/Login_page/src/App.js          (Cooper Sarphie 2023-10-14 23:31:57 -0400  36)     const handleUsernameChange = (event) => {
+cdaf87b15 frontend/Login_page/src/App.js          (Cooper Sarphie 2023-10-14 23:31:57 -0400  37)         setUsername(event.target.value);
+cdaf87b15 frontend/Login_page/src/App.js          (Cooper Sarphie 2023-10-14 23:31:57 -0400  38)     };
+cdaf87b15 frontend/Login_page/src/App.js          (Cooper Sarphie 2023-10-14 23:31:57 -0400  39) 
+cdaf87b15 frontend/Login_page/src/App.js          (Cooper Sarphie 2023-10-14 23:31:57 -0400  40)     const handlePasswordChange = (event) => {
+cdaf87b15 frontend/Login_page/src/App.js          (Cooper Sarphie 2023-10-14 23:31:57 -0400  41)         setPassword(event.target.value);
+cdaf87b15 frontend/Login_page/src/App.js          (Cooper Sarphie 2023-10-14 23:31:57 -0400  42)     };
+cdaf87b15 frontend/Login_page/src/App.js          (Cooper Sarphie 2023-10-14 23:31:57 -0400  43) 
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  44)     const handleLogin = async (event) => {
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  45)         event.preventDefault();
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  46)         try {
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  47)             const res = await axios.post('http://localhost:3001/auth/login', { username, password }, {
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  48)                 headers: { 'Content-Type': 'application/json' },
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  49)                 withCredentials: true
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  50)             });
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  51)             console.log(JSON.stringify(res?.status));
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  52)             console.log(JSON.stringify(res));
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  53)             const accessToken = res?.data?.accessToken;
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  54)             const roles = res?.data?.roles;
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  55)             if (res.status === 200) {
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  56)                 handleSetAuth({ username, roles, accessToken });
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  57)                 setUsername('');
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  58)                 setPassword('');
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  59)                 setIsLoggedIn(true);
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  60)             }
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  61)         } catch (err) {
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  62)             if (!err?.response) {
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  63)                 setError('No Server Response');
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  64)             } else if (err.response?.status === 400) {
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  65)                 setError('Missing Username or Password');
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  66)             } else if (err.response?.status === 401) {
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  67)                 setError('Unauthorized');
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  68)             } else {
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  69)                 setError('Login Failed');
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  70)             }
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  71)             errRef.current.focus();
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  72)         }
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  73) 
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  74) 
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  75) 
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  76)     };
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  77) 
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  78)     const handleSignup = async (event) => {
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  79)         event.preventDefault();
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  80)         try {
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  81)             const res = await axios.post('http://localhost:3001/auth/register', { username, password }, {
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  82)                 headers: { 'Content-Type': 'application/json' },
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  83)                 withCredentials: true
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  84)             });
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  85)             console.log(JSON.stringify(res?.data));
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  86) 
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  87)             if (res.status === 201) {
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  88)                 setUsername('');
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  89)                 setPassword('');
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  90)             } else {
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  91)                 // Handle other statuses as needed
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  92)                 setError('Registration failed.');
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  93)             }
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  94)         } catch (err) {
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  95)             if (!err?.response) {
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  96)                 setError('No Server Response');
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  97)             } else if (err.response?.status === 400) {
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  98)                 setError('Missing Username or Password');
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500  99)             } else if (err.response?.status === 409) {
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 100)                 setError('Username already in use'); // Example for conflict status
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 101)             } else {
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 102)                 setError('Registration Failed');
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 103)             }
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 104)             errRef.current.focus();
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 105)         }
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 106) 
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 107)     };
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 108) 
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 109)     const handleLogout = () => {
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 110)         setAuth(null);
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 111)         localStorage.removeItem('auth');
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 112)         setIsLoggedIn(false);
+cdaf87b15 frontend/Login_page/src/App.js          (Cooper Sarphie 2023-10-14 23:31:57 -0400 113)     };
+cdaf87b15 frontend/Login_page/src/App.js          (Cooper Sarphie 2023-10-14 23:31:57 -0400 114) 
+cdaf87b15 frontend/Login_page/src/App.js          (Cooper Sarphie 2023-10-14 23:31:57 -0400 115)     return (
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 116)         <>
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 117)             {isLoggedIn ? (
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 118)                 <div>
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 119)                     <h1>Already logged in</h1>
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 120)                     <button type="button" onClick={handleLogout} style={{
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 121)                         position: 'fixed',
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 122)                         bottom: '2%',
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 123)                         left: '2%'
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 124)                     }}>Logout</button>
+cdaf87b15 frontend/Login_page/src/App.js          (Cooper Sarphie 2023-10-14 23:31:57 -0400 125)                 </div>
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 126)             ) : (
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 127)                 <div className="App">
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 128)                     <p ref={errRef} className={error ? "errmsg" : "offscreen"} aria-live="assertive">{error}</p>
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 129)                     <h1>Login Page</h1>
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 130)                     <form>
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 131)                         <div className="form-group">
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 132)                             <label htmlFor="username">Username:</label>
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 133)                             <input
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 134)                                 ref={userRef}
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 135)                                 type="text"
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 136)                                 id="username"
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 137)                                 value={username}
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 138)                                 onChange={handleUsernameChange}
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 139)                                 required
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 140)                             />
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 141)                         </div>
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 142)                         <div className="form-group">
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 143)                             <label htmlFor="password">Password:</label>
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 144)                             <input
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 145)                                 type="password"
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 146)                                 id="password"
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 147)                                 value={password}
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 148)                                 onChange={handlePasswordChange}
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 149)                                 required
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 150)                             />
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 151)                         </div>
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 152)                         <button type="button" onClick={handleLogin}>Login</button>
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 153)                         <p>Don't have an account?  <button type="button" onClick={handleSignup}>Sign Up</button></p>
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 154)                     </form>
+cdaf87b15 frontend/Login_page/src/App.js          (Cooper Sarphie 2023-10-14 23:31:57 -0400 155)                 </div>
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 156)             )}
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 157)         </>
+cdaf87b15 frontend/Login_page/src/App.js          (Cooper Sarphie 2023-10-14 23:31:57 -0400 158)     );
+cdaf87b15 frontend/Login_page/src/App.js          (Cooper Sarphie 2023-10-14 23:31:57 -0400 159) }
+cdaf87b15 frontend/Login_page/src/App.js          (Cooper Sarphie 2023-10-14 23:31:57 -0400 160) export default App;
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 161) 
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 162) 
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 163) 
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 164) // import React, { useState } from 'react';
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 165) // import axios from 'axios';
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 166) 
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 167) // function App() {
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 168) //     const [fact, setFact] = useState('No fact');
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 169) 
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 170) //     let getFacts = async () => {
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 171) //         try {
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 172) //             let response = await axios(``);
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 173) //             setFact(response.data.fact); // Assuming the fact is stored in `response.data.fact`
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 174) //             console.log(response);
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 175) //         } catch (error) {
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 176) //             console.error('Error fetching fact:', error);
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 177) //             setFact('Failed to fetch fact');
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 178) //         }
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 179) //     };
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 180) 
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 181) //     return (
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 182) //         <div className="App">
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 183) //             <p>{fact}</p>
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 184) //             <button onClick={getFacts}>Get Fact</button>
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 185) //         </div>
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 186) //     );
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 187) // }
+2628132ee app/src/frontend/Login_page/src/App.jsx (Cooper Sarphie 2023-11-15 03:59:59 -0500 188) 
+
+app/src/backend/server.cjs
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500   1) const express = require('express');
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500   2) const mysql = require('mysql2');
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500   3) const bodyParser = require('body-parser');
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500   4) const cors = require('cors');
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500   5) const bcrypt = require('bcrypt');
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500   6) const jwt = require('jsonwebtoken');
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500   7) 
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500   8) const saltRounds = 10;
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500   9) 
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  10) const app = express();
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  11) 
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  12) // Middleware
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  13) const corsOptions = {
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  14)     origin: (origin, callback) => {
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  15)         if (['http://localhost:4173', 'http://127.0.0.1:4173'].includes(origin) || !origin) {
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  16)             callback(null, true);
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  17)         } else {
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  18)             callback(new Error('Not allowed by CORS'));
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  19)         }
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  20)     },
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  21)     credentials: true
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  22) };
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  23) app.use(cors(corsOptions));
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  24) app.use(bodyParser.json());
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  25) 
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  26) // Database Connection
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  27) const pool = mysql.createPool({
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  28)     host: 'database-1.cmqlznpoxxy9.us-east-2.rds.amazonaws.com',
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  29)     port: '3306',
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  30)     user: 'admin',
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  31)     password: 'DnDisAwesome',
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  32)     database: 'dndbetter', // Replace with your database name
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  33)     waitForConnections: true,
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  34)     connectionLimit: 10,
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  35)     queueLimit: 0
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  36) });
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  37) 
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  38) // Login Endpoint
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  39) app.post('/auth/login', (req, res) => {
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  40)     const { username, password } = req.body;
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  41) 
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  42)     // SQL query to find the user
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  43)     const query = "SELECT * FROM dndbetter.users WHERE username = ?";
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  44) 
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  45)     pool.query(query, [username], async (err, results) => {
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  46)         if (err) {
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  47)             return res.status(500).json({ message: "Internal server error" });
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  48)         }
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  49)         if (results.length > 0) {
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  50)             const user = results[0];
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  51) 
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  52)             // Compare hashed password
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  53)             const match = await bcrypt.compare(password, user.password);
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  54) 
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  55)             if (match) {
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  56)                 const token = jwt.sign(
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  57)                     { userId: user.id, username: user.username }, // payload
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  58)                     'ballsack', // Replace with a secret key from your environment variables
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  59)                     { expiresIn: '1h' } // token expiration
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  60)                 );
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  61)                 return res.status(200).json({ accessToken: token, roles: 'userRoles' });
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  62)             } else {
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  63)                 // Passwords do not match
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  64)                 return res.status(401).json({ message: "Unauthorized" });
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  65)             }
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  66)         } else {
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  67)             // User not found
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  68)             return res.status(401).json({ message: "Unauthorized" });
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  69)         }
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  70)     });
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  71) });
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  72) 
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  73) // Registration Endpoint
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  74) // Registration Endpoint
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  75) app.post('/auth/register', async (req, res) => {
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  76)     try {
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  77)         const { username, password } = req.body;
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  78) 
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  79)         // Validate input
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  80)         if (!username || !password) {
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  81)             return res.status(400).json({ message: "Missing Username or Password" });
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  82)         }
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  83) 
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  84)         // Check if username already exists
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  85)         const checkUserQuery = "SELECT * FROM dndbetter.users WHERE username = ?";
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  86)         const [users] = await pool.promise().query(checkUserQuery, [username]);
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  87) 
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  88)         if (users.length > 0) {
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  89)             return res.status(409).json({ message: "Username already in use" });
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  90)         }
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  91) 
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  92)         // Hash password and insert new user
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  93)         const hashedPassword = await bcrypt.hash(password, saltRounds);
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  94)         const insertQuery = "INSERT INTO dndbetter.users (username, password) VALUES (?, ?)";
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  95)         await pool.promise().query(insertQuery, [username, hashedPassword]);
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  96) 
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  97)         res.status(201).json({ message: "User registered successfully" });
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  98)     } catch (error) {
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  99)         console.error(error);
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500 100)         res.status(500).send('Error in registration process');
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500 101)     }
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500 102) });
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500 103) 
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500 104) // Start the server
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500 105) const PORT = 3001; // Can be any port
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500 106) app.listen(PORT, () => {
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500 107)     console.log(`Server running on port ${PORT}`);
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500 108) });
+
+app/src/backend/app.cjs
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500 1) const express = require("express");
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500 2) const app = express();
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500 3) const middleware = require("./../routes/index.cjs");
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500 4) app.use("/cat", middleware);
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500 5) app.get("/", (req, res) => {
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500 6)     res.send("Hello, World!");
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500 7) });
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500 8) module.exports = app;
+
+app/src/routes/facts.cjs
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  1) const express = require("express");
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  2) const axios = require("axios");
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  3) // function to get the data from the API 
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  4) let getFacts = async () => {
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  5)     let response = await axios(`https://catfact.ninja/fact`);
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  6)     return response;
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  7) };
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  8) //controller function 
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500  9) module.exports = async (req, res) => {
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500 10)     let responseFact = await getFacts();
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500 11)     res.send(responseFact.data.fact);
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500 12) };
+
+app/src/routes/index.cjs
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500 1) const express = require("express");
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500 2) const router = express.Router();
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500 3) const fact = require("./facts.cjs");
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500 4) router.get("/facts", fact);
+2628132ee (Cooper Sarphie 2023-11-15 03:59:59 -0500 5) module.exports = router;
