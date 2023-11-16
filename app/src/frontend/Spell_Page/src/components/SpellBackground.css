@@ -1,19 +1,30 @@
 .spell-bg {
-    background-image: url('../assets/Spell_Sheet2.png');
+    /* background-image: url('../assets/Spell_Sheet2.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    margin: 0;
+    margin: 0; */
     
     /* width: 100vw; */
-    height: 1000px;
+    /* height: 1000px; */
 
     /*zoom: 150%;*/
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
+    position: relative;
 }
 
-@media (min-width: 801px){
+#spell_page {
+    text-align: center;
+    z-index: 0;
+    width: 1700px;
+    height: 2200px;
+    width: 100%;
+    zoom: 50%;
+    margin: 0 auto;
+}
+
+/* @media (min-width: 801px){
     .spell-bg{
         width: 100vw;
     }
@@ -23,39 +34,46 @@
     .spell-bg{
         width: 800px
     }
-}
+} */
 
 .header{
-    padding-top: 60px;
-    display: flex;
-    height: 55px;
-    flex-direction: column;
-    align-items: center;
+    /* padding-top: 60px; */
+    /* display: flex;
+    height: 0px; */
+    /* flex-direction: column; */
+    /* align-items: center; */
+    /* position: absolute;
+    top: 215px;
+    left: 215px; */
     
     /* justify-content: space-between; */
-    justify-content: center;
+    /* justify-content: center; */
     
     /* background-color: transparent; */
-    padding-bottom: 59.5px;
+    /* padding-bottom: 59.5px; */
 
 }
 
 .info{
-    display: flex;
-    flex-direction: row;
+    /* display: flex; */
+    /* flex-direction: row; */
+    /* position: absolute; */
     /* background-color: lightblue; */
-    align-items: center;
-    width: 630px;
-    justify-content: space-between;
-    padding-top: 30px;
+    /* align-items: center; */
+    /* width: 630px; */
+    /* justify-content: space-between; */
+    /* padding-top: 30px; */
 }
 .spell-create-div{
-    display: flex;
-    flex-direction: row;
+    top: 220px;
+    left: 270px;
+    position: absolute;
+    /* display: flex;
+    flex-direction: row; */
     /* background-color: lightpink; */
-    width: 500px;
+    /* width: 500px;
     padding-top: 25px;
-    margin-bottom: -15px;
+    margin-bottom: -15px; */
 }
 
 .left-section{
@@ -76,32 +94,56 @@
 }
 
 .spell-class{
-    height: 30px;
-    width: 250px;
+    top: 135px;
+    left: 130px;
+    position: absolute;
+    max-width: 600px;
+    height: 40px;
+    /* margin-right: 40px; */
     background-color: transparent;
-    font-size: 18px;
-    text-align: center;
-    font-family: "papyrus";
-    color: black; /*A lot of fonts weren't visible so I made the font color black for a lot of these classes*/
-    /* zoom: 75%; */
-}
-
-.spell-ability, .attack-bonus{
-    max-width: 85px;
-    height: 37px;
-    margin-right: 35px;
-    background-color: transparent;
-    font-size: 16px;
+    font-size: 32px;
     text-align: center;
     font-family: "papyrus";
     color: black;
 }
-.save-dc{
-    max-width: 85px;
-    height: 37px;
-    margin-right: 40px;
+
+.spell-ability{
+    top: 110px;
+    left: 597px;
+    position: absolute;
+    max-width: 115px;
+    height: 60px;
+    /* margin-right: 40px; */
     background-color: transparent;
-    font-size: 16px;
+    font-size: 32px;
+    text-align: center;
+    font-family: "papyrus";
+    color: black;
+}
+
+.attack-bonus{
+    top: 110px;
+    left: 1024px;
+    position: absolute;
+    max-width: 115px;
+    height: 60px;
+    /* margin-right: 40px; */
+    background-color: transparent;
+    font-size: 32px;
+    text-align: center;
+    font-family: "papyrus";
+    color: black;
+}
+
+.save-dc{
+    top: 110px;
+    left: 806px;
+    position: absolute;
+    max-width: 115px;
+    height: 60px;
+    /* margin-right: 40px; */
+    background-color: transparent;
+    font-size: 32px;
     text-align: center;
     font-family: "papyrus";
     color: black;
@@ -113,10 +155,13 @@
 
 .spell-content{
     /* background-color: lightblue; */
+    top: 275px;
+    left: 46px;
+    position: absolute;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    height: 800px;
+    /* height: 800px; */
 }
 
 .col1, .col2, .col3{
@@ -124,12 +169,12 @@
     display: flex;
     flex-direction: column;
     /* justify-content: space-between; */
-    height: 780px;
+    height: 1300px;
     border: solid;
     border-color: black;
     border-width: 1px;
 
-    width: 236px;
+    width: 392px;
 }
 
 .lvl-header{
@@ -137,16 +182,16 @@
 }
 
 .lvl-0{
-    height: 210px;
+    height: 365.7px;
     /* border: solid;
     border-color: black;
     border-width: 2px; */
 }
 
 .lvl-1{
-    padding-top: 3px;
-    margin-left: -1.4px;
-    height: 286.5px;
+    padding-top: 4px;
+    margin-left: 25px;
+    height: 475.5px;
     /* border: solid;
     border-color: black;
     border-width: 2px; */
@@ -157,7 +202,7 @@
 
 .lvl-2{
     flex: 1;
-    margin-left: -1.5px;
+    margin-left: 25px;
     /* border: solid;
     border-color: black;
     border-width: 2px; */
@@ -165,7 +210,9 @@
     flex-direction: column;
 }
 .lvl-3{
-    height: 284.5px;
+    margin-top: 20px;
+    margin-left: 25px;
+    height: 470px;
     /* border: solid;
     border-color: black;
     border-width: 2px; */
@@ -174,7 +221,8 @@
 
 }
 .lvl-4{
-    height: 286px;
+    height: 472px;
+    margin-left: 25px;
     /* border: solid;
     border-color: black;
     border-width: 2px; */
@@ -185,6 +233,7 @@
 
 .lvl-5{
     flex: 1;
+    margin-left: 25px;
     /* border: solid;
     border-color: black;
     border-width: 2px; */
@@ -193,27 +242,28 @@
 
 }
 .lvl-6{
-    height: 214px;
+    margin-top: 20px;
+    height: 354px;
     /* border: solid;
     border-color: black;
     border-width: 2px; */
     display: flex;
     flex-direction: column;
-    margin-left: -1.5px;
+    margin-left: 24px;
     /* background-color: lightblue; */
 }
 .lvl-7{
-    height: 214px;
+    height: 353px;
     /* border: solid;
     border-color: black;
     border-width: 2px; */
     display: flex;
     flex-direction: column;
-    margin-left: -1.5px;
+    margin-left: 24px;
 }
 .lvl-8{
-    height: 178.5px;
-    margin-left: -1.5px;
+    height: 293px;
+    margin-left: 24px;
     /* border: solid;
     border-color: black;
     border-width: 2px; */
@@ -230,12 +280,12 @@
     border-width: 2px; */
     display: flex;
     flex-direction: column;
-    margin-left: -1.5px;
+    margin-left: 24px;
 }
 
 .total-slot, .total-slot-left, .total-slot-right{
-    width: 45px;
-    height: 28px;
+    width: 80px;
+    height: 45px;
     background-color: transparent;
     
     /* padding-right: 10px; */
@@ -244,7 +294,7 @@
     margin-top: 5px;
 
     text-align: center;
-    font-size: 15px;
+    font-size: 30px;
     font-family: "papyrus";
     color: black;
 }
