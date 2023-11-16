@@ -1,0 +1,295 @@
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500  1) import requests
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500  2) from bs4 import BeautifulSoup
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500  3) import pandas as pd
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500  4) 
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500  5) URL = "http://dnd5e.wikidot.com/armor"
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500  6) page = requests.get(URL).text
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500  7) soup = BeautifulSoup(page, "html.parser")
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500  8) results = soup.find("div", id="page-content")
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500  9) td = results.findAll("td")
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 10) 
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 11) armor = {
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 12)     "name": [],
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 13)     "armor class": [],
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 14)     "strength": [],
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 15)     "stealth": [],
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 16)     "weight": [],
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 17)     "cost": []
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 18) }
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 19) 
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 20) for i in range(0, len(td)-12, 6):
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 21)     armor["name"].append(td[i].text)
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 22)     armor["armor class"].append(td[i+1].text)
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 23)     armor["strength"].append(td[i+2].text)
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 24)     armor["stealth"].append(td[i+3].text)
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 25)     armor["weight"].append(td[i+4].text)
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 26)     armor["cost"].append(td[i+5].text)
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 27) # print(results)
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 28) 
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 29) df = pd.DataFrame(armor)
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 30) df = df.reset_index()
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 31) 
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 32) with pd.option_context('display.max_rows', None,
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 33)                        'display.max_columns', None,
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 34)                        'display.precision', 3,
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 35)                        ):
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 36)     print(df)
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 37) 
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 38) URL = "http://dnd5e.wikidot.com/weapons"
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 39) page = requests.get(URL).text
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 40) soup = BeautifulSoup(page, "html.parser")
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 41) results = soup.find("div", id="page-content")
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 42) td = results.findAll("td")
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 43) 
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 44) weapons = {
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 45)     "name": [],
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 46)     "cost": [],
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 47)     "damage": [],
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 48)     "weight": [],
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 49)     "properties": []
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 50) }
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 51) 
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 52) ammunition = {
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 53)     "ammo": [],
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 54)     "cost": [],
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 55)     "weight": []
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 56) }
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 57) 
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 58) print(len(td))
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 59) for i in range(0, len(td)-39, 5):
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 60)     weapons["name"].append(td[i].text)
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 61)     weapons["cost"].append(td[i+1].text)
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 62)     weapons["damage"].append(td[i+2].text)
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 63)     weapons["weight"].append(td[i+3].text)
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 64)     weapons["properties"].append(td[i+4].text)
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 65) 
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 66) for i in range(len(td)-39, len(td)-39+12, 3):
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 67)     print(i, end=" ")
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 68)     print(td[i])
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 69)     ammunition["ammo"].append(td[i].text)
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 70)     ammunition["cost"].append(td[i+1].text)
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 71)     ammunition["weight"].append(td[i+2].text)
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 72) 
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 73) df1 = pd.DataFrame(weapons)
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 74) df1 = df1.reset_index()
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 75) df2 = pd.DataFrame(ammunition)
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 76) df2 = df2.reset_index()
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 77) 
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 78) df.to_csv("armor.csv")
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 79) df1.to_csv("weapons.csv")
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 80) df2.to_csv("ammunition.csv")
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  1) import requests
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  2) from bs4 import BeautifulSoup
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  3) import pandas as pd
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  4) 
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  5) URL = "http://dnd5e.wikidot.com/adventuring-gear"
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  6) page = requests.get(URL).text
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  7) soup = BeautifulSoup(page, "html.parser")
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  8) results = soup.find("div", id="page-content")
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  9) td = results.findAll("td")
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 10) 
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 11) gear = {
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 12)     "gear": [],
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 13)     "cost": [],
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 14)     "contents": []
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 15) }
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 16) 
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 17) for i in range(0, len(td)-290, 3):
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 18)     gear["gear"].append(td[i].text)
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 19)     gear["cost"].append(td[i+1].text)
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 20)     gear["contents"].append(td[i+2].text)
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 21) 
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 22) df = pd.DataFrame(gear)
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 23) df = df.reset_index()
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 24) 
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 25) 
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 26) items = {
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 27)     "name": [],
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 28)     "cost": [],
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 29)     "weight": []
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 30) }
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 31) 
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 32) for i in range(len(td)-289, len(td)-290+219, 3):
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 33)     items["name"].append(td[i].text)
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 34)     items["cost"].append(td[i+1].text)
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 35)     items["weight"].append(td[i+2].text)
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 36) 
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 37) df2 = pd.DataFrame(items)
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 38) df2 = df2.reset_index()
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 39) 
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 40) df.to_csv("gear.csv")
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 41) df2.to_csv("items.csv")
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500  1) ,index,name,armor class,strength,stealth,weight,cost
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500  2) 0,0,Padded,11 + Dex modifier,-,Disadvantage,8 lb.,5 gp
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500  3) 1,1,Leather,11 + Dex modifier,-,-,10 lb.,10 gp
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500  4) 2,2,Studded Leather,12 + Dex Modifier,-,-,13 lb.,45 gp
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500  5) 3,3,Hide,12 + Dex modifier (max 2),-,-,12 lb.,10 gp
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500  6) 4,4,Chain Shirt,13 + Dex modifier (max 2),-,-,20 lb.,50 gp
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500  7) 5,5,Scale Mail,14 + Dex modifier (max 2),-,Disadvantage,45 lb.,50 gp
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500  8) 6,6,Spiked Armor,14 + Dex modifier (max 2),-,Disadvantage,45 lb.,75 gp
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500  9) 7,7,Breastplate,14 + Dex modifier (max 2),-,-,20 lb.,400 gp
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 10) 8,8,Halfplate,15 + Dex modifier (max 2),-,Disadvantage,40 lb.,750 gp
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 11) 9,9,Ring Mail,14,-,Disadvantage,40 lb.,30 gp
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 12) 10,10,Chain Mail,16,Str 13,Disadvantage,55 lb.,75 gp
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 13) 11,11,Splint,17,Str 15,Disadvantage,60 lb.,200 gp
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 14) 12,12,Plate,18,Str 15,Disadvantage,65 lb.,"1,500 gp"
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 15) 13,13,Shield,+2,-,-,6 lb.,10 gp
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500  1) ,index,name,cost,damage,weight,properties
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500  2) 0,0,Club,1 sp,1d4 bludgeoning,2 lb.,Light
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500  3) 1,1,Dagger,2 gp,1d4 piercing,1 lb.,"Finesse, light, thrown (20/60)"
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500  4) 2,2,Greatclub,2 sp,1d8 bludgeoning,10 lb.,Two-handed
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500  5) 3,3,Handaxe,5 gp,1d6 slashing,2 lb.,"Light, thrown (20/60)"
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500  6) 4,4,Javelin,5 sp,1d6 piercing,2 lb.,Thrown (30/120)
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500  7) 5,5,Light hammer,2 gp,1d4 bludgeoning,2 lb.,"Light, thrown (20/60)"
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500  8) 6,6,Mace,5 gp,1d6 bludgeoning,4 lb.,—
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500  9) 7,7,Quarterstaff,2 sp,1d6 bludgeoning,4 lb.,Versatile (1d8)
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 10) 8,8,Sickle,1 gp,1d4 slashing,2 lb.,Light
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 11) 9,9,Spear,1 gp,1d6 piercing,3 lb.,"Thrown (20/60), versatile (1d8)"
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 12) 10,10,"Crossbow, light",25 gp,1d8 piercing,5 lb.,"Ammunition, range (80/320), loading, two-handed"
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 13) 11,11,Dart,5 cp,1d4 piercing,1/4 lb.,"Finesse, thrown (20/60)"
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 14) 12,12,Shortbow,25 gp,1d6 piercing,2 lb.,"Ammunition, range (80/320), two-handed"
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 15) 13,13,Sling,1 sp,1d4 piercing,—,"Ammunition, range (30/120)"
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 16) 14,14,Battleaxe,10 gp,1d8 slashing,4 lb.,Versatile (1d10)
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 17) 15,15,Flail,10 gp,1d8 bludgeoning,2 lb.,—
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 18) 16,16,Glaive,20 gp,1d10 slashing,6 lb.,"Heavy, reach, two-handed"
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 19) 17,17,Greataxe,30 gp,1d12 slashing,7 lb.,"Heavy, two-handed"
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 20) 18,18,Greatsword,50 gp,2d6 slashing,6 lb.,"Heavy, two-handed"
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 21) 19,19,Halberd,20 gp,1d10 slashing,6 lb.,"Heavy, reach, two-handed"
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 22) 20,20,Lance,10 gp,1d12 piercing,6 lb.,"Reach, special"
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 23) 21,21,Longsword,15 gp,1d8 slashing,3 lb.,Versatile (1d10)
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 24) 22,22,Maul,10 gp,2d6 bludgeoning,10 lb.,"Heavy, two-handed"
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 25) 23,23,Morningstar,15 gp,1d8 piercing,4 lb.,—
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 26) 24,24,Pike,5 gp,1d10 piercing,18 lb.,"Heavy, reach, two-handed"
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 27) 25,25,Rapier,25 gp,1d8 piercing,2 lb.,Finesse
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 28) 26,26,Scimitar,25 gp,1d6 slashing,3 lb.,"Finesse, light"
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 29) 27,27,Shortsword,10 gp,1d6 piercing,2 lb.,"Finesse, light"
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 30) 28,28,Trident,5 gp,1d6 piercing,4 lb.,"Thrown (20/60), versatile (1d8)"
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 31) 29,29,War pick,5 gp,1d8 piercing,2 lb.,—
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 32) 30,30,Warhammer,15 gp,1d8 bludgeoning,2 lb.,Versatile (1d10)
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 33) 31,31,Whip,2 gp,1d4 slashing,3 lb.,"Finesse, reach"
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 34) 32,32,Blowgun,10 gp,1 piercing,1 lb.,"Ammunition, range (25/100), loading"
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 35) 33,33,"Crossbow, hand",75 gp,1d6 piercing,3 lb.,"Ammunition, range (30/120), light, loading"
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 36) 34,34,"Crossbow, heavy",50 gp,1d10 piercing,18 lb.,"Ammunition, range (100/400), heavy, loading, two-handed"
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 37) 35,35,Longbow,50 gp,1d8 piercing,2 lb.,"Ammunition, range (150/600), heavy, two-Handed"
+4d0ead09a (JonClark28 2023-11-15 15:22:15 -0500 38) 36,36,Net,1 gp,—,3 lb.,"Special, thrown (5/15)"
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500   1) ,index,name,cost,weight
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500   2) 0,0,Abacus,2 gp,2 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500   3) 1,1,Bedroll,1 gp,2 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500   4) 2,2,Bell,1 gp,-
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500   5) 3,3,Blanket,5 sp,5 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500   6) 4,4,"Block and Tackle
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500   7) * A set of pulleys with a cable threaded through them and a hook to attach to objects, a block and tackle allows you to hoist up to four times the weight you can normally lift.",1 gp,5 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500   8) 5,5,"Book
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500   9) * A book might contain poetry, historical accounts, information pertaining to a particular field of lore, diagrams and notes on gnomish contraptions, or just about anything else that can be represented sing text or pictures. A book of spells is a spellbook.",25 gp,5 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  10) 6,6,"Candle
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  11) * For 1 hour, a candle sheds bright light in a 5-foot radius and dim light for another 5 feet.",1 cp,-
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  12) 7,7,"Chain (10 ft)
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  13) * A chain has 10 hit points. It can be burst with a successful DC 20 Strength check.",5 gp,10 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  14) 8,8,Chalk (1 pc),1 cp,-
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  15) 9,9,"Component Pouch
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  16) * A component pouch is a small, watertight leather belt pouch that has compartments to hold all the material components and other special items you need to cast your spells, except for those components that have a specific cost (as indicated in a spell's description).",25 gp,2 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  17) 10,10,"Fishing Tackle
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  18) * This kit includes a wooden rod, silken line, corkwood bobbers, steel hooks, lead sinkers, velvet lures, and narrow netting.",1 gp,4 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  19) 11,11,Grappling Hook,2 gp,4 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  20) 12,12,Hammer,1 gp,3 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  21) 13,13,Hourglass,25 gp,1 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  22) 14,14,Ink (1 oz),10 gp,-
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  23) 15,15,Ink Pen,2 cp,-
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  24) 16,16,Ladder (10 ft),1 sp,25 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  25) 17,17,"Lock
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  26) * A key is provided with the lock. Without the key, a creature proficient with thieves' tools can pick this lock with a successful DC 15 Dexterity check. Your DM may decide that better locks are available for higher prices.",10 gp,1 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  27) 18,18,"Magnifying Glass
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  28) * This lens allows a closer look at small objects. It is also useful as a substitute or flint and steel when starting fires. Lighting a fire with a magnifying glass requires light as bright as sunlight to focus, tinder to ignite, and about 5 minutes for the fire to ignite. A magnifying glass grants advantage on any ability check made to appraise or inspect an item that is small or highly detailed.",100 gp,-
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  29) 19,19,"Mess Kit
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  30) * This tin box contains a cup and simple cutlery. The box clamps together, and one side can be used as a cooking pan and the other as a plate or shallow bowl.",2 sp,1 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  31) 20,20,Miner's Pick,2 gp,10 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  32) 21,21,Paper (1 pc),2 sp,-
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  33) 22,22,Parchment (1 sheet),1 sp,-
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  34) 23,23,Perfume (vial),5 gp,-
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  35) 24,24,Piton,5 cp,0.25 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  36) 25,25,Pole (10 ft),5 cp,7 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  37) 26,26,"Rations (1 day)
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  38) * Rations consist of dry foods suitable for extended travel, including jerky, dried fruit, hardtack, and nuts.",5 sp,2 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  39) 27,27,"Rope
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  40) * Rope, whether made of hemp or silk, has 2 hit points and can be burst with a DC 17 Strength check.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  41) - Hemp (50 ft)
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  42) - Silk (50 feet)","
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  43) 
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  44) 1 gp
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  45) 10 gp","
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  46) 
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  47) 10 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  48) 5 lb."
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  49) 28,28,Sealing Wax,5 sp,-
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  50) 29,29,Shovel,2 gp,5 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  51) 30,30,Signal Whistle,5 cp,-
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  52) 31,31,Signet Ring,5 gp,-
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  53) 32,32,Sledgehammer,2 gp,10 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  54) 33,33,"Spellbook
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  55) * Essential for wizards, a spellbook is a leather-bound tome with 100 blank vellum pages suitable for recording spells.",50 gp,3 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  56) 34,34,Spikes - Iron (10),1 gp,5 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  57) 35,35,"Spyglass
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  58) * Objects viewed through a spyglass are magnified to twice their size.",1000 gp,1 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  59) 36,36,Tent - 2 person,2 gp,20 lbs.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  60) 37,37,Whetstone,1 cp,1 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  61) 38,38,"Acid (vial)
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  62) * As an action, you can splash the contents of this vial onto a creature within 5 feet of you or throw the vial up to 20 feet, shattering it on impact. In either case, make a ranged attack against a creature or object, treating the acid as an improvised weapon. On a hit, the target takes 2d6 acid damage.",25 gp,1 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  63) 39,39,"Alchemist's Fire (flask)
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  64) * This sticky, adhesive fluid ignites when exposed to air. As an action, you can throw this flask up to 20 feet, shattering it on impact. Make a ranged attack against a creature or object, treating the alchemist's fire as an improvised weapon. On a hit, the target takes 1d4 fire damage at the start of each of its turns. A creature can end this damage by using its action to make a DC 10 Dexterity check to extinguish the flames.",50 gp,1 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  65) 40,40,"Antitoxin (vial)
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  66) * A creature that drinks this vial of liquid gains advantage on saving throws against poison for 1 hour. It confers no benefits to undead or constructs.",50 gp,-
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  67) 41,41,"Ball Bearings (bag of 1,000)
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  68) * As an action, you can spill these tiny balls from their pouch to cover a level area 10 feet square. A creature moving across the covered area must succeed on a DC 10 Dexterity saving throw or all prone. A creature moving through the area at half speed doesn't need to make the saving throw.",1 gp,2 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  69) 42,42,"Caltrops (bag of 20)
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  70) * As an action, you can spread a single bag of caltrops to cover a 5-foot-square area. Any creature that enters the area must succeed on a DC 15 Dexterity saving throw or stop moving and take 1 piercing damage. Until the creature regains at least 1 hit point, its walking speed is reduced by 10 feet. A creature moving through the area at half speed doesn't need to make the saving throw.",1 gp,2 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  71) 43,43,"Climber's Kit
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  72) * A climber's kit includes special pitons, boot tips, gloves, and a harness. You can use the climber's kit as an action to anchor yourself; when you do, you can't fall more than 25 feet from the point where you anchored yourself, and you can't climb more than 25 feet away from that point without undoing the anchor.",25 gp,12 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  73) 44,44,"Crowbar
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  74) * Using a crowbar grants advantage to Strength checks where the crowbar's leverage can be applied.",2 gp,5 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  75) 45,45,"Healer's Kit
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  76) * This kit is a leather pouch containing bandages, salves, and splints. The kit has ten uses. As an action, you can expend one use of the kit to stabilize a creature that has 0 hit points, without needing to make a Wisdom (Medicine) check.",5 gp,3 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  77) 46,46,"Holy Water (flask)
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  78) * As an action, you can splash the contents of this flask onto a creature within 5 feet of you or throw it up to 20 feet, shattering it on impact. In either case, make a ranged attack against a target creature, treating the holy water as an improvised weapon. If the target is a fiend or undead, it takes 2d6 radiant damage.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  79) * A cleric or paladin may create holy water by performing a special ritual. The ritual takes 1 hour to perform, uses 25 gp worth of powdered silver, and requires the caster to expend a 1st-level spell slot.",25 gp,1 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  80) 47,47,"Hunting Trap
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  81) * When you use your action to set it, this trap forms a saw-toothed steel ring that snaps shut when a creature steps on a pressure plate in the center. The trap is affixed by a heavy chain to an immobile object, such as a tree or a spike driven into the ground. A creature that steps on the plate must succeed on a DC 13 Dexterity saving throw or take 1d4 piercing damage and stop moving. Thereafter, until the creature breaks free of the trap, its movement is limited by the length of chain (typically 3 feet long). A creature can use its action to make a DC 13 Strength check, freeing itself or another creature within its reach on a success. Each failed check deals 1 piercing damage to the trapped creature.",5 gp,25 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  82) 48,48,"Lamp
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  83) * A lamp casts bright light in a 15-foot radius and dim light for an additional 30 feet. Once lit, it burns for 6 hours on a flask (1 pint) of oil.",5 sp,1 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  84) 49,49,"Lantern - Bullseye
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  85) * A bullseye lantern casts bright light in a 60-foot cone and dim light for an additional 60 feet. Once lit, it burns for 6 hours on a flask (1 pint) of oil.",10 gp,2 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  86) 50,50,"Lantern - Hooded
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  87) * A hooded lantern casts bright light in a 30-foot radius and dim light for an additional 30 feet. Once lit, it burns for 6 hours on a flask (1 pint) of oil. As an action, you can lower the hood, reducing the light to dim light in a 5-foot radius.",5 gp,2 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  88) 51,51,"Oil (flask)
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  89) * Oil usually comes in a clay flask that holds 1 pint. As an action, you can splash the oil in this flask onto a creature within 5 feet of you or throw it up to 20 feet, shattering it on impact. Make a ranged attack against a target creature or object, treating the oil as an improvised weapon. On a hit, the target is covered in oil. If the target takes any fire damage before the oil dries (after 1 minute), the target takes an additional 5 fire damage from the burning oil. You can also pour a flask of oil on the ground to cover a 5-foot-square area, provided that the surface is level. if lit, the oil burns for 2 rounds and deals 5 fire damage to any creature that enters the area or ends its turn in the area. A creature can take this damage only once per turn.",1 sp,1 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  90) 52,52,"Poison, basic (vial)
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  91) * You can use the poison in this vial to coat one slashing or piercing weapon or up to three pieces of ammunition. Applying the poison takes an action. A creature hit by the poisoned weapon or ammunition must make a DC 10 Constitution saving throw or take 1d4 poison damage. Once applied, the poison retains potency for 1 minute before drying.",100 gp,-
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  92) 53,53,Potion of Healing (common),50 gp,0.5 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  93) 54,54,"Tinderbox
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  94) * This small container holds flint, fire steel, an tinder (usually dry cloth soaked in light oil) used to kindle a fire. Using it to light a torch — or anything else with abundant, exposed fuel — takes an action. Lighting any other fire takes 1 minutes.",5 sp,1 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  95) 55,55,"Torch
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  96) * A torch burns for 1 hour, providing bright light in a 20-foot radius and dim light for an additional 20 feet. If you make a melee attack with a burning torch and hit, it deals 1 fire damage.",1 cp,1 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  97) 56,56,Common Clothes,5 sp,3 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  98) 57,57,Costume,5 gp,4 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500  99) 58,58,Fine Clothes,15 gp,6 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 100) 59,59,Robes,1 gp,4 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 101) 60,60,Traveler's Clothes,2 gp,4 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 102) 61,61,Crystal,10 gp,1 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 103) 62,62,Orb,20 gp,3 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 104) 63,63,Rod,10 gp,2lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 105) 64,64,Staff,5 gp,4 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 106) 65,65,Wand,10 gp,1 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 107) 66,66,Sprig of Mistletoe,1 gp,-
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 108) 67,67,Totem,1 gp,-
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 109) 68,68,Wooden Staff,5 gp,4 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 110) 69,69,Yew Wand,10 gp,1 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 111) 70,70,Amulet,5 gp,1 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 112) 71,71,Emblem,5 gp,-
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 113) 72,72,Reliquary,5 gp,2 lb.
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 1) ,index,gear,cost,contents
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 2) 0,0,Burglar's Pack,16 gp,"Backpack, a bag of 1,000 ball bearings, 10 feet of string, a bell, 5 candles, a crowbar, a hammer, 10 pitons, a hooded lantern, 2 flasks of oil, 5 days rations, a tinderbox and a waterskin. The pack also has 50 feet of hempen rope strapped to the side of it."
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 3) 1,1,Diplomat's Pack,39 gp,"Chest, 2 cases for maps and scrolls, a set of fine clothes, a bottle of ink, an ink pen, a lamp, 2 flasks of oil, 5 sheets of paper, a vial of perfume, sealing wax, and soap."
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 4) 2,2,Dungeoneer's Pack,12 gp,"Backpack, a crowbar, a hammer, 10 pitons, 10 torches, a tinderbox, 10 days of rations, and a waterskin. The pack also has 50 feet of hempen rope strapped to the side of it."
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 5) 3,3,Entertainer's Pack,40 gp,"Backpack, a bedroll, 2 costumes, 5 candles, 5 days of rations, a waterskin, and a disguise kit."
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 6) 4,4,Explorer's Pack,10 gp,"Backpack, a bedroll, a mess kit, a tinderbox, 10 torches, 10 days of rations, and a waterskin. The pack also has 50 feet of hempen rope strapped to the side of it."
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 7) 5,5,Priest's Pack,19 gp,"Backpack, a blanket, 10 candles, a tinderbox, an alms box, 2 blocks of incense, a censer, vestments, 2 days of rations, and a waterskin."
+fb7a28e9c (JonClark28 2023-11-15 15:23:22 -0500 8) 6,6,Scholar's Pack,40 gp,"Backpack, a book of lore, a bottle of ink, an ink pen, 10 sheets of parchment, a little bag of sand, and a small knife."
