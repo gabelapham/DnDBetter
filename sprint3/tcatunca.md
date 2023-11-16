@@ -18,7 +18,10 @@ I achieved all of my assigned issues, and accomplished all I set out to do.
 - Standardized look across window resolutions [83](https://github.com/gabelapham/DnDBetter/issues/83)
   
 ## Files I worked on
-- 
+- app/src/frontend/Spell_Page/src/components/FunctionalCounter.css
+- app/src/frontend/Spell_Page/src/components/SpellBackground.css
+- app/src/frontend/Spell_Page/src/SpellApp.css
+- app/src/frontend/Spell_Page/src/SpellPrep.css
 
 ## What I accomplished
 I accomplished most things involving CSS (for now) and ensured that the look of the website is consistent.
