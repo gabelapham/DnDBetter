@@ -1,0 +1,12 @@
+Index,Dragon Color,Damage Type,Breath Weapon
+0,Black,Acid,5' by 30' line (DEX save)
+1,Blue,Lightning,5' by 30' line (DEX save)
+2,Brass,Fire,5' by 30' line (DEX save)
+3,Bronze,Lightning,5' by 30' line (DEX save)
+4,Copper,Acid,5' by 30' line (DEX save)
+5,Gold,Fire,15' cone (DEX save)
+6,Green,Poison,15' cone (CON save)
+7,Red,Fire,15' cone (DEX save)
+8,Silver,Cold,15' cone (CON save)
+9,White,Cold,15' cone (CON save)
+
