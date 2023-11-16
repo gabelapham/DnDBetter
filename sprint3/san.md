@@ -31,6 +31,9 @@ Seungwoo An, A-Swoo18, DnDBetter
 ## Files I worked on
 
 - ./DnDbetter/app/src/frontend/Background_Page/src/ImageComponent.jsx
+- ./DnDbetter/app/src/frontend/Background_Page/src/ImageComponent.css
+- ./DnDbetter/app/src/frontend/Background_Page/src/App.jsx
+- ./DnDbetter/app/src/frontend/Background_Page/src/App.css
 - ./DnDbetter/app/src/frontend/Stats_Page/src/components/DiceRoller.css
 - ./DnDbetter/app/src/frontend/Stats_Page/src/components/DiceRoller.jsx
 - ./DnDbetter/app/src/frontend/Stats_Page/src/components/DiceRollerPopup.css
