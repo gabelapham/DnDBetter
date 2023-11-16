@@ -8,6 +8,7 @@ import HealthPopup from './components/HealthPopup.jsx'
 import DamagePopup from './components/DamagePopup.jsx'
 import LongRestPopUp from './components/LongRestPopup.jsx'
 import ShortRestPopUp from './components/ShortRestPopup.jsx'
+import pool from '../../../backend/server.cjs'
 import song from './assets/song.mp3'
 
 function Stats() {
