@@ -2,9 +2,9 @@
 Tyler Catuncan, tylerjcatuncan, DnDBetter
 
 ## What I planned to do
-- Standardize CSS for the Spells Page
-- Standardize CSS for Landing Page
-- Ensure that all pages look consistent, even on different window resolutions
+- Standardize CSS for the Spells Page [Issue 81](https://github.com/gabelapham/DnDBetter/issues/81)
+- Standardize CSS for Landing Page [Issue 82](https://github.com/gabelapham/DnDBetter/issues/82)
+- Ensure that all pages look consistent, even on different window resolutions [Issue 83](https://github.com/gabelapham/DnDBetter/issues/83)
 
 ## What I did not do
 I achieved all of my assigned issues, and accomplished all I set out to do.
