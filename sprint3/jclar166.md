@@ -17,7 +17,7 @@ I achieved all of my assigned issues, and accomplished all I set out to do.
 ## Issues I worked on
 - Scraping weapons [78](https://github.com/gabelapham/DnDBetter/issues/78)
 - Scraping armor [77](https://github.com/gabelapham/DnDBetter/issues/77)
-- Scraping usable [79](items https://github.com/gabelapham/DnDBetter/issues/79)
+- Scraping usable items [79](https://github.com/gabelapham/DnDBetter/issues/79)
 - Placing all my previously scraped information on the database [80](https://github.com/gabelapham/DnDBetter/issues/80)
   
 ## Files I worked on
