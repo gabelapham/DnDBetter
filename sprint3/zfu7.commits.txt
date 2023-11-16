@@ -1,0 +1,450 @@
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500  1) import "./spellCreate.css";
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500  2) import { useState } from "react";
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500  3) import CreatePage from "./CreatePage"
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500  4) 
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500  5) function SpellCreate(){
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500  6) 
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500  7)     const [isCreate, setIsCreate] = useState(false);    
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500  8) 
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500  9)     return(
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 10)         <>
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 11)         <div>
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 12)             <div className="createButtonContainer">
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 13)                 <button className="create" onClick={() => setIsCreate(true)}>
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 14)                         Spell Selection  
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 15)                 </button>
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 16)             </div>
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 17)             <div className="createPageContainer">
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 18)                 <CreatePage trigger={isCreate} setTrigger={setIsCreate}>
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 19) 
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 20)                 </CreatePage>
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 21)             </div>
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 22) 
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 23)         </div>
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 24) 
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 25)         </>
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 26)     );
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 27) 
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 28) }
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 29) 
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 30) export default SpellCreate
+
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500  1) .create{
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500  2)     border-color: black;
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500  3)     border-style: solid;
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500  4)     background-color: transparent;
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500  5)     color: black;
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500  6)     /* font-family: "papyrus"; */
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500  7)     /* font-weight: bold; */
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500  8) }
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500  9) 
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 10) .create:hover{
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 11)     background-color: transparent;
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 12)     border-color: black;
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 13) }
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 14) 
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 15) .createButtonContainer{
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 16)     /* background-color: lightblue; */
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 17)     /* left: 500px;
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 18)     top: 220px; */
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 19)    
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 20) }
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 21) .createPageContainer{
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 22)     display: flex;
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 23)     flex-direction: row;
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 24)     /* height: 500px; */
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 25)     border-style: none;
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 26)     /* background-color: transparent; */
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 27)     margin-left: -40px;
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 28) }
+
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500  1) import './CreatePage.css'
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500  2) import React from 'react'
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500  3) import Select from 'react-select'
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500  4) 
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500  5) function CreatePage(props){
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500  6) 
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500  7)         const levelopt = [
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500  8)             {value: '1st', label: '1st'},
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500  9)             {value: '2nd', label: '2nd'},
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 10)             {value: '3rd', label: '3rd'},
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 11)             {value: '4th', label: '4th'},
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 12)             {value: '5th', label: '5th'},
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 13)             {value: '6th', label: '6th'},
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 14)             {value: '7th', label: '7th'},
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 15)         ]
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 16)         const schoolopt = [
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 17)             {value: "Abjuration", label: "Abjuration"},
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 18)             {value: "Evocation", label: "Evocation"},
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 19)             {value: "Enchantment", label: "Enchantment"},
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 20)             {value: "Conjuration", label: "Conjuration"},
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 21)             {value: "Transmutation", label: "Transmutation"},
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 22)             {value: "Illusion", label: "Illusion"},
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 23)             {value: "Divination", label: "Divination"},
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 24)             {value: "Necromancy", label: "Necromancy"},
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 25)         ]
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 26)         const durationopt = [
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 27)             {value: "Instantaneous", label: "Instantaneous"},
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 28)             {value: "Concentration up to minutes", label: "Concentration up to minutes"},
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 29)             {value: "minutes", label: "minutes"},
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 30)             {value: "hours", label: "hours"},
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 31)         ]
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 32)         const casttimeopt = [
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 33)             {value: "1 Action", label: "1 Action"},
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 34)             {value: "1 Action R", label: "1 Action R"},
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 35)             {value: "1 minutes", label: "1 minutes"},
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 36)             {value: "10 minutes", label: "10 minutes"},
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 37)             {value: "1 hour", label: "1 hour"},
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 38)         ]
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 39)     
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 40) 
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 41)     return (props.trigger) ? (
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 42)        
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 43)         <div className='pageContainer'>
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 44) 
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 45)             <div className='pageInner'>
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 46)                 <div>
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 47)                     <button className='close-btn' onClick={() => props.setTrigger(false)}>close</button>
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 48)                     {props.children}
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 49) 
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 50)                 </div>
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 51) 
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 52)                 <div className='category'>
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 53)                     <p>Level</p>
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 54)                     
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 55)                     <Select defaultValue={null} isMulti options={levelopt} className='level-select'>
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 56)                         
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 57)                     </Select>
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 58)                 </div>
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 59)                 <div className='category'>
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 60)                     <p>School</p>
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 61)                     <Select defaultValue={null} isMulti options={schoolopt} className='school-select'>
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 62) 
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 63)                     </Select>
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 64)                 </div>
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 65)                 <div className='category'>
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 66)                     <p>duration</p>
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 67)                     <Select defaultValue={null} isMulti options={schoolopt} className='duration-select'>
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 68)                     
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 69)                     </Select>
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 70)                 </div>
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 71)                 <div className='category'>
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 72)                     <p>Casting Time</p>
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 73)                     <Select defaultValue={null} isMulti options={casttimeopt} className='cast-time-select'>
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 74)                     
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 75)                     </Select>
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 76)                 </div>
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 77)                 
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 78)             </div>
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 79)         </div>
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 80) 
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 81)     ) : "";
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 82) 
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 83) }
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 84) 
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 85) export default CreatePage
+
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500  1) .pageContainer{
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500  2)     /* background-color: lightblue; */
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500  3)     border-style: solid;
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500  4)     height: auto;
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500  5)     color: black;
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500  6)     background-color: gray;
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500  7)     position: absolute;
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500  8)     height: 600px;
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500  9)     width: 600px;
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 10) }
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 11) 
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 12) .pageInner{
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 13)     position: relative;
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 14)     width: 100%;
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 15)     background-color: gray;
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 16)     display: flex;
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 17)     flex-direction: column;
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 18)     align-items: center;
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 19) }
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 20) 
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 21) .close-btn{
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 22)     color: black;
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 23)     position: absolute;
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 24)     top: 10px;
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 25)     right: 10px;
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 26) }
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 27) 
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 28) .category{
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 29)     display: flex;
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 30)     flex-direction: column;
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 31)     color: black;
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 32)     margin-bottom: 20px;
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 33) }
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 34) 
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 35) .level-select{
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 36)     /* width: 200; */
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 37)     /* font-size: large; */
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 38)     justify-content: center;
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 39)     color: black;
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 40)     font-size: 12px;
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 41)     justify-content: center;
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 42) 
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 43) }
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 44) .school-select{
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 45)     /* width: 190px; */
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 46)     color: black;
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 47)     justify-content: center;
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 48) 
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 49) }
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 50) .duration-select{
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 51)     color: black;
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 52)     justify-content: center;
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 53)     font-size: 15px;
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 54) }
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 55) .cast-time-select{
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 56)     color: black;
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 57)     font-size: 15px;
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 58) }
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 59) /* 
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 60) .level-select, .school-select, .duration-select{
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 61)     color: white;
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 62)     align-items: center;
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 63)     justify-content: center;
+1b12bb870 (Zichen 2023-11-15 00:53:51 -0500 64) }  */
+
+
+42f14e6fe (Zichen 2023-11-13 19:58:03 -0500   4) from sqlalchemy import create_engine
+42f14e6fe (Zichen 2023-11-13 19:58:03 -0500   5) 
+42f14e6fe (Zichen 2023-11-13 19:58:03 -0500   6) host = "database-1.cmqlznpoxxy9.us-east-2.rds.amazonaws.com"
+42f14e6fe (Zichen 2023-11-13 19:58:03 -0500   7) user =  "admin"
+42f14e6fe (Zichen 2023-11-13 19:58:03 -0500   8) password = "DnDisAwesome"
+42f14e6fe (Zichen 2023-11-13 19:58:03 -0500   9) db = "dndbetter"
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400  10) 
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500  21) title = ["level", "spell_name", "description","school", "casting_time", "range", "duration", "component"]
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400  22) 
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  23) # spell_df = pd.DataFrame(columns=features)
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400  24) 
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500  25) bardSpell = []
+42f14e6fe (Zichen 2023-11-13 19:58:03 -0500  26) # bardSpell.append(title)
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400  27) 
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400  28) if content:
+42f14e6fe (Zichen 2023-11-13 19:58:03 -0500  29) 
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400  30)     cantrip = content.find("div", id= "wiki-tab-0-0")
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400  31)     if cantrip:
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400  32)         
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400  33)         itr = 0
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400  34)         for individual_spell in cantrip.find_all("tr"):
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  35)             features = []
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400  36)             for element in individual_spell.find_all("td"):
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400  37)     
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400  38)                 if itr == 0:
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  39)                     level = 0
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  40)                     features.append(level)
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400  41)                     spell_name = element.text
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  42)                     features.append(spell_name)
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500  43) 
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500  44)                     anchor_tag = element.find("a")
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500  45)                     description_url = anchor_tag.get("href")
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500  46)                     description_url = "http://dnd5e.wikidot.com" + description_url
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500  47)                     # print(description_url)
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500  48)                     description_page = requests.get(description_url)
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500  49)                     description_soup = BeautifulSoup(description_page.text, "lxml")
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500  50)                     page_content = description_soup.find("div", id="page-content")
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500  51)                     
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500  52)                     content_p_count = 0
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500  53)                     for paragraph in page_content.find_all("p"):
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500  54)                         content_p_count += 1
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500  55) 
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500  56)                     content_itr = 0
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500  57)                     spell_description = ""
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500  58)                     for paragraph in page_content.find_all("p"):
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500  59)                         if content_itr >= 3 and content_itr < content_p_count - 1:
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500  60)                             spell_description = spell_description + paragraph.text
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500  61)                             
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500  62)                             # f = open("output.txt", "a")
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500  63)                             # f.write(paragraph.text + "\n")
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500  64)                             # f.close()
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500  65)                         content_itr += 1
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500  66)                     # print(spell_description)
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500  67)                     features.append(spell_description)
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500  68) 
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400  69)                 elif itr == 1:
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400  70)                     school = element.text
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  71)                     features.append(school)
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400  72)                 elif itr == 2:
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400  73)                     cast_time = element.text
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  74)                     features.append(cast_time)
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400  75)                 elif itr == 3:
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400  76)                     spell_range = element.text
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  77)                     features.append(spell_range)
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400  78)                 elif itr == 4:
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400  79)                     duration = element.text
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  80)                     features.append(duration)
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400  81)                 elif itr == 5:
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400  82)                     component = element.text
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  83)                     features.append(component)
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400  84)                     itr = 0
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  85)                     # print("spell:  ", spell_name)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  86)                     # print("school:  ", school)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  87)                     # print("cast:  ", cast_time)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  88)                     # print("range:  ", spell_range)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  89)                     # print("duration:", duration)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  90)                     # print("component", component)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  91)                     bardSpell.append(features)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  92) 
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400  93)                     continue
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400  94) 
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400  95)                 itr += 1
+54f836edb (Zichen 2023-11-01 17:57:54 -0400  96) 
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400  97)     cantrip = content.find("div", id= "wiki-tab-0-1")
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400  98)     if cantrip:
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400  99)         
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400 100)         itr = 0
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400 101)         for individual_spell in cantrip.find_all("tr"):
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 102)             features = []
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400 103)             for element in individual_spell.find_all("td"):
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400 104)     
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400 105)                 if itr == 0:
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 106)                     level = 1
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 107)                     features.append(level)
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400 108)                     spell_name = element.text
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 109)                     features.append(spell_name)
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500 110) 
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500 111)                     anchor_tag = element.find("a")
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500 112)                     description_url = anchor_tag.get("href")
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500 113)                     description_url = "http://dnd5e.wikidot.com" + description_url
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500 114)                     # print(description_url)
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500 115)                     description_page = requests.get(description_url)
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500 116)                     description_soup = BeautifulSoup(description_page.text, "lxml")
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500 117)                     page_content = description_soup.find("div", id="page-content")
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500 118)                     
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500 119)                     content_p_count = 0
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500 120)                     for paragraph in page_content.find_all("p"):
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500 121)                         content_p_count += 1
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500 122) 
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500 123)                     content_itr = 0
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500 124)                     spell_description = ""
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500 125)                     for paragraph in page_content.find_all("p"):
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500 126)                         if content_itr >= 3 and content_itr < content_p_count - 1:
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500 127)                             spell_description = spell_description + paragraph.text
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500 128)                             
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500 129)                             # f = open("output.txt", "a")
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500 130)                             # f.write(paragraph.text + "\n")
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500 131)                             # f.close()
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500 132)                         content_itr += 1
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500 133)                     # print(spell_description)
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500 134)                     features.append(spell_description)
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500 135) 
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400 136)                 elif itr == 1:
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400 137)                     school = element.text
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 138)                     features.append(school)
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400 139)                 elif itr == 2:
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400 140)                     cast_time = element.text
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 141)                     features.append(cast_time)
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400 142)                 elif itr == 3:
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400 143)                     spell_range = element.text
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 144)                     features.append(spell_range)
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400 145)                 elif itr == 4:
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400 146)                     duration = element.text
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 147)                     features.append(duration)
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400 148)                 elif itr == 5:
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400 149)                     component = element.text
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 150)                     features.append(component)
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400 151)                     itr = 0
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 152)                     # print("spell:  ", spell_name)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 153)                     # print("school:  ", school)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 154)                     # print("cast:  ", cast_time)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 155)                     # print("range:  ", spell_range)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 156)                     # print("duration:", duration)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 157)                     # print("component", component)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 158)                     bardSpell.append(features)
+54f836edb (Zichen 2023-11-01 17:57:54 -0400 159) 
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400 160)                     continue
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400 161) 
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400 162)                 itr += 1
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500 426)                 
+88a8f6297 (Zichen 2023-11-10 17:54:49 -0500 671)    
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400 672) 
+e1337a74a (Zichen 2023-10-31 22:05:00 -0400 673) 
+42f14e6fe (Zichen 2023-11-13 19:58:03 -0500 674) # print(bardSpell)
+42f14e6fe (Zichen 2023-11-13 19:58:03 -0500 675) bardSpell_df = pd.DataFrame(bardSpell, columns=title, index=None)
+42f14e6fe (Zichen 2023-11-13 19:58:03 -0500 676) # bardSpell_df = bardSpell_df.reset_index(drop=True)
+42f14e6fe (Zichen 2023-11-13 19:58:03 -0500 677) # bardSpell_df.drop(index=0, inplace=True)
+42f14e6fe (Zichen 2023-11-13 19:58:03 -0500 678) 
+42f14e6fe (Zichen 2023-11-13 19:58:03 -0500 679) engine = create_engine(f'mysql+pymysql://{user}:{password}@{host}/{db}')
+42f14e6fe (Zichen 2023-11-13 19:58:03 -0500 680) 
+42f14e6fe (Zichen 2023-11-13 19:58:03 -0500 681) bardSpell_df.to_sql(name='bardSpell', con=engine, if_exists='replace', index=False)
+42f14e6fe (Zichen 2023-11-13 19:58:03 -0500 682) 
+42f14e6fe (Zichen 2023-11-13 19:58:03 -0500 683) 
+42f14e6fe (Zichen 2023-11-13 19:58:03 -0500 684) # bardSpell_df.to_csv("./bard.csv", index=False, mode='w');     
+
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500  1) import express from "express"
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500  2) // import mysql from "mysql"
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500  3) import mysql from "mysql2/promise"
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500  4) import cors from "cors"
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500  5) 
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500  6) 
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500  7) const app = express();
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500  8) app.use(cors());
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500  9) app.use(express.json())
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 10) 
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 11) const db = mysql.createPool({
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 12)     host: "database-1.cmqlznpoxxy9.us-east-2.rds.amazonaws.com",
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 13)     user: "admin",
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 14)     password: "DnDisAwesome",
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 15)     database: "dndbetter",
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 16)     waitForConnections: true,
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 17) });
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 18) 
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 19) 
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 20) //routers
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 21) import router from "./spell-router.js"
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 22) 
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 23) app.use('/bardSpell', router)
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 24) app.use('/clericSpell', router)
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 25) app.use('/druidSpell', router)
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 26) app.use('/paladinSpell', router)
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 27) app.use('/rangerSpell', router)
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 28) 
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 29) 
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 30) //test api
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 31) app.get('/', (req, res) => {
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 32)     res.send('hello world');
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 33) })
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 34) 
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 35) //set api endpoint for getting bardSpell datas
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 36) // app.get("/bardSpell", async (req, res)=>{
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 37) //     try{
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 38) //         const [rows, fields] = await db.query('SELECT * FROM bardSpell');
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 39) //         res.json(rows);
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 40) //     }catch (error){
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 41) //         console.error('Error: ', error.message);
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 42) //         res.status(500).json({error: 'Internal Server Error'});
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 43) //     }
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 44) // });
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 45) 
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 46) 
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 47) 
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 48) app.listen(3001, () => {
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 49)     console.log("running on port 3001");
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 50) });
+
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500  1) import { Router } from 'express';
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500  2) 
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500  3) // const bardSpellController = require('./bard-spell-controller.cjs');
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500  4) // const clericSpellController = require('./cleric-spell-controller.cjs');
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500  5) import bardSpellController from "./bard-spell-controller.js"
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500  6) // import clericSpellController from './cleric-spell-controller.js';
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500  7) 
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500  8) 
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500  9) const router = Router();
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 10) 
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 11) router.get('/bardSpell', bardSpellController.getAll);
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 12) 
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 13) router.get('/bardSpell/getAll', bardSpellController.getAll);
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 14) 
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 15) router.get('/bardSpell/getAllByName', bardSpellController.getAllByName);
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 16) 
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 17) router.get('/bardSpell/getAllByAttribute', bardSpellController.getAllByAttribute);
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 18) 
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 19) 
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 20) export default router;
+1a89c9bf6 (Zichen 2023-11-15 18:49:10 -0500 21) // module.exports = router;
+
