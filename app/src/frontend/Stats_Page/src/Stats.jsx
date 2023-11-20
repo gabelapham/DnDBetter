@@ -24,6 +24,8 @@ function Stats() {
     const [maxHP, setMaxHP] = useState(12)
     const [currHP, setCurrHP] = useState(12)
 
+    const [strBon, setStrBon] = useState(0)
+
     const [buttonPopup, setButtonPopup] = useState(false)
     const [healthPopup, setHealthPopup] = useState(false)
     const [damagePopup, setDamagePopup] = useState(false)
@@ -33,7 +35,6 @@ function Stats() {
     const [level, setLevel] = useState(1)
     
     function raceFunc(e) {
-        setRace(e)
         switch(e) {
         case "Dragonborn":
             setRace("Dragonborn")
