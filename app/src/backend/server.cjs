@@ -12,7 +12,7 @@ const app = express();
 // Middleware
 const corsOptions = {
     origin: (origin, callback) => {
-        if (['http://localhost:4173', 'http://127.0.0.1:4173'].includes(origin) || !origin) {
+        if (['http://localhost:4173', 'http://127.0.0.1:4173', 'http://localhost:5173', 'http://127.0.0.1:5173'].includes(origin) || !origin) {
             callback(null, true);
         } else {
             callback(new Error('Not allowed by CORS'));
@@ -71,7 +71,6 @@ app.post('/auth/login', (req, res) => {
 });
 
 // Registration Endpoint
-// Registration Endpoint
 app.post('/auth/register', async (req, res) => {
     try {
         const { username, password } = req.body;
@@ -99,6 +98,20 @@ app.post('/auth/register', async (req, res) => {
         console.error(error);
         res.status(500).send('Error in registration process');
     }
+});
+
+app.post('/statsapp', (res) => {
+    //const query = "SELECT * FROM dndbetter.classes WHERE class = ?";
+    //const [test] = await pool.promise().query(query, 'barbarian');
+    //res = pool.query(query, 'barbarian');
+    return res.status(600)
+    //res = test;
+    //return res;
+    /*
+    pool.query(query, 'barbarian', async(err, results) => {
+        return results;
+    });
+    */
 });
 
 // Start the server

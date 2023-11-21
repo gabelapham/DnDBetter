@@ -9,6 +9,7 @@ import DamagePopup from './components/DamagePopup.jsx'
 import LongRestPopUp from './components/LongRestPopup.jsx'
 import ShortRestPopUp from './components/ShortRestPopup.jsx'
 import song from './assets/song.mp3'
+import DbQuery from './db/query.jsx'
 
 function Stats() {
 
@@ -916,6 +917,7 @@ return(
         <video controls height={70} width={600}>
             <source src={song} type='audio/mp3'></source>
         </video>
+        <DbQuery />
     </>
 )
 }

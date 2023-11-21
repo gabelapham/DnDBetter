@@ -52,7 +52,7 @@ function App() {
             console.log(JSON.stringify(res));
             const accessToken = res?.data?.accessToken;
             const roles = res?.data?.roles;
-            if (res.status === 200) {
+            if (res.status === 200) {  
                 handleSetAuth({ username, roles, accessToken });
                 setUsername('');
                 setPassword('');
@@ -70,9 +70,6 @@ function App() {
             }
             errRef.current.focus();
         }
-
-
-
     };
 
     const handleSignup = async (event) => {
