@@ -100,17 +100,28 @@ app.post('/auth/register', async (req, res) => {
     }
 });
 
-app.post('/statsapp', (res) => {
+app.post('/statsapp', (req, res) => {
+    try {
+        
     //const query = "SELECT * FROM dndbetter.classes WHERE class = ?";
     //const [test] = await pool.promise().query(query, 'barbarian');
-    //res = pool.query(query, 'barbarian');
-    return res.status(600)
+    //req = pool.query(query, 'barbarian');
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Query error.')
+    }
+    //response.statusCode(500);
     //res = test;
     //return res;
     /*
     pool.query(query, 'barbarian', async(err, results) => {
         return results;
     });
+    
+    } catch (err) {
+        console.error(errpr);
+        res.status(601).send('Result error.');
+    }
     */
 });
 

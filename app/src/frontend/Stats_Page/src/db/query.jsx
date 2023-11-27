@@ -1,59 +1,43 @@
 import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
 
-const dbQuery = () => {
-    const [result, setResult] = useState('')
+const baseURL = "http://localhost:3001/auth/register";
 
-    const handleQuery = (event) => {
-        //event.preventDefault();
-        try {
-            const res = axios.post('http://localhost:3001/statsapp');
+function DbQuery() {
+    /*
+    const [post, setPost] = React.useState(null);
 
-            if (res.status === 600) {
-                setResult("haha")
-            } else {
-                //setResult(stringify(res.status))
-                setResult("nope")
-            }
-            //setResult(res);
-            
-            /*
-            console.log(JSON.stringify(res?.status));
-            console.log(JSON.stringify(res));
-            const accessToken = res?.data?.accessToken;
-            const roles = res?.data?.roles;
-            
-            if (res.status === 200) {  
-                handleSetAuth({ username, roles, accessToken });
-                setUsername('');
-                setPassword('');
-                setIsLoggedIn(true);
-            }
-            */
-        } catch (err) {
-            /*
-            if (!err?.response) {
-                setError('No Server Response');
-            } else if (err.response?.status === 400) {
-                setError('Missing Username or Password');
-            } else if (err.response?.status === 401) {
-                setError('Unauthorized');
-            } else {
-                setError('Login Failed');
-            }
-            */
-            setResult("dummy")
-        }
-    };
-    
+    React.useEffect(() => {
+        axios.get(baseURL).then((response) => {
+          setPost(response.data);
+        });
+      }, []);
+
+    if (!post) return null;
+
     return (
-        <div>
-            <p>
-                {result}
-            </p>
-            <button type="button" onClick={() => handleQuery()}>CLICK ME</button>
-        </div>
+    <>
+        <p>
+            {post.message}
+        </p>
+    </>
     )
-}
+    */
+    const [num, setNum] = useState(0)
 
-export default dbQuery;
+    function handleQuery() {
+        const res = axios.post('http://localhost:3001/statsapp').then((response) => {
+            setNum(response.data)
+        });
+    }
+
+   return (
+    <>
+        <p>
+            {num}
+        </p>
+        <button onClick={() => handleQuery()}>Hit Me</button>
+    </>
+   )
+}
+export default DbQuery;
