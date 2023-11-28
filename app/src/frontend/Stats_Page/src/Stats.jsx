@@ -9,7 +9,7 @@ import DamagePopup from './components/DamagePopup.jsx'
 import LongRestPopUp from './components/LongRestPopup.jsx'
 import ShortRestPopUp from './components/ShortRestPopup.jsx'
 import song from './assets/song.mp3'
-import DbQuery from './db/query.jsx'
+import ClassQuery from './db/query.jsx'
 
 function Stats() {
 
@@ -32,6 +32,8 @@ function Stats() {
     const [damagePopup, setDamagePopup] = useState(false)
     const [shortRestPopup, setShortRestPopup] = useState(false)
     const [longRestPopup, setLongRestPopup] = useState(false)
+
+    const [classUpdate, setClassUpdate] = useState(true)
 
     const [level, setLevel] = useState(1)
     
@@ -392,6 +394,7 @@ function Stats() {
                 hpCheck(currHP, (6 + (level * 6) + (2 * level) + (2 * level * constitutionMod) - 2) / 2)
                 break;
         }
+        setClassUpdate(true);
     }
 
 
@@ -917,7 +920,7 @@ return(
         <video controls height={70} width={600}>
             <source src={song} type='audio/mp3'></source>
         </video>
-        <DbQuery />
+        <ClassQuery update={classUpdate} setUpdate={setClassUpdate} pClass={playerClass}/>
     </>
 )
 }
