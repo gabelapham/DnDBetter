@@ -1,43 +1,32 @@
 import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
 
-const baseURL = "http://localhost:3001/auth/register";
+const client = axios.create({
+    baseURL: "http://localhost:3001/statsapp"
+});
 
 function DbQuery() {
-    /*
-    const [post, setPost] = React.useState(null);
+    const [post, setPost] = useState(null)
 
-    React.useEffect(() => {
-        axios.get(baseURL).then((response) => {
-          setPost(response.data);
-        });
-      }, []);
+    useEffect(() => {
+        async function getPost() {
+            const response = await client.get()
+            setPost(response.data[0])
+        }
+        getPost();
+    }, []);
 
-    if (!post) return null;
-
-    return (
-    <>
-        <p>
-            {post.message}
-        </p>
-    </>
-    )
-    */
-    const [num, setNum] = useState(0)
-
-    function handleQuery() {
-        const res = axios.post('http://localhost:3001/statsapp').then((response) => {
-            setNum(response.data)
-        });
-    }
+    if (!post) return ""
 
    return (
     <>
+    <div>
         <p>
-            {num}
+            {post.description}
         </p>
-        <button onClick={() => handleQuery()}>Hit Me</button>
+    </div>
     </>
    )
-}
-export default DbQuery;
+   };
+
+   export default DbQuery;
