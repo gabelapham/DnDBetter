@@ -37,7 +37,8 @@
         "react-select": "^5.8.0",
         "save": "^2.9.0",
         "sequelize": "^6.34.0",
-        "theme-ui": "^0.16.1"
+        "theme-ui": "^0.16.1",
+        "use-axios-client": "^2.0.0"
     },
     "devDependencies": {
         "@types/react": "^18.2.15",

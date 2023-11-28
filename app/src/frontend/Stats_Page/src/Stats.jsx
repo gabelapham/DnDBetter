@@ -33,8 +33,6 @@ function Stats() {
     const [shortRestPopup, setShortRestPopup] = useState(false)
     const [longRestPopup, setLongRestPopup] = useState(false)
 
-    const [classUpdate, setClassUpdate] = useState(true)
-
     const [level, setLevel] = useState(1)
     
     function raceFunc(e) {
@@ -394,7 +392,6 @@ function Stats() {
                 hpCheck(currHP, (6 + (level * 6) + (2 * level) + (2 * level * constitutionMod) - 2) / 2)
                 break;
         }
-        setClassUpdate(true);
     }
 
 
@@ -903,6 +900,10 @@ return(
 
         <input type="checkbox" id="inspiration"></input>
 
+        <p id='prof'>
+            <ClassQuery pClass={playerClass}/>
+        </p>
+
         <button id="item-search-button" onClick={() => setButtonPopup(true)}><img id="search-button" src={search} /></button>
 
         <button id="heal" onClick={() => setHealthPopup(true)}><img id="healpngid" src={healpng} /></button>
@@ -918,9 +919,8 @@ return(
 
         </div>
         <video controls height={70} width={600}>
-            <source src={song} type='audio/mp3'></source>
+            <source src={song} type='audio/mp3' />
         </video>
-        <ClassQuery update={classUpdate} setUpdate={setClassUpdate} pClass={playerClass}/>
     </>
 )
 }

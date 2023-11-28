@@ -1,16 +1,38 @@
 import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
-import './query.css'
+//import './query.css'
+
+//import { useAxios } from 'use-axios-client';
 
 const client = axios.create({
     baseURL: "http://localhost:3001"
 });
 
-const ClassQuery = ({update, setUpdate, pClass}) => {
+/*
+function ClassQuery() {
+    const { data, error, loading } = useAxios({
+        url: "https://jsonplaceholder.typicode.com/posts/1"
+    });
+
+    if (loading || !data) return "Loading...";
+    if (error) return "Error!";
+
+    return (
+        <div>
+            <p>{data.body}</p>
+        </div>
+    )
+}
+export default ClassQuery;
+*/
+
+const ClassQuery = ({pClass}) => {
     const [post, setPost] = useState(null)
-    getPost();
+
     //useEffect(() => {
         async function getPost() {
+            const response = await client.get("/classes");
+            testFunc();
             var n = 0;
             switch (pClass) {
                 case "Barbarian":
@@ -53,23 +75,20 @@ const ClassQuery = ({update, setUpdate, pClass}) => {
                     n = 0;
                     break;
             }
-            const response = await client.get("/classes")
             setPost(response.data[n]);
+            //setTest('End of Async Func')
         }
-    //    getPost();
+
+        getPost();
     //}, []);
 
     if (!post) return ""
 
-   return (update) ? (
+   return (
     <>
-    <div>
-        <p id='prof'>
-            {post.features}
-        </p>
-    </div>
+        {post.features}
     </>
-   ) : ""
-   };
+    )
+};
 
-   export default ClassQuery;
+export default ClassQuery;
