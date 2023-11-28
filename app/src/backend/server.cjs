@@ -100,24 +100,11 @@ app.post('/auth/register', async (req, res) => {
     }
 });
 
-app.get('/statsapp', (req, res) => {
-    const query = "SELECT * FROM dndbetter.clericSpell WHERE spell_name = 'Guidance';"
+app.get('/classes', (req, res) => {
+    const query = "SELECT * FROM dndbetter.classes;"
     pool.query(query, function (err, result, fields) {
         res.json(result);
     });
-    //response.statusCode(500);
-    //res = test;
-    //return res;
-    /*
-    pool.query(query, 'barbarian', async(err, results) => {
-        return results;
-    });
-    
-    } catch (err) {
-        console.error(errpr);
-        res.status(601).send('Result error.');
-    }
-    */
 });
 
 // Start the server

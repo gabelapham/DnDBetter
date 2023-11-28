@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
 
 const client = axios.create({
-    baseURL: "http://localhost:3001/statsapp"
+    baseURL: "http://localhost:3001/classes"
 });
 
 function DbQuery() {
@@ -11,7 +11,7 @@ function DbQuery() {
     useEffect(() => {
         async function getPost() {
             const response = await client.get()
-            setPost(response.data[0])
+            setPost(response.data[1])
         }
         getPost();
     }, []);
@@ -22,7 +22,7 @@ function DbQuery() {
     <>
     <div>
         <p>
-            {post.description}
+            {post.features}
         </p>
     </div>
     </>
