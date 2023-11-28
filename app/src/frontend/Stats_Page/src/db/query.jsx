@@ -11,18 +11,50 @@ const ClassQuery = ({update, setUpdate, pClass}) => {
     getPost();
     //useEffect(() => {
         async function getPost() {
-            const response = await client.get("/classes")
+            var n = 0;
             switch (pClass) {
                 case "Barbarian":
-                    setPost(response.data[1]);
+                    n = 1;
                     break;
                 case "Bard":
-                    setPost(response.data[20]);
+                    n = 30;
+                    break;
+                case "Cleric":
+                    n = 65;
+                    break;
+                case "Druid":
+                    n = 95;
+                    break;
+                case "Fighter":
+                    n = 121;
+                    break;
+                case "Monk":
+                    n = 146;
+                    break;
+                case "Paladin":
+                    n = 180;
+                    break;
+                case "Ranger":
+                    n = 210;
+                    break;
+                case "Rogue":
+                    n = 242;
+                    break;
+                case "Sorcerer":
+                    n = 268;
+                    break;
+                case "Warlock":
+                    n = 292;
+                    break;
+                case "Wizard":
+                    n = 317;
                     break;
                 default:
-                    setPost(response.data[3]);
+                    n = 0;
                     break;
             }
+            const response = await client.get("/classes")
+            setPost(response.data[n]);
         }
     //    getPost();
     //}, []);
