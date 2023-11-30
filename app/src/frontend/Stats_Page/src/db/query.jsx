@@ -29,6 +29,7 @@ export default ClassQuery;
 const Query = ({pClass, level, race}) => {
     const [post, setPost] = useState(null);
     const [equip, setEquip] = useState(null);
+    const [feature, setFeature] = useState(null);
     var profResponse;
     var equipResponse;
 
@@ -86,8 +87,35 @@ const Query = ({pClass, level, race}) => {
                 default:
                     break;
             }
+            switch (race) {
+                case "Dragonborn":
+                    break;
+                case "Dwarf":
+                    break;
+                case "Elf":
+                    break;
+                case "Gnome":
+                    break;
+                case "Half-Elf":
+                    break;
+                case "Halfling":
+                    break;
+                case "Half-Orc":
+                    break;
+                case "Human":
+                    break;
+                case "Tiefling":
+                    break;
+                default:
+                    break;
+            }
             setPost(profResponse.data[1]);
             setEquip(equipResponse.data[2]);
+
+            if (post.level <= level) {
+                var temp = feature + profResponse.data[i];
+                setFeature(temp);
+            }
         }
         getPost();
     },);
@@ -101,6 +129,9 @@ const Query = ({pClass, level, race}) => {
         </p>
         <p id='equipment'>
             {equip.features}
+        </p>
+        <p>
+            {feature}
         </p>
     </>
     )

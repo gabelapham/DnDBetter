@@ -10,12 +10,12 @@
 }
 
 #equipment {
-    font-size: 20px;
+    font-size: 18px;
     color: black;
     position: absolute;
-    top: 1680px;
-    left: 740px;
-    max-width: 20%;
-    max-height: 20%;
-    overflow:hidden
+    top: 1990px;
+    left: 612px;
+    max-width: 28%;
+    max-height: 4.5%;
+    overflow: scroll;
 }
