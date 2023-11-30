@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
-//import './query.css'
+import './query.css'
 
 //import { useAxios } from 'use-axios-client';
 
@@ -26,67 +26,82 @@ function ClassQuery() {
 export default ClassQuery;
 */
 
-const ClassQuery = ({pClass}) => {
-    const [post, setPost] = useState(null)
+const ClassQuery = ({pClass, level, race}) => {
+    const [post, setPost] = useState(null);
+    const [equip, setEquip] = useState(null);
+    var profResponse;
+    var equipResponse;
 
-    //useEffect(() => {
+    useEffect(() => {
         async function getPost() {
-            const response = await client.get("/classes");
-            testFunc();
-            var n = 0;
             switch (pClass) {
                 case "Barbarian":
-                    n = 1;
+                    profResponse = await client.get("/classes/barbarian");
+                    equipResponse = await client.get("/classes/barbarian");
                     break;
                 case "Bard":
-                    n = 30;
+                    profResponse = await client.get("/classes/bard");
+                    equipResponse = await client.get("/classes/bard");
                     break;
                 case "Cleric":
-                    n = 65;
+                    profResponse = await client.get("/classes/cleric");
+                    equipResponse = await client.get("/classes/cleric");
                     break;
                 case "Druid":
-                    n = 95;
+                    profResponse = await client.get("/classes/druid");
+                    equipResponse = await client.get("/classes/druid");
                     break;
                 case "Fighter":
-                    n = 121;
+                    profResponse = await client.get("/classes/fighter");
+                    equipResponse = await client.get("/classes/fighter");
                     break;
                 case "Monk":
-                    n = 146;
+                    profResponse = await client.get("/classes/monk");
+                    equipResponse = await client.get("/classes/monk");
                     break;
                 case "Paladin":
-                    n = 180;
+                    profResponse = await client.get("/classes/paladin");
+                    equipResponse = await client.get("/classes/paladin");
                     break;
                 case "Ranger":
-                    n = 210;
+                    profResponse = await client.get("/classes/ranger");
+                    equipResponse = await client.get("/classes/ranger");
                     break;
                 case "Rogue":
-                    n = 242;
+                    profResponse = await client.get("/classes/rogue");
+                    equipResponse = await client.get("/classes/rogue");
                     break;
                 case "Sorcerer":
-                    n = 268;
+                    profResponse = await client.get("/classes/sorcerer");
+                    equipResponse = await client.get("/classes/sorcerer");
                     break;
                 case "Warlock":
-                    n = 292;
+                    profResponse = await client.get("/classes/warlock");
+                    equipResponse = await client.get("/classes/warlock");
                     break;
                 case "Wizard":
-                    n = 317;
+                    profResponse = await client.get("/classes/wizard");
+                    equipResponse = await client.get("/classes/wizard");
                     break;
                 default:
-                    n = 0;
                     break;
             }
-            setPost(response.data[n]);
-            //setTest('End of Async Func')
+            setPost(profResponse.data[1]);
+            setEquip(equipResponse.data[2]);
         }
-
         getPost();
-    //}, []);
+    },);
 
     if (!post) return ""
 
    return (
     <>
-        {post.features}
+        <p id='prof'>
+            {post.features}
+        </p>
+        <p id='equipment'>
+            {equip.features}
+        </p>
     </>
     )
 };

@@ -900,9 +900,7 @@ return(
 
         <input type="checkbox" id="inspiration"></input>
 
-        <p id='prof'>
-            <ClassQuery pClass={playerClass}/>
-        </p>
+        <ClassQuery pClass={playerClass} level={level} race={playerRace}/>
 
         <button id="item-search-button" onClick={() => setButtonPopup(true)}><img id="search-button" src={search} /></button>
 
