@@ -9,7 +9,7 @@ import DamagePopup from './components/DamagePopup.jsx'
 import LongRestPopUp from './components/LongRestPopup.jsx'
 import ShortRestPopUp from './components/ShortRestPopup.jsx'
 import song from './assets/song.mp3'
-import ClassQuery from './db/query.jsx'
+import Query from './db/query.jsx'
 
 function Stats() {
 
@@ -900,7 +900,7 @@ return(
 
         <input type="checkbox" id="inspiration"></input>
 
-        <ClassQuery pClass={playerClass} level={level} race={playerRace}/>
+        <Query pClass={playerClass} level={level} race={playerRace}/>
 
         <button id="item-search-button" onClick={() => setButtonPopup(true)}><img id="search-button" src={search} /></button>
 

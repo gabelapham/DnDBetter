@@ -26,7 +26,7 @@ function ClassQuery() {
 export default ClassQuery;
 */
 
-const ClassQuery = ({pClass, level, race}) => {
+const Query = ({pClass, level, race}) => {
     const [post, setPost] = useState(null);
     const [equip, setEquip] = useState(null);
     var profResponse;
@@ -106,4 +106,4 @@ const ClassQuery = ({pClass, level, race}) => {
     )
 };
 
-export default ClassQuery;
+export default Query;
