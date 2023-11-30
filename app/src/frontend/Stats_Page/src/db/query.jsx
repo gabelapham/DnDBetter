@@ -10,9 +10,11 @@ const Query = ({pClass, level, race}) => {
     const [post, setPost] = useState(null);
     const [equip, setEquip] = useState(null);
     const [lang, setLang] = useState(null);
-    var langResponse;
+    const [raceFeat, setRaceFeat] = useState(null);
+    var raceResponse;
     var profResponse;
     var equipResponse;
+    var temp;
 
     useEffect(() => {
         async function getPost() {
@@ -70,40 +72,46 @@ const Query = ({pClass, level, race}) => {
             }
             switch (race) {
                 case "Dragonborn":
-                    langResponse = await client.get("/races/dragonborn");
-                    setLang(langResponse.data[8]);
+                    raceResponse = await client.get("/races/dragonborn");
+                    setLang(raceResponse.data[8]);
+                    temp = "";
+                    for (var i = 1; i < 8; i++) {
+                        temp += raceResponse.data[i].Features;
+                        temp += " ";
+                    }
+                    setRaceFeat(temp);
                     break;
                 case "Dwarf":
-                    langResponse = await client.get("/races/dwarf");
-                    setLang(langResponse.data[10]);
+                    raceResponse = await client.get("/races/dwarf");
+                    setLang(raceResponse.data[10]);
                     break;
                 case "Elf":
-                    langResponse = await client.get("/races/elf");
-                    setLang(langResponse.data[9]);
+                    raceResponse = await client.get("/races/elf");
+                    setLang(raceResponse.data[9]);
                     break;
                 case "Gnome":
-                    langResponse = await client.get("/races/gnome");
-                    setLang(langResponse.data[7]);
+                    raceResponse = await client.get("/races/gnome");
+                    setLang(raceResponse.data[7]);
                     break;
                 case "Half-Elf":
-                    langResponse = await client.get("/races/halfelf");
-                    setLang(langResponse.data[7]);
+                    raceResponse = await client.get("/races/halfelf");
+                    setLang(raceResponse.data[7]);
                     break;
                 case "Halfling":
-                    langResponse = await client.get("/races/halfling");
-                    setLang(langResponse.data[7]);
+                    raceResponse = await client.get("/races/halfling");
+                    setLang(raceResponse.data[7]);
                     break;
                 case "Half-Orc":
-                    langResponse = await client.get("/races/halforc");
-                    setLang(langResponse.data[9]);
+                    raceResponse = await client.get("/races/halforc");
+                    setLang(raceResponse.data[9]);
                     break;
                 case "Human":
-                    langResponse = await client.get("/races/human");
-                    setLang(langResponse.data[5]);
+                    raceResponse = await client.get("/races/human");
+                    setLang(raceResponse.data[5]);
                     break;
                 case "Tiefling":
-                    langResponse = await client.get("/races/tiefling");
-                    setLang(langResponse.data[7]);
+                    raceResponse = await client.get("/races/tiefling");
+                    setLang(raceResponse.data[7]);
                     break;
                 default:
                     break;
@@ -126,6 +134,9 @@ const Query = ({pClass, level, race}) => {
         </p>
         <p id='language'>
             {lang.Features}
+        </p>
+        <p id='racialFeats'>
+            {raceFeat}
         </p>
     </>
     )
