@@ -5,7 +5,7 @@
     top: 1720px;
     left: 87px;
     max-width: 28%;
-    max-height: 9%;
+    max-height: 7.7%;
     overflow: scroll;
 }
 
@@ -17,5 +17,16 @@
     left: 612px;
     max-width: 28%;
     max-height: 4.5%;
+    overflow: scroll;
+}
+
+#language {
+    font-size: 20px;
+    color: black;
+    position: absolute;
+    top: 1890px;
+    left: 87px;
+    max-width: 28%;
+    height: 5%;
     overflow: scroll;
 }

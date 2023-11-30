@@ -2,34 +2,15 @@ import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
 import './query.css'
 
-//import { useAxios } from 'use-axios-client';
-
 const client = axios.create({
     baseURL: "http://localhost:3001"
 });
 
-/*
-function ClassQuery() {
-    const { data, error, loading } = useAxios({
-        url: "https://jsonplaceholder.typicode.com/posts/1"
-    });
-
-    if (loading || !data) return "Loading...";
-    if (error) return "Error!";
-
-    return (
-        <div>
-            <p>{data.body}</p>
-        </div>
-    )
-}
-export default ClassQuery;
-*/
-
 const Query = ({pClass, level, race}) => {
     const [post, setPost] = useState(null);
     const [equip, setEquip] = useState(null);
-    const [feature, setFeature] = useState(null);
+    const [lang, setLang] = useState(null);
+    var langResponse;
     var profResponse;
     var equipResponse;
 
@@ -89,33 +70,46 @@ const Query = ({pClass, level, race}) => {
             }
             switch (race) {
                 case "Dragonborn":
+                    langResponse = await client.get("/races/dragonborn");
+                    setLang(langResponse.data[8]);
                     break;
                 case "Dwarf":
+                    langResponse = await client.get("/races/dwarf");
+                    setLang(langResponse.data[10]);
                     break;
                 case "Elf":
+                    langResponse = await client.get("/races/elf");
+                    setLang(langResponse.data[9]);
                     break;
                 case "Gnome":
+                    langResponse = await client.get("/races/gnome");
+                    setLang(langResponse.data[7]);
                     break;
                 case "Half-Elf":
+                    langResponse = await client.get("/races/halfelf");
+                    setLang(langResponse.data[7]);
                     break;
                 case "Halfling":
+                    langResponse = await client.get("/races/halfling");
+                    setLang(langResponse.data[7]);
                     break;
                 case "Half-Orc":
+                    langResponse = await client.get("/races/halforc");
+                    setLang(langResponse.data[9]);
                     break;
                 case "Human":
+                    langResponse = await client.get("/races/human");
+                    setLang(langResponse.data[5]);
                     break;
                 case "Tiefling":
+                    langResponse = await client.get("/races/tiefling");
+                    setLang(langResponse.data[7]);
                     break;
                 default:
                     break;
             }
             setPost(profResponse.data[1]);
             setEquip(equipResponse.data[2]);
-
-            if (post.level <= level) {
-                var temp = feature + profResponse.data[i];
-                setFeature(temp);
-            }
         }
         getPost();
     },);
@@ -130,8 +124,8 @@ const Query = ({pClass, level, race}) => {
         <p id='equipment'>
             {equip.features}
         </p>
-        <p>
-            {feature}
+        <p id='language'>
+            {lang.Features}
         </p>
     </>
     )
