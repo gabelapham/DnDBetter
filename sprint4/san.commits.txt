@@ -1,0 +1,34 @@
+ImageComponent.jsx
+f57177df1 (A-Swoo18   2023-12-01 18:14:05 -0500 24)       {}
+
+setupTests.js
+f57177df1 (A-Swoo18   2023-12-01 18:14:05 -0500 1) 
+
+README.md
+60207e22e (A-Swoo18   2023-12-01 18:29:57 -0500  1) # Product Name: DnDBetter
+60207e22e (A-Swoo18   2023-12-01 18:29:57 -0500  2) 
+60207e22e (A-Swoo18   2023-12-01 18:29:57 -0500  4)
+60207e22e (A-Swoo18   2023-12-01 18:29:57 -0500  9)
+60207e22e (A-Swoo18   2023-12-01 18:29:57 -0500 10) - Seungwoo "Aiden" An (A-Swoo18)
+60207e22e (A-Swoo18   2023-12-01 18:29:57 -0500 11) - Tyler Catuncan (tylerjcatuncan)
+60207e22e (A-Swoo18   2023-12-01 18:29:57 -0500 12) - Jonathan Clark (JonDennisClark)
+60207e22e (A-Swoo18   2023-12-01 18:29:57 -0500 13) - Triton Eden (TritonEden)
+60207e22e (A-Swoo18   2023-12-01 18:29:57 -0500 14) - Zichen "Frank" Fu (CelestialTrace)
+60207e22e (A-Swoo18   2023-12-01 18:29:57 -0500 15) - Gabriel Lapham (gabelapham)
+60207e22e (A-Swoo18   2023-12-01 18:29:57 -0500 16) - Cooper Sarphie (cooperalpaca)
+60207e22e (A-Swoo18   2023-12-01 18:29:57 -0500 17)
+60207e22e (A-Swoo18   2023-12-01 18:29:57 -0500 18) ## Download the DnDBetter on React
+60207e22e (A-Swoo18   2023-12-01 18:29:57 -0500 19)
+60207e22e (A-Swoo18   2023-12-01 18:29:57 -0500 20) - Download the file from the github and open it 
+on github desktop/git bash
+60207e22e (A-Swoo18   2023-12-01 18:29:57 -0500 21) - follow the description on how to start react website on official React website: https://legacy.reactjs.org/
+60207e22e (A-Swoo18   2023-12-01 18:29:57 -0500 22) - open the termial
+60207e22e (A-Swoo18   2023-12-01 18:29:57 -0500 23) - command "npm run"
+60207e22e (A-Swoo18   2023-12-01 18:29:57 -0500 24)
+60207e22e (A-Swoo18   2023-12-01 18:29:57 -0500 25) ## Instructions on how to use the DnDBetter     
+60207e22e (A-Swoo18   2023-12-01 18:29:57 -0500 26)
+60207e22e (A-Swoo18   2023-12-01 18:29:57 -0500 27) - DnDBetter is an online tool to help users to freely design their own characters and develope better experience in Dungeons & Dragons Players. If you are new to DnDBetter, please click the audio sample on the bottom of the page for the page description.
+60207e22e (A-Swoo18   2023-12-01 18:29:57 -0500 28)
+60207e22e (A-Swoo18   2023-12-01 18:29:57 -0500 29) ## License information
+60207e22e (A-Swoo18   2023-12-01 18:29:57 -0500 30)
+60207e22e (A-Swoo18   2023-12-01 18:29:57 -0500 31) - TBD
