@@ -12,7 +12,7 @@ const app = express();
 // Middleware
 const corsOptions = {
     origin: (origin, callback) => {
-        if (['http://localhost:4173', 'http://127.0.0.1:4173'].includes(origin) || !origin) {
+        if (['http://localhost:4173', 'http://127.0.0.1:4173', 'http://localhost:5173', 'http://127.0.0.1:5173'].includes(origin) || !origin) {
             callback(null, true);
         } else {
             callback(new Error('Not allowed by CORS'));
@@ -71,7 +71,6 @@ app.post('/auth/login', (req, res) => {
 });
 
 // Registration Endpoint
-// Registration Endpoint
 app.post('/auth/register', async (req, res) => {
     try {
         const { username, password } = req.body;
@@ -99,6 +98,136 @@ app.post('/auth/register', async (req, res) => {
         console.error(error);
         res.status(500).send('Error in registration process');
     }
+});
+
+/* Individual Classes */
+app.get('/classes/barbarian', (req, res) => {
+    const query = "SELECT * FROM dndbetter.classes WHERE class = 'barbarian';"
+    pool.query(query, function (err, result, fields) {
+        res.json(result);
+    });
+});
+app.get('/classes/bard', (req, res) => {
+    const query = "SELECT * FROM dndbetter.classes WHERE class = 'bard';"
+    pool.query(query, function (err, result, fields) {
+        res.json(result);
+    });
+});
+app.get('/classes/cleric', (req, res) => {
+    const query = "SELECT * FROM dndbetter.classes WHERE class = 'cleric';"
+    pool.query(query, function (err, result, fields) {
+        res.json(result);
+    });
+});
+app.get('/classes/druid', (req, res) => {
+    const query = "SELECT * FROM dndbetter.classes WHERE class = 'druid';"
+    pool.query(query, function (err, result, fields) {
+        res.json(result);
+    });
+});
+app.get('/classes/fighter', (req, res) => {
+    const query = "SELECT * FROM dndbetter.classes WHERE class = 'fighter';"
+    pool.query(query, function (err, result, fields) {
+        res.json(result);
+    });
+});
+app.get('/classes/monk', (req, res) => {
+    const query = "SELECT * FROM dndbetter.classes WHERE class = 'monk';"
+    pool.query(query, function (err, result, fields) {
+        res.json(result);
+    });
+});
+app.get('/classes/paladin', (req, res) => {
+    const query = "SELECT * FROM dndbetter.classes WHERE class = 'paladin';"
+    pool.query(query, function (err, result, fields) {
+        res.json(result);
+    });
+});
+app.get('/classes/ranger', (req, res) => {
+    const query = "SELECT * FROM dndbetter.classes WHERE class = 'ranger';"
+    pool.query(query, function (err, result, fields) {
+        res.json(result);
+    });
+});
+app.get('/classes/rogue', (req, res) => {
+    const query = "SELECT * FROM dndbetter.classes WHERE class = 'rogue';"
+    pool.query(query, function (err, result, fields) {
+        res.json(result);
+    });
+});
+app.get('/classes/sorcerer', (req, res) => {
+    const query = "SELECT * FROM dndbetter.classes WHERE class = 'sorcerer';"
+    pool.query(query, function (err, result, fields) {
+        res.json(result);
+    });
+});
+app.get('/classes/warlock', (req, res) => {
+    const query = "SELECT * FROM dndbetter.classes WHERE class = 'warlock';"
+    pool.query(query, function (err, result, fields) {
+        res.json(result);
+    });
+});
+app.get('/classes/wizard', (req, res) => {
+    const query = "SELECT * FROM dndbetter.classes WHERE class = 'wizard';"
+    pool.query(query, function (err, result, fields) {
+        res.json(result);
+    });
+});
+
+/* Individual Races */
+app.get('/races/dragonborn', (req, res) => {
+    const query = "SELECT * FROM dndbetter.races WHERE race = 'Dragonborn';"
+    pool.query(query, function (err, result, fields) {
+        res.json(result);
+    });
+});
+app.get('/races/dwarf', (req, res) => {
+    const query = "SELECT * FROM dndbetter.races WHERE race = 'Dwarf';"
+    pool.query(query, function (err, result, fields) {
+        res.json(result);
+    });
+});
+app.get('/races/elf', (req, res) => {
+    const query = "SELECT * FROM dndbetter.races WHERE race = 'Elf';"
+    pool.query(query, function (err, result, fields) {
+        res.json(result);
+    });
+});
+app.get('/races/gnome', (req, res) => {
+    const query = "SELECT * FROM dndbetter.races WHERE race = 'Gnome';"
+    pool.query(query, function (err, result, fields) {
+        res.json(result);
+    });
+});
+app.get('/races/halfelf', (req, res) => {
+    const query = "SELECT * FROM dndbetter.races WHERE race = 'Half Elf';"
+    pool.query(query, function (err, result, fields) {
+        res.json(result);
+    });
+});
+app.get('/races/halforc', (req, res) => {
+    const query = "SELECT * FROM dndbetter.races WHERE race = 'Half Orc';"
+    pool.query(query, function (err, result, fields) {
+        res.json(result);
+    });
+});
+app.get('/races/halfling', (req, res) => {
+    const query = "SELECT * FROM dndbetter.races WHERE race = 'Halfling';"
+    pool.query(query, function (err, result, fields) {
+        res.json(result);
+    });
+});
+app.get('/races/human', (req, res) => {
+    const query = "SELECT * FROM dndbetter.races WHERE race = 'Human';"
+    pool.query(query, function (err, result, fields) {
+        res.json(result);
+    });
+});
+app.get('/races/tiefling', (req, res) => {
+    const query = "SELECT * FROM dndbetter.races WHERE race = 'Tiefling';"
+    pool.query(query, function (err, result, fields) {
+        res.json(result);
+    });
 });
 
 // Start the server

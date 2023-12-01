@@ -6,9 +6,9 @@
     border-width: 0.5px;
     border-radius: 60px;
     font-size: 17px;
-    margin-top: 4px;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
+    margin-top: -10px;
     align-items: center;
     justify-content: center;
     color: black;
@@ -34,8 +34,9 @@
     display: flex;
     /* background-color: lightblue; */
 
-    width: 130px;
-    height: 28px;
+    width: 210px;
+    height: 55px;
+    margin-left: 10px;
     margin-top: 6.5px;
     align-items: center;
     justify-content: space-around;
@@ -44,10 +45,11 @@
 }
 
 .spellContent{
-    margin-left: -94px;
+    margin-left: -76px;
 }
 
 .counterFont{
+    margin-top: 0px;
     font-family: "papyrus";
     font-size: larger;
     padding-top: 3px;

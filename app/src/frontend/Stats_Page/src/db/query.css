@@ -1,0 +1,54 @@
+#prof {
+    font-size: 20px;
+    color: black;
+    position: absolute;
+    top: 1720px;
+    left: 87px;
+    max-width: 28%;
+    max-height: 7.7%;
+    overflow: scroll;
+}
+
+#equipment {
+    font-size: 18px;
+    color: black;
+    position: absolute;
+    top: 1990px;
+    left: 612px;
+    max-width: 28%;
+    max-height: 4.5%;
+    overflow: scroll;
+}
+
+#language {
+    font-size: 20px;
+    color: black;
+    position: absolute;
+    top: 1890px;
+    left: 87px;
+    max-width: 28%;
+    height: 5%;
+    overflow: scroll;
+}
+
+#racialFeats {
+    font-size: 20px;
+    color: black;
+    position: absolute;
+    top: 1045px;
+    left: 1131px;
+    max-width: 28.6%;
+    max-height: 20%;
+    overflow: scroll;
+}
+
+#classFeats {
+    font-size: 20px;
+    color: black;
+    position: absolute;
+    top: 1490px;
+    left: 1131px;
+    max-width: 28.6%;
+    max-height: 25%;
+    overflow: scroll;
+}

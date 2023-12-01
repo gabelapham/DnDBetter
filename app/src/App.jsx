@@ -4,7 +4,7 @@ import Landing from './frontend/Landing_Page/src/App.jsx'
 import Spells from './frontend/Spell_Page/src/SpellApp.jsx'
 import StatsApp from './frontend/Stats_Page/src/StatsApp.jsx'
 import Background from './frontend/Background_Page/src/App.jsx'
-import Login from './frontend/Login_Page/src/App.jsx'
+import Login from './frontend/Login_page/src/App.jsx'
 import d20 from './assets/d20.png'
 
 function App() {

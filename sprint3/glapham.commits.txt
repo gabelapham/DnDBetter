@@ -1,0 +1,1112 @@
+app/src/frontend/Stats_Page/src/StatsApp.jsx
+8ec086eb2 (gabelapham     2023-11-14 19:52:42 -0500  6) import DiceRollerPopup from './components/DiceRollerPopup.jsx';
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  8) const StatsApp = () => {
+ecef3bd51 (gabelapham     2023-11-13 01:55:59 -0500 14)
+
+app/src/frontend/Stats_Page/src/Stats.jsx
+8ec086eb2 (gabelapham     2023-11-14 19:52:42 -0500   3) import Popup from './components/ItemSearch.jsx'
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500   4) import search from './assets/search.png'
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500   5) import healpng from './assets/heal.png'
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500   6) import dmgpng from './assets/damage.png'
+8ec086eb2 (gabelapham     2023-11-14 19:52:42 -0500   7) import HealthPopup from './components/HealthPopup.jsx'
+8ec086eb2 (gabelapham     2023-11-14 19:52:42 -0500   8) import DamagePopup from './components/DamagePopup.jsx'
+e6323ffd0 (gabelapham     2023-11-14 22:17:27 -0500   9) import LongRestPopUp from './components/LongRestPopup.jsx'
+2d61d2af0 (gabelapham     2023-11-15 01:13:09 -0500  10) import ShortRestPopUp from './components/ShortRestPopup.jsx'
+3977fa409 (gabelapham     2023-11-15 21:59:17 -0500  11) import pool from '../../../backend/server.cjs'
+730e8026e (gabelapham     2023-11-14 21:23:58 -0500  12) import song from './assets/song.mp3'
+5067e90c6 (gabelapham     2023-11-10 13:34:23 -0500  15)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  16)     const [playerClass, setClass] = useState("Barbarian")
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  17)     const [playerBackground, setBackground] = useState("Acolyte")
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  18)     const [playerRace, setRace] = useState("Dragonborn")
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  19)     const [playerSubRace, setSubRace] = useState("Black")
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  20)     const [playerAlignment, setAlignment] = useState("LG")
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  21)     const [playerSpeed, setSpeed] = useState("30")
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  22)     const [playerHitDice, setHitDice] = useState(12)
+2d61d2af0 (gabelapham     2023-11-15 01:13:09 -0500  23)     const [maxHitDice, setMaxHitDice] = useState(1)
+e1f94ab8a (gabelapham     2023-11-13 12:25:40 -0500  24)     const [currHitDice, setCurrHitDice] = useState(1)
+e1f94ab8a (gabelapham     2023-11-13 12:25:40 -0500  25)     const [maxHP, setMaxHP] = useState(12)
+e1f94ab8a (gabelapham     2023-11-13 12:25:40 -0500  26)     const [currHP, setCurrHP] = useState(12)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  27)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  28)     const [buttonPopup, setButtonPopup] = useState(false)
+1527168e8 (gabelapham     2023-11-14 16:57:32 -0500  29)     const [healthPopup, setHealthPopup] = useState(false)
+1527168e8 (gabelapham     2023-11-14 16:57:32 -0500  30)     const [damagePopup, setDamagePopup] = useState(false)
+8ec086eb2 (gabelapham     2023-11-14 19:52:42 -0500  31)     const [shortRestPopup, setShortRestPopup] = useState(false)
+8ec086eb2 (gabelapham     2023-11-14 19:52:42 -0500  32)     const [longRestPopup, setLongRestPopup] = useState(false)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  33)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  35)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  36)     function raceFunc(e) {
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  37)         setRace(e)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  38)         switch(e) {
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  39)         case "Dragonborn":
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  40)             setRace("Dragonborn")
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  41)             subrace.value = "Black"
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  42)             setSubRace("Black")
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  43)             setSpeed("30")
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  44)             return;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  45)         case "Dwarf":
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  46)             setRace("Dwarf")
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  47)             subrace.value = "Hill"
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  48)             setSubRace("Hill")
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  49)             setSpeed("25")
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  50)             return;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  51)         case "Elf":
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  52)             setRace("Elf")
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  53)             subrace.value = "High"
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  54)             setSubRace("High")
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  55)             setSpeed("30")
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  56)             return;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  57)         case "Gnome":
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  58)             setRace("Gnome")
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  59)             subrace.value = "Rock"
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  60)             setSubRace("Rock")
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  61)             setSpeed("25")
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  62)             return;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  63)         case "Half-Elf":
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  64)             setRace("Half-Elf")
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  65)             subrace.value = "NA"
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  66)             setSubRace("NA")
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  67)             setSpeed("30")
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  68)             return;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  69)         case "Halfling":
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  70)             setRace("Halfling")
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  71)             subrace.value = "Lightfoot"
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  72)             setSubRace("Lightfoot")
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  73)             setSpeed("25")
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  74)             return;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  75)         case "Half-Orc":
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  76)             setRace("Half-Orc")
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  77)             subrace.value = "NA"
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  78)             setSubRace("NA")
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  79)             setSpeed("30")
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  80)             return;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  81)         case "Human":
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  82)             setRace("Human")
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  83)             subrace.value = "Normal"
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  84)             setSubRace("Normal")
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  85)             setSpeed("30")
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  86)             return;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  87)         case "Tiefling":
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  88)             setRace("Tiefling")
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  89)             subrace.value = "NA"
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  90)             setSubRace("NA")
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  91)             return;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  92)         default:
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  93)             subrace.value = "NA"
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  94)             setSubRace("NA")
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  95)             setSpeed("30")
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  96)             return;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  97)         }
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  98)     }
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500  99)
+e1f94ab8a (gabelapham     2023-11-13 12:25:40 -0500 146)         setMaxHP((playerHitDice + (lvl * playerHitDice) + (2 * lvl) + (2 * lvl * constitutionMod) - 2) / 2)
+1527168e8 (gabelapham     2023-11-14 16:57:32 -0500 147)         hpCheck(currHP, (playerHitDice + (lvl * playerHitDice) + (2 * lvl) + (2 * lvl * constitutionMod) - 2) / 2)
+2d61d2af0 (gabelapham     2023-11-15 01:13:09 -0500 148)         if (currHitDice == maxHitDice) {
+2d61d2af0 (gabelapham     2023-11-15 01:13:09 -0500 149)             setCurrHitDice(lvl)
+2d61d2af0 (gabelapham     2023-11-15 01:13:09 -0500 150)         }
+2d61d2af0 (gabelapham     2023-11-15 01:13:09 -0500 151)         setMaxHitDice(lvl)
+e1f94ab8a (gabelapham     2023-11-13 12:25:40 -0500 153)             case '1':
+e1f94ab8a (gabelapham     2023-11-13 12:25:40 -0500 154)             case '2':
+e1f94ab8a (gabelapham     2023-11-13 12:25:40 -0500 155)             case '3':
+e1f94ab8a (gabelapham     2023-11-13 12:25:40 -0500 156)             case '4':
+e1f94ab8a (gabelapham     2023-11-13 12:25:40 -0500 159)             case '5':
+e1f94ab8a (gabelapham     2023-11-13 12:25:40 -0500 160)             case '6':
+e1f94ab8a (gabelapham     2023-11-13 12:25:40 -0500 161)             case '7':
+e1f94ab8a (gabelapham     2023-11-13 12:25:40 -0500 162)             case '8':
+e1f94ab8a (gabelapham     2023-11-13 12:25:40 -0500 165)             case '9':
+e1f94ab8a (gabelapham     2023-11-13 12:25:40 -0500 239)         setMaxHP((playerHitDice + (level * playerHitDice) + (2 * level) + (2 * level * Mod(e)) - 2) / 2)
+1527168e8 (gabelapham     2023-11-14 16:57:32 -0500 240)         hpCheck(currHP, (playerHitDice + (level * playerHitDice) + (2 * level) + (2 * level * Mod(e)) - 2) / 2)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 361)     function classFunc(e) {
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 362)         setClass(e);
+1527168e8 (gabelapham     2023-11-14 16:57:32 -0500 363)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 364)         switch(e)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 365)         {
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 366)             case "Barbarian":
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 367)                 setHitDice(12);
+e1f94ab8a (gabelapham     2023-11-13 12:25:40 -0500 368)                 setMaxHP((12 + (level * 12) + (2 * level) + (2 * level * constitutionMod) - 2) / 2)
+1527168e8 (gabelapham     2023-11-14 16:57:32 -0500 369)                 hpCheck(currHP, (12 + (level * 12) + (2 * level) + (2 * level * constitutionMod) - 2) / 2)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 370)                 break;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 371)             case "Paladin":
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 372)             case "Fighter":
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 373)                 setHitDice(10);
+e1f94ab8a (gabelapham     2023-11-13 12:25:40 -0500 374)                 setMaxHP((10 + (level * 10) + (2 * level) + (2 * level * constitutionMod) - 2) / 2)
+1527168e8 (gabelapham     2023-11-14 16:57:32 -0500 375)                 hpCheck(currHP, (10 + (level * 10) + (2 * level) + (2 * level * constitutionMod) - 2) / 2)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 376)                 break;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 377)             case 'Bard':
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 378)             case 'Cleric':
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 379)             case 'Druid':
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 380)             case 'Monk':
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 381)             case 'Rogue':
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 382)             case 'Warlock':
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 383)                 setHitDice(8);
+e1f94ab8a (gabelapham     2023-11-13 12:25:40 -0500 384)                 setMaxHP((8 + (level * 8) + (2 * level) + (2 * level * constitutionMod) - 2) / 2)
+1527168e8 (gabelapham     2023-11-14 16:57:32 -0500 385)                 hpCheck(currHP, (8 + (level * 8) + (2 * level) + (2 * level * constitutionMod) - 2) / 2)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 386)                 break;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 387)             case 'Sorcerer':
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 388)             case 'Wizard':
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 389)                 setHitDice(6);
+e1f94ab8a (gabelapham     2023-11-13 12:25:40 -0500 390)                 setMaxHP((6 + (level * 6) + (2 * level) + (2 * level * constitutionMod) - 2) / 2)
+1527168e8 (gabelapham     2023-11-14 16:57:32 -0500 391)                 hpCheck(currHP, (6 + (level * 6) + (2 * level) + (2 * level * constitutionMod) - 2) / 2)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 392)                 break;
+1527168e8 (gabelapham     2023-11-14 16:57:32 -0500 393)         }
+1527168e8 (gabelapham     2023-11-14 16:57:32 -0500 394)     }
+1527168e8 (gabelapham     2023-11-14 16:57:32 -0500 395)
+1527168e8 (gabelapham     2023-11-14 16:57:32 -0500 396)
+1527168e8 (gabelapham     2023-11-14 16:57:32 -0500 397)     function hpCheck(c, m) {
+1527168e8 (gabelapham     2023-11-14 16:57:32 -0500 398)         if (c > m) {
+1527168e8 (gabelapham     2023-11-14 16:57:32 -0500 399)             setCurrHP(m)
+1527168e8 (gabelapham     2023-11-14 16:57:32 -0500 400)         } else if (c == maxHP) {
+1527168e8 (gabelapham     2023-11-14 16:57:32 -0500 401)             setCurrHP(m)
+1527168e8 (gabelapham     2023-11-14 16:57:32 -0500 402)         } else {
+1527168e8 (gabelapham     2023-11-14 16:57:32 -0500 403)             setCurrHP(c)
+1527168e8 (gabelapham     2023-11-14 16:57:32 -0500 404)         }
+1527168e8 (gabelapham     2023-11-14 16:57:32 -0500 405)     }
+1527168e8 (gabelapham     2023-11-14 16:57:32 -0500 406)
+1527168e8 (gabelapham     2023-11-14 16:57:32 -0500 407)     function healFunc(e) {
+707825fce (gabelapham     2023-11-14 19:40:30 -0500 408)         if (Number(e) <= 0) {
+223ea0cf7 (gabelapham     2023-11-14 18:20:07 -0500 409)             setCurrHP(currHP)
+707825fce (gabelapham     2023-11-14 19:40:30 -0500 410)         } else if ((Number(e) + currHP) >= maxHP) {
+707825fce (gabelapham     2023-11-14 19:40:30 -0500 411)             setCurrHP(maxHP)
+1527168e8 (gabelapham     2023-11-14 16:57:32 -0500 412)         } else {
+707825fce (gabelapham     2023-11-14 19:40:30 -0500 413)             setCurrHP(currHP + Number(e))
+1527168e8 (gabelapham     2023-11-14 16:57:32 -0500 414)         }
+1527168e8 (gabelapham     2023-11-14 16:57:32 -0500 415)     }
+1527168e8 (gabelapham     2023-11-14 16:57:32 -0500 416)
+1527168e8 (gabelapham     2023-11-14 16:57:32 -0500 417)     function damageFunc(e) {
+223ea0cf7 (gabelapham     2023-11-14 18:20:07 -0500 418)         if ((currHP - e) <= 0) {
+1527168e8 (gabelapham     2023-11-14 16:57:32 -0500 419)             setCurrHP(0)
+1527168e8 (gabelapham     2023-11-14 16:57:32 -0500 420)         } else if (e <= 0) {
+223ea0cf7 (gabelapham     2023-11-14 18:20:07 -0500 421)             setCurrHP(currHP)
+1527168e8 (gabelapham     2023-11-14 16:57:32 -0500 422)         } else {
+1527168e8 (gabelapham     2023-11-14 16:57:32 -0500 423)             setCurrHP(currHP - e)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 424)         }
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 425)     }
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 426)
+2d61d2af0 (gabelapham     2023-11-15 01:13:09 -0500 455)     <button id="shortRest" onClick={() => setShortRestPopup(true)}>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 456)             Short Rest
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 457)           </button>
+e6323ffd0 (gabelapham     2023-11-14 22:17:27 -0500 458)           <button id="longRest" onClick={() => setLongRestPopup(true)}>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 459)             Long Rest
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 460)           </button>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 461)           <input id="charName" />
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 462)           <input id="playName" />
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 463)           <input type="number" id="exp" />
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 464)           <p id="speed">{playerSpeed}ft</p>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 465)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 466)           <select id="thisclass" onChange={() => classFunc(thisclass.value)}>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 467)           <option value="Barbarian">Barbarian</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 468)           <option value="Bard">Bard</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 469)           <option value="Cleric">Cleric</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 470)           <option value="Druid">Druid</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 471)           <option value="Fighter">Fighter</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 472)           <option value="Monk">Monk</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 473)           <option value="Paladin">Paladin</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 474)           <option value="Ranger">Ranger</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 475)           <option value="Rogue">Rogue</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 476)           <option value="Sorcerer">Sorcerer</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 477)           <option value="Warlock">Warlock</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 478)           <option value="Wizard">Wizard</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 479)         </select>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 480)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 481)         <select id="background">
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 482)           <option value="Acolyte">Acolyte</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 483)           {/*}
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 484)           <option value="Charlatan">Charlatan</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 485)           <option value="Criminal/Spy">Criminal/Spy</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 486)           <option value="Entertainer">Entertainer</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 487)           <option value="Folk Hero">Folk Hero</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 488)           <option value="Gladiator">Gladiator</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 489)           <option value="Guild Merchant">Guild Merchant</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 490)           <option value="Hermit">Hermit</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 491)           <option value="Knight">Knight</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 492)           <option value="Noble">Noble</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 493)           <option value="Outlander">Outlander</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 494)           <option value="Pirate">Pirate</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 495)           <option value="Sage">Sage</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 496)           <option value="Sailor">Sailor</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 497)           <option value="Soldier">Soldier</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 498)           <option value="Urchin">Urchin</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 499)   */}
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 500)         </select>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 501)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 502)         <select id="race" onChange={() => raceFunc(race.value)}>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 503)           <option value="Dragonborn">Dragonborn</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 504)           <option value="Dwarf">Dwarf</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 505)           <option value="Elf">Elf</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 506)           <option value="Gnome">Gnome</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 507)           <option value="Half-Elf">Half-Elf</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 508)           <option value="Halfling">Halfling</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 509)           <option value="Half-Orc">Half-Orc</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 510)           <option value="Human">Human</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 511)           <option value="Tiefling">Tiefling</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 512)         </select>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 513)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 514)         <select id="subrace" onChange={() => setSubRace(subrace.value)}>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 515)           <option disabled={(playerRace != "Dragonborn")} value="Black">Black</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 516)           <option disabled={(playerRace != "Dragonborn")} value="Blue">Blue</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 517)           <option disabled={(playerRace != "Dragonborn")} value="Brass">Brass</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 518)           <option disabled={(playerRace != "Dragonborn")} value="Bronze">Bronze</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 519)           <option disabled={(playerRace != "Dragonborn")} value="Copper">Copper</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 520)           <option disabled={(playerRace != "Dragonborn")} value="Gold">Gold</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 521)           <option disabled={(playerRace != "Dragonborn")} value="Green">Green</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 522)           <option disabled={(playerRace != "Dragonborn")} value="Red">Red</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 523)           <option disabled={(playerRace != "Dragonborn")} value="Silver">Silver</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 524)           <option disabled={(playerRace != "Dragonborn")} value="White">White</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 525)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 526)           <option disabled={(playerRace != "Dwarf")} value="Hill">Hill</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 527)           <option disabled={(playerRace != "Dwarf")} value="Mountain">Mountain</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 528)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 529)           <option disabled={(playerRace != "Elf")} value="High">High</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 530)           <option disabled={(playerRace != "Elf")} value="Wood">Wood</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 531)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 532)           <option disabled={(playerRace != "Gnome")} value="Rock">Rock</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 533)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 534)           <option disabled={(playerRace != "Halfling")} value="Lightfoot">Lightfoot</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 535)           <option disabled={(playerRace != "Halfling")} value="Stout">Stout</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 536)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 537)           <option disabled={(playerRace != "Human")} value="Normal">Normal</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 538)           <option disabled={(playerRace != "Human")} value="Variant">Variant</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 539)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 540)           <option disabled={(playerRace != "Half-Elf" || playerRace != "Half-Orc" || playerRace != "Tiefling")} value="NA">N/A</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 541)         </select>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 542)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 543)         <select id="alignment">
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 544)           <option value="LG">Lawful Good</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 545)           <option value="NG">Neutral Good</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 546)           <option value="CG">Chaotic Good</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 547)           <option value="LN">Lawful Neutral</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 548)           <option value="TN">True Neutral</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 549)           <option value="CN">Chaotic Neutral</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 550)           <option value="LE">Lawful Evil</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 551)           <option value="NE">Neutral Evil</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 552)           <option value="CE">Chaotic Evil</option>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 553)         </select>
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500 866)                 {currHP}
+e1f94ab8a (gabelapham     2023-11-13 12:25:40 -0500 867)             </p>
+e1f94ab8a (gabelapham     2023-11-13 12:25:40 -0500 868)             <p id="max_hp">
+e1f94ab8a (gabelapham     2023-11-13 12:25:40 -0500 869)                 {maxHP}
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500 871)             <input type="number" id="temp_hp" />
+e1f94ab8a (gabelapham     2023-11-13 12:25:40 -0500 874)             <p id="hit_die_num">
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500 875)                 {currHitDice}
+e1f94ab8a (gabelapham     2023-11-13 12:25:40 -0500 876)             </p>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 878)                 {level}d{playerHitDice}
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 889)         <p contentEditable id="personality"></p>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 890)         <p contentEditable id="ideals"></p>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 891)         <p contentEditable id="bonds"></p>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 892)         <p contentEditable id="flaws"></p>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 893)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 894)         <input type="number" id="cp"></input>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 895)         <input type="number" id="sp"></input>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 896)         <input type="number" id="ep"></input>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 897)         <input type="number" id="gp"></input>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 898)         <input type="number" id="pp"></input>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 899)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 900)         <input type="checkbox" id="inspiration"></input>
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 901)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 902)         <button id="item-search-button" onClick={() => setButtonPopup(true)}><img id="search-button" src={search} /></button>
+223ea0cf7 (gabelapham     2023-11-14 18:20:07 -0500 903)
+1527168e8 (gabelapham     2023-11-14 16:57:32 -0500 904)         <button id="heal" onClick={() => setHealthPopup(true)}><img id="healpngid" src={healpng} /></button>
+223ea0cf7 (gabelapham     2023-11-14 18:20:07 -0500 905)         <button id="damage" onClick={() => setDamagePopup(true)}><img id="damagepngid" src={dmgpng} /></button>
+223ea0cf7 (gabelapham     2023-11-14 18:20:07 -0500 906)         <Popup trigger={buttonPopup} setTrigger={setButtonPopup}/>
+707825fce (gabelapham     2023-11-14 19:40:30 -0500 907)         <HealthPopup htrigger={healthPopup} sethTrigger={setHealthPopup} setHeal={healFunc} />
+707825fce (gabelapham     2023-11-14 19:40:30 -0500 908)         <DamagePopup dtrigger={damagePopup} setdTrigger={setDamagePopup} setDmg={damageFunc} />
+2d61d2af0 (gabelapham     2023-11-15 01:13:09 -0500 909)
+2d61d2af0 (gabelapham     2023-11-15 01:13:09 -0500 910)         <ShortRestPopUp srtrigger={shortRestPopup} setsrTrigger={setShortRestPopup} doFunc={healFunc}
+2d61d2af0 (gabelapham     2023-11-15 01:13:09 -0500 911)         hd={playerHitDice} hdrem={currHitDice} hdremTrigger={setCurrHitDice} hpCurr={currHP} hpMax={maxHP}/>
+2d61d2af0 (gabelapham     2023-11-15 01:13:09 -0500 912)         <LongRestPopUp lrtrigger={longRestPopup} setlrTrigger={setLongRestPopup} doFunc={healFunc}
+2d61d2af0 (gabelapham     2023-11-15 01:13:09 -0500 913)         fillHD={setCurrHitDice} hdmax={maxHitDice}/>
+2d61d2af0 (gabelapham     2023-11-15 01:13:09 -0500 914)
+730e8026e (gabelapham     2023-11-14 21:23:58 -0500 916)         <video controls height={70} width={600}>
+730e8026e (gabelapham     2023-11-14 21:23:58 -0500 917)             <source src={song} type='audio/mp3'></source>
+730e8026e (gabelapham     2023-11-14 21:23:58 -0500 918)         </video>
+
+app/src/frontend/Stats_Page/src/Stats.css 
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500 539)     width: 250px;
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500 540)     text-align: center;
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500 541)     padding-inline-start: 5px;
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500 542)     color:black;
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500 543)     font-size: 60px;
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500 545)     top: 520px;
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500 546)     left: 720px;
+e1f94ab8a (gabelapham     2023-11-13 12:25:40 -0500 549) #max_hp {
+e1f94ab8a (gabelapham     2023-11-13 12:25:40 -0500 550)     position: absolute;
+e1f94ab8a (gabelapham     2023-11-13 12:25:40 -0500 551)     font-size: 30px;
+e1f94ab8a (gabelapham     2023-11-13 12:25:40 -0500 552)     top: 507px;
+e1f94ab8a (gabelapham     2023-11-13 12:25:40 -0500 553)     left: 900px;
+e1f94ab8a (gabelapham     2023-11-13 12:25:40 -0500 554) }
+e1f94ab8a (gabelapham     2023-11-13 12:25:40 -0500 555)
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500 557)     width: 250px;
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500 558)     text-align: center;
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500 559)     padding-inline-start: 5px;
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500 560)     background-color: white;
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500 561)     color:black;
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500 562)     font-size: 60px;
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500 564)     top: 730px;
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500 565)     left: 730px;
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500 566)     border-color: white;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 571)     top: 860px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 572)     left: 675px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 573)     font-size: 50px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 574)     text-align: left;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 575) }
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 576)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 577) #hit_die_num {
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 578)     position: absolute;
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500 579)     top: 855px;
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500 580)     left: 735px;
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500 581)     font-size: 25px;
+e1f94ab8a (gabelapham     2023-11-13 12:25:40 -0500 582)     text-align: left;
+657b32aaa (gabelapham     2023-11-09 18:21:08 -0500 631) }
+657b32aaa (gabelapham     2023-11-09 18:21:08 -0500 632)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 633)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 634) #shortRest {
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 635)     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 636)     position: absolute;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 637)     background-color: rgb(98, 98, 98);
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 638)     font-size: 20px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 639)     top: 60px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 640)     left: 1350px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 641)   }
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 642)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 643)   #longRest {
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 644)     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 645)     position: absolute;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 646)     background-color: rgb(98, 98, 98);
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 647)     font-size: 20px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 648)     top: 60px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 649)     left: 1470px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 650)   }
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 651)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 652)   #charName {
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 653)     height: 40px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 654)     width: 500px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 655)     text-align: left;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 656)     padding-inline-start: 5px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 657)     background-color: white;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 658)     color:black;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 659)     font-size: 40px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 660)     position: absolute;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 661)     border-color: white;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 662)     top: 172px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 663)     left: 120px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 664)   }
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 665)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 666)   #playName {
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 667)     height: 45px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 668)     width: 250px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 669)     text-align: left;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 670)     padding-inline-start: 5px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 671)     background-color: white;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 672)     color:black;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 673)     font-size: 30px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 674)     position: absolute;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 675)     border-color: white;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 676)     top: 128px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 677)     left: 1330px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 678)   }
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 679)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 680)   #exp {
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 681)     width: 250px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 682)     text-align: left;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 683)     padding-inline-start: 5px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 684)     background-color: white;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 685)     color:black;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 686)     font-size: 35px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 687)     position: absolute;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 688)     top: 205px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 689)     left: 1330px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 690)     border-color: white;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 691)   }
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 692)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 693)   #speed {
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 694)     color: black;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 695)     font-size: 55px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 696)     position: absolute;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 697)     top: 345px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 698)     left: 954px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 699)   }
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 700)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 701)   #thisclass {
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 702)     border-color: white;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 703)     background-color: white;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 704)     color: black;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 705)     font-size: 40px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 706)     position: absolute;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 707)     top: 130px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 708)     left: 745px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 709)   }
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 710)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 711)   #background {
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 712)     border-color: white;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 713)     background-color: white;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 714)     color: black;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 715)     font-size: 35px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 716)     position: absolute;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 717)     top: 130px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 718)     left: 1060px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 719)   }
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 720)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 721)   #race {
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 722)     border-color: white;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 723)     background-color: white;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 724)     color: black;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 725)     font-size: 35px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 726)     position: absolute;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 727)     top: 205px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 728)     left: 745px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 729)   }
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 730)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 731)   #subrace {
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 732)     border-color: white;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 733)     background-color: white;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 734)     color: black;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 735)     font-size: 20px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 736)     position: absolute;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 737)     top: 220px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 738)     left: 956px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 739)   }
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 740)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 741)   #alignment {
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 742)     border-color: white;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 743)     background-color: white;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 744)     color: black;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 745)     font-size: 35px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 746)     position: absolute;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 747)     top: 205px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 748)     left: 1060px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 749)   }
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 750)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 751)   #personality {
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 752)     height: 135px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 753)     max-height: 135px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 754)     inline-size: 415px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 755)     line-height: 27px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 756)     min-inline-size: 20px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 757)     overflow:auto;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 758)     padding-inline-start: 5px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 759)     background-color: white;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 760)     color:black;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 761)     font-size: 20px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 762)     position: absolute;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 763)     border-color: white;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 764)     top: 370px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 765)     left: 1165px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 766)   }
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 767)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 768)   #ideals {
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 769)     height: 100px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 770)     max-height: 100px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 771)     inline-size: 415px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 772)     line-height: 27px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 773)     min-inline-size: 20px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 774)     overflow:auto;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 775)     padding-inline-start: 5px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 776)     background-color: white;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 777)     color:black;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 778)     font-size: 20px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 779)     position: absolute;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 780)     border-color: white;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 781)     top: 560px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 782)     left: 1165px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 783)   }
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 784)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 785)   #bonds {
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 786)     height: 100px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 787)     max-height: 100px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 788)     inline-size: 415px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 789)     line-height: 27px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 790)     min-inline-size: 20px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 791)     overflow:auto;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 792)     padding-inline-start: 5px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 793)     background-color: white;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 794)     color:black;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 795)     font-size: 20px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 796)     position: absolute;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 797)     border-color: white;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 798)     top: 715px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 799)     left: 1165px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 800)   }
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 801)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 802)   #flaws {
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 803)     height: 100px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 804)     max-height: 100px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 805)     inline-size: 415px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 806)     line-height: 27px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 807)     min-inline-size: 20px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 808)     overflow:auto;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 809)     padding-inline-start: 5px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 810)     background-color: white;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 811)     color:black;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 812)     font-size: 20px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 813)     position: absolute;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 814)     border-color: white;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 815)     top: 867px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 816)     left: 1165px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 817)   }
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 818)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 819)   #cp {
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 820)     width: 75px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 821)     text-align: center;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 822)     padding-inline-start: 5px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 823)     background-color: white;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 824)     color:black;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 825)     font-size: 25px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 826)     position: absolute;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 827)     top: 1669px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 828)     left: 635px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 829)     border-color: white;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 830)   }
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 831)   #sp {
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 832)     width: 75px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 833)     text-align: center;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 834)     padding-inline-start: 5px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 835)     background-color: white;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 836)     color:black;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 837)     font-size: 25px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 838)     position: absolute;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 839)     top: 1742px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 840)     left: 635px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 841)     border-color: white;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 842)   }
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 843)   #ep {
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 844)     width: 75px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 845)     text-align: center;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 846)     padding-inline-start: 5px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 847)     background-color: white;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 848)     color:black;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 849)     font-size: 25px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 850)     position: absolute;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 851)     top: 1816px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 852)     left: 635px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 853)     border-color: white;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 854)   }
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 855)   #gp {
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 856)     width: 75px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 857)     text-align: center;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 858)     padding-inline-start: 5px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 859)     background-color: white;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 860)     color:black;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 861)     font-size: 25px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 862)     position: absolute;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 863)     top: 1885px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 864)     left: 635px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 865)     border-color: white;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 866)   }
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 867)   #pp {
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 868)     width: 75px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 869)     text-align: center;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 870)     padding-inline-start: 5px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 871)     background-color: white;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 872)     color:black;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 873)     font-size: 25px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 874)     position: absolute;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 875)     top: 1959px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 876)     left: 635px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 877)     border-color: white;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 878)   }
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 879)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 880)   #inspiration {
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 881)     position: absolute;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 882)     height: 50px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 883)     width: 50px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 884)     top: 360px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 885)     left: 269px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 886)   }
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 887)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 888)   #item-search-button {
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 889)     position: absolute;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 890)     height: 50px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 891)     width: 50px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 892)     top: 1640px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 893)     left: 1030px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 894)     background-color: white;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 895)   }
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 896)
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 897)   #search-button {
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 898)     zoom: 3%;
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500 899)   }
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500 900)
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500 901)   #heal {
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500 902)     position: absolute;
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500 903)     top: 610px;
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500 904)     left: 1000px;
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500 905)     background-color: white;
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500 906)   }
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500 907)
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500 908)   #healpngid {
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500 909)     height: 40px;
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500 910)     width: 40px;
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500 911)   }
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500 912)
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500 913)   #damage {
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500 914)     position: absolute;
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500 915)     top: 610px;
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500 916)     left: 645px;
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500 917)     background-color: white;
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500 918)   }
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500 919)
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500 920)   #damagepngid {
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500 921)     height: 40px;
+8bf21c9e7 (gabelapham     2023-11-14 12:50:54 -0500 922)     width: 40px;
+a2e8f3c77 (gabelapham     2023-11-13 11:39:33 -0500 923)   }
+
+app/src/frontend/Stats_Page/src/components/DamagePopup.css 
+380fdaf3f app/src/frontend/Stats_Page/src/components/DamagePopup.css (gabelapham 2023-11-14 23:03:49 -0500  1) .popup2 {
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500  2)     position: fixed;
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500  3)     top: 0;
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500  4)     left: 0;
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500  5)     width: 100%;
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500  6)     height: 100%;
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500  7)
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500  8)     display: flex;
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500  9)     justify-content: center;
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 10)     align-items: center;
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 11) }
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 12)
+380fdaf3f app/src/frontend/Stats_Page/src/components/DamagePopup.css (gabelapham 2023-11-14 23:03:49 -0500 13) .inside-popup2 {
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 14)     position: relative;
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 15)     padding: 50px;
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 16)     width: 100%;
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 17)     max-width: 30%;
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 18)     height: 100%;
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 19)     max-height: 20%;
+380fdaf3f app/src/frontend/Stats_Page/src/components/DamagePopup.css (gabelapham 2023-11-14 23:03:49 -0500 20)     background-color: rgb(185, 185, 185);
+e6323ffd0 app/src/frontend/Stats_Page/src/components/DamagePopup.css (gabelapham 2023-11-14 22:17:27 -0500 21)     outline: auto;
+e6323ffd0 app/src/frontend/Stats_Page/src/components/DamagePopup.css (gabelapham 2023-11-14 22:17:27 -0500 22)     outline-color: black;
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 23) }
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 24)
+380fdaf3f app/src/frontend/Stats_Page/src/components/DamagePopup.css (gabelapham 2023-11-14 23:03:49 -0500 25) .close-button2 {
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 26)     position: absolute;
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 27)     width: 55px;
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 28)     height: 60px;
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 29)     font-size: 50px;
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 30)     top: 16px;
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 31)     left: 16px;
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 32) }
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 33)
+380fdaf3f app/src/frontend/Stats_Page/src/components/DamagePopup.css (gabelapham 2023-11-14 23:03:49 -0500 34) #dmgamnt {
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 35)     color: black;
+380fdaf3f app/src/frontend/Stats_Page/src/components/DamagePopup.css (gabelapham 2023-11-14 23:03:49 -0500 36)     position: absolute;
+380fdaf3f app/src/frontend/Stats_Page/src/components/DamagePopup.css (gabelapham 2023-11-14 23:03:49 -0500 37)     top: 0px;
+380fdaf3f app/src/frontend/Stats_Page/src/components/DamagePopup.css (gabelapham 2023-11-14 23:03:49 -0500 38)     left: 178px;
+380fdaf3f app/src/frontend/Stats_Page/src/components/DamagePopup.css (gabelapham 2023-11-14 23:03:49 -0500 39)     font-size: 40px;
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 40) }
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 41)
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 42) #dmgnum {
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 43)     width: 50%;
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 44)     text-align: center;
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 45)     padding-inline-start: 5px;
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 46)     background-color: white;
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 47)     color:black;
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 48)     font-size: 60px;
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 49)     position: absolute;
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 50)     top: 100px;
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 51)     left: 175px;
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 52)     border-color: white;
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 53) }
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 54)
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 55) #damage_submit {
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 56)     width: 60px;
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 57)     height: 60px;
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 58)     position: absolute;
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 59)     top: 200px;
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 60)     left: 330px;
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 61)     background-color: white;
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 62) }
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 63)
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 64) #dmgpng {
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 65)     height: 40px;
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 66)     width: 40px;
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.css            (gabelapham 2023-11-14 16:57:32 -0500 67) }
+
+app/src/frontend/Stats_Page/src/components/DamagePopup.jsx 
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.jsx            (gabelapham 2023-11-14 16:57:32 -0500  1) import React from 'react'
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.jsx            (gabelapham 2023-11-14 16:57:32 -0500  2) import "./DamagePopup.css"
+8ec086eb2 app/src/frontend/Stats_Page/src/components/DamagePopup.jsx (gabelapham 2023-11-14 19:52:42 -0500  3) import dmgimage from '../assets/damage.png'
+223ea0cf7 app/src/frontend/Stats_Page/src/DamagePopup.jsx            (gabelapham 2023-11-14 18:20:07 -0500  4)
+707825fce app/src/frontend/Stats_Page/src/DamagePopup.jsx            (gabelapham 2023-11-14 19:40:30 -0500  5) const DamagePopup = ({dtrigger, setdTrigger, setDmg}) => {
+223ea0cf7 app/src/frontend/Stats_Page/src/DamagePopup.jsx            (gabelapham 2023-11-14 18:20:07 -0500  6)
+223ea0cf7 app/src/frontend/Stats_Page/src/DamagePopup.jsx            (gabelapham 2023-11-14 18:20:07 -0500  7)     function doDamage(num, st) {
+223ea0cf7 app/src/frontend/Stats_Page/src/DamagePopup.jsx            (gabelapham 2023-11-14 18:20:07 -0500  8)         setDmg(num)
+707825fce app/src/frontend/Stats_Page/src/DamagePopup.jsx            (gabelapham 2023-11-14 19:40:30 -0500  9)         setdTrigger(st)
+223ea0cf7 app/src/frontend/Stats_Page/src/DamagePopup.jsx            (gabelapham 2023-11-14 18:20:07 -0500 10)     }
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.jsx            (gabelapham 2023-11-14 16:57:32 -0500 11)
+707825fce app/src/frontend/Stats_Page/src/DamagePopup.jsx            (gabelapham 2023-11-14 19:40:30 -0500 12)     return (dtrigger) ? (
+380fdaf3f app/src/frontend/Stats_Page/src/components/DamagePopup.jsx (gabelapham 2023-11-14 23:03:49 -0500 13)         <div className="popup2">
+380fdaf3f app/src/frontend/Stats_Page/src/components/DamagePopup.jsx (gabelapham 2023-11-14 23:03:49 -0500 14)             <div className="inside-popup2">
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.jsx            (gabelapham 2023-11-14 16:57:32 -0500 15)                 <div class="topnav">
+380fdaf3f app/src/frontend/Stats_Page/src/components/DamagePopup.jsx (gabelapham 2023-11-14 23:03:49 -0500 16)                 <button className="close-button2" onClick={() => setdTrigger(false)}>X</button>
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.jsx            (gabelapham 2023-11-14 16:57:32 -0500 17)                 <br />
+380fdaf3f app/src/frontend/Stats_Page/src/components/DamagePopup.jsx (gabelapham 2023-11-14 23:03:49 -0500 18)                 <p id="dmgamnt">DAMAGE RECIEVED:</p>
+223ea0cf7 app/src/frontend/Stats_Page/src/DamagePopup.jsx            (gabelapham 2023-11-14 18:20:07 -0500 19)                 <input type="number" id="dmgnum"/>
+223ea0cf7 app/src/frontend/Stats_Page/src/DamagePopup.jsx            (gabelapham 2023-11-14 18:20:07 -0500 20)                 <button id="damage_submit" type="button" onClick={() => doDamage(dmgnum.value, false)}><img id="dmgpng" src={dmgimage} /></button>
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.jsx            (gabelapham 2023-11-14 16:57:32 -0500 21)                 </div>
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.jsx            (gabelapham 2023-11-14 16:57:32 -0500 22)             </div>
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.jsx            (gabelapham 2023-11-14 16:57:32 -0500 23)         </div>
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.jsx            (gabelapham 2023-11-14 16:57:32 -0500 24)     ) : ""
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.jsx            (gabelapham 2023-11-14 16:57:32 -0500 25) }
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.jsx            (gabelapham 2023-11-14 16:57:32 -0500 26)
+1527168e8 app/src/frontend/Stats_Page/src/DamagePopup.jsx            (gabelapham 2023-11-14 16:57:32 -0500 27) export default DamagePopup
+
+app/src/frontend/Stats_Page/src/components/HealthPopup.css 
+380fdaf3f app/src/frontend/Stats_Page/src/components/HealthPopup.css (gabelapham 2023-11-14 23:03:49 -0500  1) .popup1 {
+1527168e8 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 16:57:32 -0500  2)     position: fixed;
+1527168e8 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 16:57:32 -0500  3)     top: 0;
+1527168e8 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 16:57:32 -0500  4)     left: 0;
+1527168e8 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 16:57:32 -0500  5)     width: 100%;
+223ea0cf7 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 18:20:07 -0500  6)     height: 100%;
+1527168e8 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 16:57:32 -0500  7)
+1527168e8 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 16:57:32 -0500  8)     display: flex;
+1527168e8 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 16:57:32 -0500  9)     justify-content: center;
+1527168e8 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 16:57:32 -0500 10)     align-items: center;
+1527168e8 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 16:57:32 -0500 11) }
+1527168e8 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 16:57:32 -0500 12)
+380fdaf3f app/src/frontend/Stats_Page/src/components/HealthPopup.css (gabelapham 2023-11-14 23:03:49 -0500 13) .inside-popup1 {
+1527168e8 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 16:57:32 -0500 14)     position: relative;
+223ea0cf7 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 18:20:07 -0500 15)     padding: 50px;
+1527168e8 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 16:57:32 -0500 16)     width: 100%;
+223ea0cf7 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 18:20:07 -0500 17)     max-width: 30%;
+223ea0cf7 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 18:20:07 -0500 18)     height: 100%;
+223ea0cf7 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 18:20:07 -0500 19)     max-height: 20%;
+380fdaf3f app/src/frontend/Stats_Page/src/components/HealthPopup.css (gabelapham 2023-11-14 23:03:49 -0500 20)     background-color: rgb(185, 185, 185);
+e6323ffd0 app/src/frontend/Stats_Page/src/components/HealthPopup.css (gabelapham 2023-11-14 22:17:27 -0500 21)     outline: auto;
+e6323ffd0 app/src/frontend/Stats_Page/src/components/HealthPopup.css (gabelapham 2023-11-14 22:17:27 -0500 22)     outline-color: black;
+1527168e8 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 16:57:32 -0500 23) }
+1527168e8 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 16:57:32 -0500 24)
+380fdaf3f app/src/frontend/Stats_Page/src/components/HealthPopup.css (gabelapham 2023-11-14 23:03:49 -0500 25) .close-button1 {
+1527168e8 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 16:57:32 -0500 26)     position: absolute;
+223ea0cf7 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 18:20:07 -0500 27)     width: 55px;
+223ea0cf7 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 18:20:07 -0500 28)     height: 60px;
+223ea0cf7 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 18:20:07 -0500 29)     font-size: 50px;
+1527168e8 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 16:57:32 -0500 30)     top: 16px;
+1527168e8 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 16:57:32 -0500 31)     left: 16px;
+1527168e8 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 16:57:32 -0500 32) }
+1527168e8 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 16:57:32 -0500 33)
+1527168e8 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 16:57:32 -0500 34) .p {
+1527168e8 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 16:57:32 -0500 35)     color: black;
+223ea0cf7 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 18:20:07 -0500 36) }
+223ea0cf7 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 18:20:07 -0500 37)
+223ea0cf7 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 18:20:07 -0500 38) #healnum {
+223ea0cf7 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 18:20:07 -0500 39)     width: 50%;
+223ea0cf7 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 18:20:07 -0500 40)     text-align: center;
+223ea0cf7 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 18:20:07 -0500 41)     padding-inline-start: 5px;
+223ea0cf7 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 18:20:07 -0500 42)     background-color: white;
+223ea0cf7 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 18:20:07 -0500 43)     color:black;
+223ea0cf7 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 18:20:07 -0500 44)     font-size: 60px;
+223ea0cf7 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 18:20:07 -0500 45)     position: absolute;
+223ea0cf7 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 18:20:07 -0500 46)     top: 100px;
+223ea0cf7 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 18:20:07 -0500 47)     left: 175px;
+223ea0cf7 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 18:20:07 -0500 48)     border-color: white;
+223ea0cf7 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 18:20:07 -0500 49) }
+223ea0cf7 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 18:20:07 -0500 50)
+223ea0cf7 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 18:20:07 -0500 51) #heal_submit {
+223ea0cf7 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 18:20:07 -0500 52)     width: 60px;
+223ea0cf7 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 18:20:07 -0500 53)     height: 60px;
+223ea0cf7 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 18:20:07 -0500 54)     position: absolute;
+223ea0cf7 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 18:20:07 -0500 55)     top: 200px;
+223ea0cf7 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 18:20:07 -0500 56)     left: 330px;
+223ea0cf7 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 18:20:07 -0500 57)     background-color: white;
+223ea0cf7 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 18:20:07 -0500 58) }
+223ea0cf7 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 18:20:07 -0500 59)
+223ea0cf7 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 18:20:07 -0500 60) #healpng {
+223ea0cf7 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 18:20:07 -0500 61)     height: 40px;
+223ea0cf7 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 18:20:07 -0500 62)     width: 40px;
+2d61d2af0 app/src/frontend/Stats_Page/src/components/HealthPopup.css (gabelapham 2023-11-15 01:13:09 -0500 63) }
+2d61d2af0 app/src/frontend/Stats_Page/src/components/HealthPopup.css (gabelapham 2023-11-15 01:13:09 -0500 64)
+2d61d2af0 app/src/frontend/Stats_Page/src/components/HealthPopup.css (gabelapham 2023-11-15 01:13:09 -0500 65) #healamnt {
+2d61d2af0 app/src/frontend/Stats_Page/src/components/HealthPopup.css (gabelapham 2023-11-15 01:13:09 -0500 66)     color: black;
+2d61d2af0 app/src/frontend/Stats_Page/src/components/HealthPopup.css (gabelapham 2023-11-15 01:13:09 -0500 67)     position: absolute;
+2d61d2af0 app/src/frontend/Stats_Page/src/components/HealthPopup.css (gabelapham 2023-11-15 01:13:09 -0500 68)     top: 0px;
+2d61d2af0 app/src/frontend/Stats_Page/src/components/HealthPopup.css (gabelapham 2023-11-15 01:13:09 -0500 69)     left: 187px;
+2d61d2af0 app/src/frontend/Stats_Page/src/components/HealthPopup.css (gabelapham 2023-11-15 01:13:09 -0500 70)     font-size: 40px;
+1527168e8 app/src/frontend/Stats_Page/src/HealthPopup.css            (gabelapham 2023-11-14 16:57:32 -0500 71) }
+
+app/src/frontend/Stats_Page/src/components/HealthPopup.jsx
+1527168e8 app/src/frontend/Stats_Page/src/HealthPopup.jsx            (gabelapham 2023-11-14 16:57:32 -0500  1) import React from 'react'
+1527168e8 app/src/frontend/Stats_Page/src/HealthPopup.jsx            (gabelapham 2023-11-14 16:57:32 -0500  2) import "./HealthPopup.css"
+8ec086eb2 app/src/frontend/Stats_Page/src/components/HealthPopup.jsx (gabelapham 2023-11-14 19:52:42 -0500  3) import healimage from '../assets/heal.png'
+1527168e8 app/src/frontend/Stats_Page/src/HealthPopup.jsx            (gabelapham 2023-11-14 16:57:32 -0500  4)
+707825fce app/src/frontend/Stats_Page/src/HealthPopup.jsx            (gabelapham 2023-11-14 19:40:30 -0500  5) const HealthPopup = ({htrigger, sethTrigger, setHeal}) => {
+223ea0cf7 app/src/frontend/Stats_Page/src/HealthPopup.jsx            (gabelapham 2023-11-14 18:20:07 -0500  6)
+223ea0cf7 app/src/frontend/Stats_Page/src/HealthPopup.jsx            (gabelapham 2023-11-14 18:20:07 -0500  7)     function doHeal(num, st) {
+223ea0cf7 app/src/frontend/Stats_Page/src/HealthPopup.jsx            (gabelapham 2023-11-14 18:20:07 -0500  8)         setHeal(num)
+707825fce app/src/frontend/Stats_Page/src/HealthPopup.jsx            (gabelapham 2023-11-14 19:40:30 -0500  9)         sethTrigger(st)
+223ea0cf7 app/src/frontend/Stats_Page/src/HealthPopup.jsx            (gabelapham 2023-11-14 18:20:07 -0500 10)     }
+1527168e8 app/src/frontend/Stats_Page/src/HealthPopup.jsx            (gabelapham 2023-11-14 16:57:32 -0500 11)
+707825fce app/src/frontend/Stats_Page/src/HealthPopup.jsx            (gabelapham 2023-11-14 19:40:30 -0500 12)     return (htrigger) ? (
+380fdaf3f app/src/frontend/Stats_Page/src/components/HealthPopup.jsx (gabelapham 2023-11-14 23:03:49 -0500 13)         <div className="popup1">
+380fdaf3f app/src/frontend/Stats_Page/src/components/HealthPopup.jsx (gabelapham 2023-11-14 23:03:49 -0500 14)             <div className="inside-popup1">
+1527168e8 app/src/frontend/Stats_Page/src/HealthPopup.jsx            (gabelapham 2023-11-14 16:57:32 -0500 15)                 <div class="topnav">
+380fdaf3f app/src/frontend/Stats_Page/src/components/HealthPopup.jsx (gabelapham 2023-11-14 23:03:49 -0500 16)                 <button className="close-button1" onClick={() => sethTrigger(false)}>X</button>
+223ea0cf7 app/src/frontend/Stats_Page/src/HealthPopup.jsx            (gabelapham 2023-11-14 18:20:07 -0500 17)                 <br />
+2d61d2af0 app/src/frontend/Stats_Page/src/components/HealthPopup.jsx (gabelapham 2023-11-15 01:13:09 -0500 18)                 <p id="healamnt">HEALTH RECIEVED:</p>
+223ea0cf7 app/src/frontend/Stats_Page/src/HealthPopup.jsx            (gabelapham 2023-11-14 18:20:07 -0500 19)                 <input type="number" id="healnum"/>
+223ea0cf7 app/src/frontend/Stats_Page/src/HealthPopup.jsx            (gabelapham 2023-11-14 18:20:07 -0500 20)                 <button id="heal_submit" type="button" onClick={() => doHeal(healnum.value, false)}><img id="healpng" src={healimage} /></button>
+1527168e8 app/src/frontend/Stats_Page/src/HealthPopup.jsx            (gabelapham 2023-11-14 16:57:32 -0500 21)                 </div>
+1527168e8 app/src/frontend/Stats_Page/src/HealthPopup.jsx            (gabelapham 2023-11-14 16:57:32 -0500 22)             </div>
+1527168e8 app/src/frontend/Stats_Page/src/HealthPopup.jsx            (gabelapham 2023-11-14 16:57:32 -0500 23)         </div>
+1527168e8 app/src/frontend/Stats_Page/src/HealthPopup.jsx            (gabelapham 2023-11-14 16:57:32 -0500 24)     ) : ""
+1527168e8 app/src/frontend/Stats_Page/src/HealthPopup.jsx            (gabelapham 2023-11-14 16:57:32 -0500 25) }
+1527168e8 app/src/frontend/Stats_Page/src/HealthPopup.jsx            (gabelapham 2023-11-14 16:57:32 -0500 26)
+1527168e8 app/src/frontend/Stats_Page/src/HealthPopup.jsx            (gabelapham 2023-11-14 16:57:32 -0500 27) export default HealthPopup
+
+app/src/frontend/Stats_Page/src/components/ItemSearch.css
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.css            (gabelapham 2023-11-13 01:55:59 -0500  1) .popup {
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.css            (gabelapham 2023-11-13 01:55:59 -0500  2)     position: fixed;
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.css            (gabelapham 2023-11-13 01:55:59 -0500  3)     top: 0;
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.css            (gabelapham 2023-11-13 01:55:59 -0500  4)     left: 0;
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.css            (gabelapham 2023-11-13 01:55:59 -0500  5)     width: 100%;
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.css            (gabelapham 2023-11-13 01:55:59 -0500  6)     height: 500px;
+1527168e8 app/src/frontend/Stats_Page/src/ItemSearch.css            (gabelapham 2023-11-14 16:57:32 -0500  7)
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.css            (gabelapham 2023-11-13 01:55:59 -0500  8)     display: flex;
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.css            (gabelapham 2023-11-13 01:55:59 -0500  9)     justify-content: center;
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.css            (gabelapham 2023-11-13 01:55:59 -0500 10)     align-items: center;
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.css            (gabelapham 2023-11-13 01:55:59 -0500 11) }
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.css            (gabelapham 2023-11-13 01:55:59 -0500 12)
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.css            (gabelapham 2023-11-13 01:55:59 -0500 13) .inside-popup {
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.css            (gabelapham 2023-11-13 01:55:59 -0500 14)     position: relative;
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.css            (gabelapham 2023-11-13 01:55:59 -0500 15)     padding: 10px;
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.css            (gabelapham 2023-11-13 01:55:59 -0500 16)     width: 100%;
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.css            (gabelapham 2023-11-13 01:55:59 -0500 17)     max-width: 80%;
+380fdaf3f app/src/frontend/Stats_Page/src/components/ItemSearch.css (gabelapham 2023-11-14 23:03:49 -0500 18)     background-color: rgb(185, 185, 185);
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.css            (gabelapham 2023-11-13 01:55:59 -0500 19) }
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.css            (gabelapham 2023-11-13 01:55:59 -0500 20)
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.css            (gabelapham 2023-11-13 01:55:59 -0500 21) .close-button {
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.css            (gabelapham 2023-11-13 01:55:59 -0500 22)     position: absolute;
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.css            (gabelapham 2023-11-13 01:55:59 -0500 23)     width: auto;
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.css            (gabelapham 2023-11-13 01:55:59 -0500 24)     font-size: 20px;
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.css            (gabelapham 2023-11-13 01:55:59 -0500 25)     top: 16px;
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.css            (gabelapham 2023-11-13 01:55:59 -0500 26)     left: 16px;
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.css            (gabelapham 2023-11-13 01:55:59 -0500 27) }
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.css            (gabelapham 2023-11-13 01:55:59 -0500 28)
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.css            (gabelapham 2023-11-13 01:55:59 -0500 29) .p {
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.css            (gabelapham 2023-11-13 01:55:59 -0500 30)     color: black;
+2d61d2af0 app/src/frontend/Stats_Page/src/components/ItemSearch.css (gabelapham 2023-11-15 01:13:09 -0500 31)     position: relative;
+2d61d2af0 app/src/frontend/Stats_Page/src/components/ItemSearch.css (gabelapham 2023-11-15 01:13:09 -0500 32)     font-size: 20px;
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.css            (gabelapham 2023-11-13 01:55:59 -0500 33) }
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.css            (gabelapham 2023-11-13 01:55:59 -0500 34)
+2d61d2af0 app/src/frontend/Stats_Page/src/components/ItemSearch.css (gabelapham 2023-11-15 01:13:09 -0500 35) #searchbar {
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.css            (gabelapham 2023-11-13 01:55:59 -0500 36)     width: auto;
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.css            (gabelapham 2023-11-13 01:55:59 -0500 37)     font-size: 35px;
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.css            (gabelapham 2023-11-13 01:55:59 -0500 38)     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.css            (gabelapham 2023-11-13 01:55:59 -0500 39) }
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.css            (gabelapham 2023-11-13 01:55:59 -0500 40)
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.css            (gabelapham 2023-11-13 01:55:59 -0500 41) #search-png {
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.css            (gabelapham 2023-11-13 01:55:59 -0500 42)     zoom: 2%;
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.css            (gabelapham 2023-11-13 01:55:59 -0500 43) }
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.css            (gabelapham 2023-11-13 01:55:59 -0500 44)
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.css            (gabelapham 2023-11-13 01:55:59 -0500 45) #submit-button {
+380fdaf3f app/src/frontend/Stats_Page/src/components/ItemSearch.css (gabelapham 2023-11-14 23:03:49 -0500 46)     background-color: rgb(255, 255, 255);
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.css            (gabelapham 2023-11-13 01:55:59 -0500 47) }
+
+app/src/frontend/Stats_Page/src/components/ItemSearch.jsx
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.jsx            (gabelapham 2023-11-13 01:55:59 -0500  1) import React from 'react'
+2d61d2af0 app/src/frontend/Stats_Page/src/components/ItemSearch.jsx (gabelapham 2023-11-15 01:13:09 -0500  2) import { useState } from 'react'
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.jsx            (gabelapham 2023-11-13 01:55:59 -0500  3) import "./ItemSearch.css"
+8ec086eb2 app/src/frontend/Stats_Page/src/components/ItemSearch.jsx (gabelapham 2023-11-14 19:52:42 -0500  4) import search from "../assets/search.png"
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.jsx            (gabelapham 2023-11-13 01:55:59 -0500  5)
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.jsx            (gabelapham 2023-11-13 01:55:59 -0500  6) const Popup = ({trigger, setTrigger}) => {
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.jsx            (gabelapham 2023-11-13 01:55:59 -0500  7)
+2d61d2af0 app/src/frontend/Stats_Page/src/components/ItemSearch.jsx (gabelapham 2023-11-15 01:13:09 -0500  8)     const [results, setResults] = useState("")
+2d61d2af0 app/src/frontend/Stats_Page/src/components/ItemSearch.jsx (gabelapham 2023-11-15 01:13:09 -0500  9)     function searchFunc(val) {
+2d61d2af0 app/src/frontend/Stats_Page/src/components/ItemSearch.jsx (gabelapham 2023-11-15 01:13:09 -0500 10)         setResults(val)
+2d61d2af0 app/src/frontend/Stats_Page/src/components/ItemSearch.jsx (gabelapham 2023-11-15 01:13:09 -0500 11)     }
+2d61d2af0 app/src/frontend/Stats_Page/src/components/ItemSearch.jsx (gabelapham 2023-11-15 01:13:09 -0500 12)
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.jsx            (gabelapham 2023-11-13 01:55:59 -0500 13)     return (trigger) ? (
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.jsx            (gabelapham 2023-11-13 01:55:59 -0500 14)         <div className="popup">
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.jsx            (gabelapham 2023-11-13 01:55:59 -0500 15)             <div className="inside-popup">
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.jsx            (gabelapham 2023-11-13 01:55:59 -0500 16)                 <div class="topnav">
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.jsx            (gabelapham 2023-11-13 01:55:59 -0500 17)                 <button className="close-button" onClick={() => setTrigger(false)}>X</button>
+2d61d2af0 app/src/frontend/Stats_Page/src/components/ItemSearch.jsx (gabelapham 2023-11-15 01:13:09 -0500 18)                     <input id="searchbar" type="text" placeholder="Search.." />
+2d61d2af0 app/src/frontend/Stats_Page/src/components/ItemSearch.jsx (gabelapham 2023-11-15 01:13:09 -0500 19)                     <button id="submit-button" type="button" onClick={() => searchFunc(searchbar.value)}>
+2d61d2af0 app/src/frontend/Stats_Page/src/components/ItemSearch.jsx (gabelapham 2023-11-15 01:13:09 -0500 20)                         <img id="search-png" src={search} />
+2d61d2af0 app/src/frontend/Stats_Page/src/components/ItemSearch.jsx (gabelapham 2023-11-15 01:13:09 -0500 21)                     </button>
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.jsx            (gabelapham 2023-11-13 01:55:59 -0500 22)                 </div>
+2d61d2af0 app/src/frontend/Stats_Page/src/components/ItemSearch.jsx (gabelapham 2023-11-15 01:13:09 -0500 23)                 <p className='p'>{results}</p>
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.jsx            (gabelapham 2023-11-13 01:55:59 -0500 24)             </div>
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.jsx            (gabelapham 2023-11-13 01:55:59 -0500 25)         </div>
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.jsx            (gabelapham 2023-11-13 01:55:59 -0500 26)     ) : ""
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.jsx            (gabelapham 2023-11-13 01:55:59 -0500 27) }
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.jsx            (gabelapham 2023-11-13 01:55:59 -0500 28)
+ecef3bd51 app/src/frontend/Stats_Page/src/ItemSearch.jsx            (gabelapham 2023-11-13 01:55:59 -0500 29) export default Popup
+
+app/src/frontend/Stats_Page/src/components/LongRestPopup.jsx
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  1) import './RestPopup.css'
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  2) import React from 'react'
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  3) import healimage from '../assets/heal.png'
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  4)
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500  5) const LongRestPopup = ({lrtrigger, setlrTrigger, doFunc, fillHD, hdmax}) => {
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  6)
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  7)     function doHeal(num, st) {
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  8)         doFunc(num)
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500  9)         fillHD(hdmax)
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500 10)         setlrTrigger(st)
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500 11)     }
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500 12)
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500 13)     return (lrtrigger) ? (
+380fdaf3f (gabelapham 2023-11-14 23:03:49 -0500 14)         <div className="popup3">
+380fdaf3f (gabelapham 2023-11-14 23:03:49 -0500 15)             <div className="inside-popup3">
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500 16)                 <div class="topnav">
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500 17)                 <p className='p'>
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500 18)                     Would you like to take a LONG REST?
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500 19)                 </p>
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500 20)                 <button id="yes" type="button" onClick={() => doHeal(9999, false)}>
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500 21)                     <p>YES</p>
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500 22)                 </button>
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500 23)                 <button id="no" type="button" onClick={() => doHeal(0, false)}>
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500 24)                     <p>NO</p>
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500 25)                 </button>
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500 26)                 </div>
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500 27)             </div>
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500 28)         </div>
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500 29)     ) : ""
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500 30) }
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500 31)
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500 32) export default LongRestPopup
+
+app/src/frontend/Stats_Page/src/components/RestPopup.css
+380fdaf3f (gabelapham 2023-11-14 23:03:49 -0500   1) .popup3 {
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500   2)     position: fixed;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500   3)     top: 0;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500   4)     left: 0;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500   5)     width: 100%;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500   6)     height: 100%;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500   7)
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500   8)     display: flex;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500   9)     justify-content: center;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  10)     align-items: center;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  11) }
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  12)
+380fdaf3f (gabelapham 2023-11-14 23:03:49 -0500  13) .inside-popup3 {
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  14)     position: relative;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  15)     padding: 50px;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  16)     width: 100%;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  17)     max-width: 30%;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  18)     height: 100%;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  19)     max-height: 20%;
+380fdaf3f (gabelapham 2023-11-14 23:03:49 -0500  20)     background-color: rgb(185, 185, 185);
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  21)     outline: auto;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  22)     outline-color: black;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  23) }
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  24)
+380fdaf3f (gabelapham 2023-11-14 23:03:49 -0500  25) .close-button3 {
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  26)     position: absolute;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  27)     width: 55px;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  28)     height: 60px;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  29)     font-size: 50px;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  30)     top: 16px;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  31)     left: 16px;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  32) }
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  33)
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  34) .p {
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  35)     color: black;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  36)     font-size: 30px;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  37)     position: absolute;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  38)     top: 10px;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  39)     left: 100px;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  40) }
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  41)
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  42) #healnum {
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  43)     width: 50%;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  44)     text-align: center;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  45)     padding-inline-start: 5px;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  46)     background-color: white;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  47)     color:black;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  48)     font-size: 60px;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  49)     position: absolute;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  50)     top: 100px;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  51)     left: 175px;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  52)     border-color: white;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  53) }
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  54)
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  55) #yes {
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  56)     background-color: green;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  57)     text-align: center;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  58)     width: 100%;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  59)     max-width: 150px;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  60)     font-size: 40px;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  61)     position: absolute;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  62)     top: 100px;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  63)     left: 150px;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  64) }
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  65) #no {
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  66)     background-color: red;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  67)     text-align: center;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  68)     width: 100%;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  69)     max-width: 150px;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  70)     font-size: 40px;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  71)     position: absolute;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  72)     top: 100px;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500  73)     left: 400px;
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500  74) }
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500  75)
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500  76) #hdnum {
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500  77)     background-color: white;
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500  78)     position: absolute;
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500  79)     top: 100px;
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500  80)     left: 150px;
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500  81)     width: 100%;
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500  82)     max-width: 50%;
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500  83)     font-size: 50px;
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500  84)     color: black;
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500  85)     text-align: center;
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500  86) }
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500  87)
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500  88) #hdbutt {
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500  89)     position: absolute;
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500  90)     top: 105px;
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500  91)     left: 515px;
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500  92)     height: 50px;
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500  93)     width: 60px;
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500  94)     background-color: white;
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500  95) }
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500  96)
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500  97) #hdimg {
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500  98)     height: 100%;
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500  99)     width: 100%;
+e6323ffd0 (gabelapham 2023-11-14 22:17:27 -0500 100) }
+
+app/src/frontend/Stats_Page/src/components/ShortRestPopup.jsx
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500  1) import './RestPopup.css'
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500  2) import React from 'react'
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500  3) import d20 from '../assets/d20.png'
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500  4) //import {useState} from 'react'
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500  5)
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500  6) const ShortRestPopup = ({srtrigger, setsrTrigger, doFunc, hd, hdrem, hdremTrigger, hpCurr, hpMax}) => {
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500  7)
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500  8)     function doHeal(num, st) {
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500  9)         if (Number(num) > Number(hdrem) || Number(num) < 0) {
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500 10)             alert("Invalid Number of Hit Die.")
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500 11)         } else if (Number(hpCurr) == Number(hpMax) && Number(num) > 0) {
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500 12)             alert("Your HP is already full!")
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500 13)         } else {
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500 14)             var randomNum = 0;
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500 15)             for (let i = 0; i < num; i++) {
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500 16)                 randomNum += (Math.floor(Math.random() * ((Number(hd)))) + 1)
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500 17)             }
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500 18)             const rem = (Number(hdrem) - Number(num))
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500 19)             hdremTrigger(rem)
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500 20)             doFunc(randomNum)
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500 21)             setsrTrigger(false)
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500 22)             alert('You have recovered ' + randomNum + ' health during your short rest by expending '
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500 23)             + Number(num) + ' hit dice.')
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500 24)         }
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500 25)     }
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500 26)
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500 27)     return (srtrigger) ? (
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500 28)         <div className="popup3">
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500 29)             <div className="inside-popup3">
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500 30)                 <div class="topnav">
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500 31)                 <button className="close-button3" onClick={() => setsrTrigger(false)}>X</button>
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500 32)                 <p className='p'>
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500 33)                     Input Num of Hit Die For SHORT REST:
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500 34)                 </p>
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500 35)                 <input type="number" id="hdnum"></input>
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500 36)                 <button type="button" id="hdbutt" onClick={() => doHeal(hdnum.value, false)}>
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500 37)                     <img id="hdimg" src={d20} /></button>
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500 38)                 </div>
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500 39)             </div>
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500 40)         </div>
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500 41)     ) : ""
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500 42) }
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500 43)
+2d61d2af0 (gabelapham 2023-11-15 01:13:09 -0500 44) export default ShortRestPopup

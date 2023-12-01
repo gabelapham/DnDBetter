@@ -9,6 +9,7 @@ import DamagePopup from './components/DamagePopup.jsx'
 import LongRestPopUp from './components/LongRestPopup.jsx'
 import ShortRestPopUp from './components/ShortRestPopup.jsx'
 import song from './assets/song.mp3'
+import Query from './db/query.jsx'
 
 function Stats() {
 
@@ -24,6 +25,8 @@ function Stats() {
     const [maxHP, setMaxHP] = useState(12)
     const [currHP, setCurrHP] = useState(12)
 
+    const [strBon, setStrBon] = useState(0)
+
     const [buttonPopup, setButtonPopup] = useState(false)
     const [healthPopup, setHealthPopup] = useState(false)
     const [damagePopup, setDamagePopup] = useState(false)
@@ -33,7 +36,6 @@ function Stats() {
     const [level, setLevel] = useState(1)
     
     function raceFunc(e) {
-        setRace(e)
         switch(e) {
         case "Dragonborn":
             setRace("Dragonborn")
@@ -898,6 +900,8 @@ return(
 
         <input type="checkbox" id="inspiration"></input>
 
+        <Query pClass={playerClass} level={level} race={playerRace}/>
+
         <button id="item-search-button" onClick={() => setButtonPopup(true)}><img id="search-button" src={search} /></button>
 
         <button id="heal" onClick={() => setHealthPopup(true)}><img id="healpngid" src={healpng} /></button>
@@ -913,7 +917,7 @@ return(
 
         </div>
         <video controls height={70} width={600}>
-            <source src={song} type='audio/mp3'></source>
+            <source src={song} type='audio/mp3' />
         </video>
     </>
 )

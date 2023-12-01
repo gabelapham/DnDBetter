@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import SpellCounter from '../components/FunctionalCounter';
 import SpellCreate from './SpellCreate';
 import axios from 'axios'
+import spell_sheet from '../assets/Spell_Sheet2.png';
 
 const SpellBackground = () =>{
 
@@ -26,22 +27,27 @@ const SpellBackground = () =>{
 
     return(
 
-        <div className='spell-bg'>
-            
 
-            <header className='header'>
-                <div className='info'>
-                    <div className='left-section'>
+        
+        <div className='spell-bg'>
+
+                <div id="spell_page">
+                    <img src={spell_sheet}/>
+                </div>
+
+            <header /*className='header'*/>
+                <div /*className='info'*/>
+                    <div /*className='left-section'*/>
                         <input className="spell-class" type="text"/>
                     </div>
-                    <div className='right-section'>
-                        <div className='right-input'>
+                    <div /*className='right-section'*/>
+                        <div /*className='right-input'*/>
                             <input className='spell-ability' type="text" />
                         </div>
-                        <div className='right-input'>
+                        <div /*className='right-input'*/>
                             <input className='save-dc' type="text" />
                         </div>
-                        <div className='right-input'>
+                        <div /*className='right-input'*/>
                             <input className='attack-bonus' type="text" />
                         </div>
                     </div>

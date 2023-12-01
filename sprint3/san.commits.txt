@@ -1,0 +1,390 @@
+$ git blame --since=2.weeks-- App.css | grep A-Swoo18
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500  21)   position: relative;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500  46)   width: 310px; /* Set the desired width for the image box */
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500  47)   height: 450px; /* Set the desired height for the image box */
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500  51)   left: 200px; /* Adjust the left value to position the image box horizontally */
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500  65)   left: 200px; /* Adjust the left value to position the button horizontally */
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500  73)   left: 1000px; /* Adjust the left value to position the button horizontally */
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500  79)   width: 280px; /* Set the desired width for the image box */
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500  80)   height: 200px; /* Set the desired height for the image box */
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500  84)   left: 1000px; /* Adjust the left value to position the image box horizontally */
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500  91) /* .text-box:nth-child(1) {
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500  94) } */
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500  97) /* .text-box:nth-child(2) {
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 100) } */
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 103) /* .text-box:nth-child(3) {
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 106) } */
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 109) /* .text-box:nth-child(4) {
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 112) } */
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 115) /* .text-box:nth-child(5) {
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 118) } */
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 121) /* .text-box:nth-child(6) {
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 124) } */
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 127) /* .text-box:nth-child(7) {
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 130) } */
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 133) /* .text-box:nth-child(8) {
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 136) } */
+
+$ git blame --since=2.weeks-- ImageComponent.css | grep A-Swoo18
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 111) 
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 112) #symbol_name {
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 113)   height: 30px;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 114)   width: 100px;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 115)   text-align: left;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 116)   padding-inline-start: 5px;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 117)   background-color: white;  
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 118)   color: black;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 119)   font-size: 20px;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 120)   position: absolute;       
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 121)   border-color: white;      
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 122)   top: 300px;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 123)   left: 900px;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 124) }
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 125)
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 126) #allies_and_organizations { 
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 127)   height: 450px;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 128)   width: 350px;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 129)   text-align: left;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 130)   padding-inline-start: 5px;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 131)   background-color: white;  
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 132)   color: black;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 133)   font-size: 20px;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 134)   position: absolute;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 135)   border-color: white;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 136)   top: 260px;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 137)   left: 475px;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 138) }
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 139)
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 140) #character_backstory {
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 141)   height: 750px;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 142)   width: 325px;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 143)   text-align: left;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 144)   padding-inline-start: 5px;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 145)   background-color: white;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 146)   color: black;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 147)   font-size: 20px;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 148)   position: absolute;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 149)   border-color: white;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 150)   top: 800px;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 151)   left: 75px;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 152) }
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 153)
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 154)
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 155) #additional_features_traits {
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 156)   height: 400px;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 157)   width: 700px;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 158)   text-align: left;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 159)   padding-inline-start: 5px;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 160)   background-color: white;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 161)   color: black;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 162)   font-size: 20px;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 163)   position: absolute;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 164)   border-color: white;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 165)   top: 775px;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 166)   left: 475px;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 167) }
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 168)
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 169) #treasure {
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 170)   height: 300px;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 171)   width: 700px;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 172)   text-align: left;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 173)   padding-inline-start: 5px;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 174)   background-color: white;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 175)   color: black;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 176)   font-size: 20px;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 177)   position: absolute;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 178)   border-color: white;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 179)   top: 1250px;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 180)   left: 475px;
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 181) }
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 182)
+
+$ git blame --since=2.weeks-- ImageComponent.jsx | grep A-Swoo18
+2403d06d6 (A-Swoo18       2023-11-15 00:13:58 -0500 24)       {/* {positions.map((position, index) => {
+2403d06d6 (A-Swoo18       2023-11-15 00:13:58 -0500 58)       })} */}
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 66)       <p contentEditable id="symbol_name"></p>
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 67)       <p contentEditable id="allies_and_organizations"></p>
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 68)       <p contentEditable id="character_backstory"></p>
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 69)       <p contentEditable id="additional_features_traits"></p>
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 70)       <p contentEditable id="treasure"></p>
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 71)
+d94823af6 (A-Swoo18       2023-11-10 18:23:15 -0500 72)
+
+$ git blame --since=2.weeks-- SpellApp.jsx | grep A-Swoo18
+6abae4426 (A-Swoo18       2023-11-14 23:24:56 -0500  1) import React, { useState } from 'react';
+6abae4426 (A-Swoo18       2023-11-14 23:24:56 -0500  4) import SpellDiceRoller from './components/DiceRoller'; // Adjust the path based on your folder structure
+6abae4426 (A-Swoo18       2023-11-14 23:24:56 -0500  7)   const [isDicePopupOpen, setDicePopupOpen] = useState(false);
+6abae4426 (A-Swoo18       2023-11-14 23:24:56 -0500  8)
+6abae4426 (A-Swoo18       2023-11-14 23:24:56 -0500  9)   const toggleDicePopup = () => {
+6abae4426 (A-Swoo18       2023-11-14 23:24:56 -0500 10)     setDicePopupOpen(!isDicePopupOpen);
+6abae4426 (A-Swoo18       2023-11-14 23:24:56 -0500 11)   };
+6abae4426 (A-Swoo18       2023-11-14 23:24:56 -0500 15)       <br />
+6abae4426 (A-Swoo18       2023-11-14 23:24:56 -0500 16)       <div>
+6abae4426 (A-Swoo18       2023-11-14 23:24:56 -0500 17)         <button onClick={toggleDicePopup}>Open Spell Dice Roller</button>
+6abae4426 (A-Swoo18       2023-11-14 23:24:56 -0500 18)         {isDicePopupOpen && <SpellDiceRoller onClose={() => setDicePopupOpen(false)} />}
+6abae4426 (A-Swoo18       2023-11-14 23:24:56 -0500 19)         <SpellBackground />
+6abae4426 (A-Swoo18       2023-11-14 23:24:56 -0500 20)         {/* Other components or content */}
+6abae4426 (A-Swoo18       2023-11-14 23:24:56 -0500 21)       </div>
+6abae4426 (A-Swoo18       2023-11-14 23:24:56 -0500 26) export default App;
+
+$ git blame --since=2.weeks-- DiceRoller.css | grep A-Swoo18
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 1) #diceRollerButton {
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 2)     position: absolute;
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 3)     top: 20px; /* Adjust the top position as needed */
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 4)     left: 50%; /* Center horizontally */
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 5)     transform: translateX(-50%); /* Center horizontally */
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 6)     z-index: 1;
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 7)   }
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 8)
+
+$ git blame --since=2.weeks-- DiceRoller.css | grep A-Swoo18
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 1) #diceRollerButton {
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 2)     position: absolute;
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 3)     top: 20px; /* Adjust the top position as needed */
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 4)     left: 50%; /* Center horizontally */
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 5)     transform: translateX(-50%); /* Center horizontally */
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 6)     z-index: 1;
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 7)   }
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 8)
+
+seung@LAPTOP-V324FCS7 MINGW64 ~/OneDrive/Desktop/DnDBetter/app/src/frontend/Spell_Page/src/components (main)
+$ git blame --since=2.weeks-- DiceRoller.jsx | grep A-Swoo18
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500  1) import React, { useState } from 'react';
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500  2) import './DiceRoller.css'; // Import the CSS file
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500  3)
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500  4) const DiceRoller = () => {
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500  5)   const [result, setResult] = useState(null);
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500  6)
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500  7)   const rollDice = (sides) => {
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500  8)     const min = 1;
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500  9)     const max = sides;
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 10)     const randomValue = Math.floor(Math.random() * (max - min + 1)) + min;
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 11)     return randomValue;
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 12)   };
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 13)
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 14)   const handleRollClick = (sides) => {
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 15)     const rolledValue = rollDice(sides);
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 16)     setResult(`You rolled a ${rolledValue} on a ${sides}-sided die.`);
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 17)   };
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 18)
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 19)   return (
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 20)     <div>
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 21)       <button onClick={() => handleRollClick(4)}>Roll D4</button>
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 22)       <button onClick={() => handleRollClick(6)}>Roll D6</button>
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 23)       <button onClick={() => handleRollClick(8)}>Roll D8</button>
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 24)       <button onClick={() => handleRollClick(10)}>Roll D10</button>
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 25)       <button onClick={() => handleRollClick(12)}>Roll D12</button>
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 26)       <button onClick={() => handleRollClick(20)}>Roll D20</button>
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 27)       {result && <p>{result}</p>}
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 28)     </div>
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 29)   );
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 30) };
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 31)
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 32) export default DiceRoller;
+
+$ git blame --since=2.weeks-- DiceRollerPopup.css | grep A-Swoo18
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500  1) .dice-roller-popup {
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500  2)     position: absolute;
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500  3)     bottom: 100%;
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500  4)     left: 50%;
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500  5)     transform: translateX(-50%);
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500  6)     z-index: 2;
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500  7)   }
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500  8)
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500  9)   .dice-types {
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 10)     display: flex;
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 11)     justify-content: space-around;
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 12)     margin-bottom: 10px;
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 13)   }
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 14)
+
+$ git blame --since=2.weeks-- DiceRollerPopup.jsx | grep A-Swoo18
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500  1) import React, { useState } from 'react';
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500  2) import './DiceRollerPopup.css';
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500  3)
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500  4) const DiceRollerPopup = ({ onClose }) => {
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500  5)   const [result, setResult] = useState(null);
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500  6)
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500  7)   const rollDice = (sides) => {
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500  8)     const min = 1;
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500  9)     const max = sides;
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 10)     const randomValue = Math.floor(Math.random() * (max - min + 1)) + min;
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 11)     return randomValue;
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 12)   };
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 13)
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 14)   const handleRollClick = (sides) => {
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 15)     const rolledValue = rollDice(sides);
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 16)     setResult(`You rolled a ${rolledValue} on a ${sides}-sided die.`);
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 17)   };
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 18)
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 19)   return (
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 20)     <div className="dice-roller-popup">
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 21)       <div className="dice-types">
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 22)         <button onClick={() => handleRollClick(4)}>Roll D4</button>
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 23)         <button onClick={() => handleRollClick(6)}>Roll D6</button>
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 24)         <button onClick={() => handleRollClick(8)}>Roll D8</button>
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 25)         <button onClick={() => handleRollClick(10)}>Roll D10</button>
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 26)         <button onClick={() => handleRollClick(12)}>Roll D12</button>
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 27)         <button onClick={() => handleRollClick(20)}>Roll D20</button>
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 28)       </div>
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 29)       {result && <p>{result}</p>}
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 30)       <button onClick={onClose}>Close</button>
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 31)     </div>
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 32)   );
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 33) };
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 34)
+6abae4426 (A-Swoo18 2023-11-14 23:24:56 -0500 35) export default DiceRollerPopup;
+
+$ git blame --since=2.weeks-- StatsApp.css | grep A-Swoo18
+f0ff2e2f2 (A-Swoo18       2023-11-14 01:56:39 -0500 19) 
+f0ff2e2f2 (A-Swoo18       2023-11-14 01:56:39 -0500 20)   #diceRollerButton {
+f0ff2e2f2 (A-Swoo18       2023-11-14 01:56:39 -0500 21)     position: absolute;
+f0ff2e2f2 (A-Swoo18       2023-11-14 01:56:39 -0500 22)     top: 20px;
+f0ff2e2f2 (A-Swoo18       2023-11-14 01:56:39 -0500 23)     right: 20px; /* Adjust the right position as needed */
+f0ff2e2f2 (A-Swoo18       2023-11-14 01:56:39 -0500 24)     z-index: 1;
+f0ff2e2f2 (A-Swoo18       2023-11-14 01:56:39 -0500 25)   }
+f0ff2e2f2 (A-Swoo18       2023-11-14 01:56:39 -0500 26)
+
+$ git blame --since=2.weeks-- StatsApp.css | grep A-Swoo18
+f0ff2e2f2 (A-Swoo18       2023-11-14 01:56:39 -0500 19) 
+f0ff2e2f2 (A-Swoo18       2023-11-14 01:56:39 -0500 20)   #diceRollerButton {
+f0ff2e2f2 (A-Swoo18       2023-11-14 01:56:39 -0500 21)     position: absolute;
+f0ff2e2f2 (A-Swoo18       2023-11-14 01:56:39 -0500 22)     top: 20px;
+f0ff2e2f2 (A-Swoo18       2023-11-14 01:56:39 -0500 23)     right: 20px; /* Adjust the right position as needed */
+f0ff2e2f2 (A-Swoo18       2023-11-14 01:56:39 -0500 24)     z-index: 1;
+f0ff2e2f2 (A-Swoo18       2023-11-14 01:56:39 -0500 25)   }
+f0ff2e2f2 (A-Swoo18       2023-11-14 01:56:39 -0500 26)
+
+seung@LAPTOP-V324FCS7 MINGW64 ~/OneDrive/Desktop/DnDBetter/app/src/frontend/Stats_Page/src (main)
+$ git blame --since=2.weeks-- StatsApp.jsx | grep A-Swoo18
+f0ff2e2f2 (A-Swoo18       2023-11-14 01:56:39 -0500  1) import React, { useState } from 'react';
+f0ff2e2f2 (A-Swoo18       2023-11-14 01:56:39 -0500  2) import stat_sheet from './assets/stats_sheet.png';
+f0ff2e2f2 (A-Swoo18       2023-11-14 01:56:39 -0500  3) import './StatsApp.css';
+f0ff2e2f2 (A-Swoo18       2023-11-14 01:56:39 -0500  4) import Stats from './Stats.jsx';
+05513900a (A-Swoo18       2023-11-14 22:58:55 -0500  5) import DiceRoller from './components/DiceRoller.jsx';
+f0ff2e2f2 (A-Swoo18       2023-11-14 01:56:39 -0500  9)   const [isDicePopupOpen, setDicePopupOpen] = useState(false);
+f0ff2e2f2 (A-Swoo18       2023-11-14 01:56:39 -0500 10)
+f0ff2e2f2 (A-Swoo18       2023-11-14 01:56:39 -0500 11)   const toggleDicePopup = () => {
+f0ff2e2f2 (A-Swoo18       2023-11-14 01:56:39 -0500 12)     setDicePopupOpen(!isDicePopupOpen);
+f0ff2e2f2 (A-Swoo18       2023-11-14 01:56:39 -0500 13)   };
+05513900a (A-Swoo18       2023-11-14 22:58:55 -0500 21)           <button id="diceRollerButton" onClick={toggleDicePopup}>
+f0ff2e2f2 (A-Swoo18       2023-11-14 01:56:39 -0500 22)             Open Dice Roller
+f0ff2e2f2 (A-Swoo18       2023-11-14 01:56:39 -0500 23)           </button>
+f0ff2e2f2 (A-Swoo18       2023-11-14 01:56:39 -0500 24)           {isDicePopupOpen && <DiceRollerPopup onClose={() => setDicePopupOpen(false)} />}
+f0ff2e2f2 (A-Swoo18       2023-11-14 01:56:39 -0500 25)           <Stats />
+f0ff2e2f2 (A-Swoo18       2023-11-14 01:56:39 -0500 29)   );
+f0ff2e2f2 (A-Swoo18       2023-11-14 01:56:39 -0500 30) };
+f0ff2e2f2 (A-Swoo18       2023-11-14 01:56:39 -0500 32) export default StatsApp;
+
+$ git blame --since=2.weeks-- DiceRollerPopup.css | grep A-Swoo18
+05513900a (A-Swoo18 2023-11-14 22:58:55 -0500  1) .dice-roller-popup {
+05513900a (A-Swoo18 2023-11-14 22:58:55 -0500  2)   position: absolute;
+05513900a (A-Swoo18 2023-11-14 22:58:55 -0500  3)   bottom: 100%;
+05513900a (A-Swoo18 2023-11-14 22:58:55 -0500  4)   left: 50%;
+05513900a (A-Swoo18 2023-11-14 22:58:55 -0500  5)   transform: translateX(-50%);
+05513900a (A-Swoo18 2023-11-14 22:58:55 -0500  6)   z-index: 2;
+05513900a (A-Swoo18 2023-11-14 22:58:55 -0500  7) }
+05513900a (A-Swoo18 2023-11-14 22:58:55 -0500  8)
+05513900a (A-Swoo18 2023-11-14 22:58:55 -0500  9) .dice-types {
+05513900a (A-Swoo18 2023-11-14 22:58:55 -0500 10)   display: flex;
+05513900a (A-Swoo18 2023-11-14 22:58:55 -0500 11)   justify-content: space-around;
+05513900a (A-Swoo18 2023-11-14 22:58:55 -0500 12)   margin-bottom: 10px;
+05513900a (A-Swoo18 2023-11-14 22:58:55 -0500 13) }
+
+$ git blame --since=2.weeks-- DiceRollerPopup.jsx | grep A-Swoo18
+05513900a app/src/frontend/Stats_Page/src/components/DiceRollerPopup.jsx (A-Swoo18 2023-11-14 22:58:55 -0500  1) import React, { useState } from 'react';
+05513900a app/src/frontend/Stats_Page/src/components/DiceRollerPopup.jsx (A-Swoo18 2023-11-14 22:58:55 -0500  2) import './DiceRollerPopup.css';
+f0ff2e2f2 app/src/frontend/Stats_Page/src/DiceRollerPopup.jsx            (A-Swoo18 2023-11-14 01:56:39 -0500  3)
+f0ff2e2f2 app/src/frontend/Stats_Page/src/DiceRollerPopup.jsx            (A-Swoo18 2023-11-14 01:56:39 -0500  4) const DiceRollerPopup = ({ onClose }) => {
+05513900a app/src/frontend/Stats_Page/src/components/DiceRollerPopup.jsx (A-Swoo18 2023-11-14 22:58:55 -0500  5)   const [result, setResult] = useState(null);
+05513900a app/src/frontend/Stats_Page/src/components/DiceRollerPopup.jsx (A-Swoo18 2023-11-14 22:58:55 -0500  6)
+05513900a app/src/frontend/Stats_Page/src/components/DiceRollerPopup.jsx (A-Swoo18 2023-11-14 22:58:55 -0500  7)   const rollDice = (sides) => {
+05513900a app/src/frontend/Stats_Page/src/components/DiceRollerPopup.jsx (A-Swoo18 2023-11-14 22:58:55 -0500  8)     const min = 1;
+05513900a app/src/frontend/Stats_Page/src/components/DiceRollerPopup.jsx (A-Swoo18 2023-11-14 22:58:55 -0500  9)     const max = sides;
+05513900a app/src/frontend/Stats_Page/src/components/DiceRollerPopup.jsx (A-Swoo18 2023-11-14 22:58:55 -0500 10)     const randomValue = Math.floor(Math.random() * (max - min + 1)) + min;
+05513900a app/src/frontend/Stats_Page/src/components/DiceRollerPopup.jsx (A-Swoo18 2023-11-14 22:58:55 -0500 11)     return randomValue;
+05513900a app/src/frontend/Stats_Page/src/components/DiceRollerPopup.jsx (A-Swoo18 2023-11-14 22:58:55 -0500 12)   };
+05513900a app/src/frontend/Stats_Page/src/components/DiceRollerPopup.jsx (A-Swoo18 2023-11-14 22:58:55 -0500 13)
+05513900a app/src/frontend/Stats_Page/src/components/DiceRollerPopup.jsx (A-Swoo18 2023-11-14 22:58:55 -0500 14)   const handleRollClick = (sides) => {
+05513900a app/src/frontend/Stats_Page/src/components/DiceRollerPopup.jsx (A-Swoo18 2023-11-14 22:58:55 -0500 15)     const rolledValue = rollDice(sides);
+05513900a app/src/frontend/Stats_Page/src/components/DiceRollerPopup.jsx (A-Swoo18 2023-11-14 22:58:55 -0500 16)     setResult(`You rolled a ${rolledValue} on a ${sides}-sided die.`);
+05513900a app/src/frontend/Stats_Page/src/components/DiceRollerPopup.jsx (A-Swoo18 2023-11-14 22:58:55 -0500 17)   };
+05513900a app/src/frontend/Stats_Page/src/components/DiceRollerPopup.jsx (A-Swoo18 2023-11-14 22:58:55 -0500 18)
+f0ff2e2f2 app/src/frontend/Stats_Page/src/DiceRollerPopup.jsx            (A-Swoo18 2023-11-14 01:56:39 -0500 19)   return (
+05513900a app/src/frontend/Stats_Page/src/components/DiceRollerPopup.jsx (A-Swoo18 2023-11-14 22:58:55 -0500 20)     <div className="dice-roller-popup">
+05513900a app/src/frontend/Stats_Page/src/components/DiceRollerPopup.jsx (A-Swoo18 2023-11-14 22:58:55 -0500 21)       <div className="dice-types">
+05513900a app/src/frontend/Stats_Page/src/components/DiceRollerPopup.jsx (A-Swoo18 2023-11-14 22:58:55 -0500 22)         <button onClick={() => handleRollClick(4)}>Roll D4</button>
+05513900a app/src/frontend/Stats_Page/src/components/DiceRollerPopup.jsx (A-Swoo18 2023-11-14 22:58:55 -0500 23)         <button onClick={() => handleRollClick(6)}>Roll D6</button>
+05513900a app/src/frontend/Stats_Page/src/components/DiceRollerPopup.jsx (A-Swoo18 2023-11-14 22:58:55 -0500 24)         <button onClick={() => handleRollClick(8)}>Roll D8</button>
+05513900a app/src/frontend/Stats_Page/src/components/DiceRollerPopup.jsx (A-Swoo18 2023-11-14 22:58:55 -0500 25)         <button onClick={() => handleRollClick(10)}>Roll D10</button>
+05513900a app/src/frontend/Stats_Page/src/components/DiceRollerPopup.jsx (A-Swoo18 2023-11-14 22:58:55 -0500 26)         <button onClick={() => handleRollClick(12)}>Roll D12</button>
+05513900a app/src/frontend/Stats_Page/src/components/DiceRollerPopup.jsx (A-Swoo18 2023-11-14 22:58:55 -0500 27)         <button onClick={() => handleRollClick(20)}>Roll D20</button>
+f0ff2e2f2 app/src/frontend/Stats_Page/src/DiceRollerPopup.jsx            (A-Swoo18 2023-11-14 01:56:39 -0500 28)       </div>
+05513900a app/src/frontend/Stats_Page/src/components/DiceRollerPopup.jsx (A-Swoo18 2023-11-14 22:58:55 -0500 29)       {result && <p>{result}</p>}
+05513900a app/src/frontend/Stats_Page/src/components/DiceRollerPopup.jsx (A-Swoo18 2023-11-14 22:58:55 -0500 30)       <button onClick={onClose}>Close</button>
+f0ff2e2f2 app/src/frontend/Stats_Page/src/DiceRollerPopup.jsx            (A-Swoo18 2023-11-14 01:56:39 -0500 31)     </div>
+f0ff2e2f2 app/src/frontend/Stats_Page/src/DiceRollerPopup.jsx            (A-Swoo18 2023-11-14 01:56:39 -0500 32)   );
+f0ff2e2f2 app/src/frontend/Stats_Page/src/DiceRollerPopup.jsx            (A-Swoo18 2023-11-14 01:56:39 -0500 33) };
+f0ff2e2f2 app/src/frontend/Stats_Page/src/DiceRollerPopup.jsx            (A-Swoo18 2023-11-14 01:56:39 -0500 34)
+f0ff2e2f2 app/src/frontend/Stats_Page/src/DiceRollerPopup.jsx            (A-Swoo18 2023-11-14 01:56:39 -0500 35) export default DiceRollerPopup;
+
+$ git blame --since=2.weeks-- DiceRollerPopup.css | grep A-Swoo18
+05513900a (A-Swoo18 2023-11-14 22:58:55 -0500  1) .dice-roller-popup {
+05513900a (A-Swoo18 2023-11-14 22:58:55 -0500  2)   position: absolute;
+05513900a (A-Swoo18 2023-11-14 22:58:55 -0500  3)   bottom: 100%;
+05513900a (A-Swoo18 2023-11-14 22:58:55 -0500  4)   left: 50%;
+05513900a (A-Swoo18 2023-11-14 22:58:55 -0500  5)   transform: translateX(-50%);
+05513900a (A-Swoo18 2023-11-14 22:58:55 -0500  6)   z-index: 2;
+05513900a (A-Swoo18 2023-11-14 22:58:55 -0500  7) }
+05513900a (A-Swoo18 2023-11-14 22:58:55 -0500  8)
+05513900a (A-Swoo18 2023-11-14 22:58:55 -0500  9) .dice-types {
+05513900a (A-Swoo18 2023-11-14 22:58:55 -0500 10)   display: flex;
+05513900a (A-Swoo18 2023-11-14 22:58:55 -0500 11)   justify-content: space-around;
+05513900a (A-Swoo18 2023-11-14 22:58:55 -0500 12)   margin-bottom: 10px;
+05513900a (A-Swoo18 2023-11-14 22:58:55 -0500 13) }
+
+
+$ git blame --since=2.weeks-- DiceRoller.jsx | grep A-Swoo18
+e3151d66e app/src/frontend/Stats_Page/src/DiceRoller.jsx            (A-Swoo18 2023-11-12 18:17:17 -0500  1) import React, { useState } from 'react';
+05513900a app/src/frontend/Stats_Page/src/components/DiceRoller.jsx (A-Swoo18 2023-11-14 22:58:55 -0500  2) import './DiceRoller.css'; // Import the CSS file
+e3151d66e app/src/frontend/Stats_Page/src/DiceRoller.jsx            (A-Swoo18 2023-11-12 18:17:17 -0500  3)
+e3151d66e app/src/frontend/Stats_Page/src/DiceRoller.jsx            (A-Swoo18 2023-11-12 18:17:17 -0500  4) const DiceRoller = () => {
+e3151d66e app/src/frontend/Stats_Page/src/DiceRoller.jsx            (A-Swoo18 2023-11-12 18:17:17 -0500  5)   const [result, setResult] = useState(null);
+e3151d66e app/src/frontend/Stats_Page/src/DiceRoller.jsx            (A-Swoo18 2023-11-12 18:17:17 -0500  6)
+e3151d66e app/src/frontend/Stats_Page/src/DiceRoller.jsx            (A-Swoo18 2023-11-12 18:17:17 -0500  7)   const rollDice = (sides) => {
+e3151d66e app/src/frontend/Stats_Page/src/DiceRoller.jsx            (A-Swoo18 2023-11-12 18:17:17 -0500  8)     const min = 1;
+e3151d66e app/src/frontend/Stats_Page/src/DiceRoller.jsx            (A-Swoo18 2023-11-12 18:17:17 -0500  9)     const max = sides;
+e3151d66e app/src/frontend/Stats_Page/src/DiceRoller.jsx            (A-Swoo18 2023-11-12 18:17:17 -0500 10)     const randomValue = Math.floor(Math.random() * (max - min + 1)) + min;
+e3151d66e app/src/frontend/Stats_Page/src/DiceRoller.jsx            (A-Swoo18 2023-11-12 18:17:17 -0500 11)     return randomValue;
+e3151d66e app/src/frontend/Stats_Page/src/DiceRoller.jsx            (A-Swoo18 2023-11-12 18:17:17 -0500 12)   };
+e3151d66e app/src/frontend/Stats_Page/src/DiceRoller.jsx            (A-Swoo18 2023-11-12 18:17:17 -0500 13)
+e3151d66e app/src/frontend/Stats_Page/src/DiceRoller.jsx            (A-Swoo18 2023-11-12 18:17:17 -0500 14)   const handleRollClick = (sides) => {
+e3151d66e app/src/frontend/Stats_Page/src/DiceRoller.jsx            (A-Swoo18 2023-11-12 18:17:17 -0500 15)     const rolledValue = rollDice(sides);
+e3151d66e app/src/frontend/Stats_Page/src/DiceRoller.jsx            (A-Swoo18 2023-11-12 18:17:17 -0500 16)     setResult(`You rolled a ${rolledValue} on a ${sides}-sided die.`);
+e3151d66e app/src/frontend/Stats_Page/src/DiceRoller.jsx            (A-Swoo18 2023-11-12 18:17:17 -0500 17)   };
+e3151d66e app/src/frontend/Stats_Page/src/DiceRoller.jsx            (A-Swoo18 2023-11-12 18:17:17 -0500 18)
+e3151d66e app/src/frontend/Stats_Page/src/DiceRoller.jsx            (A-Swoo18 2023-11-12 18:17:17 -0500 19)   return (
+e3151d66e app/src/frontend/Stats_Page/src/DiceRoller.jsx            (A-Swoo18 2023-11-12 18:17:17 -0500 20)     <div>
+e3151d66e app/src/frontend/Stats_Page/src/DiceRoller.jsx            (A-Swoo18 2023-11-12 18:17:17 -0500 21)       <button onClick={() => handleRollClick(4)}>Roll D4</button>
+e3151d66e app/src/frontend/Stats_Page/src/DiceRoller.jsx            (A-Swoo18 2023-11-12 18:17:17 -0500 22)       <button onClick={() => handleRollClick(6)}>Roll D6</button>
+e3151d66e app/src/frontend/Stats_Page/src/DiceRoller.jsx            (A-Swoo18 2023-11-12 18:17:17 -0500 23)       <button onClick={() => handleRollClick(8)}>Roll D8</button>
+e3151d66e app/src/frontend/Stats_Page/src/DiceRoller.jsx            (A-Swoo18 2023-11-12 18:17:17 -0500 24)       <button onClick={() => handleRollClick(10)}>Roll D10</button>
+e3151d66e app/src/frontend/Stats_Page/src/DiceRoller.jsx            (A-Swoo18 2023-11-12 18:17:17 -0500 25)       <button onClick={() => handleRollClick(12)}>Roll D12</button>
+e3151d66e app/src/frontend/Stats_Page/src/DiceRoller.jsx            (A-Swoo18 2023-11-12 18:17:17 -0500 26)       <button onClick={() => handleRollClick(20)}>Roll D20</button>
+e3151d66e app/src/frontend/Stats_Page/src/DiceRoller.jsx            (A-Swoo18 2023-11-12 18:17:17 -0500 27)       {result && <p>{result}</p>}
+e3151d66e app/src/frontend/Stats_Page/src/DiceRoller.jsx            (A-Swoo18 2023-11-12 18:17:17 -0500 28)     </div>
+e3151d66e app/src/frontend/Stats_Page/src/DiceRoller.jsx            (A-Swoo18 2023-11-12 18:17:17 -0500 29)   );
+e3151d66e app/src/frontend/Stats_Page/src/DiceRoller.jsx            (A-Swoo18 2023-11-12 18:17:17 -0500 30) };
+e3151d66e app/src/frontend/Stats_Page/src/DiceRoller.jsx            (A-Swoo18 2023-11-12 18:17:17 -0500 31)
+e3151d66e app/src/frontend/Stats_Page/src/DiceRoller.jsx            (A-Swoo18 2023-11-12 18:17:17 -0500 32) export default DiceRoller;
+
+
+$ git blame --since=2.weeks-- DiceRoller.css | grep A-Swoo18
+05513900a (A-Swoo18   2023-11-14 22:58:55 -0500  1) #diceRollerButton {
+05513900a (A-Swoo18   2023-11-14 22:58:55 -0500  2)     position: absolute;
+05513900a (A-Swoo18   2023-11-14 22:58:55 -0500  3)     top: 20px; /* Adjust the top position as needed */
+05513900a (A-Swoo18   2023-11-14 22:58:55 -0500  4)     left: 50%; /* Center horizontally */
+05513900a (A-Swoo18   2023-11-14 22:58:55 -0500  5)     transform: translateX(-50%); /* Center horizontally */
+05513900a (A-Swoo18   2023-11-14 22:58:55 -0500  6)     z-index: 1;
+05513900a (A-Swoo18   2023-11-14 22:58:55 -0500 10)   }
+05513900a (A-Swoo18   2023-11-14 22:58:55 -0500 11)
