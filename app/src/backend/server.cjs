@@ -230,6 +230,38 @@ app.get('/races/tiefling', (req, res) => {
     });
 });
 
+/* Items */
+app.get('/items/ammo', (req, res) => {
+    const query = "SELECT * FROM dndbetter.ammo;"
+    pool.query(query, function (err, result, fields) {
+        res.json(result);
+    });
+});
+app.get('/items/armor', (req, res) => {
+    const query = "SELECT * FROM dndbetter.armor;"
+    pool.query(query, function (err, result, fields) {
+        res.json(result);
+    });
+});
+app.get('/items/equipment', (req, res) => {
+    const query = "SELECT * FROM dndbetter.equipment;"
+    pool.query(query, function (err, result, fields) {
+        res.json(result);
+    });
+});
+app.get('/items/tools', (req, res) => {
+    const query = "SELECT * FROM dndbetter.tools;"
+    pool.query(query, function (err, result, fields) {
+        res.json(result);
+    });
+});
+app.get('/items/weapons', (req, res) => {
+    const query = "SELECT * FROM dndbetter.weapons;"
+    pool.query(query, function (err, result, fields) {
+        res.json(result);
+    });
+});
+
 // Start the server
 const PORT = 3001; // Can be any port
 app.listen(PORT, () => {
