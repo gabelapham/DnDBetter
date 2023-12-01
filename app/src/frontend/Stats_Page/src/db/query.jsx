@@ -11,10 +11,10 @@ const Query = ({pClass, level, race}) => {
     const [equip, setEquip] = useState(null);
     const [lang, setLang] = useState(null);
     const [raceFeat, setRaceFeat] = useState(null);
+    const [feature, setFeature] = useState(null);
     var raceResponse;
     var profResponse;
     var equipResponse;
-    var temp;
 
     useEffect(() => {
         async function getPost() {
@@ -118,10 +118,18 @@ const Query = ({pClass, level, race}) => {
             }
             setPost(profResponse.data[1]);
             setEquip(equipResponse.data[2]);
+            var i = 3;
+            var temp = "";
+            while (profResponse.data[i].level <= level) {
+                temp += profResponse.data[i].features;
+                i++;
+            }
+            setFeature(temp)
         }
+       
         getPost();
     },);
-
+   
     if (!post) return ""
 
    return (
@@ -137,6 +145,9 @@ const Query = ({pClass, level, race}) => {
         </p>
         <p id='racialFeats'>
             {raceFeat}
+        </p>
+        <p id = "classFeats">
+               {feature }
         </p>
     </>
     )
