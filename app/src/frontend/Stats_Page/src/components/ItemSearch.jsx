@@ -48,7 +48,7 @@ const Popup = ({trigger, setTrigger}) => {
             <div className="inside-popup">
                 <div class="topnav">
                 <button className="close-button" onClick={() => setTrigger(false)}>X</button>
-                    <input id="searchbar" type="text" placeholder="Search.." id="item"/>
+                    <input id="searchbar" type="text" placeholder="Search.."/>
                     <button id="submit-button" type="button" onClick={() => searchFunc(searchbar.value)}>
                         <img id="search-png" src={search} />
                     </button>
