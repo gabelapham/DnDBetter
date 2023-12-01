@@ -180,15 +180,6 @@
   left: 475px;
 }
 
-/* .image-container {
-  position: absolute;
-  display: inline-block;
-} */
-
-/* .image-container img {
-  width: 100%;
-  height: auto;
-} */
 
 .text-box {
   position: relative;
@@ -201,7 +192,6 @@
 }
 
 
-/* ... (other styles) */
 
 /* Styles for the first text box */
 .text-box:nth-child(1) {
@@ -251,4 +241,3 @@
   height: 12%;
 }
 
-/* */
