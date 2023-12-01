@@ -1,0 +1,416 @@
+app/src/backend/server.cjs
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 103) /* Individual Classes */
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 104) app.get('/classes/barbarian', (req, res) => {
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 105)     const query = "SELECT * FROM dndbetter.classes WHERE class = 'barbarian';"
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 106)     pool.query(query, function (err, result, fields) {
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 107)         res.json(result);
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 108)     });
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 109) });
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 110) app.get('/classes/bard', (req, res) => {
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 111)     const query = "SELECT * FROM dndbetter.classes WHERE class = 'bard';"
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 112)     pool.query(query, function (err, result, fields) {
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 113)         res.json(result);
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 114)     });
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 115) });
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 116) app.get('/classes/cleric', (req, res) => {
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 117)     const query = "SELECT * FROM dndbetter.classes WHERE class = 'cleric';"
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 118)     pool.query(query, function (err, result, fields) {
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 119)         res.json(result);
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 120)     });
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 121) });
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 122) app.get('/classes/druid', (req, res) => {
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 123)     const query = "SELECT * FROM dndbetter.classes WHERE class = 'druid';"
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 124)     pool.query(query, function (err, result, fields) {
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 125)         res.json(result);
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 126)     });
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 127) });
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 128) app.get('/classes/fighter', (req, res) => {
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 129)     const query = "SELECT * FROM dndbetter.classes WHERE class = 'fighter';"
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 130)     pool.query(query, function (err, result, fields) {
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 131)         res.json(result);
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 132)     });
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 133) });
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 134) app.get('/classes/monk', (req, res) => {
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 135)     const query = "SELECT * FROM dndbetter.classes WHERE class = 'monk';"
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 136)     pool.query(query, function (err, result, fields) {
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 137)         res.json(result);
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 138)     });
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 139) });
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 140) app.get('/classes/paladin', (req, res) => {
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 141)     const query = "SELECT * FROM dndbetter.classes WHERE class = 'paladin';"
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 142)     pool.query(query, function (err, result, fields) {
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 143)         res.json(result);
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 144)     });
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 145) });
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 146) app.get('/classes/ranger', (req, res) => {
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 147)     const query = "SELECT * FROM dndbetter.classes WHERE class = 'ranger';"
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 148)     pool.query(query, function (err, result, fields) {
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 149)         res.json(result);
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 150)     });
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 151) });
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 152) app.get('/classes/rogue', (req, res) => {
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 153)     const query = "SELECT * FROM dndbetter.classes WHERE class = 'rogue';"
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 154)     pool.query(query, function (err, result, fields) {
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 155)         res.json(result);
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 156)     });
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 157) });
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 158) app.get('/classes/sorcerer', (req, res) => {
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 159)     const query = "SELECT * FROM dndbetter.classes WHERE class = 'sorcerer';"
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 160)     pool.query(query, function (err, result, fields) {
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 161)         res.json(result);
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 162)     });
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 163) });
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 164) app.get('/classes/warlock', (req, res) => {
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 165)     const query = "SELECT * FROM dndbetter.classes WHERE class = 'warlock';"
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 166)     pool.query(query, function (err, result, fields) {
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 167)         res.json(result);
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 168)     });
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 169) });
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 170) app.get('/classes/wizard', (req, res) => {
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 171)     const query = "SELECT * FROM dndbetter.classes WHERE class = 'wizard';"
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 172)     pool.query(query, function (err, result, fields) {
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 173)         res.json(result);
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 174)     });
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 175) });
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 176)
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 177) /* Individual Races */
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 178) app.get('/races/dragonborn', (req, res) => {
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 179)     const query = "SELECT * FROM dndbetter.races WHERE race = 'Dragonborn';"
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 180)     pool.query(query, function (err, result, fields) {
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 181)         res.json(result);
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 182)     });
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 183) });
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 184) app.get('/races/dwarf', (req, res) => {
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 185)     const query = "SELECT * FROM dndbetter.races WHERE race = 'Dwarf';"
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 186)     pool.query(query, function (err, result, fields) {
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 187)         res.json(result);
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 188)     });
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 189) });
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 190) app.get('/races/elf', (req, res) => {
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 191)     const query = "SELECT * FROM dndbetter.races WHERE race = 'Elf';"
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 192)     pool.query(query, function (err, result, fields) {
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 193)         res.json(result);
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 194)     });
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 195) });
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 196) app.get('/races/gnome', (req, res) => {
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 197)     const query = "SELECT * FROM dndbetter.races WHERE race = 'Gnome';"
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 198)     pool.query(query, function (err, result, fields) {
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 199)         res.json(result);
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 200)     });
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 201) });
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 202) app.get('/races/halfelf', (req, res) => {
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 203)     const query = "SELECT * FROM dndbetter.races WHERE race = 'Half Elf';"
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 204)     pool.query(query, function (err, result, fields) {
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 205)         res.json(result);
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 206)     });
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 207) });
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 208) app.get('/races/halforc', (req, res) => {
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 209)     const query = "SELECT * FROM dndbetter.races WHERE race = 'Half Orc';"
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 210)     pool.query(query, function (err, result, fields) {
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 211)         res.json(result);
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 212)     });
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 213) });
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 214) app.get('/races/halfling', (req, res) => {
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 215)     const query = "SELECT * FROM dndbetter.races WHERE race = 'Halfling';"
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 216)     pool.query(query, function (err, result, fields) {
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 217)         res.json(result);
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 218)     });
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 219) });
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 220) app.get('/races/human', (req, res) => {
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 221)     const query = "SELECT * FROM dndbetter.races WHERE race = 'Human';"
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 222)     pool.query(query, function (err, result, fields) {
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 223)         res.json(result);
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 224)     });
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 225) });
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 226) app.get('/races/tiefling', (req, res) => {
+24e9baebf (gabelapham     2023-11-30 12:46:00 -0500 227)     const query = "SELECT * FROM dndbetter.races WHERE race = 'Tiefling';"
+7b7c0f78a (gabelapham     2023-11-27 22:30:59 -0500 228)     pool.query(query, function (err, result, fields) {
+7b7c0f78a (gabelapham     2023-11-27 22:30:59 -0500 229)         res.json(result);
+7b7c0f78a (gabelapham     2023-11-27 22:30:59 -0500 230)     });
+e6350aa9a (gabelapham     2023-11-21 15:51:42 -0500 231) });
+e6350aa9a (gabelapham     2023-11-21 15:51:42 -0500 232)
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 233) /* Items */
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 234) app.get('/items/ammo', (req, res) => {
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 235)     const query = "SELECT * FROM dndbetter.ammo;"
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 236)     pool.query(query, function (err, result, fields) {
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 237)         res.json(result);
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 238)     });
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 239) });
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 240) app.get('/items/armor', (req, res) => {
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 241)     const query = "SELECT * FROM dndbetter.armor;"
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 242)     pool.query(query, function (err, result, fields) {
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 243)         res.json(result);
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 244)     });
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 245) });
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 246) app.get('/items/equipment', (req, res) => {
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 247)     const query = "SELECT * FROM dndbetter.equipment;"
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 248)     pool.query(query, function (err, result, fields) {
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 249)         res.json(result);
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 250)     });
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 251) });
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 252) app.get('/items/tools', (req, res) => {
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 253)     const query = "SELECT * FROM dndbetter.tools;"
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 254)     pool.query(query, function (err, result, fields) {
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 255)         res.json(result);
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 256)     });
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 257) });
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 258) app.get('/items/weapons', (req, res) => {
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 259)     const query = "SELECT * FROM dndbetter.weapons;"
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 260)     pool.query(query, function (err, result, fields) {
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 261)         res.json(result);
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 262)     });
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 263) });
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 264)
+
+app/src/frontend/Stats_Page/src/Stats.jsx
+aae4c1a0c (gabelapham     2023-11-30 12:49:12 -0500  12) import Query from './db/query.jsx'
+b0f2cefd3 (gabelapham     2023-11-20 08:13:41 -0500  28)     const [strBon, setStrBon] = useState(0)
+b0f2cefd3 (gabelapham     2023-11-20 08:13:41 -0500  29)
+aae4c1a0c (gabelapham     2023-11-30 12:49:12 -0500 903)         <Query pClass={playerClass} level={level} race={playerRace}/>
+93c552e74 (gabelapham     2023-11-28 14:43:21 -0500 904)
+93c552e74 (gabelapham     2023-11-28 14:43:21 -0500 920)             <source src={song} type='audio/mp3' />
+
+app/src/frontend/Stats_Page/src/db/query.jsx
+e6350aa9a (gabelapham 2023-11-21 15:51:42 -0500   1) import React, { useState, useRef, useEffect } from 'react';
+e6350aa9a (gabelapham 2023-11-21 15:51:42 -0500   2) import axios from 'axios';
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500   3) import './query.css'
+93c552e74 (gabelapham 2023-11-28 14:43:21 -0500   4)
+7b7c0f78a (gabelapham 2023-11-27 22:30:59 -0500   5) const client = axios.create({
+5e1a66a6e (gabelapham 2023-11-28 12:13:50 -0500   6)     baseURL: "http://localhost:3001"
+7b7c0f78a (gabelapham 2023-11-27 22:30:59 -0500   7) });
+e6350aa9a (gabelapham 2023-11-21 15:51:42 -0500   8)
+aae4c1a0c (gabelapham 2023-11-30 12:49:12 -0500   9) const Query = ({pClass, level, race}) => {
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500  10)     const [post, setPost] = useState(null);
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500  11)     const [equip, setEquip] = useState(null);
+30aed0baa (gabelapham 2023-11-30 14:04:39 -0500  12)     const [lang, setLang] = useState(null);
+8ca5a03a1 (gabelapham 2023-11-30 14:30:12 -0500  13)     const [raceFeat, setRaceFeat] = useState(null);
+8ca5a03a1 (gabelapham 2023-11-30 14:30:12 -0500  15)     var raceResponse;
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500  16)     var profResponse;
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500  17)     var equipResponse;
+93c552e74 (gabelapham 2023-11-28 14:43:21 -0500  18)
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500  19)     useEffect(() => {
+7b7c0f78a (gabelapham 2023-11-27 22:30:59 -0500  20)         async function getPost() {
+5e1a66a6e (gabelapham 2023-11-28 12:13:50 -0500  21)             switch (pClass) {
+5e1a66a6e (gabelapham 2023-11-28 12:13:50 -0500  22)                 case "Barbarian":
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500  23)                     profResponse = await client.get("/classes/barbarian");
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500  24)                     equipResponse = await client.get("/classes/barbarian");
+5e1a66a6e (gabelapham 2023-11-28 12:13:50 -0500  25)                     break;
+5e1a66a6e (gabelapham 2023-11-28 12:13:50 -0500  26)                 case "Bard":
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500  27)                     profResponse = await client.get("/classes/bard");
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500  28)                     equipResponse = await client.get("/classes/bard");
+29dac7674 (gabelapham 2023-11-28 12:26:58 -0500  29)                     break;
+29dac7674 (gabelapham 2023-11-28 12:26:58 -0500  30)                 case "Cleric":
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500  31)                     profResponse = await client.get("/classes/cleric");
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500  32)                     equipResponse = await client.get("/classes/cleric");
+29dac7674 (gabelapham 2023-11-28 12:26:58 -0500  33)                     break;
+29dac7674 (gabelapham 2023-11-28 12:26:58 -0500  34)                 case "Druid":
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500  35)                     profResponse = await client.get("/classes/druid");
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500  36)                     equipResponse = await client.get("/classes/druid");
+29dac7674 (gabelapham 2023-11-28 12:26:58 -0500  37)                     break;
+29dac7674 (gabelapham 2023-11-28 12:26:58 -0500  38)                 case "Fighter":
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500  39)                     profResponse = await client.get("/classes/fighter");
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500  40)                     equipResponse = await client.get("/classes/fighter");
+29dac7674 (gabelapham 2023-11-28 12:26:58 -0500  41)                     break;
+29dac7674 (gabelapham 2023-11-28 12:26:58 -0500  42)                 case "Monk":
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500  43)                     profResponse = await client.get("/classes/monk");
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500  44)                     equipResponse = await client.get("/classes/monk");
+29dac7674 (gabelapham 2023-11-28 12:26:58 -0500  45)                     break;
+29dac7674 (gabelapham 2023-11-28 12:26:58 -0500  46)                 case "Paladin":
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500  47)                     profResponse = await client.get("/classes/paladin");
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500  48)                     equipResponse = await client.get("/classes/paladin");
+29dac7674 (gabelapham 2023-11-28 12:26:58 -0500  49)                     break;
+29dac7674 (gabelapham 2023-11-28 12:26:58 -0500  50)                 case "Ranger":
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500  51)                     profResponse = await client.get("/classes/ranger");
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500  52)                     equipResponse = await client.get("/classes/ranger");
+29dac7674 (gabelapham 2023-11-28 12:26:58 -0500  53)                     break;
+29dac7674 (gabelapham 2023-11-28 12:26:58 -0500  54)                 case "Rogue":
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500  55)                     profResponse = await client.get("/classes/rogue");
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500  56)                     equipResponse = await client.get("/classes/rogue");
+29dac7674 (gabelapham 2023-11-28 12:26:58 -0500  57)                     break;
+29dac7674 (gabelapham 2023-11-28 12:26:58 -0500  58)                 case "Sorcerer":
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500  59)                     profResponse = await client.get("/classes/sorcerer");
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500  60)                     equipResponse = await client.get("/classes/sorcerer");
+29dac7674 (gabelapham 2023-11-28 12:26:58 -0500  61)                     break;
+29dac7674 (gabelapham 2023-11-28 12:26:58 -0500  62)                 case "Warlock":
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500  63)                     profResponse = await client.get("/classes/warlock");
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500  64)                     equipResponse = await client.get("/classes/warlock");
+29dac7674 (gabelapham 2023-11-28 12:26:58 -0500  65)                     break;
+29dac7674 (gabelapham 2023-11-28 12:26:58 -0500  66)                 case "Wizard":
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500  67)                     profResponse = await client.get("/classes/wizard");
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500  68)                     equipResponse = await client.get("/classes/wizard");
+5e1a66a6e (gabelapham 2023-11-28 12:13:50 -0500  69)                     break;
+5e1a66a6e (gabelapham 2023-11-28 12:13:50 -0500  70)                 default:
+5e1a66a6e (gabelapham 2023-11-28 12:13:50 -0500  71)                     break;
+5e1a66a6e (gabelapham 2023-11-28 12:13:50 -0500  72)             }
+b6166d14b (gabelapham 2023-11-30 13:29:21 -0500  73)             switch (race) {
+b6166d14b (gabelapham 2023-11-30 13:29:21 -0500  74)                 case "Dragonborn":
+8ca5a03a1 (gabelapham 2023-11-30 14:30:12 -0500  75)                     raceResponse = await client.get("/races/dragonborn");
+8ca5a03a1 (gabelapham 2023-11-30 14:30:12 -0500  76)                     setLang(raceResponse.data[8]);
+8ca5a03a1 (gabelapham 2023-11-30 14:30:12 -0500  77)                     temp = "";
+8ca5a03a1 (gabelapham 2023-11-30 14:30:12 -0500  78)                     for (var i = 1; i < 8; i++) {
+8ca5a03a1 (gabelapham 2023-11-30 14:30:12 -0500  79)                         temp += raceResponse.data[i].Features;
+8ca5a03a1 (gabelapham 2023-11-30 14:30:12 -0500  80)                         temp += " ";
+8ca5a03a1 (gabelapham 2023-11-30 14:30:12 -0500  81)                     }
+8ca5a03a1 (gabelapham 2023-11-30 14:30:12 -0500  82)                     setRaceFeat(temp);
+b6166d14b (gabelapham 2023-11-30 13:29:21 -0500  83)                     break;
+b6166d14b (gabelapham 2023-11-30 13:29:21 -0500  84)                 case "Dwarf":
+8ca5a03a1 (gabelapham 2023-11-30 14:30:12 -0500  85)                     raceResponse = await client.get("/races/dwarf");
+8ca5a03a1 (gabelapham 2023-11-30 14:30:12 -0500  86)                     setLang(raceResponse.data[10]);
+b6166d14b (gabelapham 2023-11-30 13:29:21 -0500  87)                     break;
+b6166d14b (gabelapham 2023-11-30 13:29:21 -0500  88)                 case "Elf":
+8ca5a03a1 (gabelapham 2023-11-30 14:30:12 -0500  89)                     raceResponse = await client.get("/races/elf");
+8ca5a03a1 (gabelapham 2023-11-30 14:30:12 -0500  90)                     setLang(raceResponse.data[9]);
+b6166d14b (gabelapham 2023-11-30 13:29:21 -0500  91)                     break;
+b6166d14b (gabelapham 2023-11-30 13:29:21 -0500  92)                 case "Gnome":
+8ca5a03a1 (gabelapham 2023-11-30 14:30:12 -0500  93)                     raceResponse = await client.get("/races/gnome");
+8ca5a03a1 (gabelapham 2023-11-30 14:30:12 -0500  94)                     setLang(raceResponse.data[7]);
+b6166d14b (gabelapham 2023-11-30 13:29:21 -0500  95)                     break;
+b6166d14b (gabelapham 2023-11-30 13:29:21 -0500  96)                 case "Half-Elf":
+8ca5a03a1 (gabelapham 2023-11-30 14:30:12 -0500  97)                     raceResponse = await client.get("/races/halfelf");
+8ca5a03a1 (gabelapham 2023-11-30 14:30:12 -0500  98)                     setLang(raceResponse.data[7]);
+b6166d14b (gabelapham 2023-11-30 13:29:21 -0500  99)                     break;
+b6166d14b (gabelapham 2023-11-30 13:29:21 -0500 100)                 case "Halfling":
+8ca5a03a1 (gabelapham 2023-11-30 14:30:12 -0500 101)                     raceResponse = await client.get("/races/halfling");
+8ca5a03a1 (gabelapham 2023-11-30 14:30:12 -0500 102)                     setLang(raceResponse.data[7]);
+b6166d14b (gabelapham 2023-11-30 13:29:21 -0500 103)                     break;
+b6166d14b (gabelapham 2023-11-30 13:29:21 -0500 104)                 case "Half-Orc":
+8ca5a03a1 (gabelapham 2023-11-30 14:30:12 -0500 105)                     raceResponse = await client.get("/races/halforc");
+8ca5a03a1 (gabelapham 2023-11-30 14:30:12 -0500 106)                     setLang(raceResponse.data[9]);
+b6166d14b (gabelapham 2023-11-30 13:29:21 -0500 107)                     break;
+b6166d14b (gabelapham 2023-11-30 13:29:21 -0500 108)                 case "Human":
+8ca5a03a1 (gabelapham 2023-11-30 14:30:12 -0500 109)                     raceResponse = await client.get("/races/human");
+8ca5a03a1 (gabelapham 2023-11-30 14:30:12 -0500 110)                     setLang(raceResponse.data[5]);
+b6166d14b (gabelapham 2023-11-30 13:29:21 -0500 111)                     break;
+b6166d14b (gabelapham 2023-11-30 13:29:21 -0500 112)                 case "Tiefling":
+8ca5a03a1 (gabelapham 2023-11-30 14:30:12 -0500 113)                     raceResponse = await client.get("/races/tiefling");
+8ca5a03a1 (gabelapham 2023-11-30 14:30:12 -0500 114)                     setLang(raceResponse.data[7]);
+b6166d14b (gabelapham 2023-11-30 13:29:21 -0500 115)                     break;
+b6166d14b (gabelapham 2023-11-30 13:29:21 -0500 116)                 default:
+b6166d14b (gabelapham 2023-11-30 13:29:21 -0500 117)                     break;
+b6166d14b (gabelapham 2023-11-30 13:29:21 -0500 118)             }
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500 119)             setPost(profResponse.data[1]);
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500 120)             setEquip(equipResponse.data[2]);
+7b7c0f78a (gabelapham 2023-11-27 22:30:59 -0500 128)         }
+93c552e74 (gabelapham 2023-11-28 14:43:21 -0500 130)         getPost();
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500 131)     },);
+7b7c0f78a (gabelapham 2023-11-27 22:30:59 -0500 133)     if (!post) return ""
+c70a32b86 (gabelapham 2023-11-27 16:56:44 -0500 134)
+93c552e74 (gabelapham 2023-11-28 14:43:21 -0500 135)    return (
+c70a32b86 (gabelapham 2023-11-27 16:56:44 -0500 136)     <>
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500 137)         <p id='prof'>
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500 138)             {post.features}
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500 139)         </p>
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500 140)         <p id='equipment'>
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500 141)             {equip.features}
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500 142)         </p>
+30aed0baa (gabelapham 2023-11-30 14:04:39 -0500 143)         <p id='language'>
+30aed0baa (gabelapham 2023-11-30 14:04:39 -0500 144)             {lang.Features}
+b6166d14b (gabelapham 2023-11-30 13:29:21 -0500 145)         </p>
+8ca5a03a1 (gabelapham 2023-11-30 14:30:12 -0500 146)         <p id='racialFeats'>
+8ca5a03a1 (gabelapham 2023-11-30 14:30:12 -0500 147)             {raceFeat}
+8ca5a03a1 (gabelapham 2023-11-30 14:30:12 -0500 148)         </p>
+c70a32b86 (gabelapham 2023-11-27 16:56:44 -0500 152)     </>
+93c552e74 (gabelapham 2023-11-28 14:43:21 -0500 153)     )
+93c552e74 (gabelapham 2023-11-28 14:43:21 -0500 154) };
+7b7c0f78a (gabelapham 2023-11-27 22:30:59 -0500 155)
+b6166d14b (gabelapham 2023-11-30 13:29:21 -0500 156) export default Query;
+
+app/src/frontend/Stats_Page/src/db/query.css
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500  1) #prof {
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500  2)     font-size: 20px;
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500  3)     color: black;
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500  4)     position: absolute;
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500  5)     top: 1720px;
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500  6)     left: 87px;
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500  7)     max-width: 28%;
+30aed0baa (gabelapham 2023-11-30 14:04:39 -0500  8)     max-height: 7.7%;
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500  9)     overflow: scroll;
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500 10) }
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500 11)
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500 12) #equipment {
+b6166d14b (gabelapham 2023-11-30 13:29:21 -0500 13)     font-size: 18px;
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500 14)     color: black;
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500 15)     position: absolute;
+b6166d14b (gabelapham 2023-11-30 13:29:21 -0500 16)     top: 1990px;
+b6166d14b (gabelapham 2023-11-30 13:29:21 -0500 17)     left: 612px;
+b6166d14b (gabelapham 2023-11-30 13:29:21 -0500 18)     max-width: 28%;
+b6166d14b (gabelapham 2023-11-30 13:29:21 -0500 19)     max-height: 4.5%;
+b6166d14b (gabelapham 2023-11-30 13:29:21 -0500 20)     overflow: scroll;
+30aed0baa (gabelapham 2023-11-30 14:04:39 -0500 21) }
+30aed0baa (gabelapham 2023-11-30 14:04:39 -0500 22)
+30aed0baa (gabelapham 2023-11-30 14:04:39 -0500 23) #language {
+30aed0baa (gabelapham 2023-11-30 14:04:39 -0500 24)     font-size: 20px;
+30aed0baa (gabelapham 2023-11-30 14:04:39 -0500 25)     color: black;
+30aed0baa (gabelapham 2023-11-30 14:04:39 -0500 26)     position: absolute;
+30aed0baa (gabelapham 2023-11-30 14:04:39 -0500 27)     top: 1890px;
+30aed0baa (gabelapham 2023-11-30 14:04:39 -0500 28)     left: 87px;
+30aed0baa (gabelapham 2023-11-30 14:04:39 -0500 29)     max-width: 28%;
+30aed0baa (gabelapham 2023-11-30 14:04:39 -0500 30)     height: 5%;
+30aed0baa (gabelapham 2023-11-30 14:04:39 -0500 31)     overflow: scroll;
+8ca5a03a1 (gabelapham 2023-11-30 14:30:12 -0500 32) }
+8ca5a03a1 (gabelapham 2023-11-30 14:30:12 -0500 33)
+8ca5a03a1 (gabelapham 2023-11-30 14:30:12 -0500 34) #racialFeats {
+8ca5a03a1 (gabelapham 2023-11-30 14:30:12 -0500 35)     font-size: 20px;
+8ca5a03a1 (gabelapham 2023-11-30 14:30:12 -0500 36)     color: black;
+8ca5a03a1 (gabelapham 2023-11-30 14:30:12 -0500 37)     position: absolute;
+8ca5a03a1 (gabelapham 2023-11-30 14:30:12 -0500 38)     top: 1045px;
+8ca5a03a1 (gabelapham 2023-11-30 14:30:12 -0500 39)     left: 1131px;
+8ca5a03a1 (gabelapham 2023-11-30 14:30:12 -0500 40)     max-width: 28.6%;
+8ca5a03a1 (gabelapham 2023-11-30 14:30:12 -0500 41)     max-height: 20%;
+8ca5a03a1 (gabelapham 2023-11-30 14:30:12 -0500 42)     overflow: scroll;
+24e9baebf (gabelapham 2023-11-30 12:46:00 -0500 54) }
+
+app/src/frontend/Stats_Page/src/components/ItemSearch.jsx
+0e2a6b06e (gabelapham     2023-12-01 11:07:45 -0500  2) import { useState, useEffect } from 'react'
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500  5) import axios from 'axios'
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500  6)
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500  7) const client = axios.create({
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500  8)     baseURL: "http://localhost:3001"
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500  9) });
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 12)     const [results, setResults] = useState([])
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 13)     const [newItem, setNewItem] = useState("")
+0e2a6b06e (gabelapham     2023-12-01 11:07:45 -0500 14)     useEffect(() => {
+0e2a6b06e (gabelapham     2023-12-01 11:07:45 -0500 15)         async function getItems() {
+0e2a6b06e (gabelapham     2023-12-01 11:07:45 -0500 16)
+0e2a6b06e (gabelapham     2023-12-01 11:07:45 -0500 17)         }
+0e2a6b06e (gabelapham     2023-12-01 11:07:45 -0500 18)         getItems();
+0e2a6b06e (gabelapham     2023-12-01 11:07:45 -0500 19)     })
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 20)
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 21)     function searchFunc(e) {
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 22)         e.preventDefault();
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 23)
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 24)         setResults(currentResult => {
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 25)             return [
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 26)                 ...currentResult,
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 27)                 {id: crypto.randomUUID(), title: newItem, completed: false},
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 28)             ]
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 29)         })
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 30)
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 31)         setNewItem("")
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 32)     }
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 33)
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 34)     function toggleFoundItem(id, completed) {
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 35)         setNewItem(currentNewItem => {
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 36)             return currentNewItem.map(newItem => {
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 37)                 if (newItem.id === id) {
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 38)                     return {...newItem, completed}
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 39)                 }
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 40)
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 41)                 return newItem
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 42)             })
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 43)         })
+cb7930fae (gabelapham     2023-12-01 16:48:50 -0500 51)                     <input id="searchbar" type="text" placeholder="Search.."/>
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 56)                 {results.map(foundItem => {
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 57)                     <li key={foundItem.id}>
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 58)                         <label>
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 59)                             <input
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 60)                             type='checkbox'
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 61)                             checked={foundItem.add}
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 62)                             onChange={e => toggleFoundItem(foundItem.id, e.target.checked)}
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 63)                             />
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 64)                             {foundItem.title}
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 65)                         </label>
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 66)                         <button className="btn-btn-danger">Delete</button>
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 67)                     </li>
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 68)                 })}
+f15fc5135 (gabelapham     2023-12-01 16:45:48 -0500 69)                 <p className='p'></p>
