@@ -1,0 +1,54 @@
+poisons.py
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500  1) import requests
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500  2) import pandas as pd
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500  3) import _mysql_connector
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500  4) from bs4 import BeautifulSoup
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500  5)
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500  6) # create a dictionary to store the data
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500  7) data = {
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500  8)     'Poisons': [],
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500  9)     'Type': [],
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500 10)     'Price per Dose': []
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500 11) }
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500 12)
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500 13) URL = "http://dnd5e.wikidot.com/poisons"
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500 14) page = requests.get(URL)
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500 15)
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500 16) soup = BeautifulSoup(page.content, "html.parser")
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500 17)
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500 18) table = soup.find('table', class_='wiki-content-table')
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500 19)
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500 20) # set the poisons categories
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500 21) for index2, item in enumerate(table.find_all('th')):
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500 22)     if index2 == 3:
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500 23)         for i in range(17):
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500 24)             data['Poisons'].append(item.text)
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500 25)     if index2 == 6:
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500 26)         for i in range(4):
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500 27)             data['Poisons'].append(item.text)
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500 28)     if index2 == 9:
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500 29)         for i in range(10):
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500 30)             data['Poisons'].append(item.text)
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500 31)     if index2 == 12:
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500 32)         for i in range(6):
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500 33)             data['Poisons'].append(item.text)
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500 34) c = 0
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500 35) for index3, item1 in enumerate(table.find_all('td')):
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500 36)     if c == 0:
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500 37)         data['Poisons'].append(item1.text)
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500 38)         c += 1
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500 39)     elif c == 1:
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500 40)         data['Type'].append(item1.text)
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500 41)         c += 1
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500 42)     elif c == 2:
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500 43)         data['Price per Dose'].append(item1.text.replace('\xa0', ' '))
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500 44)         c = 0
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500 45)
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500 46) # convert the dictionary to a pandas DataFrame
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500 47) df = pd.DataFrame(data)
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500 48)
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500 49) # convert the pandas dataframe to a .csv file
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500 50) #df.to_csv('poison.csv')
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500 51)
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500 52) # print out the Dataframe
+af8b6c1e0 (TritonEden 2023-12-01 15:31:05 -0500 53) print(df)
