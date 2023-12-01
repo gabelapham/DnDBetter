@@ -2,17 +2,17 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import "./ItemSearch.css"
 import search from "../assets/search.png"
-import { client } from "../db/query.jsx"
+//import { client } from "../db/query.jsx"
 
 const Popup = ({trigger, setTrigger}) => {
-
+/*
     useEffect(() => {
         async function getItems() {
 
         }
         getItems();
     })
-
+*/
     const [results, setResults] = useState("")
     function searchFunc(val) {
         setResults(val)
