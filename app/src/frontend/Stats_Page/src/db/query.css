@@ -41,3 +41,14 @@
     max-height: 20%;
     overflow: scroll;
 }
+
+#classFeats {
+    font-size: 20px;
+    color: black;
+    position: absolute;
+    top: 1490px;
+    left: 1131px;
+    max-width: 28.6%;
+    max-height: 25%;
+    overflow: scroll;
+}
