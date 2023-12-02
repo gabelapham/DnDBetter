@@ -1,0 +1,116 @@
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  15)     <div id="root">
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  16)       <div className="header-div">
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  17)         <img src={dice} className="bg-image"/>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  18)         <div className="overlay-text">Welcome to DnDBetter!</div>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  19)       </div>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  20)       {/* <h1>Welcome to DnDBetter!</h1> */}
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  21)       <br/>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  22)       <hr/>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  23)       <br/>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  24)       <h2>What is DnDBetter?</h2>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  25)       <p>DnDBetter is a better way to play DnD! <i>Kind of...</i> DnDBetter is an intuitive and interactive character sheet creator and manager.</p>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  26)       {/* <div>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  32)       <div>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  33)         <h2>Features</h2>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  34)         <ul className="features">  
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  35)           <li>Comprehensive character sheet creator</li>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  36)           <li>Intuitive editor that makes editing the character sheet easy</li>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  37)           <li>Account management that allows users to create and store multiple character sheets</li>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  38)         </ul>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  39)       </div>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  40)       <div>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  41)         <h2>Origin</h2>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  42)         <p>Our idea for DnDBetter was spurred on by our frustration with other character sheet creators out there that were difficult
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  43)           to use and wholly unintuitive. Our search for something better turned up empty. And so we decided to do something about it.
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  44)           Thus, the framework was set and our quest for a better way to play DnD began.
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  45)         </p>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  46)       </div>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  47)       <br/>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  48)       <hr/>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  49)       <br/>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  50)       <div>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  51)         <h2>Meet the Team</h2>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  52)       </div>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  53)       <div className="aboutme">
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  54)         <div className="founderimage">
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  55)           <img src={jon} height={150} width={150}/>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  56)         </div>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  57)         <div className="description">
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  58)           <h2>Jonathan Clark</h2>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  59)         </div>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  60)       </div>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  61)       <br />
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  62)       <div className="aboutme">
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  63)         <div className="founderimage">
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  64)           <img src={gabe} height={150} width={150}/>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  66)         <div className="description">
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  67)           <h2>Gabe Lapham</h2>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  69)       </div>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  70)       <br />
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  71)       <div className="aboutme">
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  72)         <div className="founderimage">
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  73)           <img src={triton} height={150} width={150}/>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  75)         <div className="description">
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  76)           <h2>Triton Eden</h2>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  78)       </div>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  79)       <br />
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  80)       <div className="aboutme">
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  81)         <div className="founderimage">
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  82)           <img src={tyler} height={150} width={150}/>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  84)         <div className="description">
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  85)           <h2>Tyler Catuncan</h2>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  87)       </div>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  88)       <br />
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  89)       <div className="aboutme">
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  90)         <div className="founderimage">
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  91)           <img src={placeholder} height={150} width={150}/>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  93)         <div className="description">
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  94)           <h2>Cooper Sarphie</h2>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  96)       </div>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  97)       <br />
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  98)       <div className="aboutme">
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500  99)         <div className="founderimage">
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500 100)           <img src={placeholder} height={150} width={150}/>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500 101)         </div>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500 102)         <div className="description">
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500 103)           <h2>Seungwoo "Aiden" An</h2>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500 104)         </div>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500 105)       </div>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500 106)       <br />
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500 107)       <div className="aboutme">
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500 108)         <div className="founderimage">
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500 109)           <img src={placeholder} height={150} width={150}/>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500 111)         <div className="description">
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500 112)           <h2>Zichen "Frank" Fu</h2>
+fb9c0d092 app/src/frontend/Landing_Page/src/App.jsx    (tylerjcatuncan 2023-12-01 22:31:20 -0500 115)     </div>
+fb9c0d092 app/src/frontend/Landing_Page/src/index.css    (tylerjcatuncan 2023-12-01 22:31:20 -0500  44) .header-div{
+fb9c0d092 app/src/frontend/Landing_Page/src/index.css    (tylerjcatuncan 2023-12-01 22:31:20 -0500  45)   position: relative;
+fb9c0d092 app/src/frontend/Landing_Page/src/index.css    (tylerjcatuncan 2023-12-01 22:31:20 -0500  46)   text-align: center;
+fb9c0d092 app/src/frontend/Landing_Page/src/index.css    (tylerjcatuncan 2023-12-01 22:31:20 -0500  47)   color: white;
+fb9c0d092 app/src/frontend/Landing_Page/src/index.css    (tylerjcatuncan 2023-12-01 22:31:20 -0500  48) }
+fb9c0d092 app/src/frontend/Landing_Page/src/index.css    (tylerjcatuncan 2023-12-01 22:31:20 -0500  49) 
+fb9c0d092 app/src/frontend/Landing_Page/src/index.css    (tylerjcatuncan 2023-12-01 22:31:20 -0500  50) .bg-image {
+fb9c0d092 app/src/frontend/Landing_Page/src/index.css    (tylerjcatuncan 2023-12-01 22:31:20 -0500  51)   filter: blur(3px);
+fb9c0d092 app/src/frontend/Landing_Page/src/index.css    (tylerjcatuncan 2023-12-01 22:31:20 -0500  52)   height: 400px;
+fb9c0d092 app/src/frontend/Landing_Page/src/index.css    (tylerjcatuncan 2023-12-01 22:31:20 -0500  53)   width: 100%;
+fb9c0d092 app/src/frontend/Landing_Page/src/index.css    (tylerjcatuncan 2023-12-01 22:31:20 -0500  54) }
+fb9c0d092 app/src/frontend/Landing_Page/src/index.css    (tylerjcatuncan 2023-12-01 22:31:20 -0500  55) 
+fb9c0d092 app/src/frontend/Landing_Page/src/index.css    (tylerjcatuncan 2023-12-01 22:31:20 -0500  56) .overlay-text {
+fb9c0d092 app/src/frontend/Landing_Page/src/index.css    (tylerjcatuncan 2023-12-01 22:31:20 -0500  57)   position: absolute;
+fb9c0d092 app/src/frontend/Landing_Page/src/index.css    (tylerjcatuncan 2023-12-01 22:31:20 -0500  58)   top: 50%; 
+fb9c0d092 app/src/frontend/Landing_Page/src/index.css    (tylerjcatuncan 2023-12-01 22:31:20 -0500  59)   left: 50%; 
+fb9c0d092 app/src/frontend/Landing_Page/src/index.css    (tylerjcatuncan 2023-12-01 22:31:20 -0500  60)   transform: translate(-50%, -50%); 
+fb9c0d092 app/src/frontend/Landing_Page/src/index.css    (tylerjcatuncan 2023-12-01 22:31:20 -0500  61)   /* background-color: #000000;  */
+fb9c0d092 app/src/frontend/Landing_Page/src/index.css    (tylerjcatuncan 2023-12-01 22:31:20 -0500  62)   color: #fff; 
+fb9c0d092 app/src/frontend/Landing_Page/src/index.css    (tylerjcatuncan 2023-12-01 22:31:20 -0500  63)   /* padding: 10px 20px;  */
+fb9c0d092 app/src/frontend/Landing_Page/src/index.css    (tylerjcatuncan 2023-12-01 22:31:20 -0500  64)   font-size: 60px; 
+fb9c0d092 app/src/frontend/Landing_Page/src/index.css    (tylerjcatuncan 2023-12-01 22:31:20 -0500  65)   text-shadow: 1px 1px black;
+fb9c0d092 app/src/frontend/Landing_Page/src/index.css    (tylerjcatuncan 2023-12-01 22:31:20 -0500  66)   text-align: center;
+fb9c0d092 app/src/frontend/Landing_Page/src/index.css    (tylerjcatuncan 2023-12-01 22:31:20 -0500  67) }
+fb9c0d092 app/src/frontend/Landing_Page/src/index.css    (tylerjcatuncan 2023-12-01 22:31:20 -0500  68) 
+fb9c0d092 app/src/frontend/Landing_Page/src/index.css    (tylerjcatuncan 2023-12-01 22:31:20 -0500  69) hr {
+fb9c0d092 app/src/frontend/Landing_Page/src/index.css    (tylerjcatuncan 2023-12-01 22:31:20 -0500  70)   border: 2px solid;
+fb9c0d092 app/src/frontend/Landing_Page/src/index.css    (tylerjcatuncan 2023-12-01 22:31:20 -0500  71)   border-radius: 10px;
+fb9c0d092 app/src/frontend/Landing_Page/src/index.css    (tylerjcatuncan 2023-12-01 22:31:20 -0500  72)   width: 30%;
+fb9c0d092 app/src/frontend/Landing_Page/src/index.css    (tylerjcatuncan 2023-12-01 22:31:20 -0500  73) }
+fb9c0d092 app/src/frontend/Landing_Page/src/index.css    (tylerjcatuncan 2023-12-01 22:31:20 -0500  74) 
