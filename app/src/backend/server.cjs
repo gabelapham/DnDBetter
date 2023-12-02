@@ -12,7 +12,7 @@ const app = express();
 // Middleware
 const corsOptions = {
     origin: (origin, callback) => {
-        if (['http://localhost:4173', 'http://127.0.0.1:4173', 'http://localhost:5173', 'http://127.0.0.1:5173'].includes(origin) || !origin) {
+        if (['http://localhost:3000', 'http://localhost:4173', 'http://127.0.0.1:4173', 'http://localhost:5173', 'http://127.0.0.1:5173'].includes(origin) || !origin) {
             callback(null, true);
         } else {
             callback(new Error('Not allowed by CORS'));
@@ -261,6 +261,12 @@ app.get('/items/weapons', (req, res) => {
         res.json(result);
     });
 });
+
+/*spells*/
+const router = require('./spell-backend/spell-router.cjs');
+
+app.use('/bardSpell', router);
+
 
 // Start the server
 const PORT = 3001; // Can be any port
