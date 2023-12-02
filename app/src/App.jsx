@@ -15,27 +15,31 @@ function App() {
         <div>
           <div>
             <nav>
-            <NavLink to="/landing" id="d20">
-              <img src={d20} />
-            </NavLink>
-            <NavLink id="link" to="/login" style={({ isActive }) => ({  
-              color: isActive ? 'red' : 'white' })}> 
-              Login
-            </NavLink>
-            <NavLink id="link" to="/statsapp" style={({ isActive }) => ({  
-              color: isActive ? 'red' : 'white' })}> 
-              Stats
-            </NavLink>
-            <NavLink id="link" to="/spells" style={({ isActive }) => ({  
-              color: isActive ? 'red' : 'white' })}> 
-              Spells 
-            </NavLink> 
-            <NavLink id="link" to="/background" style={({ isActive }) => ({  
-              color: isActive ? 'red' : 'white' })}> 
-              Background 
-            </NavLink>
+              <NavLink to="/landing" id="d20">
+                <img src={d20} />
+              </NavLink>
+              <NavLink id="link" to="/login" style={({ isActive }) => ({
+                color: isActive ? 'red' : 'white'
+              })}>
+                Login
+              </NavLink>
+              <NavLink id="link" to="/statsapp" style={({ isActive }) => ({
+                color: isActive ? 'red' : 'white'
+              })}>
+                Stats
+              </NavLink>
+              <NavLink id="link" to="/spells" style={({ isActive }) => ({
+                color: isActive ? 'red' : 'white'
+              })}>
+                Spells
+              </NavLink>
+              <NavLink id="link" to="/background" style={({ isActive }) => ({
+                color: isActive ? 'red' : 'white'
+              })}>
+                Background
+              </NavLink>
             </nav>
-          </div> 
+          </div>
           <Routes>
             <Route exact path='/statsapp' element={<StatsApp />} />
             <Route exact path='/landing' element={<Landing />} />

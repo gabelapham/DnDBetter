@@ -55,7 +55,7 @@ app.post('/auth/login', (req, res) => {
             if (match) {
                 const token = jwt.sign(
                     { userId: user.id, username: user.username }, // payload
-                    'ballsack', // Replace with a secret key from your environment variables
+                    'DnDBetter', // Replace with a secret key from your environment variables
                     { expiresIn: '1h' } // token expiration
                 );
                 return res.status(200).json({ accessToken: token, roles: 'userRoles' });
