@@ -1,0 +1,249 @@
+app/src/App.jsx
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 18)               <NavLink to="/landing" id="d20">
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 19)                 <img src={d20} />
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 20)               </NavLink>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 21)               <NavLink id="link" to="/login" style={({ isActive }) => ({
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 22)                 color: isActive ? 'red' : 'white'
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 23)               })}>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 24)                 Login
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 25)               </NavLink>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 26)               <NavLink id="link" to="/statsapp" style={({ isActive }) => ({
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 27)                 color: isActive ? 'red' : 'white'
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 28)               })}>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 29)                 Stats
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 30)               </NavLink>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 31)               <NavLink id="link" to="/spells" style={({ isActive }) => ({
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 32)                 color: isActive ? 'red' : 'white'
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 33)               })}>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 34)                 Spells
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 35)               </NavLink>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 36)               <NavLink id="link" to="/background" style={({ isActive }) => ({
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 37)                 color: isActive ? 'red' : 'white'
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 38)               })}>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 39)                 Background
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 40)               </NavLink>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 42)           </div>
+
+app/src/frontend/Background_Page/src/app.jsx
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  1) import React, { useState, useEffect } from 'react';
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 24)   const [isLoggedIn, setIsLoggedIn] = useState(false);
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 25)   const [auth, setAuth] = useState(null);
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 26) 
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 27)   useEffect(() => {
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 28)     const storedAuth = localStorage.getItem('auth');
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 29)     if (storedAuth) {
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 30)       setAuth(JSON.parse(storedAuth));
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 31)       setIsLoggedIn(true); // Make sure to set the logged-in state
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 32)     }
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 33)   }, []);
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 34) 
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 35)   const handleSaving = () => {
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 36)     // Handle saving logic here
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 37)     console.log('Saving data...');
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 38)   }
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 39) 
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 42)       <br></br>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 43)       {isLoggedIn ? (
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 44)         <div className="container">
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 45)           <div className="image-wrapper">
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 46)             <div className="image-box1">
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 47)               {image1 && <img src={image1} alt="Uploaded" className="resized-image" />}
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 48)             </div>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 49)             <div className="file-upload-button1">
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 50)               <input type="file" accept="image/*" onChange={handleImageChange1} />
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 51)             </div>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 53)           <div className="image-wrapper">
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 54)             <div className="image-box2">
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 55)               {image2 && <img src={image2} alt="Uploaded" className="resized-image" />}
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 56)             </div>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 57)             <div className="file-upload-button2">
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 58)               <input type="file" accept="image/*" onChange={handleImageChange2} />
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 59)             </div>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 61)           <ImageComponent userText={text} onUserTextChange={handleTextChange} />
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 62)           <button type="button" onClick={handleSaving} style={{
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 63)             position: 'fixed',
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 64)             bottom: '2%',
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 65)             left: '2%'
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 66)           }}>Save</button>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 68)       ) : (
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 69)         <div className="container">
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 70)           <div className="image-wrapper">
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 71)             <div className="image-box1">
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 72)               {image1 && <img src={image1} alt="Uploaded" className="resized-image" />}
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 73)             </div>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 74)             <div className="file-upload-button1">
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 75)               <input type="file" accept="image/*" onChange={handleImageChange1} />
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 76)             </div>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 78)           <div className="image-wrapper">
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 79)             <div className="image-box2">
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 80)               {image2 && <img src={image2} alt="Uploaded" className="resized-image" />}
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 81)             </div>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 82)             <div className="file-upload-button2">
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 83)               <input type="file" accept="image/*" onChange={handleImageChange2} />
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 84)             </div>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 86)           <ImageComponent userText={text} onUserTextChange={handleTextChange} />
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 88)       )}
+
+app/src/frontend/Landing_Page/src/App.jsx
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  14)       <div id="root">
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  15)         <h1>Welcome to DnDBetter!</h1>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  16)         <h2>What is DnDBetter?</h2>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  17)         <p>DnDBetter is a better way to play DnD! <i>Kind of...</i> DnDBetter is an intuitive and interactive character sheet creator and manager.</p>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  18)         {/* <div>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  24)         <div>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  25)           <h2>Features</h2>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  26)           <ul className="features">
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  27)             <li>Comprehensive character sheet creator</li>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  28)             <li>Intuitive editor that makes editing the character sheet easy</li>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  29)             <li>Account management that allows users to create and store multiple character sheets</li>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  30)           </ul>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  32)         <div>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  33)           <h2>Origin</h2>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  34)           <p>Our idea for DnDBetter was spurred on by our frustration with other character sheet creators out there that were difficult
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  35)             to use and wholly unintuitive. Our search for something better turned up empty. And so we decided to do something about it.
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  36)             Thus, the framework was set and our quest for a better way to play DnD began.
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  37)           </p>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  39)         <div>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  40)           <h2>About the Founders</h2>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  42)         <div className="aboutme">
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  43)           <div className="founderimage">
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  44)             <img src={jon} height={150} width={150} />
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  45)           </div>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  46)           <div className="description">
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  47)             <h2>Jonathan Clark</h2>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  48)             <p>About me</p>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  49)           </div>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  51)         <br />
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  52)         <div className="aboutme">
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  53)           <div className="founderimage">
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  54)             <img src={gabe} height={150} width={150} />
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  55)           </div>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  56)           <div className="description">
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  57)             <h2>Gabe Lapham</h2>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  58)             <p>About me</p>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  59)           </div>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  61)         <br />
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  62)         <div className="aboutme">
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  63)           <div className="founderimage">
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  64)             <img src={triton} height={150} width={150} />
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  65)           </div>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  66)           <div className="description">
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  67)             <h2>Triton Eden</h2>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  68)             <p>About me</p>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  69)           </div>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  71)         <br />
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  72)         <div className="aboutme">
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  73)           <div className="founderimage">
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  74)             <img src={tyler} height={150} width={150} />
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  75)           </div>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  76)           <div className="description">
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  77)             <h2>Tyler Catuncan</h2>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  78)             <p>About me</p>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  79)           </div>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  81)         <br />
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  82)         <div className="aboutme">
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  83)           <div className="founderimage">
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  84)             <img src={placeholder} height={150} width={150} />
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  85)           </div>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  86)           <div className="description">
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  87)             <h2>Cooper Sarphie</h2>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  88)             <p>About me</p>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  89)           </div>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  91)         <br />
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  92)         <div className="aboutme">
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  93)           <div className="founderimage">
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  94)             <img src={placeholder} height={150} width={150} />
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  95)           </div>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  96)           <div className="description">
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  97)             <h2>Seungwoo "Aiden" An</h2>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  98)             <p>About me</p>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  99)           </div>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 101)         <br />
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 102)         <div className="aboutme">
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 103)           <div className="founderimage">
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 104)             <img src={placeholder} height={150} width={150} />
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 105)           </div>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 106)           <div className="description">
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 107)             <h2>Zichen "Frank" Fu</h2>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 108)             <p>About me</p>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 109)           </div>
+
+app/src/frontend/Spell_Page/src/SpellApp.jsx
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  1) import React, { useState, useEffect } from 'react';
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 13)   const [isLoggedIn, setIsLoggedIn] = useState(false);
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 14)   const [auth, setAuth] = useState(null);
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 15) 
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 16)   useEffect(() => {
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 17)     const storedAuth = localStorage.getItem('auth');
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 18)     if (storedAuth) {
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 19)       setAuth(JSON.parse(storedAuth));
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 20)       setIsLoggedIn(true); // Make sure to set the logged-in state
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 21)     }
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 22)   }, []);
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 23) 
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 24)   const handleSaving = () => {
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 25)     // Handle saving logic here
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 26)     console.log('Saving data...');
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 27)   }
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 28) 
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 32)       {isLoggedIn ? (
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 33)         <div>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 34)           <button onClick={toggleDicePopup}>Open Spell Dice Roller</button>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 35)           {isDicePopupOpen && <SpellDiceRoller onClose={() => setDicePopupOpen(false)} />}
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 36)           <SpellBackground />
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 37)           {<button type="button" onClick={handleSaving} style={{
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 38)             position: 'fixed',
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 39)             bottom: '2%',
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 40)             left: '2%'
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 41)           }}>Save</button>}
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 42)         </div>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 43)       ) : (
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 44)         <div>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 45)           <button onClick={toggleDicePopup}>Open Spell Dice Roller</button>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 46)           {isDicePopupOpen && <SpellDiceRoller onClose={() => setDicePopupOpen(false)} />}
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 47)           <SpellBackground />
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 48)           {/* Other components or content */}
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 49)         </div>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 50)       )}
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 51) 
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 52) 
+
+app/src/frontend/Stats_Page/src/StatsApp.jsx
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500  1) import React, { useState, useEffect } from 'react';
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 14)   const [isLoggedIn, setIsLoggedIn] = useState(false);
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 15)   const [auth, setAuth] = useState(null);
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 16) 
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 17)   useEffect(() => {
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 18)     const storedAuth = localStorage.getItem('auth');
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 19)     if (storedAuth) {
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 20)       setAuth(JSON.parse(storedAuth));
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 21)       setIsLoggedIn(true); // Make sure to set the logged-in state
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 22)     }
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 23)   }, []);
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 24) 
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 25)   const handleSaving = () => {
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 26)     // Handle saving logic here
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 27)     console.log('Saving data...');
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 28)   }
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 32)       {isLoggedIn ? (
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 33)         <div id="root">
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 34)           <br />
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 35)           <div id="png">
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 36)             <img src={stat_sheet} />
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 37)             <button id="diceRollerButton" onClick={toggleDicePopup}>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 38)               Open Dice Roller
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 39)             </button>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 40)             {isDicePopupOpen && <DiceRollerPopup onClose={() => setDicePopupOpen(false)} />}
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 41)             <Stats />
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 42)           </div>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 43)           <button type="button" onClick={handleSaving} style={{
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 44)             position: 'fixed',
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 45)             bottom: '2%',
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 46)             left: '2%'
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 47)           }}>Save</button>
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 49)       ) : (
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 50)         <div id="root">
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 51)           <br />
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 52)           <div id="png">
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 53)             <img src={stat_sheet} />
+81b7ad1a7 (Cooper Sarphie 2023-12-01 21:41:57 -0500 54)             <button id="diceRollerButton" onClick={toggleDicePopup}>
