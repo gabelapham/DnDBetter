@@ -1,0 +1,24 @@
+07948f212 (JonClark28 2023-12-01 08:19:14 -0500  14)     const [feature, setFeature] = useState(null);
+07948f212 (JonClark28 2023-12-01 08:19:14 -0500 121)             var i = 3;
+07948f212 (JonClark28 2023-12-01 08:19:14 -0500 122)             var temp = "";
+07948f212 (JonClark28 2023-12-01 08:19:14 -0500 123)             while (profResponse.data[i].level <= level) {
+07948f212 (JonClark28 2023-12-01 08:19:14 -0500 124)                 temp += profResponse.data[i].features;
+07948f212 (JonClark28 2023-12-01 08:19:14 -0500 125)                 i++;
+07948f212 (JonClark28 2023-12-01 08:19:14 -0500 126)             }
+07948f212 (JonClark28 2023-12-01 08:19:14 -0500 127)             setFeature(temp)
+07948f212 (JonClark28 2023-12-01 08:19:14 -0500 129)        
+07948f212 (JonClark28 2023-12-01 08:19:14 -0500 132)    
+07948f212 (JonClark28 2023-12-01 08:19:14 -0500 149)         <p id = "classFeats">
+07948f212 (JonClark28 2023-12-01 08:19:14 -0500 150)                {feature }
+07948f212 (JonClark28 2023-12-01 08:19:14 -0500 151)         </p>
+72d42c922 (JonClark28 2023-12-01 08:19:46 -0500 43) }
+72d42c922 (JonClark28 2023-12-01 08:19:46 -0500 44) 
+72d42c922 (JonClark28 2023-12-01 08:19:46 -0500 45) #classFeats {
+72d42c922 (JonClark28 2023-12-01 08:19:46 -0500 46)     font-size: 20px;
+72d42c922 (JonClark28 2023-12-01 08:19:46 -0500 47)     color: black;
+72d42c922 (JonClark28 2023-12-01 08:19:46 -0500 48)     position: absolute;
+72d42c922 (JonClark28 2023-12-01 08:19:46 -0500 49)     top: 1490px;
+72d42c922 (JonClark28 2023-12-01 08:19:46 -0500 50)     left: 1131px;
+72d42c922 (JonClark28 2023-12-01 08:19:46 -0500 51)     max-width: 28.6%;
+72d42c922 (JonClark28 2023-12-01 08:19:46 -0500 52)     max-height: 25%;
+72d42c922 (JonClark28 2023-12-01 08:19:46 -0500 53)     overflow: scroll;
