@@ -3,7 +3,8 @@ import axios from 'axios'
 import Select from 'react-select'
 // import React from 'react'
 
-const BardSpells = () => {
+
+const SpellSearch = () => {
     /*distinct attribute array in mysql title value format */
     const [level, setLevel] = useState([]);
     const [school, setSchool] = useState([]);
@@ -303,6 +304,6 @@ const BardSpells = () => {
     );
 };
 
-export default BardSpells;
+export default SpellSearch;
 
 

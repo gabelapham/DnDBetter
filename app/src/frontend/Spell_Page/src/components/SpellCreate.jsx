@@ -2,7 +2,7 @@ import "./spellCreate.css";
 import { useState } from "react";
 import CreatePage from "./CreatePage"
 
-function SpellCreate(){
+function SpellCreate({classSelected}){
 
     const [isCreate, setIsCreate] = useState(false);    
 
@@ -15,7 +15,7 @@ function SpellCreate(){
                 </button>
             </div>
             <div className="createPageContainer">
-                <CreatePage trigger={isCreate} setTrigger={setIsCreate}>
+                <CreatePage classSelected={classSelected} trigger={isCreate} setTrigger={setIsCreate}>
 
                 </CreatePage>
             </div>

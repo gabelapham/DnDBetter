@@ -38,16 +38,16 @@
 
 .header{
     /* padding-top: 60px; */
-    /* display: flex;
-    height: 0px; */
-    /* flex-direction: column; */
+    display: flex;
+    /* height: 0px; */
+    flex-direction: column;
     /* align-items: center; */
     /* position: absolute;
     top: 215px;
     left: 215px; */
     
-    /* justify-content: space-between; */
-    /* justify-content: center; */
+    justify-content: space-between;
+    justify-content: center;
     
     /* background-color: transparent; */
     /* padding-bottom: 59.5px; */
@@ -94,17 +94,26 @@
 }
 
 .spell-class{
-    top: 135px;
-    left: 130px;
+    z-index: 500;
     position: absolute;
-    max-width: 600px;
-    height: 40px;
+    /* max-width: 400px;
+    height: 40px; */
     /* margin-right: 40px; */
     background-color: transparent;
-    font-size: 32px;
+    font-size: 25px;
     text-align: center;
     font-family: "papyrus";
     color: black;
+}
+.spell-class-div{
+    position: absolute;
+    top: 132px;
+    left: 125px;
+    width: 370px;
+    height: 40px;
+    /* margin-right: 40px; */
+    background-color: lightblue;
+
 }
 
 .spell-ability{
@@ -164,7 +173,7 @@
     /* height: 800px; */
 }
 
-.col1, .col2, .col3{
+.col1, .col3{
     background-color: transparent;
     display: flex;
     flex-direction: column;
@@ -176,13 +185,25 @@
 
     width: 392px;
 }
+.col2{
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    height: 1300px;
+    border: solid;
+    border-color: black;
+    border-width: 1px;
+
+    width: 390px;
+}
 
 .lvl-header{
     display: flex;
 }
 
 .lvl-0{
-    height: 365.7px;
+    height: 369.7px;
     /* border: solid;
     border-color: black;
     border-width: 2px; */
@@ -191,7 +212,7 @@
 .lvl-1{
     padding-top: 4px;
     margin-left: 25px;
-    height: 475.5px;
+    height: 472.5px;
     /* border: solid;
     border-color: black;
     border-width: 2px; */

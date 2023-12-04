@@ -68,7 +68,7 @@ const getAllByAttribute = async (req, res) => {
         // console.log("level: " + level + "school: " + school + "duration: " + duration + "casttime: " + castTime);
 
         if(levelArray.length == 0 && schoolArray.length == 0 && durationArray.length == 0 && castTimeArray.length == 0){
-            console.log("running api functions");
+            console.log("running api functions0");
             const query = 'SELECT * FROM ??';
             const attributes = [classSelected];
             const result = await new Promise((resolve, reject) => {
@@ -425,33 +425,43 @@ const getAllByAttribute = async (req, res) => {
 };
 
 const getLevel = (async (req, res)=>{
-    const query = "SELECT DISTINCT level FROM bardSpell;"
-    pool.query(query, function (err, result, fields) {
+    const classSelected = req.query.classSelected;
+
+    const query = "SELECT DISTINCT level FROM ??;"
+    pool.query(query, [classSelected],function (err, result, fields) {
         res.json(result);
     });
 });
 
 const getSchool = (async (req, res)=>{
-    const query = "SELECT DISTINCT school FROM bardSpell;"
-    pool.query(query, function (err, result, fields) {
+    const classSelected = req.query.classSelected;
+
+    const query = "SELECT DISTINCT school FROM ??;"
+    pool.query(query, [classSelected],function (err, result, fields) {
         res.json(result);
     });
 });
 const getRange = (async (req, res)=>{
-    const query = "SELECT DISTINCT range FROM bardSpell;"
-    pool.query(query, function (err, result, fields) {
+    const classSelected = req.query.classSelected;
+
+    const query = "SELECT DISTINCT range FROM ??;"
+    pool.query(query, [classSelected], function (err, result, fields) {
         res.json(result);
     });
 });
 const getDuration = (async (req, res)=>{
-    const query = "SELECT DISTINCT duration FROM bardSpell;"
-    pool.query(query, function (err, result, fields) {
+    const classSelected = req.query.classSelected;
+
+    const query = "SELECT DISTINCT duration FROM ??;"
+    pool.query(query, [classSelected], function (err, result, fields) {
         res.json(result);
     });
 });
 const getCastTime = (async (req, res)=>{
-    const query = "SELECT DISTINCT casting_time FROM bardSpell;"
-    pool.query(query, function (err, result, fields) {
+    const classSelected = req.query.classSelected;
+
+    const query = "SELECT DISTINCT casting_time FROM ??;"
+    pool.query(query, [classSelected],function (err, result, fields) {
         res.json(result);
     });
 });

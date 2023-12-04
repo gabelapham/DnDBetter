@@ -265,7 +265,7 @@ app.get('/items/weapons', (req, res) => {
 /*spells*/
 const router = require('./spell-backend/spell-router.cjs');
 
-app.use('/bardSpell', router);
+app.use('/Spell', router);
 
 
 // Start the server

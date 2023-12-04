@@ -26,6 +26,7 @@
     background-color: transparent;
     border: none;
     font-family: "papyrus";
+    font-size: 18px;
     align-items: center;
     width: 330px;
     height: 20px;
@@ -36,7 +37,7 @@
 }
 
 .spell:hover{
-    border-color: orange;
+    border-color: black;
     border-style:dotted;
     border-width: 2px;
     border-radius: 5px;

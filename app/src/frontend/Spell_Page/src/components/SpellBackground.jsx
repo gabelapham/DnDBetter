@@ -4,26 +4,41 @@ import SpellCounter from '../components/FunctionalCounter';
 import SpellCreate from './SpellCreate';
 import axios from 'axios'
 import spell_sheet from '../assets/Spell_Sheet2.png';
+import Select from 'react-select'
+
 
 const SpellBackground = () =>{
 
-    const [bardSpell, setBardSpell] = useState([]);
+    const spellClass = [
+        {value: 'bardSpell', label: 'bard'},
+        {value: 'clericSpell', label: 'cleric'},
+        {value: 'druidSpell', label: 'druid'},
+        {value: 'paladinSpell', label: 'paladin'},
+        {value: 'rangerSpell', label: 'ranger'},
+        {value: 'sorcererSpell', label: 'sorcerer'},
+        {value: 'warlockSpell', label: 'warlock'},
+        {value: 'wizardSpell', label: 'wizard'},
+    ];
 
-    useEffect(() => {
-        fetchData();
-    }, []);
+    const [classSelected, setClassSelected] = useState([]);
 
-    const fetchData = async () => {
-        try {
-            const response = await axios.get('http://localhost:3001/bardSpell/addAll');    
-            setBardSpell(response.data);
+    // const [bardSpell, setBardSpell] = useState([]);
+
+    // useEffect(() => {
+    //     fetchData();
+    // }, []);
+
+    // const fetchData = async () => {
+    //     try {
+    //         const response = await axios.get('http://localhost:3001/bardSpell/addAll');    
+    //         setBardSpell(response.data);
         
-            console.log(bardSpell);
+    //         console.log(bardSpell);
 
-        } catch (error) {
-            console.error('Error fetching data:', error.message);
-        }
-    }
+    //     } catch (error) {
+    //         console.error('Error fetching data:', error.message);
+    //     }
+    // }
 
     return(
 
@@ -36,10 +51,10 @@ const SpellBackground = () =>{
                 </div>
 
             <header /*className='header'*/>
+               
                 <div /*className='info'*/>
-                    <div /*className='left-section'*/>
-                        <input className="spell-class" type="text"/>
-                    </div>
+                    
+                    
                     <div /*className='right-section'*/>
                         <div /*className='right-input'*/>
                             <input className='spell-ability' type="text" />
@@ -52,9 +67,13 @@ const SpellBackground = () =>{
                         </div>
                     </div>
                 </div>
+                <div className='spell-class-div'>
+                    <Select placeholder="Select Class..." defaultValue={null} options={spellClass} className='spell-class' onChange={(selected) => setClassSelected(selected.value)}>
 
+                    </Select>
+                </div>
                 <div className='spell-create-div'>
-                    <SpellCreate />
+                    <SpellCreate classSelected={classSelected}/>
 
                 </div>
 
