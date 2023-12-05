@@ -5,8 +5,39 @@ import Select from 'react-select'
 
 
 function CreatePage(props){
-    const classSelected = props.classSelected
 
+    const classSelected = props.classSelected;
+    const handleAdd = props.passedHandleAdd;/*call back function passed from grandparent to update spell to be added when add spell is clicked */
+
+
+    /*data fetch based on user spell attribute selection */
+    /*array of selected attribute label value pair*/
+    // const [classSelected, setClassSelected] = useState([]);
+    const [levelSelected, setLevelSelected] = useState([]);
+    const [schoolSelected, setSchoolSelected] = useState([]);
+    const [durationSelected, setDurationSelected] = useState([]);
+    const [castTimeSelected, setCastTimeSelected] = useState([]);
+
+
+    /*array of selected attribute in values only*/
+    const levelArray = levelSelected.map(pair => pair.value);
+    const schoolArray = schoolSelected.map(pair => pair.value);
+    const durationArray = durationSelected.map(pair => pair.value);
+    const castTimeArray = castTimeSelected.map(pair => pair.value);
+    // console.log("selected level array" + levelArray + "length" + levelArray.length);
+    // console.log("selected school array" + schoolArray + "length" + schoolArray.length);
+    // console.log("selected duration array" + durationArray + "length" + durationArray.length);
+    // console.log("selected cast time array" + castTimeArray + "length" + castTimeArray.length);
+
+    
+    /*output of set attribute */
+    const [outPut, setOutPut] = useState([]);
+
+    useEffect(() => {
+        fetchData();
+    }, [classSelected, levelSelected, schoolSelected, durationSelected, castTimeSelected]);
+
+    /*after fetch then create the distinct array */
     /*distinct attribute array in mysql title value format */
     const [level, setLevel] = useState([]);
     const [school, setSchool] = useState([]);
@@ -40,34 +71,6 @@ function CreatePage(props){
         value: obj.casting_time,
         label: obj.casting_time,
     }));
-
-
-    /*data fetch based on user spell attribute selection */
-    /*array of selected attribute label value pair*/
-    // const [classSelected, setClassSelected] = useState([]);
-    const [levelSelected, setLevelSelected] = useState([]);
-    const [schoolSelected, setSchoolSelected] = useState([]);
-    const [durationSelected, setDurationSelected] = useState([]);
-    const [castTimeSelected, setCastTimeSelected] = useState([]);
-
-
-    /*array of selected attribute in values only*/
-    const levelArray = levelSelected.map(pair => pair.value);
-    const schoolArray = schoolSelected.map(pair => pair.value);
-    const durationArray = durationSelected.map(pair => pair.value);
-    const castTimeArray = castTimeSelected.map(pair => pair.value);
-    // console.log("selected level array" + levelArray + "length" + levelArray.length);
-    // console.log("selected school array" + schoolArray + "length" + schoolArray.length);
-    // console.log("selected duration array" + durationArray + "length" + durationArray.length);
-    // console.log("selected cast time array" + castTimeArray + "length" + castTimeArray.length);
-
-    
-    /*output of set attribute */
-    const [outPut, setOutPut] = useState([]);
-
-    useEffect(() => {
-        fetchData();
-    }, [classSelected, levelSelected, schoolSelected, durationSelected, castTimeSelected]);
 
 
     const fetchData = async () => {
@@ -181,7 +184,11 @@ function CreatePage(props){
         //     {value: "10 minutes", label: "10 minutes"},
         //     {value: "1 hour", label: "1 hour"},
         // ]
-    
+        const handleButtonClick = (id, level) => {
+            console.log(`Button clicked for spell ${id}`);
+            handleAdd(id, level);
+            // Add your button click logic here
+        };
 
     return (props.trigger) ? (
        
@@ -252,6 +259,9 @@ function CreatePage(props){
                                         <td>{item.range}</td>
                                         <td>{item.duration}</td>
                                         <td>{item.component}</td>
+                                        <td>
+                                            <button onClick={() => handleButtonClick(item.spell_name, item.level)}>Add Spell</button>
+                                        </td>
                                     </tr>
                                 ))
                             ))}

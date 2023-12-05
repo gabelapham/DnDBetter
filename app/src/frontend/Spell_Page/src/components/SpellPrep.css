@@ -10,13 +10,13 @@
     border-width: 0.01px;
     /* background-color: lightblue; */
     width: 230px;
-
 }
 
 .spellNameContainer{
     display: flex;
-    margin-right: -5px;
+    margin-right: -12px;
     margin-left: 5px;
+
     /* background-color: lightblue; */
     /* padding-left: 10px; */
 }
@@ -24,7 +24,10 @@
 .spell{
     display: flex;
     background-color: transparent;
-    border: none;
+    border-color: black;
+    border-style:dotted;
+    border-width: 2px;
+    border-radius: 5px;
     font-family: "papyrus";
     font-size: 18px;
     align-items: center;
@@ -38,7 +41,7 @@
 
 .spell:hover{
     border-color: black;
-    border-style:dotted;
+    border-style: solid;
     border-width: 2px;
     border-radius: 5px;
 }
@@ -57,6 +60,7 @@
     justify-content: center;
     margin-bottom: -10px;
     border-radius: 100%;
+    margin-right: 4px;
 
 }
 

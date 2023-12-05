@@ -22,6 +22,22 @@ const SpellBackground = () =>{
 
     const [classSelected, setClassSelected] = useState([]);
 
+
+    const [spellAdded, setSpellAdded] = useState([]);
+
+
+    const handleAdd = (spellToBeAdd, level) =>{
+        setSpellAdded({spellToBeAdd, level});
+        
+    }
+
+    useEffect(() => {
+        console.log("grandparent level: " + spellAdded.level + " spell to be add: " + spellAdded.spellToBeAdd);
+
+    }, [spellAdded]);
+    
+    // console.log("grandparent level and spell to be added: " + JSON.stringify(spellAdded));
+
     // const [bardSpell, setBardSpell] = useState([]);
 
     // useEffect(() => {
@@ -73,7 +89,7 @@ const SpellBackground = () =>{
                     </Select>
                 </div>
                 <div className='spell-create-div'>
-                    <SpellCreate classSelected={classSelected}/>
+                    <SpellCreate classSelected={classSelected} handleAdd={handleAdd}/>
 
                 </div>
 
@@ -96,7 +112,7 @@ const SpellBackground = () =>{
                             <div className='lvl-1'>
                                 <div className='lvl-header'>
                                     <input className='total-slot-left' type="text" />
-                                    <SpellCounter id={1}/>
+                                    <SpellCounter id={1} spellAdded={spellAdded}/>
 
                                 </div>
                             </div>
@@ -104,7 +120,7 @@ const SpellBackground = () =>{
                             <div className='lvl-2'>
                                 <div className='lvl-header'>
                                     <input className='total-slot-left' type="text" />
-                                    <SpellCounter id={2}/>
+                                    <SpellCounter id={2} spellAdded={spellAdded}/>
 
                                 </div>
                             </div>
@@ -116,7 +132,7 @@ const SpellBackground = () =>{
                             <div className='lvl-3'>
                                 <div className='lvl-header'>
                                     <input className='total-slot' type="text" />
-                                    <SpellCounter id={3}/>
+                                    <SpellCounter id={3} spellAdded={spellAdded}/>
 
                                 </div>
                             </div>
@@ -124,7 +140,7 @@ const SpellBackground = () =>{
                             <div className='lvl-4'>
                                 <div className='lvl-header'>
                                     <input className='total-slot' type="text" />
-                                    <SpellCounter id={4}/>
+                                    <SpellCounter id={4} spellAdded={spellAdded}/>
 
                                 </div>
                             </div>
@@ -132,7 +148,7 @@ const SpellBackground = () =>{
                             <div className='lvl-5'>
                                 <div className='lvl-header'>
                                     <input className='total-slot' type="text" />
-                                    <SpellCounter id={5}/>
+                                    <SpellCounter id={5} spellAdded={spellAdded}/>
 
                                 </div>
                             </div>
@@ -144,26 +160,26 @@ const SpellBackground = () =>{
                             <div className='lvl-6'>
                                 <div className='lvl-header'>
                                     <input className='total-slot-right' type="text" />
-                                    <SpellCounter id={6}/>
+                                    <SpellCounter id={6} spellAdded={spellAdded}/>
                                 </div>
                             </div>
                             <div className='lvl-7'>
                             <div className='lvl-header'>
                                     <input className='total-slot-right' type="text" />
-                                    <SpellCounter id={7}/>
+                                    <SpellCounter id={7} spellAdded={spellAdded}/>
                                 </div>
                             </div>
                             <div className='lvl-8'>
                             <div className='lvl-header'>
                                     <input className='total-slot-right' type="text" />
-                                    <SpellCounter id={8}/>
+                                    <SpellCounter id={8} spellAdded={spellAdded}/>
 
                                 </div>
                             </div>
                             <div className='lvl-9'>
                             <div className='lvl-header'>
                                     <input className='total-slot-right' type="text" />
-                                    <SpellCounter id={9}/>
+                                    <SpellCounter id={9} spellAdded={spellAdded}/>
 
                                 </div>
                             </div>

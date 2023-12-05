@@ -2,9 +2,11 @@ import "./spellCreate.css";
 import { useState } from "react";
 import CreatePage from "./CreatePage"
 
-function SpellCreate({classSelected}){
+function SpellCreate({classSelected, handleAdd}){
 
     const [isCreate, setIsCreate] = useState(false);    
+
+    /*when the child Create page make call back call, it will call the grandparent, so Spellbackground.jsx */
 
     return(
         <>
@@ -15,7 +17,7 @@ function SpellCreate({classSelected}){
                 </button>
             </div>
             <div className="createPageContainer">
-                <CreatePage classSelected={classSelected} trigger={isCreate} setTrigger={setIsCreate}>
+                <CreatePage classSelected={classSelected} passedHandleAdd={handleAdd} trigger={isCreate} setTrigger={setIsCreate}>
 
                 </CreatePage>
             </div>
