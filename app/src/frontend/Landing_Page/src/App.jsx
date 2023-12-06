@@ -5,7 +5,7 @@ import jon from './assets/jon.png'
 import gabe from './assets/gabe.png'
 import triton from './assets/triton.png'
 import tyler from './assets/tyler.png'
-import dice from './assets/dice.png'
+import dice from './assets/dice2.jpg'
 import cooper from './assets/cooper.png'
 
 const Landing = () => {
@@ -15,7 +15,7 @@ const Landing = () => {
     <>
       <div id="root">
         <div className="header-div">
-          <img src={dice} className="bg-image" />
+
           <div className="overlay-text">Welcome to DnDBetter!</div>
         </div>
         {/* <h1>Welcome to DnDBetter!</h1> */}

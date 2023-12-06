@@ -230,7 +230,7 @@ app.get('/races/tiefling', (req, res) => {
     });
 });
 
-/* Items */
+/* Items (not implemented) */
 app.get('/items/ammo', (req, res) => {
     const query = "SELECT * FROM dndbetter.ammo;"
     pool.query(query, function (err, result, fields) {
