@@ -33,9 +33,9 @@ const Landing = () => {
         <div>
           <h2>Features</h2>
           <ul className="features">
-            <li>Comprehensive character sheet creator</li>
-            <li>Intuitive editor that makes editing the character sheet easy</li>
-            <li>Account management that allows users to create and store multiple character sheets</li>
+            <li className="landing-list-items">Comprehensive character sheet creator</li>
+            <li className="landing-list-items">Intuitive editor that makes editing the character sheet easy</li>
+            <li className="landing-list-items">Account management that allows users to create and store multiple character sheets</li>
           </ul>
         </div>
         <div>

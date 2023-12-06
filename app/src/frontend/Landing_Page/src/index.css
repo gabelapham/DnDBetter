@@ -108,6 +108,11 @@ button:focus-visible {
   display: inline-block;
 }
 
+.landing-list-items {
+  color: white;
+  font-size: 20px;
+}
+
 .aboutme {
   display: grid;
   align-items: center;
