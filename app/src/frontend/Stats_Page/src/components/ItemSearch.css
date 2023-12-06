@@ -1,13 +1,14 @@
 .popup {
     position:fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+    top: 0%;
+    left: 2%;
+    width: 120%;
     height: 600px;
     
-    display: flex;
+    display: fixed;
     justify-content: center;
     align-items: center;
+    z-index: 1;
 }
 
 .inside-popup {
@@ -19,6 +20,7 @@
     background-color: rgb(185, 185, 185);
     justify-content: center;
     align-items: center;
+    overflow: scroll;
 }
 
 .close-button {
@@ -51,4 +53,9 @@
 
 li {
     color: black;
+    font-size: 35px;
+}
+
+#itembutton {
+    padding: 1%;
 }

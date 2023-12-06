@@ -533,6 +533,9 @@
 
 #ac {
     position: absolute;
+    top: 335px;
+    left: 657px;
+    font-size: 55px;
 }
 
 #curr_hp {
@@ -920,4 +923,156 @@
   #damagepngid {
     height: 40px;
     width: 40px;
+  }
+
+  #nameone {
+    height: 40px;
+    width: 165px;
+    text-align: left;
+    padding-inline-start: 5px;
+    background-color: white;
+    color:black;
+    font-size: 25px;
+    position: absolute;
+    border-color: white;
+    top: 1090px;
+    left: 621px;
+  }
+
+  #nametwo {
+    height: 40px;
+    width: 165px;
+    text-align: left;
+    padding-inline-start: 5px;
+    background-color: white;
+    color:black;
+    font-size: 25px;
+    position: absolute;
+    border-color: white;
+    top: 1148px;
+    left: 621px;
+  }
+  
+  #namethree {
+    height: 40px;
+    width: 165px;
+    text-align: left;
+    padding-inline-start: 5px;
+    background-color: white;
+    color:black;
+    font-size: 25px;
+    position: absolute;
+    border-color: white;
+    top: 1202px;
+    left: 621px;
+  }
+
+  #attone {
+    height: 40px;
+    width: 70px;
+    text-align: left;
+    padding-inline-start: 5px;
+    background-color: white;
+    color:black;
+    font-size: 35px;
+    position: absolute;
+    border-color: white;
+    top: 1090px;
+    left: 813px;
+  }
+  #atttwo {
+    height: 40px;
+    width: 70px;
+    text-align: left;
+    padding-inline-start: 5px;
+    background-color: white;
+    color:black;
+    font-size: 35px;
+    position: absolute;
+    border-color: white;
+    top: 1148px;
+    left: 813px;
+  }
+  #attthree {
+    height: 40px;
+    width: 70px;
+    text-align: left;
+    padding-inline-start: 5px;
+    background-color: white;
+    color:black;
+    font-size: 35px;
+    position: absolute;
+    border-color: white;
+    top: 1202px;
+    left: 813px;
+  }
+
+  #dmgone {
+    height: 40px;
+    width: 165px;
+    text-align: left;
+    padding-inline-start: 5px;
+    background-color: white;
+    color:black;
+    font-size: 25px;
+    position: absolute;
+    border-color: white;
+    top: 1090px;
+    left: 908px;
+  }
+  #dmgtwo {
+    height: 40px;
+    width: 165px;
+    text-align: left;
+    padding-inline-start: 5px;
+    background-color: white;
+    color:black;
+    font-size: 25px;
+    position: absolute;
+    border-color: white;
+    top: 1148px;
+    left: 908px;
+  }
+  #dmgthree {
+    height: 40px;
+    width: 165px;
+    text-align: left;
+    padding-inline-start: 5px;
+    background-color: white;
+    color:black;
+    font-size: 25px;
+    position: absolute;
+    border-color: white;
+    top: 1202px;
+    left: 908px;
+  }
+
+  #attackspell {
+    height: 300px;
+    width: 460px;
+    text-align: center;
+    padding-inline-start: 5px;
+    background-color: white;
+    color:black;
+    font-size: 25px;
+    position: absolute;
+    border-color: white;
+    top: 1260px;
+    left: 616px;
+    overflow:auto;
+  }
+
+  #inv {
+    height: 360px;
+    width: 320px;
+    text-align: center;
+    padding-inline-start: 5px;
+    background-color: white;
+    color:black;
+    font-size: 25px;
+    position: absolute;
+    border-color: white;
+    top: 1620px;
+    left: 750px;
+    overflow:auto;
   }

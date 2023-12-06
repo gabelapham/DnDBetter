@@ -147,7 +147,7 @@ const Query = ({pClass, level, race}) => {
             {raceFeat}
         </p>
         <p id = "classFeats">
-               {feature }
+            {feature}
         </p>
     </>
     )

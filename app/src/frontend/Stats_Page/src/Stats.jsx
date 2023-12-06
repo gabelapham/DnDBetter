@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './Stats.css'
-import Popup from './components/ItemSearch.jsx'
+import Popup from './components/ItemAdd.jsx'
 import search from './assets/search.png'
 import healpng from './assets/heal.png'
 import dmgpng from './assets/damage.png'
@@ -859,7 +859,7 @@ return(
         </div>
         <div>
             <p id="ac">
-
+                {10+dexterityMod}
             </p>
         </div>
         <div>
@@ -902,11 +902,11 @@ return(
 
         <Query pClass={playerClass} level={level} race={playerRace}/>
 
-        <button id="item-search-button" onClick={() => setButtonPopup(true)}><img id="search-button" src={search} /></button>
+        {/*<button id="item-search-button" onClick={() => setButtonPopup(true)}><img id="search-button" src={search} /></button>*/}
 
         <button id="heal" onClick={() => setHealthPopup(true)}><img id="healpngid" src={healpng} /></button>
         <button id="damage" onClick={() => setDamagePopup(true)}><img id="damagepngid" src={dmgpng} /></button>
-        <Popup trigger={buttonPopup} setTrigger={setButtonPopup}/>
+        {/*<Popup trigger={buttonPopup} setTrigger={setButtonPopup}/>*/}
         <HealthPopup htrigger={healthPopup} sethTrigger={setHealthPopup} setHeal={healFunc} />
         <DamagePopup dtrigger={damagePopup} setdTrigger={setDamagePopup} setDmg={damageFunc} />
 
@@ -915,6 +915,20 @@ return(
         <LongRestPopUp lrtrigger={longRestPopup} setlrTrigger={setLongRestPopup} doFunc={healFunc}
         fillHD={setCurrHitDice} hdmax={maxHitDice}/>
 
+        <input id="nameone" type="text"/>
+        <input id="nametwo" type="text"/>
+        <input id="namethree" type="text"/>
+
+        <input id="attone" type="number"/>
+        <input id="atttwo" type="number"/>
+        <input id="attthree" type="number"/>
+
+        <input id="dmgone" type="text"/>
+        <input id="dmgtwo" type="text"/>
+        <input id="dmgthree" type="text"/>
+
+        <p contentEditable id="attackspell" type="text"/>
+        <p contentEditable id="inv" type="text"/>
         </div>
         <video controls height={70} width={600}>
             <source src={song} type='audio/mp3' />

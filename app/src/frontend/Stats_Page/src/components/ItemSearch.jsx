@@ -1,3 +1,5 @@
+/*
+
 import React from 'react'
 import { useState, useEffect } from 'react'
 import "./ItemSearch.css"
@@ -11,7 +13,8 @@ const client = axios.create({
 const Popup = ({trigger, setTrigger}) => {
     const [newItem, setNewItem] = useState("")
     const [results, setResults] = useState([])
-    
+    var response;
+
     useEffect(() => {
         async function getItems() {
 
@@ -49,7 +52,7 @@ const Popup = ({trigger, setTrigger}) => {
             })
         })
     }
-*/
+
     return (trigger) ? (
         <>
         <div className="popup">
@@ -69,6 +72,7 @@ const Popup = ({trigger, setTrigger}) => {
                     </button>
                 </form>
                 </div>
+                <label>
                 <ul>
                     {results.map(todo => {
                         return (
@@ -78,6 +82,7 @@ const Popup = ({trigger, setTrigger}) => {
                         )
                     })}
                 </ul>
+                </label>
             </div>
         </div>
     </>
@@ -85,3 +90,4 @@ const Popup = ({trigger, setTrigger}) => {
 }
 
 export default Popup
+*/
