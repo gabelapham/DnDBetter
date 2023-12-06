@@ -5,7 +5,8 @@ import jon from './assets/jon.png'
 import gabe from './assets/gabe.png'
 import triton from './assets/triton.png'
 import tyler from './assets/tyler.png'
-import dice from './assets/dice2.jpg'
+import dice from './assets/dice.png'
+import cooper from './assets/cooper.png'
 
 const Landing = () => {
   const [count, setCount] = useState(0)
