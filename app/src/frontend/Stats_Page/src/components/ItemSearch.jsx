@@ -9,31 +9,38 @@ const client = axios.create({
 });
 
 const Popup = ({trigger, setTrigger}) => {
-    const [results, setResults] = useState([])
     const [newItem, setNewItem] = useState("")
+    const [results, setResults] = useState([])
+    
     useEffect(() => {
         async function getItems() {
 
         }
         getItems();
     })
-
+    
     function searchFunc(e) {
         e.preventDefault();
 
         setResults(currentResult => {
             return [
                 ...currentResult,
-                {id: crypto.randomUUID(), title: newItem, completed: false},
+                { id: crypto.randomUUID(), title: newItem },
             ]
         })
 
         setNewItem("")
     }
 
-    function toggleFoundItem(id, completed) {
-        setNewItem(currentNewItem => {
-            return currentNewItem.map(newItem => {
+    function handleExit() {
+        setTrigger(false)
+        setResults([])
+    }
+
+/*
+    function toggleItem(id, completed) {
+        setNewItem(currentItem => {
+            return currentItem.map(newItem => {
                 if (newItem.id === id) {
                     return {...newItem, completed}
                 }
@@ -42,33 +49,38 @@ const Popup = ({trigger, setTrigger}) => {
             })
         })
     }
-
+*/
     return (trigger) ? (
+        <>
         <div className="popup">
             <div className="inside-popup">
                 <div class="topnav">
-                <button className="close-button" onClick={() => setTrigger(false)}>X</button>
-                    <input id="searchbar" type="text" placeholder="Search.."/>
-                    <button id="submit-button" type="button" onClick={() => searchFunc(searchbar.value)}>
+                <button className="close-button" onClick={() => handleExit()}>X</button>
+                <form className="item-search-form" onSubmit={searchFunc}>
+                    <input 
+                        id="searchbar" 
+                        value={newItem}
+                        type="text" 
+                        placeholder="Search.."
+                        onChange={e => setNewItem(e.target.value)}
+                    />
+                    <button id="submit-button">
                         <img id="search-png" src={search} />
                     </button>
+                </form>
                 </div>
-                {results.map(foundItem => {
-                    <li key={foundItem.id}>
-                        <label>
-                            <input
-                            type='checkbox'
-                            checked={foundItem.add}
-                            onChange={e => toggleFoundItem(foundItem.id, e.target.checked)}
-                            />
-                            {foundItem.title}
-                        </label>
-                        <button className="btn-btn-danger">Delete</button>
-                    </li>
-                })}
-                <p className='p'></p>
+                <ul>
+                    {results.map(todo => {
+                        return (
+                        <li key={todo.id}>
+                                {todo.title}
+                        </li>
+                        )
+                    })}
+                </ul>
             </div>
         </div>
+    </>
     ) : ""
 }
 
