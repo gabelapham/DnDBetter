@@ -28,4 +28,4 @@ DnDBetter is an online, editable character sheet that is aimed towards an improv
 
 ## License information
 
-- TBD
+- To be found in [LICENSE.txt](https://github.com/gabelapham/DnDBetter/blob/main/LICENSE.txt)
