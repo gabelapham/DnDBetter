@@ -11,36 +11,63 @@ is teh change children input value function we create HERE. */
 /*basically reach children through function passed in, call back functions is a way for
 children to pass value back to parent component */
 
+/*NOTE with async
+if you need to use a useState variable in same function right after it's set to new value
+YOU NEED to use the set function of that useState variable to access the previous version:
+ setMyVar(prevVar => {
+    console.log('previous state: ', prevVar)
+}) */
+
 function SpellLog(props){
     const spellAdded = props.spellAdded;
     const spellSectionID = props.spellSectionID;
+    const handleSpellSet = props.handleSpellSet;
+    const arb = props.arb;
 
     const [inputValues, setInputValues] = useState([]);
 
     /*note since children would have made this call back function, the id would acctually
     be the "inputValueOfInputElement-id" so its actual id*/
     const changeInput = (id, value) =>{
-        const index = inputValues.findIndex((item) => item.id == id);//findIndex return index of first element that satisfies condition or -1 on fail
+        console.log("adding value: " + value + " to id: " + id);
 
-        /*update value if component exist */
-        if(index != -1){
-            setInputValues((prevData) => {
-                const updatedData = [...prevData];
-                updatedData[index].value = value;
-                return updatedData;
-            })
-        }else{/*if component doesn't exist it's added to the array */
-            setInputValues((prevData) => [
-                ...prevData,
-                {
-                    id: id,
-                    value: value,
-                },
-            ]);
-        }
+        /*if we use the setInputValues function it forces the inputValues to be updated before
+        proceeding to work with the inputValues array */
+        setInputValues((prevData) => {
+            const index = prevData.findIndex((item) => item.id == id);//findIndex return index of first element that satisfies condition or -1 on fail
+            
+            /*if component exist it's updated */
+            if(index != -1){
+                return prevData.map((item) =>
+                    item.id == id ? { ...item, value: value } : item
+                );
+                // setInputValues((prevData) => {
+                //     const updatedData = [...prevData];
+                //     updatedData[index].value = value;
+                //     // return updatedData;
+                //     setInputValues(updatedData);
+                // })
+            }else{/*if component doesn't exist it's added */
+                return [...prevData, { id: id, value: value }];
+                // setInputValues((prevData) => [
+                //     ...prevData,
+                //     {
+                //         id: id,
+                //         value: value,
+                //     },
+                // ]);
+            }
+        })
+
         /*use the id passed in by the children */
-        // retrieveData(id);
+        console.log("values right after set: ", inputValues);
+
     };
+    /*the change input is a 2 way relationship 
+    1. if parent call the change function it will change the value when rendering spellPrep and passing the value, which 
+    will cause the children to call its setElementInput function thus reflect the change for the children
+    2. the children input will call handleInputChange onchange(when input changes) thus the call back function
+    will set the values for the parent */
 
 
     const retrieveData = (id) => {
@@ -56,28 +83,18 @@ function SpellLog(props){
         return result.value;
     }
 
+
     /*set up index to create each spell slot component */
     const indexRange = [];
     for(let i = 0; i < props.count; i++){
         indexRange.push({id: i});
     }  
-    // /*go through and create indexRange number of spell slot */
-    // const output = [];
-    // indexRange.map((obj) => (
-    //     output.push(
-    //         <SpellPrep 
-    //             key={obj.id} 
-    //             id={obj.id} 
-    //             value={inputValues.find((item) => item.id == obj.id)?.value || ''}
-    //             changeInput={changeInput} 
-    //             retrieveData={retrieveData}
-    //         />
-    //     )
-    // ));
 
-    const [add, setAdd] = useState(true);
-    const [haveSpace, setHaveSpace] = useState(false);
-    const [location, setLocation] = useState([]);
+    let add = true;
+    let haveSpace = false;
+    let location;
+    let foundLocation = false;
+    let inProcess = true;
 
     // /*loop through and get any input elements by id*/
     // /*check if spell already added, and if there is space */
@@ -106,33 +123,96 @@ function SpellLog(props){
     /*problem is that it only store id: value: pair that actually contain data and not empty slot?? */
     const handleCheckInputValues = () => {
         inputValues.map((obj) =>{
+            console.log("check input to be add: " + spellAdded.spellToBeAdd + " curChecking value: " + obj.value + " with id: " + obj.id);
             // value = retrieveData(obj.id);
-            console.log(`retrieve data for ID ${obj.id}: ${obj.value}`);
-            console.log("retrieve method2 data for ID" + obj.id + " value: " + obj.value);
-
+            // console.log(`retrieve data for ID ${obj.id}: ${obj.value}`);
+            // console.log("retrieve data for ID: " + obj.id + " value: " + obj.value);
             if(obj.value == spellAdded.spellToBeAdd){
-                setAdd(false);
+                add = false;
             }
             if(obj.value == ''){
-                setHaveSpace(true);
-                if(location.length == 0){/*so only find the first empty space */
-                    setLocation({id: obj.id, value: obj.value});
+                console.log("running set location")
+                haveSpace = true;
+                if(!foundLocation){/*so only find the first empty space */
+                    location = obj.id;
+                    foundLocation = true;
                 }
             }
 
         })
-        console.log("setAdd: " + add + " space " + haveSpace + " location: " + location);
-    }
+        inProcess = false;
+     }
 
-    if(spellSectionID == spellAdded.level){
-        handleCheckInputValues();
-        if(add == true && haveSpace == true){
-            changeInput(location.id, spellAdded.spellToBeAdd);
+    if(spellAdded.spellToBeAdd != '' && spellAdded.spellToBeAdd != undefined){
+        console.log("start checking...");
+        
+        if(spellSectionID == spellAdded.level){
+            if(inputValues.length != 0){
+                handleCheckInputValues();
+                if(add == true && haveSpace == true){
+                    changeInput(location, spellAdded.spellToBeAdd);
+                    console.log("calling spell set function");
+                    handleSpellSet();
+                    // spellAdded.spellToBeAdd = '';
+                }else{
+                    console.log('spell already added or no space to append');
+                }
+            }else{
+                console.log('no space to append');
+            }
+        }else{
+            console.log("not section: " + spellSectionID);
         }
-    }else{
-
     }
- 
+
+
+
+    const printInput = () => {
+        if(inputValues.length != 0){
+            console.log("input has length: " + inputValues.length);
+            inputValues.map((obj) =>{
+                console.log("input section: " + spellSectionID + " ID: " + obj.id + " value: " + obj.value);
+            })
+        }else{
+            console.log("input section: " + spellSectionID + " have input value length 0");
+        }
+    }
+
+   
+    useEffect(() => {
+        console.log("updated values", inputValues);
+
+        // indexRange.map((obj) => (
+        //     output.push(
+        //     <SpellPrep 
+        //         key={obj.id} 
+        //         id={obj.id} 
+        //         value={inputValues.find((item) => item.id == obj.id)?.value || ''}
+        //         whenChange={changeInput} 
+        //         whenRetrieve={retrieveData}
+        //     />
+        //     )
+        // ))
+        
+        // if(add == true && haveSpace == true){
+        //     changeInput(location.id, spellAdded.spellToBeAdd);
+        //     spellAdded.spellToBeAdd = undefined;
+        // }
+        // console.log("input value updated: ", inputValues);
+        // console.log("add value updated: ", add);
+        // console.log("have space value updated: ", haveSpace);
+        // console.log("location value updated: ", location);
+        printInput();
+    }, [inputValues]);
+
+    // useEffect(() => {
+    //     const interval = setInterval(() => {
+    //       // Simulate updating inputValues
+    //     }, 1000);
+    
+    //     // Cleanup the interval on component unmount
+    //     return () => clearInterval(interval);
+    // }, [inputValues]); // Run this effect only once on component mount
     
 
             // <div className="indivSpell" id={i}>
@@ -148,17 +228,19 @@ function SpellLog(props){
         
     // }
 
-
     return(
         <>  
             <div className="spellContainer">
-                {indexRange.map((obj) => (
+                {indexRange.map((obj) => (   
                     <SpellPrep 
                         key={obj.id} 
                         id={obj.id} 
                         value={inputValues.find((item) => item.id == obj.id)?.value || ''}
-                        onChange={changeInput} 
-                        retrieveData={retrieveData}
+                        whenChange={changeInput} 
+                        whenRetrieve={retrieveData}
+                        handleSpellSet={handleSpellSet}
+                        inProcess={inProcess}
+                        arb={arb}
                     />
                 ))}
             </div>
@@ -174,3 +256,17 @@ function SpellLog(props){
 
 
 export default SpellLog
+
+// /*go through and create indexRange number of spell slot */
+    // const output = [];
+    // indexRange.map((obj) => (
+    //     output.push(
+    //         <SpellPrep 
+    //             key={obj.id} 
+    //             id={obj.id} 
+    //             value={inputValues.find((item) => item.id == obj.id)?.value || ''}
+    //             changeInput={changeInput} 
+    //             retrieveData={retrieveData}
+    //         />
+    //     )
+    // ));

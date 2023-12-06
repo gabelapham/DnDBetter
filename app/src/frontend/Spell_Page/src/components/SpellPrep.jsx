@@ -4,8 +4,16 @@ import './SpellPrep.css'
 function SpellPrep(props){
     const id = props.id;
     const value = props.value;
-    const onChange = props.onChange;
-    const retrieveData = props.retrieveData
+    const whenChange = props.whenChange;
+    // const whenRetrieve = props.whenRetrieve;
+    const handleSpellSet = props.handleSpellSet;
+    const inProcess = props.inProcess;
+    const arb = props.arb;
+
+    if(!inProcess){
+        console.log("arb is: ", arb);
+        handleSpellSet();
+    }
 
     const [spell1Active, set1Activation] = useState(false);
     // const [spell2Active, set2Activation] = useState(false);
@@ -16,23 +24,42 @@ function SpellPrep(props){
 
     const [inputElementValue, setInputElementValue] = useState('');
 
+    useEffect(() => {
+        setInputElementValue(value)
+        console.log("passed value: ", value)
+        console.log('input value of child', inputElementValue);
+    }, [value, inputElementValue]);
 
+    
     const handleInputChange = (e) => {
       setInputElementValue(e.target.value);
-      console.log("set child input: "  + e.target.value);
-      onChange(id, e.target.value);
+      console.log("set child input: "  + inputElementValue);
+      whenChange(id, e.target.value);
       /*
       - e.target.value is the new value
       */
     };
 
-    useEffect(() => {
-        setInputElementValue(value)
-    }, [value]);
+    useEffect(() =>{
+        handleInputChange
+    }, [id, value])
 
     const handleRetrieveData = () => {
-        retrieveData(inputElementValue);
+        whenRetrieve(inputElementValue);
     }
+
+    /*use useEffect so that it will initially call the on change function and append all empty string input parent inputValues array*/
+    useEffect(() => {
+        // let isMounted = true;
+
+        // if(isMounted){
+        whenChange(id, inputElementValue);
+        // }
+        // return () => {
+        //     isMounted = false;
+        // };
+    }, []);
+
 
     return(
         <>
@@ -48,6 +75,7 @@ function SpellPrep(props){
                         className="spell"
                         type="text"
                         id={`input-${id}`}
+                        value={inputElementValue}
                         onChange={handleInputChange}
                     />
                 </div>

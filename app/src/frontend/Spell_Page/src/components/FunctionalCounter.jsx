@@ -4,6 +4,8 @@ import SpellLog from './SpellLog';
 
 function FunctionalCounter(props){
     const spellAdded = props.spellAdded;/*you can either pass just with props.id or set it to variable then pass */
+    const handleSpellSet = props.handleSpellSet;
+    const arb = props.arb;
 
     /*useState() will create a State variable and its function
     you can also pass in initial value of the state variable you just created into useState */
@@ -49,7 +51,7 @@ function FunctionalCounter(props){
 
             </div>
             <div className="spellContent">
-                <SpellLog spellSectionID={props.id} count={counter} spellAdded={spellAdded}/>
+                <SpellLog spellSectionID={props.id} count={counter} spellAdded={spellAdded} handleSpellSet={handleSpellSet} arb={arb}/>
             </div>
         </div>
 
